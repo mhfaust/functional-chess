@@ -1,0 +1,32 @@
+{
+  "name": "chess",
+  "version": "0.0.1",
+  "description": "Chess board game",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest",
+    "index": "create-index src/board-utils src/position-utils src/piece-specific-move-mechanics src/boards src/attacked-positions"
+  },
+  "keywords": [
+    "chess"
+  ],
+  "author": "Michael Hildebrand-Faust",
+  "license": "MIT",
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-jest": "^23.6.0",
+    "babel-plugin-module-resolver": "^3.1.1",
+    "babel-polyfill": "^6.26.0",
+    "babel-preset-env": "^1.7.0",
+    "chalk": "^2.4.1",
+    "create-index": "^2.3.0",
+    "eslint": "^5.11.0",
+    "install": "^0.12.2",
+    "jest": "^23.6.0",
+    "npm": "^6.5.0",
+    "typescript": "^3.2.2"
+  },
+  "dependencies": {
+    "babel-plugin-transform-object-rest-spread": "^6.26.0"
+  }
+}

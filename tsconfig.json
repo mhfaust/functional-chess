@@ -1,0 +1,26 @@
+{
+    "compilerOptions": {
+        "module": "system",
+        "noImplicitAny": true,
+        "removeComments": true,
+        "preserveConstEnums": true,
+        "outFile": "../../built/local/tsc.js",
+        "sourceMap": true,
+        "baseUrl": "src",
+        "paths": {
+            "attacked-positions": ["attacked-positons"],
+            "boards-utils": ["boards-utils"],
+            "boards": ["boards"],
+            "constants": ["constants"],
+            "piece-specific-move-mechanics": ["piece-specific-move-mechanics"],
+            "position-utils": ["position-utils"],
+        }
+    },
+    "include": [
+        "src/**/*"
+    ],
+    "exclude": [
+        "node_modules",
+        "**/*.test.ts"
+    ]
+}
