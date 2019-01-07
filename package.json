@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "jest",
-    "index": "create-index src/board-utils src/position-utils src/piece-specific-move-mechanics src/boards src/attacked-positions"
+    "index": "create-index src/board-utils src/position-utils src/piece-specific-move-mechanics src/boards src/attacked-positions  --extensions js ts"
   },
   "keywords": [
     "chess"
@@ -13,6 +13,8 @@
   "author": "Michael Hildebrand-Faust",
   "license": "MIT",
   "devDependencies": {
+    "@types/jest": "^23.3.11",
+    "@types/node": "^10.12.18",
     "babel-cli": "^6.26.0",
     "babel-jest": "^23.6.0",
     "babel-plugin-module-resolver": "^3.1.1",
@@ -24,6 +26,7 @@
     "install": "^0.12.2",
     "jest": "^23.6.0",
     "npm": "^6.5.0",
+    "ts-jest": "^23.10.5",
     "typescript": "^3.2.2"
   },
   "dependencies": {

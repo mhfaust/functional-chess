@@ -1,0 +1,1 @@
+{"version":3,"file":"otherPlayer.js","sourceRoot":"","sources":["../../src/position-utils/otherPlayer.ts"],"names":[],"mappings":";;;;IAQA,SAAS,WAAW,CAAE,MAAc;QAChC,OAAO,SAAS,CAAC,MAAM,CAAC,CAAC;IAC7B,CAAC;;;;;;;;YATO,KAAK,GAAa,eAAM,QAAjB,KAAK,GAAM,eAAM,OAAC;YAE3B,SAAS;gBACX,GAAC,KAAK,IAAG,KAAK;gBACd,GAAC,KAAK,IAAG,KAAK;oBACjB;iCAKc,WAAW;QAAC,CAAC"}

@@ -1,20 +1,17 @@
 {
     "compilerOptions": {
+        "downlevelIteration": true,
         "module": "system",
-        "noImplicitAny": true,
+        "noImplicitAny": false,
         "removeComments": true,
         "preserveConstEnums": true,
-        "outFile": "../../built/local/tsc.js",
         "sourceMap": true,
         "baseUrl": "src",
+        "outDir": "lib/",
+        "lib": ["es2017"],
         "paths": {
-            "attacked-positions": ["attacked-positons"],
-            "boards-utils": ["boards-utils"],
-            "boards": ["boards"],
-            "constants": ["constants"],
-            "piece-specific-move-mechanics": ["piece-specific-move-mechanics"],
-            "position-utils": ["position-utils"],
-        }
+            "*": ["*", "src/*"]
+          }
     },
     "include": [
         "src/**/*"

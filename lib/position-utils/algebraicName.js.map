@@ -1,0 +1,1 @@
+{"version":3,"file":"algebraicName.js","sourceRoot":"","sources":["../../src/position-utils/algebraicName.ts"],"names":[],"mappings":";;;;IAIA,SAAS,aAAa,CAAE,QAAyB;QAE7C,OAAO,KAAK,CAAC,YAAI,CAAC,QAAQ,CAAC,CAAC,GAAG,CAAC,YAAI,CAAC,QAAQ,CAAC,GAAG,CAAC,CAAC,CAAC;IACxD,CAAC;;;;;;;;YALK,KAAK,GAAG,UAAU,CAAC;iCAOV,aAAa;QAAA,CAAC"}
