@@ -1,4 +1,4 @@
-import { rank, file } from '../position-utils/index'
+import { rank, file } from 'position-utils/index'
 
 const files = 'ABCDEFGH';
 

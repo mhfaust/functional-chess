@@ -1,5 +1,5 @@
 import { Piece } from 'constants/pieces'
-const { __ } = Piece
+const { BK,BQ,BR,BN,BB,BP,WK,WQ,WR,WN,WB,WP,Empty,__ } = Piece;
 
 export default (): Board => [
 /*         1  2  3  4  5  6  7  8  */

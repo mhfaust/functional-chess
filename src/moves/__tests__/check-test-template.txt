@@ -1,0 +1,26 @@
+describe('isInCheck: false', () => {
+import isInCheck from 'moves/isInCheck';
+import { Player } from 'constants/pieces';
+import { Piece } from 'constants/pieces'
+const { BK,BQ,BR,BN,BB,BP,WK,WQ,WR,WN,WB,WP,Empty,__ } = Piece;
+
+describe('isInCheck: true', () => {
+    it('COLOR_KING at KING_POSITION is NOT check from PIECE at PIECE_POSITION', () => {
+        const board: Board = [
+
+        ];
+
+        expect(isInCheck(board, Player.White, null)).toBe(true)
+    });
+})
+
+describe('isInCheck: false', () => {
+    it('COLOR_KING at KING_POSITION is NOT check from PIECE at PIECE_POSITION', () => {
+        const board: Board = [
+
+        ];
+
+        expect(isInCheck(board, Player.White, null)).toBe(false)
+    });
+})
+})

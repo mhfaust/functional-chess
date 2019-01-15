@@ -1,6 +1,7 @@
 {
     "compilerOptions": {
         "downlevelIteration": true,
+        "esModuleInterop": true,
         "module": "system",
         "noImplicitAny": false,
         "removeComments": true,

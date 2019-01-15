@@ -1,5 +1,4 @@
-import { Piece } from 'constants/pieces';
-
+//import { Piece } from 'constants/pieces';
 type BoardFile =  [string,string,string,string,string,string,string,string];
 
 type Board = [
@@ -13,4 +12,4 @@ type Board = [
     BoardFile
 ];
 
-//note: if a string is null --> empty square.
+//note: if a Piece is null --> empty square.
