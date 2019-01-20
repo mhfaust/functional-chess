@@ -1,9 +1,3 @@
-export enum Player{
-    Black = 'Black',
-    White = 'White'
-}
-
-
 export enum Piece {
     WK = 'White King', 
     WhiteKing = 'White King', 
@@ -34,7 +28,35 @@ export enum Piece {
     Empty = ''
 }
 
-const { BK,BQ,BR,BN,BB,BP,WK,WQ,WR,WN,WB,WP,Empty,__ } = Piece;
+export const pieces = {
+    WK : Piece.WK,
+    WhiteKing: Piece.WhiteKing, 
+    WQ: Piece.WhiteQueen, 
+    WhiteQueen: Piece.WhiteQueen, 
+    WR: Piece.WhiteRook, 
+    WhiteRook: Piece.WhiteRook, 
+    WN: Piece.WhiteKnight, 
+    WhiteKnight: Piece.WhiteKnight, 
+    WB: Piece.WhiteBishop, 
+    WhiteBishop: Piece.WhiteBishop, 
+    WP: Piece.WhitePawn, 
+    WhitePawn: Piece.WhitePawn, 
+    BK: Piece.BlackKing, 
+    BlackKing: Piece.BlackKing, 
+    BQ: Piece.BlackQueen, 
+    BlackQueen: Piece.BlackQueen, 
+    BR: Piece.BlackRook, 
+    BlackRook: Piece.BlackRook, 
+    BN: Piece.BlackKnight, 
+    BlackKnight: Piece.BlackKnight, 
+    BB: Piece.BlackBishop, 
+    BlackBishop: Piece.BlackBishop, 
+    BP: Piece.BlackPawn,
+    BlackPawn: Piece.BlackPawn,
+    
+    __ : '',
+    Empty : ''
+}
 
 
 const blackPieces : Array<string> = [Piece.BK,Piece.BQ,Piece.BR,Piece.BN,Piece.BB,Piece.BP];

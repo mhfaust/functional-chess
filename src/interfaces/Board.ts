@@ -1,7 +1,7 @@
-//import { Piece } from 'constants/pieces';
-type BoardFile =  [string,string,string,string,string,string,string,string];
+// import { Piece } from 'constants/pieces';
+declare type BoardFile =  [string,string,string,string,string,string,string,string];
 
-type Board = [
+declare type Board = [
     BoardFile,
     BoardFile,
     BoardFile,

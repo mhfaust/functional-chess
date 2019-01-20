@@ -1,5 +1,5 @@
 import { pieceAt } from 'position-utils/index';
-import { Player, ALL_PIECES, BLACK_PIECES } from 'constants/pieces'
+import { ALL_PIECES, BLACK_PIECES } from 'constants/pieces'
 
 const playerAt = (board: Board, position: GridCoordinates): string => {
     const piece = pieceAt(board, position);

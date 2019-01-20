@@ -1,9 +1,6 @@
-import { Player } from 'constants/pieces';
-const { Black, White }  = Player;
-
 const opposites = {
-    [Black]: White,
-    [White]: Black
+    [Player.Black]: Player.White,
+    [Player.White]: Player.Black
 }
 
 function otherPlayer (player: string): string {

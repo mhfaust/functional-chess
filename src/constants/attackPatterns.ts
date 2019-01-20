@@ -1,4 +1,4 @@
-import { Piece, Player } from 'constants/pieces'
+import { Piece } from 'constants/pieces'
 
 import { kingVectors, knightVectors, rookVectors, bishopVectors, pawnBlackAttackVectors, pawnWhiteAttackVectors } 
     from 'constants/move-vectors'

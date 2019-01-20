@@ -1,6 +1,6 @@
 import linesOfAttack from '../linesOfAttack'
 import { Position } from 'constants/algebraic'
-import { Player, Piece } from 'constants/pieces'
+import { Piece } from 'constants/pieces';
 
 const { BK,BQ,BR,BN,BB,BP,WK,WQ,WR,WN,WB,WP,Empty,__ } = Piece;
 

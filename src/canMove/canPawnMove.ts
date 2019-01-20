@@ -1,6 +1,5 @@
 import { rank, file, playerAt, isOccupied, isUnOccupied, 
     isOccupiedByPlayer } from 'position-utils/index';
-import { Player } from 'constants/pieces';
 
 function canPawnMove (board: Board, fromPosition: GridCoordinates, toPosition: GridCoordinates)
     :boolean {

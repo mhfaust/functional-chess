@@ -1,5 +1,4 @@
 import isInCheck from 'check/isInCheck';
-import { Player } from 'constants/pieces';
 import { Piece } from 'constants/pieces'
 const { BK,BQ,BR,BN,BB,BP,WK,WQ,WR,WN,WB,WP,Empty,__ } = Piece;
 

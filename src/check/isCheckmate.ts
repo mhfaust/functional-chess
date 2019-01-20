@@ -1,4 +1,4 @@
-import { Player, Piece } from 'constants/pieces';
+import { Piece } from 'constants/pieces';
 import { nextBoard } from 'moves/index';
 import { generateLinesOfAttack } from 'check/index'
 import { displaceTo, otherPlayer, playerAt, isOnBoard, algebraicName, pieceAt } from 'position-utils/index';

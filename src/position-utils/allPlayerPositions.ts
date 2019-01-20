@@ -1,7 +1,7 @@
 import { pieceAt, algebraicName } from 'position-utils/index';
-import { Player, BLACK_PIECES, WHITE_PIECES } from 'constants/pieces';
+import { BLACK_PIECES, WHITE_PIECES } from 'constants/pieces';
 
-function allPlayerPositions(board: Board, player: string): Array<PiecePosition>{
+function allPlayerPositions(board: Board, player: Player): Array<PiecePosition>{
     
     const occupiedPositions: Array<PiecePosition> = [];
     const allPlayerPieces = player === Player.Black ? BLACK_PIECES : WHITE_PIECES;

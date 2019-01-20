@@ -1,6 +1,5 @@
 import { playerAt, displaceFrom, isOnBoard, otherPlayer, pieceAt, locatePiece, algebraicName }
     from 'position-utils/index';
-import { Piece, Player } from 'constants/pieces';
 import { blackAttackPatterns, whiteAttackPatterns} from 'constants/attackPatterns';
 
 

@@ -1,7 +1,6 @@
 import { playerAt, displaceTo, isOnBoard, isUnOccupied, isOccupiedByPlayer, 
     otherPlayer, algebraicName, rank, file } 
     from 'position-utils/index';
-import { Player } from 'constants/pieces';
 
 function pawn(board: Board, initialPosition: GridCoordinates): Set<string> {
     const player = playerAt(board, initialPosition);
