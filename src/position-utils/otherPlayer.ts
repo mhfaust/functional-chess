@@ -1,4 +1,4 @@
-import { Player } from '../constants/pieces';
+import { Player } from 'constants/pieces';
 const { Black, White }  = Player;
 
 const opposites = {

@@ -1,5 +1,5 @@
 import pieceAt from 'position-utils/pieceAt'
-import { initialBoard } from 'boards'
+import { initialBoard } from 'boards/index'
 import { B1 } from 'constants/algebraic'
 import { Piece } from 'constants/pieces'
 

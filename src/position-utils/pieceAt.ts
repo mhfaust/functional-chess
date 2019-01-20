@@ -1,4 +1,4 @@
-import { ALL_PIECES } from '../constants/pieces'
+import { ALL_PIECES } from 'constants/pieces'
 import { file, rank } from 'position-utils/index'
 import { Piece } from 'constants/pieces'
 

@@ -1,6 +1,6 @@
 import knight from 'moves/knight';
-import { initialBoard } from 'boards';
-import { textRender } from 'board-utils';
+import { initialBoard } from 'boards/index';
+import { textRender } from 'board-utils/index';
 import { B1,B8,G1,G8 } from 'constants/algebraic';
 
 beforeAll(() => console.log(textRender(initialBoard())))

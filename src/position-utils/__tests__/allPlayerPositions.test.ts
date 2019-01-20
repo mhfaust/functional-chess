@@ -1,5 +1,5 @@
 import allPlayerPositions from '../allPlayerPositions'
-import { initialBoard } from 'boards'
+import { initialBoard } from 'boards/index'
 import { Player, Piece } from 'constants/pieces';
 import { A1,A2,B1,B2,C1,C2,D1,D2,E1,E2,F1,F2,G1,G2,H1,H2 } 
     from 'constants/algebraic';

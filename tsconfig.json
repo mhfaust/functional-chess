@@ -7,18 +7,17 @@
         "removeComments": true,
         "preserveConstEnums": true,
         "sourceMap": true,
-        "baseUrl": "src",
+        "baseUrl": "./src",
         "outDir": "lib/",
         "lib": ["es2017"],
         "paths": {
-            "*": ["*", "src/*"]
+            "*": ["*", "./src/*"]
           }
     },
     "include": [
         "src/**/*"
     ],
     "exclude": [
-        "node_modules",
-        "**/*.test.ts"
+        "node_modules"
     ]
 }
