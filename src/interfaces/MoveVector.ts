@@ -1,1 +1,1 @@
-type MoveVector = GridCoordinates;
+type MoveVector = ReadonlyArray<number>;
