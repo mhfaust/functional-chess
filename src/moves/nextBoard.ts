@@ -1,8 +1,8 @@
-import { file, rank, areSamePositions, pieceAt } from 'position-utils/index';
+import { file, rank, pieceAt } from 'position-utils/index';
 import { Piece } from 'constants/pieces'
 import { empty } from 'boards/index';
 
-function nextBoard(previousBoard: Board, fromPosition: GridCoordinates, toPosition: GridCoordinates) 
+function nextBoard(previousBoard: Board, pieceMovedFromPosition: GridCoordinates, pieceMovedToPosition: GridCoordinates) 
     : Board  {
 
     const newBoard : Board = empty();
@@ -13,8 +13,8 @@ function nextBoard(previousBoard: Board, fromPosition: GridCoordinates, toPositi
         }
     }
 
-    newBoard[file(fromPosition)][rank(fromPosition)] = Piece.Empty;
-    newBoard[file(toPosition)][rank(toPosition)] = pieceAt(previousBoard, fromPosition)
+    newBoard[file(pieceMovedFromPosition)][rank(pieceMovedFromPosition)] = Piece.Empty;
+    newBoard[file(pieceMovedToPosition)][rank(pieceMovedToPosition)] = pieceAt(previousBoard, pieceMovedFromPosition)
     
     return newBoard;
 }

@@ -1,7 +1,7 @@
 // @create-index
 
 export { default as algebraicName } from './algebraicName';
-export { default as allPlayerPositions } from './allPlayerPositions';
+// export { default as allPlayerPositions } from './allPlayerPositions';
 export { default as areSamePositions } from './areSamePositions';
 export { default as coordinates } from './coordinates';
 export { default as displaceTo } from './displaceTo';

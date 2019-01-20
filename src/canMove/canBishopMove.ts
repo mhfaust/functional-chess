@@ -1,5 +1,4 @@
 import { file, rank, isOnBoard, playerAt, isOccupied, areSamePositions } from 'position-utils/index'
-import { isInCheck } from 'moves/index'
 import { nextBoard } from 'moves/index'
 
 function canBishopMove (board: Board, fromPosition: GridCoordinates, toPosition: GridCoordinates)
@@ -18,8 +17,8 @@ function canBishopMove (board: Board, fromPosition: GridCoordinates, toPosition:
     const rankMove = rank(toPosition) - rank(fromPosition);
 
     //if either file and rank were unchanged then
-    //it's not a valid rook move:
-    if(!fileMove || !rankMove)
+    //it's not a valid bishop move:
+    if(fileMove === 0 || rankMove === 0)
         return false;
 
     //diagonal move means rank and file changed by the same amount:

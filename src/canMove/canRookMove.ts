@@ -16,7 +16,6 @@ function canRookMove (board: Board, fromPosition: GridCoordinates, toPosition: G
 
     //if both or neither file and rank were changed, 
     //it's not a valid rook move:
-    //(btw, remember that -1 is truthy)
     if(!(fileMove ^ rankMove))
         return false;
 
