@@ -1,7 +1,6 @@
-import isCheckmate from '../isCheckmate'
-import { pieces } from 'constants/pieces'
-import { Position } from 'constants/algebraic'
-const { BK,BQ,BR,BN,BB,BP,WK,WQ,WR,WN,WB,WP,Empty,__ } = pieces;
+import isCheckmate from '../isCheckmate';
+import { Position } from 'constants/algebraic';
+import { BK,BQ,BR,BN,BB,BP,WK,WQ,WR,WN,WB,WP,__ } from 'board-utils/pieces-shorthand';
 
 describe('isCheckmate', () => {
    

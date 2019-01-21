@@ -1,6 +1,5 @@
 import canQueenMove  from '../canQueenMove'
-import { pieces } from 'constants/pieces'
-const { BP,WK,WQ,WR,__ } = pieces;
+import { BP,WK,WQ,WR,__ } from 'board-utils/pieces-shorthand';
 
 describe('canQueenMove', () => {
     const queen1Board = [

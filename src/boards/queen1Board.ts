@@ -1,5 +1,4 @@
-import { pieces } from 'constants/pieces'
-const { BP,WK,WQ,WR,__ } = pieces;
+import { BP,WK,WQ,WR,__ } from 'board-utils/pieces-shorthand';
 
 export default (): Board => [
 /*         1  2  3  4  5  6  7  8  */

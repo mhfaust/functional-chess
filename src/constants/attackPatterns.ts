@@ -1,9 +1,7 @@
-import { pieces } from 'constants/pieces'
-
 import { kingVectors, knightVectors, rookVectors, bishopVectors, pawnBlackAttackVectors, pawnWhiteAttackVectors } 
     from 'constants/move-vectors'
 
-const { BK,BQ,BR,BN,BB,BP,WK,WQ,WR,WN,WB,WP } = pieces;
+import { BK,BQ,BR,BN,BB,BP,WK,WQ,WR,WN,WB,WP } from 'board-utils/pieces-shorthand';
 
 export const whiteAttackPatterns = [            
     {name: WP, vectors: pawnWhiteAttackVectors, canMoveLikeThis: new Set([WP, WQ, WB, WK]), onlyOnce: true},

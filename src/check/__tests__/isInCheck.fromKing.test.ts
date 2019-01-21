@@ -1,6 +1,5 @@
 import isInCheck from 'check/isInCheck';
-import { pieces } from 'constants/pieces'
-const { BK,BQ,BR,BN,BB,BP,WK,WQ,WR,WN,WB,WP,Empty,__ } = pieces;
+import { BK,BQ,BR,BN,BB,BP,WK,WQ,WR,WN,WB,WP,__ } from 'board-utils/pieces-shorthand';
 
 describe('isInCheck: true', () => {
     it('White King  at D4 is in check from Black King at PIECE_POSITION', () => {

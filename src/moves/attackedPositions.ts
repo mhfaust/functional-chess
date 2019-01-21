@@ -1,6 +1,5 @@
 import { king, queen, bishop, knight, rook, pawn } from 'moves/index';
-import { pieces } from 'constants/pieces'
-const { BK,BQ,BR,BN,BB,BP,WK,WQ,WR,WN,WB,WP,Empty,__ } = pieces;
+import { BK,BQ,BR,BN,BB,BP,WK,WQ,WR,WN,WB,WP,__ } from 'board-utils/pieces-shorthand';
 
 const moveStrategies = {
     [BK]: king,

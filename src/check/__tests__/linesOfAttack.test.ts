@@ -1,8 +1,7 @@
-import linesOfAttack from '../linesOfAttack'
-import { Position } from 'constants/algebraic'
-import { pieces } from 'constants/pieces';
+import linesOfAttack from '../linesOfAttack';
+import { Position } from 'constants/algebraic';
 
-const { BK,BQ,BR,BN,BB,BP,WK,WQ,WR,WN,WB,WP,Empty,__ } = pieces;
+import { BK,BQ,BR,BN,BB,BP,WK,WQ,WR,WN,WB,WP,__ } from 'board-utils/pieces-shorthand';
 
 describe('linesOfAttack', () => {
     it('finds the line from a bishop at C3 to E5', () => {
