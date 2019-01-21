@@ -1,5 +1,5 @@
 import isOccupied from 'position-utils/isOccupied'
-import { initialBoard } from 'boards/index'
+import { initialBoard } from 'board-utils/index'
 import { Position } 
     from 'constants/algebraic';
 

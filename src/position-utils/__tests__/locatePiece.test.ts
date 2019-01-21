@@ -1,5 +1,5 @@
 import locatePiece from 'position-utils/locatePiece';
-import { initialBoard } from 'boards/index';
+import { initialBoard } from 'board-utils/index';
 import { Position } from 'constants/algebraic'
 
 

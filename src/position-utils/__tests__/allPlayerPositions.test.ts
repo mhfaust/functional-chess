@@ -1,5 +1,5 @@
 import allPlayerPositions from '../allPlayerPositions'
-import { initialBoard } from 'boards/index'
+import { initialBoard } from 'board-utils/index'
 
 describe('allPlayerPositions finds all white piecesonr initial board', () => {
 

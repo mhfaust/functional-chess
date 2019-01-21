@@ -1,5 +1,5 @@
 import { file, rank, pieceAt } from 'position-utils/index';
-import { empty } from 'boards/index';
+import { empty } from 'board-utils/index';
 
 function nextBoard(previousBoard: Board, pieceMovedFromPosition: GridCoordinates, pieceMovedToPosition: GridCoordinates) 
     : Board  {
