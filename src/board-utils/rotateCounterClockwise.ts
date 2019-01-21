@@ -1,8 +1,8 @@
-import { empty } from 'board-utils/index'
+import { emptyBoard } from 'board-utils/index'
 
 function rotateCounterClockwise(board: Board){
 
-    const rotated: Board = empty();
+    const rotated: Board = emptyBoard();
     board.forEach((arr, i) => arr.forEach((piece, j) => rotated[7-j][i] = piece))
     return rotated;
 }

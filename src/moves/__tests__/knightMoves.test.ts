@@ -3,6 +3,7 @@ import { initialBoard } from 'board-utils/index';
 import { Position } from 'constants/algebraic';
 
 describe('knight', () => {
+    
     it('can move from initial board white queen knight to A3 and C3 only', () => {
         const attackedPositions = knight(initialBoard(), Position.B1);
         

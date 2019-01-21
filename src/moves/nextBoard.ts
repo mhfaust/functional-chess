@@ -1,10 +1,10 @@
 import { file, rank, pieceAt } from 'position-utils/index';
-import { empty } from 'board-utils/index';
+import { emptyBoard } from 'board-utils/index';
 
 function nextBoard(previousBoard: Board, pieceMovedFromPosition: GridCoordinates, pieceMovedToPosition: GridCoordinates) 
     : Board  {
 
-    const newBoard : Board = empty();
+    const newBoard : Board = emptyBoard();
     
     for(let file = 0; file < 8; file++){
         for(let rank = 0; rank < 8; rank++){
