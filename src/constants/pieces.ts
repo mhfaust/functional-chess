@@ -1,24 +1,25 @@
-const blackPieces : Array<string> = [
+const blackPieces : ReadonlyArray<string> = Object.freeze([
     Piece.BlackKing,
     Piece.BlackQueen,
     Piece.BlackRook,
     Piece.BlackKnight,
     Piece.BlackBishop,
     Piece.BlackPawn
-];
-const whitePieces  : Array<string> = [
+]);
+const whitePieces  : ReadonlyArray<string> = Object.freeze([
     Piece.WhiteKing,
     Piece.WhiteQueen,
     Piece.WhiteRook,
     Piece.WhiteKnight,
     Piece.WhiteBishop,
-    Piece.WhitePawn];
+    Piece.WhitePawn
+]);
 
 export const BLACK_PIECES = Object.freeze(new Set(blackPieces));
 export const WHITE_PIECES = Object.freeze(new Set(whitePieces));
 export const ALL_PIECES = Object.freeze(new Set([...blackPieces, ...whitePieces]));
 
-export const unicodeSymbols = {
+export const unicodeSymbols = Object.freeze({
     [Piece.WhiteKing]: '♔',
     [Piece.WhiteQueen]: '♕',
     [Piece.WhiteRook]: '♖',
@@ -32,4 +33,4 @@ export const unicodeSymbols = {
     [Piece.BlackKnight]: '♞',
     [Piece.BlackPawn]: '♟',
     [Piece.Empty]: ' '
-}
+});
