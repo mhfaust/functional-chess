@@ -1,7 +1,7 @@
 import { pieceAt } from 'position-utils/index';
 import { ALL_PIECES, BLACK_PIECES } from 'constants/pieces'
 
-const playerAt = (board: Board, position: GridCoordinates): string => {
+const playerAt = (board: Board, position: GridCoordinates): Player => {
     const piece = pieceAt(board, position);
 
     if(!ALL_PIECES.has(piece))

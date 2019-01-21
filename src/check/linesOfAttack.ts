@@ -3,7 +3,7 @@ import { playerAt, displaceFrom, isOnBoard, otherPlayer, pieceAt, locatePiece, a
 import { blackAttackPatterns, whiteAttackPatterns} from 'constants/attackPatterns';
 
 
-function linesOfAttack(board: Board, defender: string, defendedPosition: GridCoordinates)
+function linesOfAttack(board: Board, defender: Player, defendedPosition: GridCoordinates)
     : Array<Array<GridCoordinates>> {
 
     const attacker = otherPlayer(defender);
@@ -16,7 +16,7 @@ function linesOfAttack(board: Board, defender: string, defendedPosition: GridCoo
     for (let i = 0; i < attackPatterns.length; i++) {
 
         const attackPattern = attackPatterns[i]
-        const canMoveLikeThis: Set<string> = attackPattern.canMoveLikeThis;
+        const canMoveLikeThis: Set<Piece> = attackPattern.canMoveLikeThis;
 
         attackPattern.vectors.forEach((vector) => {
             const attackLine = [];

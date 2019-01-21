@@ -16,7 +16,7 @@ const moveStrategies = {
     [BP]: pawn
 }
 
-function attackedPositions(board: Board, position: GridCoordinates, piece: string)
+function attackedPositions(board: Board, position: GridCoordinates, piece: Piece)
     : Set<string> {
         return moveStrategies[piece](board, position);
 }

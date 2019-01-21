@@ -1,4 +1,4 @@
-const oneSteppers : Set<string> = new Set([
+const oneSteppers : Set<Piece> = new Set([
     Piece.BlackKing, 
     Piece.WhiteKing,
     Piece.BlackKnight,
@@ -7,6 +7,6 @@ const oneSteppers : Set<string> = new Set([
     Piece.WhitePawn,
 ]);
 
-const stepsOnlyOnce = (piece: string): boolean => oneSteppers.has(piece)
+const stepsOnlyOnce = (piece: Piece): boolean => oneSteppers.has(piece)
 
 export default stepsOnlyOnce; 

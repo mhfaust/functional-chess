@@ -3,7 +3,7 @@ import { playerAt, displaceFrom, isOnBoard, otherPlayer, pieceAt, locatePiece, a
 import { blackAttackPatterns, whiteAttackPatterns} from 'constants/attackPatterns';
 
 
-function * generateLinesOfAttack(board: Board, defender: string, defendedPosition: GridCoordinates){
+function * generateLinesOfAttack(board: Board, defender: Player, defendedPosition: GridCoordinates){
 
     const attacker = otherPlayer(defender);
     let attackPatterns = attacker === Player.Black ? blackAttackPatterns : whiteAttackPatterns;
@@ -19,7 +19,7 @@ function * generateLinesOfAttack(board: Board, defender: string, defendedPositio
     const attackLines = new Map<string, Array<GridCoordinates>>();
 
     for(let attackPattern of attackPatterns){
-        const canMoveLikeThis: Set<string> = attackPattern.canMoveLikeThis;
+        const canMoveLikeThis: Set<Piece> = attackPattern.canMoveLikeThis;
 
         for(let vector of attackPattern.vectors){   
             const attackLine = [];

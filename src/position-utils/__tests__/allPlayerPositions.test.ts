@@ -1,6 +1,6 @@
 import allPlayerPositions from '../allPlayerPositions'
 import { initialBoard } from 'boards/index'
-import { A1,A2,B1,B2,C1,C2,D1,D2,E1,E2,F1,F2,G1,G2,H1,H2 } 
+import { Position } 
     from 'constants/algebraic';
 import algebraicName from '../algebraicName';
 
@@ -9,22 +9,22 @@ import { WK,WQ,WR,WN,WB,WP,__ } from 'board-utils/pieces-shorthand';
 describe('allPlayerPositions', () => {
 
     const expectedWhitePositions = [
-        {position: algebraicName(A1), piece: WR},
-        {position: algebraicName(B1), piece: WN},
-        {position: algebraicName(C1), piece: WB},
-        {position: algebraicName(D1), piece: WQ},
-        {position: algebraicName(E1), piece: WK},
-        {position: algebraicName(F1), piece: WB},
-        {position: algebraicName(G1), piece: WN},
-        {position: algebraicName(H1), piece: WR},
-        {position: algebraicName(A2), piece: WP},
-        {position: algebraicName(B2), piece: WP},
-        {position: algebraicName(C2), piece: WP},
-        {position: algebraicName(D2), piece: WP},
-        {position: algebraicName(E2), piece: WP},
-        {position: algebraicName(F2), piece: WP},
-        {position: algebraicName(G2), piece: WP},
-        {position: algebraicName(H2), piece: WP},
+        {position: algebraicName(Position.A1), piece: WR},
+        {position: algebraicName(Position.B1), piece: WN},
+        {position: algebraicName(Position.C1), piece: WB},
+        {position: algebraicName(Position.D1), piece: WQ},
+        {position: algebraicName(Position.E1), piece: WK},
+        {position: algebraicName(Position.F1), piece: WB},
+        {position: algebraicName(Position.G1), piece: WN},
+        {position: algebraicName(Position.H1), piece: WR},
+        {position: algebraicName(Position.A2), piece: WP},
+        {position: algebraicName(Position.B2), piece: WP},
+        {position: algebraicName(Position.C2), piece: WP},
+        {position: algebraicName(Position.D2), piece: WP},
+        {position: algebraicName(Position.E2), piece: WP},
+        {position: algebraicName(Position.F2), piece: WP},
+        {position: algebraicName(Position.G2), piece: WP},
+        {position: algebraicName(Position.H2), piece: WP},
     ];
 
     const result = allPlayerPositions(initialBoard(), Player.White);

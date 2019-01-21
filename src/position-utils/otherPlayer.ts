@@ -3,7 +3,7 @@ const opposites = {
     [Player.White]: Player.Black
 }
 
-function otherPlayer (player: string): string {
+function otherPlayer (player: Player): Player {
     return opposites[player];
 }
 export default otherPlayer;

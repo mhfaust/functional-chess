@@ -1,1 +1,1 @@
-{"version":3,"file":"stepsOnlyOnce.js","sourceRoot":"","sources":["../../src/moves/stepsOnlyOnce.ts"],"names":[],"mappings":";;;;;;;YAAM,WAAW,GAAiB,IAAI,GAAG,CAAC;;;;;;;aAOzC,CAAC,CAAC;YAEG,aAAa,GAAG,UAAC,KAAa,IAAc,OAAA,WAAW,CAAC,GAAG,CAAC,KAAK,CAAC,EAAtB,CAAsB,CAAA;iCAEzD,aAAa;QAAE,CAAC"}
+{"version":3,"file":"stepsOnlyOnce.js","sourceRoot":"","sources":["../../src/moves/stepsOnlyOnce.ts"],"names":[],"mappings":";;;;;;;YAAM,WAAW,GAAgB,IAAI,GAAG,CAAC;;;;;;;aAOxC,CAAC,CAAC;YAEG,aAAa,GAAG,UAAC,KAAY,IAAc,OAAA,WAAW,CAAC,GAAG,CAAC,KAAK,CAAC,EAAtB,CAAsB,CAAA;iCAExD,aAAa;QAAE,CAAC"}

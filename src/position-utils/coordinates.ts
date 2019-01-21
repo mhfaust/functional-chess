@@ -1,8 +1,75 @@
-import * as values from 'constants/algebraic.ts'
+import { Position } from 'constants/algebraic.ts'
 
-function coordinates(algebraicName: string): GridCoordinates {
+const mapping = {
+    [AlgebraicName.A1]: Position.A1,
+    [AlgebraicName.A2]: Position.A2,
+    [AlgebraicName.A3]: Position.A3,
+    [AlgebraicName.A4]: Position.A4,
+    [AlgebraicName.A5]: Position.A5,
+    [AlgebraicName.A6]: Position.A6,
+    [AlgebraicName.A7]: Position.A7,
+    [AlgebraicName.B8]: Position.B8,
+    [AlgebraicName.B1]: Position.B1,
+    [AlgebraicName.B2]: Position.B2,
+    [AlgebraicName.B3]: Position.B3,
+    [AlgebraicName.B4]: Position.B4,
+    [AlgebraicName.B5]: Position.B5,
+    [AlgebraicName.B6]: Position.B6,
+    [AlgebraicName.B7]: Position.B7,
+    [AlgebraicName.B8]: Position.B8,
+    [AlgebraicName.C1]: Position.C1,
+    [AlgebraicName.C2]: Position.C2,
+    [AlgebraicName.C3]: Position.C3,
+    [AlgebraicName.C4]: Position.C4,
+    [AlgebraicName.C5]: Position.C5,
+    [AlgebraicName.C6]: Position.C6,
+    [AlgebraicName.C7]: Position.C7,
+    [AlgebraicName.C8]: Position.C8,
+    [AlgebraicName.D1]: Position.D1,
+    [AlgebraicName.D2]: Position.D2,
+    [AlgebraicName.D3]: Position.D3,
+    [AlgebraicName.D4]: Position.D4,
+    [AlgebraicName.D5]: Position.D5,
+    [AlgebraicName.D6]: Position.D6,
+    [AlgebraicName.D7]: Position.D7,
+    [AlgebraicName.D8]: Position.D8,
+    [AlgebraicName.E1]: Position.E1,
+    [AlgebraicName.E2]: Position.E2,
+    [AlgebraicName.E3]: Position.E3,
+    [AlgebraicName.E4]: Position.E4,
+    [AlgebraicName.E5]: Position.E5,
+    [AlgebraicName.E6]: Position.E6,
+    [AlgebraicName.E7]: Position.E7,
+    [AlgebraicName.E8]: Position.E8,
+    [AlgebraicName.F1]: Position.F1,
+    [AlgebraicName.F2]: Position.F2,
+    [AlgebraicName.F3]: Position.F3,
+    [AlgebraicName.F4]: Position.F4,
+    [AlgebraicName.F5]: Position.F5,
+    [AlgebraicName.F6]: Position.F6,
+    [AlgebraicName.F7]: Position.F7,
+    [AlgebraicName.F8]: Position.F8,
+    [AlgebraicName.G1]: Position.G1,
+    [AlgebraicName.G2]: Position.G2,
+    [AlgebraicName.G3]: Position.G3,
+    [AlgebraicName.G4]: Position.G4,
+    [AlgebraicName.G5]: Position.G5,
+    [AlgebraicName.G6]: Position.G6,
+    [AlgebraicName.G7]: Position.G7,
+    [AlgebraicName.G8]: Position.G8,
+    [AlgebraicName.H1]: Position.H1,
+    [AlgebraicName.H2]: Position.H2,
+    [AlgebraicName.H3]: Position.H3,
+    [AlgebraicName.H4]: Position.H4,
+    [AlgebraicName.H5]: Position.H5,
+    [AlgebraicName.H6]: Position.H6,
+    [AlgebraicName.H7]: Position.H7,
+    [AlgebraicName.H8]: Position.H8,
+}
+
+function coordinates(algebraicName: AlgebraicName): GridCoordinates {
     
-    return values[algebraicName];
+    return mapping[algebraicName];
 }
 
 export default coordinates;

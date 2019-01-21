@@ -2,7 +2,7 @@ import pawn from '../pawn';
 import { pawn1Board } from 'boards/index';
 import { algebraicName } from 'position-utils/index'
 import { textRender } from 'board-utils/index';
-import { A1,A2,A3,A4,A5,A6,A7,A8,B1,B2,B3,B4,B5,B6,B7,B8,C1,C2,C3,C4,C5,C6,C7,C8,D1,D2,D3,D4,D5,D6,D7,D8,E1,E2,E3,E4,E5,E6,E7,E8,F1,F2,F3,F4,F5,F6,F7,F8,G1,G2,G3,G4,G5,G6,G7,G8,H1,H2,H3,H4,H5,H6,H7,H8 } 
+import { Position } 
     from 'constants/algebraic';
 
 describe('pawn', () => {
@@ -10,22 +10,22 @@ describe('pawn', () => {
     beforeAll(() => console.log(textRender(pawn1Board())))
 
     const testCases = [
-        { pawnPosition: A2, attackedPositions: [A3, A4] },
-        { pawnPosition: B2, attackedPositions: [B3] },
-        { pawnPosition: C3, attackedPositions: [C4, B4] },
-        { pawnPosition: D4, attackedPositions: [C5, D5, E5] },
-        { pawnPosition: E2, attackedPositions: [E3, E4] },
-        { pawnPosition: F2, attackedPositions: [F3, F4] },
-        { pawnPosition: G2, attackedPositions: [G3, G4] },
-        { pawnPosition: H4, attackedPositions: [G5] },
-        { pawnPosition: A7, attackedPositions: [A6, A5] },
-        { pawnPosition: B4, attackedPositions: [B3, C3] },
-        { pawnPosition: C5, attackedPositions: [C4, D4] },
-        { pawnPosition: D6, attackedPositions: [D5] },
-        { pawnPosition: E5, attackedPositions: [D4, E4] },
-        { pawnPosition: F7, attackedPositions: [F6, F5] },
-        { pawnPosition: G5, attackedPositions: [G4, H4] },
-        { pawnPosition: H5, attackedPositions: [] },
+        { pawnPosition: Position.A2, attackedPositions: [Position.A3, Position.A4] },
+        { pawnPosition: Position.B2, attackedPositions: [Position.B3] },
+        { pawnPosition: Position.C3, attackedPositions: [Position.C4, Position.B4] },
+        { pawnPosition: Position.D4, attackedPositions: [Position.C5, Position.D5, Position.E5] },
+        { pawnPosition: Position.E2, attackedPositions: [Position.E3, Position.E4] },
+        { pawnPosition: Position.F2, attackedPositions: [Position.F3, Position.F4] },
+        { pawnPosition: Position.G2, attackedPositions: [Position.G3, Position.G4] },
+        { pawnPosition: Position.H4, attackedPositions: [Position.G5] },
+        { pawnPosition: Position.A7, attackedPositions: [Position.A6, Position.A5] },
+        { pawnPosition: Position.B4, attackedPositions: [Position.B3, Position.C3] },
+        { pawnPosition: Position.C5, attackedPositions: [Position.C4, Position.D4] },
+        { pawnPosition: Position.D6, attackedPositions: [Position.D5] },
+        { pawnPosition: Position.E5, attackedPositions: [Position.D4, Position.E4] },
+        { pawnPosition: Position.F7, attackedPositions: [Position.F6, Position.F5] },
+        { pawnPosition: Position.G5, attackedPositions: [Position.G4, Position.H4] },
+        { pawnPosition: Position.H5, attackedPositions: [] },
     ] ;
 
     testCases.forEach((testCase) => {

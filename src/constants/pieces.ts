@@ -1,4 +1,4 @@
-const blackPieces : ReadonlyArray<string> = Object.freeze([
+const blackPieces : ReadonlyArray<Piece> = Object.freeze([
     Piece.BlackKing,
     Piece.BlackQueen,
     Piece.BlackRook,
@@ -6,7 +6,7 @@ const blackPieces : ReadonlyArray<string> = Object.freeze([
     Piece.BlackBishop,
     Piece.BlackPawn
 ]);
-const whitePieces  : ReadonlyArray<string> = Object.freeze([
+const whitePieces  : ReadonlyArray<Piece> = Object.freeze([
     Piece.WhiteKing,
     Piece.WhiteQueen,
     Piece.WhiteRook,
