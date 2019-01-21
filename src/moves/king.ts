@@ -3,7 +3,7 @@ import { playerAt, isOnBoard, isUnOccupiedByPlayer, algebraicName, displaceTo }
 
 import { kingVectors } from 'constants/move-vectors'
 
-function king (board: Board, initialPosition: GridCoordinates): Set<string> {
+function king (board: Board, initialPosition: GridCoordinates): Set<AlgebraicName> {
 
     const player = playerAt(board, initialPosition);
 

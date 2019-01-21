@@ -1,9 +1,9 @@
 import knight from 'moves/knight';
 import { initialBoard } from 'boards/index';
-import { textRender } from 'board-utils/index';
+// import { textRender } from 'board-utils/index';
 import { Position } from 'constants/algebraic';
 
-beforeAll(() => console.log(textRender(initialBoard())))
+// beforeAll(() => console.log(textRender(initialBoard())))
 
 describe('knight', () => {
     it('can move from initial board white queen knight to A3 and C3 only', () => {

@@ -2,10 +2,10 @@ import { playerAt, displaceTo, isOnBoard, isUnOccupied, isOccupiedByPlayer,
     otherPlayer, algebraicName, rank, file } 
     from 'position-utils/index';
 
-function pawn(board: Board, initialPosition: GridCoordinates): Set<string> {
+function pawn(board: Board, initialPosition: GridCoordinates): Set<AlgebraicName> {
     const player = playerAt(board, initialPosition);
 
-    const attackedPositions: Set<string> = new Set();
+    const attackedPositions: Set<AlgebraicName> = new Set();
 
     const forwardDirection = player === Player.White ? 1 : -1;
     const initialRank = rank(initialPosition);

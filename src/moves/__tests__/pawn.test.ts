@@ -1,13 +1,13 @@
 import pawn from '../pawn';
 import { pawn1Board } from 'boards/index';
 import { algebraicName } from 'position-utils/index'
-import { textRender } from 'board-utils/index';
+// import { textRender } from 'board-utils/index';
 import { Position } 
     from 'constants/algebraic';
 
 describe('pawn', () => {
 
-    beforeAll(() => console.log(textRender(pawn1Board())))
+    // beforeAll(() => console.log(textRender(pawn1Board())))
 
     const testCases = [
         { pawnPosition: Position.A2, attackedPositions: [Position.A3, Position.A4] },

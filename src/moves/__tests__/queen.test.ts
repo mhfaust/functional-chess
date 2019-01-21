@@ -1,6 +1,6 @@
 import queen from '../queen';
 import { algebraicName } from 'position-utils/index'
-import { textRender } from 'board-utils/index';
+// import { textRender } from 'board-utils/index';
 import { Position } 
     from 'constants/algebraic';
 import { BP,WK,WQ,WR,__ } from 'board-utils/pieces-shorthand';

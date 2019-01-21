@@ -3,7 +3,7 @@ import { playerAt, isOnBoard, isUnOccupiedByPlayer, algebraicName, displaceTo }
 
 import { knightVectors } from 'constants/move-vectors'
 
-function knight (board: Board, initialPosition: GridCoordinates): Set<string> {
+function knight (board: Board, initialPosition: GridCoordinates): Set<AlgebraicName> {
 
     const player = playerAt(board, initialPosition);
 

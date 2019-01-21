@@ -16,7 +16,7 @@ function * generateLinesOfAttack(board: Board, defender: Player, defendedPositio
 
     //Using a Set here only to ensure no duplicate entries,
     //because 1 vs > 1 is significant for checkmate detection algorithm:
-    const attackLines = new Map<string, Array<GridCoordinates>>();
+    const attackLines = new Map<AlgebraicName, Array<GridCoordinates>>();
 
     for(let attackPattern of attackPatterns){
         const canMoveLikeThis: Set<Piece> = attackPattern.canMoveLikeThis;

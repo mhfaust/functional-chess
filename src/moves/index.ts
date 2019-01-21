@@ -2,10 +2,9 @@
 
 export { default as attackedPositions } from './attackedPositions';
 export { default as nextBoard } from './nextBoard';
-export { default as bishop } from './bishop';
-export { default as knight } from './knight';
-export { default as pawn } from './pawn';
-export { default as queen } from './queen';
-export { default as king } from './king';
-export { default as rook } from './rook';
-export { default as stepsOnlyOnce } from './stepsOnlyOnce';
+export { default as bishopMoves } from './bishopMoves';
+export { default as knightMoves } from './knight';
+export { default as pawnMoves } from './pawn';
+export { default as queenMoves } from './queen';
+export { default as kingMoves } from './king';
+export { default as rookMoves } from './rook';

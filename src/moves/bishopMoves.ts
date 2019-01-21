@@ -4,13 +4,13 @@ import { playerAt, displaceTo, isOnBoard, isUnOccupied, isOccupiedByPlayer,
 
 import { bishopVectors } from 'constants/move-vectors'
 
-function bishop(board: Board, initialPosition: GridCoordinates): Set<string> {
+function bishop(board: Board, initialPosition: GridCoordinates): Set<AlgebraicName> {
     
     const player = playerAt(board, initialPosition);
 
-    const attackedPositions = [];
+    const attackedPositions: Array<GridCoordinates> = [];
 
-    bishopVectors.forEach((vector) => {
+    bishopVectors.forEach((vector: MoveVector):void => {
         let examinedPosition = displaceTo(initialPosition, vector);
         while(isOnBoard(examinedPosition) && isUnOccupied(board, examinedPosition)){
             attackedPositions.push(examinedPosition);

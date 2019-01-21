@@ -1,7 +1,7 @@
-import { rook, bishop } from 'moves/index'
+import { rookMoves, bishopMoves } from 'moves/index'
 
 function queen(board: Board, initialPosition: GridCoordinates){
-    return new Set([...rook(board, initialPosition), ...bishop(board, initialPosition)]);
+    return new Set([...rookMoves(board, initialPosition), ...bishopMoves(board, initialPosition)]);
 }
 
 export default queen;

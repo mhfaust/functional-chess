@@ -27,7 +27,7 @@ function canRookMove (board: Board, fromPosition: GridCoordinates, toPosition: G
     const fileIncrement = Math.sign(fileMove);
     const rankIncrement =  Math.sign(rankMove);
 
-    const nextInterStep = (position) => [
+    const nextInterStep = (position: GridCoordinates): GridCoordinates => [
         file(position) + fileIncrement, 
         rank(position) + rankIncrement
     ];

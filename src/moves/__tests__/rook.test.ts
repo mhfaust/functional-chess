@@ -1,12 +1,12 @@
 import rook from '../rook';
 import { rook1Board } from 'boards/index';
 import { algebraicName } from 'position-utils/index'
-import { textRender } from 'board-utils/index';
+// import { textRender } from 'board-utils/index';
 import { Position } from 'constants/algebraic';
 
 describe('rook', () => {
 
-    beforeAll(() => console.log(textRender(rook1Board())))
+    // beforeAll(() => console.log(textRender(rook1Board())))
 
     it(`provides all possible moves from rook on rook1board: `, () => {
 

@@ -30,9 +30,10 @@ function canBishopMove (board: Board, fromPosition: GridCoordinates, toPosition:
 
     //Function to get position of one step further from
     //a reference position in the direction of the move:
-    const fileIncrement = Math.sign(fileMove)
-    const rankIncrement =  Math.sign(rankMove)
-    const nextInterStep = (position) => [
+    const fileIncrement = Math.sign(fileMove);
+    const rankIncrement =  Math.sign(rankMove);
+
+    const nextInterStep = (position: GridCoordinates): GridCoordinates => [
         position[0] + fileIncrement, 
         position[1] + rankIncrement
     ];
@@ -44,14 +45,11 @@ function canBishopMove (board: Board, fromPosition: GridCoordinates, toPosition:
     while(!areSamePositions(interStep, toPosition)){
         if(isOccupied(board, interStep))
             return false;
-        interStep = nextInterStep(interStep)
+        interStep = nextInterStep(interStep);
     }
 
     //be sure move doesnt put self in check
     const newBoard: Board = nextBoard(board, fromPosition, toPosition);
-    // if(isInCheck(newBoard, thisPlayer, null)){
-    //     return false;
-    // }
 
     return true;
 }
