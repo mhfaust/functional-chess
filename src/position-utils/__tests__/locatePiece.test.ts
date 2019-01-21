@@ -5,9 +5,9 @@ import { Position } from 'constants/algebraic'
 
 describe('locatePiece', () => {
     it('locates White King in the initial board', () => {
-        expect(locatePiece(initialBoard(), Piece.WK )).toEqual(Position.E1)
+        expect(locatePiece(initialBoard(), Piece.WhiteKing )).toEqual(Position.E1)
     });
     it('locates White Queen in the initial board', () => {
-        expect(locatePiece(initialBoard(), Piece.WQ )).toEqual(Position.D1)
+        expect(locatePiece(initialBoard(), Piece.WhiteQueen )).toEqual(Position.D1)
     });
 })

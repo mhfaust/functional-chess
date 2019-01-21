@@ -1,22 +1,35 @@
-const blackPieces : Array<string> = [Piece.BK,Piece.BQ,Piece.BR,Piece.BN,Piece.BB,Piece.BP];
-const whitePieces  : Array<string> = [Piece.WK,Piece.WQ,Piece.WR,Piece.WN,Piece.WB,Piece.WP];
+const blackPieces : Array<string> = [
+    Piece.BlackKing,
+    Piece.BlackQueen,
+    Piece.BlackRook,
+    Piece.BlackKnight,
+    Piece.BlackBishop,
+    Piece.BlackPawn
+];
+const whitePieces  : Array<string> = [
+    Piece.WhiteKing,
+    Piece.WhiteQueen,
+    Piece.WhiteRook,
+    Piece.WhiteKnight,
+    Piece.WhiteBishop,
+    Piece.WhitePawn];
 
 export const BLACK_PIECES = Object.freeze(new Set(blackPieces));
 export const WHITE_PIECES = Object.freeze(new Set(whitePieces));
 export const ALL_PIECES = Object.freeze(new Set([...blackPieces, ...whitePieces]));
 
 export const unicodeSymbols = {
-    [Piece.WK]: '♔',
-    [Piece.WQ]: '♕',
-    [Piece.WR]: '♖',
-    [Piece.WB]: '♗',
-    [Piece.WN]: '♘',
-    [Piece.WP]: '♙',
-    [Piece.BK]: '♚',
-    [Piece.BQ]: '♛',
-    [Piece.BR]: '♜',
-    [Piece.BB]: '♝',
-    [Piece.BN]: '♞',
-    [Piece.BP]: '♟',
-    [Piece.__]: ' '
+    [Piece.WhiteKing]: '♔',
+    [Piece.WhiteQueen]: '♕',
+    [Piece.WhiteRook]: '♖',
+    [Piece.WhiteBishop]: '♗',
+    [Piece.WhiteKnight]: '♘',
+    [Piece.WhitePawn]: '♙',
+    [Piece.BlackKing]: '♚',
+    [Piece.BlackQueen]: '♛',
+    [Piece.BlackRook]: '♜',
+    [Piece.BlackBishop]: '♝',
+    [Piece.BlackKnight]: '♞',
+    [Piece.BlackPawn]: '♟',
+    [Piece.Empty]: ' '
 }
