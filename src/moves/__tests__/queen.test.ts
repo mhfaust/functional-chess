@@ -1,4 +1,4 @@
-import queen from '../queen';
+import queen from '../queenMoves';
 import { algebraicName } from 'position-utils/index'
 // import { textRender } from 'board-utils/index';
 import { Position } 

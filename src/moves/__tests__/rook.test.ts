@@ -1,4 +1,4 @@
-import rook from '../rook';
+import rook from '../rookMoves';
 import { rook1Board } from 'boards/index';
 import { algebraicName } from 'position-utils/index'
 // import { textRender } from 'board-utils/index';

@@ -1,4 +1,4 @@
-import knight from 'moves/knight';
+import knight from 'moves/knightMoves';
 import { initialBoard } from 'boards/index';
 // import { textRender } from 'board-utils/index';
 import { Position } from 'constants/algebraic';

@@ -1,4 +1,4 @@
-import pawn from '../pawn';
+import pawn from '../pawnMoves';
 import { pawn1Board } from 'boards/index';
 import { algebraicName } from 'position-utils/index'
 // import { textRender } from 'board-utils/index';
