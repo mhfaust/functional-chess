@@ -1,6 +1,5 @@
 import { playerAt, displaceFrom, isOnBoard, otherPlayer, pieceAt, locatePiece, algebraicName }
     from 'position-utils/index';
-import { Piece } from 'constants/pieces';
 import { blackAttackPatterns, whiteAttackPatterns} from 'constants/attackPatterns';
 
 
@@ -13,7 +12,7 @@ function * generateLinesOfAttack(board: Board, defender: string, defendedPositio
     //We use that fact to short-circuit this algorithm when looking at a
     //king position.
     const defendedPiece = pieceAt(board, defendedPosition);
-    const isCheckCheck = defendedPiece === Piece.WK || defendedPiece == Piece.BK;
+    const isCheckCheck = defendedPiece === Piece.WhiteKing || defendedPiece === Piece.BlackKing;
 
     //Using a Set here only to ensure no duplicate entries,
     //because 1 vs > 1 is significant for checkmate detection algorithm:

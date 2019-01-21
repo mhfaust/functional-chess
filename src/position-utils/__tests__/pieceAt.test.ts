@@ -1,10 +1,10 @@
 import pieceAt from 'position-utils/pieceAt'
 import { initialBoard } from 'boards/index'
 import { B1 } from 'constants/algebraic'
-import { Piece } from 'constants/pieces'
+import { pieces } from 'constants/pieces'
 
 
-const { BK,BQ,BR,BN,BB,BP,WK,WQ,WR,WN,WB,WP,Empty,__ } = Piece;
+const { BK,BQ,BR,BN,BB,BP,WK,WQ,WR,WN,WB,WP,Empty,__ } = pieces;
 
 describe('pieceAt', () => {
     it('gets the white queen knight from the initial board', () => {

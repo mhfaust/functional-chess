@@ -1,5 +1,5 @@
 import { file, rank, pieceAt } from 'position-utils/index';
-import { Piece } from 'constants/pieces'
+import { pieces } from 'constants/pieces'
 import { empty } from 'boards/index';
 
 function nextBoard(previousBoard: Board, pieceMovedFromPosition: GridCoordinates, pieceMovedToPosition: GridCoordinates) 
@@ -13,7 +13,7 @@ function nextBoard(previousBoard: Board, pieceMovedFromPosition: GridCoordinates
         }
     }
 
-    newBoard[file(pieceMovedFromPosition)][rank(pieceMovedFromPosition)] = Piece.Empty;
+    newBoard[file(pieceMovedFromPosition)][rank(pieceMovedFromPosition)] = pieces.Empty;
     newBoard[file(pieceMovedToPosition)][rank(pieceMovedToPosition)] = pieceAt(previousBoard, pieceMovedFromPosition)
     
     return newBoard;

@@ -1,4 +1,4 @@
-import { Piece } from 'constants/pieces'
+// import { Piece } from 'constants/pieces'
 import { pieceAt } from 'position-utils/index'
 
 function locatePiece(board: Board, piece: Piece) : GridCoordinates {

@@ -1,6 +1,6 @@
 import canQueenMove  from '../canQueenMove'
-import { Piece } from 'constants/pieces'
-const { BP,WK,WQ,WR,__ } = Piece;
+import { pieces } from 'constants/pieces'
+const { BP,WK,WQ,WR,__ } = pieces;
 
 describe('canQueenMove', () => {
     const queen1Board = [

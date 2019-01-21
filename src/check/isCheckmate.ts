@@ -1,9 +1,7 @@
-import { Piece } from 'constants/pieces';
 import { nextBoard } from 'moves/index';
-import { generateLinesOfAttack } from 'check/index'
-import { displaceTo, otherPlayer, playerAt, isOnBoard, algebraicName, pieceAt } from 'position-utils/index';
+import { generateLinesOfAttack } from 'check/index';
+import { displaceTo, otherPlayer, playerAt, isOnBoard, pieceAt } from 'position-utils/index';
 import { kingVectors } from 'constants/move-vectors';
-import { textRender } from 'board-utils/index'
 import isInCheck from 'check/isInCheck';
 
 function isCheckmate(board: Board, defender: Player, kingPosition: GridCoordinates){

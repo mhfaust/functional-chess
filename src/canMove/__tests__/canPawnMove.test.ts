@@ -1,8 +1,8 @@
 import canPawnMove from '../canPawnMove'
 import { pawn1Board } from 'boards/index'
 import { Position } from 'constants/algebraic';
-import { Piece } from 'constants/pieces'
-const { BK,BQ,BR,BN,BB,BP,WK,WQ,WR,WN,WB,WP,Empty,__ } = Piece;
+import { pieces } from 'constants/pieces'
+const { BK,BQ,BR,BN,BB,BP,WK,WQ,WR,WN,WB,WP,Empty,__ } = pieces;
 
 describe('canPawnMove', () => {
 

@@ -1,4 +1,4 @@
-declare enum Piece {
+declare const enum Piece {
     WK = 'White King', 
     WhiteKing = 'White King', 
     WQ = 'White Queen', 
@@ -23,7 +23,6 @@ declare enum Piece {
     BlackBishop = 'Black Bishop', 
     BP = 'Black Pawn',
     BlackPawn = 'Black Pawn',
-    
     __ = '',
     Empty = ''
 }

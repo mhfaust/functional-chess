@@ -1,6 +1,5 @@
 import { playerAt, displaceFrom, isOnBoard, otherPlayer, pieceAt, locatePiece } 
     from 'position-utils/index';
-import { Piece } from 'constants/pieces';
 import { blackAttackPatterns, whiteAttackPatterns} from 'constants/attackPatterns'
 
 function isInCheck(board: Board, player: string, nullableKingPosition: GridCoordinates){

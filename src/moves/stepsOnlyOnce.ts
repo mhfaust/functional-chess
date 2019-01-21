@@ -1,12 +1,12 @@
-import { Piece } from 'constants/pieces'
+import { pieces } from 'constants/pieces'
 
 const oneSteppers : Set<string> = new Set([
-    Piece.BlackKing, 
-    Piece.WhiteKing,
-    Piece.BlackKnight,
-    Piece.WhiteKnight,
-    Piece.BlackPawn,
-    Piece.WhitePawn,
+    pieces.BlackKing, 
+    pieces.WhiteKing,
+    pieces.BlackKnight,
+    pieces.WhiteKnight,
+    pieces.BlackPawn,
+    pieces.WhitePawn,
 ]);
 
 const stepsOnlyOnce = (piece: string): boolean => oneSteppers.has(piece)

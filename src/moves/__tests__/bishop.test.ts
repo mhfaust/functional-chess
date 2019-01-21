@@ -1,8 +1,8 @@
 import bishop from '../bishop';
 import { algebraicName } from 'position-utils/index';
 import { Position } from 'constants/algebraic';
-import { Piece } from 'constants/pieces'
-const { BK,BQ,BR,BN,BB,BP,WK,WQ,WR,WN,WB,WP,Empty,__ } = Piece;
+import { pieces } from 'constants/pieces'
+const { BK,BQ,BR,BN,BB,BP,WK,WQ,WR,WN,WB,WP,Empty,__ } = pieces;
 
 describe('bishop', () => {
 

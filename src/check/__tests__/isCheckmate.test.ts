@@ -1,7 +1,7 @@
 import isCheckmate from '../isCheckmate'
-import { Piece } from 'constants/pieces'
+import { pieces } from 'constants/pieces'
 import { Position } from 'constants/algebraic'
-const { BK,BQ,BR,BN,BB,BP,WK,WQ,WR,WN,WB,WP,Empty,__ } = Piece;
+const { BK,BQ,BR,BN,BB,BP,WK,WQ,WR,WN,WB,WP,Empty,__ } = pieces;
 
 describe('isCheckmate', () => {
    
