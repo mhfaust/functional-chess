@@ -1,1 +1,0 @@
-{"version":3,"file":"canQueenMove.js","sourceRoot":"","sources":["../../src/canMove/canQueenMove.ts"],"names":[],"mappings":";;;;IAGA,SAAS,YAAY,CAAE,KAAY,EAAE,YAA6B,EAAE,UAA2B;QAG3F,OAAO,wBAAW,CAAC,KAAK,EAAE,YAAY,EAAE,UAAU,CAAC;eAC5C,0BAAa,CAAC,KAAK,EAAE,YAAY,EAAE,UAAU,CAAC,CAAC;IAC1D,CAAC;;;;;;;;;;;iCAEc,YAAY;QAAC,CAAC"}

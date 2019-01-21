@@ -1,1 +1,0 @@
-{"version":3,"file":"queen.js","sourceRoot":"","sources":["../../src/move-utils/queen.ts"],"names":[],"mappings":";;;;;;;;;;;;;;;;;;;;;;;;IAEA,SAAS,KAAK,CAAC,KAAY,EAAE,eAAgC;QACzD,OAAO,IAAI,GAAG,UAAK,YAAI,CAAC,KAAK,EAAE,eAAe,CAAC,EAAK,cAAM,CAAC,KAAK,EAAE,eAAe,CAAC,EAAE,CAAC;IACzF,CAAC;;;;;;;;iCAEc,KAAK;QAAC,CAAC"}

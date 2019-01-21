@@ -1,0 +1,185 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for canMove/canPawnMove.ts</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../prettify.css" />
+    <link rel="stylesheet" href="../base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class='wrapper'>
+  <div class='pad1'>
+    <h1>
+      <a href="../index.html">All files</a> / <a href="index.html">canMove</a> canPawnMove.ts
+    </h1>
+    <div class='clearfix'>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">68% </span>
+        <span class="quiet">Statements</span>
+        <span class='fraction'>17/25</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">55.17% </span>
+        <span class="quiet">Branches</span>
+        <span class='fraction'>16/29</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">100% </span>
+        <span class="quiet">Functions</span>
+        <span class='fraction'>1/1</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">68% </span>
+        <span class="quiet">Lines</span>
+        <span class='fraction'>17/25</span>
+      </div>
+    </div>
+  </div>
+  <div class='status-line medium'></div>
+<pre><table class="coverage">
+<tr><td class="line-count quiet">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41</td><td class="line-coverage quiet"><span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">14x</span>
+<span class="cline-any cline-yes">14x</span>
+<span class="cline-any cline-yes">14x</span>
+<span class="cline-any cline-yes">14x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">14x</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">10x</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">6x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">6x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">6x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4x</span></td><td class="text"><pre class="prettyprint lang-js">import { rank, file, playerAt, isOccupied, isUnOccupied, 
+    isOccupiedByPlayer } from 'position-utils/index';
+&nbsp;
+function canPawnMove (board: Board, fromPosition: GridCoordinates, toPosition: GridCoordinates)
+    :boolean {
+    
+    const player = playerAt(board, fromPosition);
+    const forwardDirection = player === Player.White ? 1 : -1;
+    const stepsForward = (rank(toPosition) - rank(fromPosition)) * forwardDirection;
+    const stepsSideways = file(toPosition) - file(fromPosition);
+      
+    if(stepsForward &lt; 1 || stepsForward &gt; 2 || Math.abs(stepsSideways) &gt; 1)
+        return false;
+&nbsp;
+    //forward, can't capture or be blocked:
+    if(stepsSideways === 0){
+        if(isOccupied(board, toPosition))
+            return false;
+        <span class="missing-if-branch" title="if path not taken" >I</span>if(stepsForward === 2){
+<span class="cstat-no" title="statement not covered" >            if(player === Player.Black &amp;&amp; rank(fromPosition) !== 6)</span>
+<span class="cstat-no" title="statement not covered" >                return false;</span>
+<span class="cstat-no" title="statement not covered" >            if(player === Player.White &amp;&amp; rank(fromPosition) !== 2)</span>
+<span class="cstat-no" title="statement not covered" >                return false;</span>
+<span class="cstat-no" title="statement not covered" >            if(isOccupied(board, [file(fromPosition), rank(fromPosition) + forwardDirection]))</span>
+<span class="cstat-no" title="statement not covered" >                return false;</span>
+        }
+    }
+    //diagonal, must capture:
+    else{
+        <span class="missing-if-branch" title="if path not taken" >I</span>if(stepsForward !== 1)
+<span class="cstat-no" title="statement not covered" >            return false;</span>
+        if(isUnOccupied(board, toPosition))
+            return false;
+        <span class="missing-if-branch" title="if path not taken" >I</span>if(isOccupiedByPlayer(board, toPosition, player))
+<span class="cstat-no" title="statement not covered" >            return false;</span>
+    }
+&nbsp;
+    return true;
+}
+&nbsp;
+export default canPawnMove;</pre></td></tr>
+</table></pre>
+<div class='push'></div><!-- for sticky footer -->
+</div><!-- /wrapper -->
+<div class='footer quiet pad2 space-top1 center small'>
+  Code coverage
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Sun Jan 20 2019 22:32:14 GMT-0800 (Pacific Standard Time)
+</div>
+</div>
+<script src="../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../sorter.js"></script>
+</body>
+</html>
