@@ -17,15 +17,12 @@ export const rookVectors = Object.freeze([
 ]);
 
 export const queenVectors = Object.freeze([
-    [-1,-1,],[ 0,-1],[ 1,-1],
-    [-1, 0,],        [ 1,0 ],
-    [-1, 1,],[ 0,-1],[ 1,-1]
+    ...rookVectors, 
+    ...bishopVectors
 ]);
 
 export const kingVectors = Object.freeze([
-    [-1,-1,],[ 0,-1],[ 1,-1],
-    [-1, 0,],        [ 1, 0],
-    [-1, 1,],[ 0, 1],[ 1, 1]
+    ...queenVectors
 ]);
 
 export const pawnWhiteAttackVectors = Object.freeze([
@@ -34,4 +31,12 @@ export const pawnWhiteAttackVectors = Object.freeze([
 
 export const pawnBlackAttackVectors = Object.freeze([
     [-1,-1],       [1,-1]
+]);
+
+export const pawnWhiteAdvanceVectors = Object.freeze([
+    [0, 1],
+]);
+
+export const pawnBlackAdvanceVectors = Object.freeze([
+    [0,-1],
 ]);

@@ -1,6 +1,7 @@
 import { playerAt, displaceFrom, isOnBoard, otherPlayer, pieceAt, locatePiece } 
     from 'position-utils/index';
 import { blackAttackPatterns, whiteAttackPatterns} from 'constants/attackPatterns'
+import { generateLinesOfAttack } from 'check/index'
 
 function isInCheck(board: Board, player: Player, nullableKingPosition: GridCoordinates){
     
@@ -8,35 +9,11 @@ function isInCheck(board: Board, player: Player, nullableKingPosition: GridCoord
         ? nullableKingPosition 
         : locatePiece(board, player === Player.Black ? Piece.BlackKing : Piece.WhiteKing);
 
-    const opponent = otherPlayer(player);
-    let attackPatterns = opponent === Player.Black ? blackAttackPatterns : whiteAttackPatterns;
+    const attackLines = generateLinesOfAttack(board, player, kingPosition);
 
-    for(let i = 0; i < attackPatterns.length; i++){
-
-        const attackPattern = attackPatterns[i]
-        const canMoveLikeThis: Set<Piece> = attackPattern.canMoveLikeThis;
-
-        const thisAttackPatternSucceeds = attackPattern.vectors.some((vector) => {
-            
-            let examinedPosition = displaceFrom(kingPosition, vector);
-            while(isOnBoard(examinedPosition)){
-
-                const pieceThere = pieceAt(board, examinedPosition);
-                if(pieceThere){
-                    return playerAt(board, examinedPosition) === opponent 
-                        && canMoveLikeThis.has(pieceThere);
-                } 
-                else if(attackPattern.onlyOnce){
-                    return false;
-                }
-                examinedPosition = displaceFrom(examinedPosition, vector);
-            }
-            return false;
-        });
-        if(thisAttackPatternSucceeds)
-            return true;
-    }
-    return false;
+    const checkLine = attackLines.next()
+    
+    return checkLine.value !== null;
 }
 
 export default isInCheck;

@@ -3,54 +3,52 @@ import { playerAt, displaceFrom, isOnBoard, otherPlayer, pieceAt, locatePiece, a
 import { blackAttackPatterns, whiteAttackPatterns} from 'constants/attackPatterns';
 
 
-function * generateLinesOfAttack(board: Board, defender: Player, defendedPosition: GridCoordinates){
+function * generateLinesOfAttack(board: Board, defender: Player, defendedPosition: GridCoordinates)
+    : IterableIterator<Array<GridCoordinates>>
+{
 
     const attacker = otherPlayer(defender);
     let attackPatterns = attacker === Player.Black ? blackAttackPatterns : whiteAttackPatterns;
 
-    //It is impossible for a king to be in check by more than 2 pieces.
-    //We use that fact to short-circuit this algorithm when looking at a
-    //king position.
     const defendedPiece = pieceAt(board, defendedPosition);
-    const isCheckCheck = defendedPiece === Piece.WhiteKing || defendedPiece === Piece.BlackKing;
+    const assessingCheck = defendedPiece === Piece.WhiteKing || defendedPiece === Piece.BlackKing;
 
-    //Using a Set here only to ensure no duplicate entries,
-    //because 1 vs > 1 is significant for checkmate detection algorithm:
+    //Using a Map here only to ensure no duplicate entries
     const attackLines = new Map<AlgebraicName, Array<GridCoordinates>>();
 
     for(let attackPattern of attackPatterns){
-        const canMoveLikeThis: Set<Piece> = attackPattern.canMoveLikeThis;
+        const { canMoveLikeThis, vectors, limit, } = attackPattern;
 
-        for(let vector of attackPattern.vectors){   
+        for(let vector of vectors){   
             const attackLine = [];
             let examinedPosition = displaceFrom(defendedPosition, vector);
-
-            while (isOnBoard(examinedPosition)) {
+            let step = 0;
+            while (isOnBoard(examinedPosition) && ++step) {
                 attackLine.push(examinedPosition);
                 const pieceThere = pieceAt(board, examinedPosition);
                 
                 if (pieceThere) {
                     
-                    if (playerAt(board, examinedPosition) === attacker && canMoveLikeThis.has(pieceThere)){
-                        const algebrName = algebraicName(examinedPosition);    
-                        
-                        if(!attackLines.has(algebrName)){
+                    if (playerAt(board, examinedPosition) === attacker
+                        && canMoveLikeThis.has(pieceThere) 
+                        && !attackLines.has(algebraicName(examinedPosition))){
+                    
+                        yield attackLine; 
 
-                            yield attackLine; 
-
-                            attackLines.set(algebraicName(examinedPosition), attackLine);
-                        }
+                        attackLines.set(algebraicName(examinedPosition), attackLine);
                     }
                     break;//found a piece, done with vector
                 }
-                else if (attackPattern.onlyOnce) {
-                    break;//attack patten only goes one out (knight, pawn, or king). done with vector.
+                else if (limit && step === limit) {
+                    break;//attack patten only goes one or two out (knight, pawn, or king). done with vector.
                 }
+                //step++;
                 examinedPosition = displaceFrom(examinedPosition, vector);
             }
         }
-        if(isCheckCheck && attackLines.size === 2){
-            break;//there can't be more than 2 checking pieces.
+        if(assessingCheck && attackLines.size === 2){
+            //done with outer attack-patterns loop -- there can't be more than 2 checking pieces.
+            break;
         }
     }
     return null;

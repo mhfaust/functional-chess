@@ -2,7 +2,9 @@ import { playerAt, displaceTo, isOnBoard, isUnOccupied, isOccupiedByPlayer,
     otherPlayer, algebraicName, rank, file } 
     from 'position-utils/index';
 
-function pawn(board: Board, initialPosition: GridCoordinates): Set<AlgebraicName> {
+function pawn(board: Board, initialPosition: GridCoordinates, enPassant: GridCoordinates = null): Set<AlgebraicName> {
+     let y = enPassant;
+    
     const player = playerAt(board, initialPosition);
 
     const attackedPositions: Set<AlgebraicName> = new Set();

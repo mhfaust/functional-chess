@@ -1,5 +1,4 @@
 import { file, rank, isOnBoard, playerAt, isOccupied, areSamePositions } from 'position-utils/index'
-import { nextBoard } from 'moves/index'
 
 function canBishopMove (board: Board, fromPosition: GridCoordinates, toPosition: GridCoordinates)
     : boolean {
@@ -47,9 +46,6 @@ function canBishopMove (board: Board, fromPosition: GridCoordinates, toPosition:
             return false;
         interStep = nextInterStep(interStep);
     }
-
-    //be sure move doesnt put self in check
-    const newBoard: Board = nextBoard(board, fromPosition, toPosition);
 
     return true;
 }
