@@ -1,9 +1,8 @@
 import { playerAt, displaceTo, isOnBoard, isUnOccupied, isOccupiedByPlayer, 
-    otherPlayer, algebraicName, rank, file } 
+    otherPlayer, algebraicName, rank, file, areSamePositions } 
     from 'position-utils/index';
 
-function pawn(board: Board, initialPosition: GridCoordinates, enPassant: GridCoordinates = null): Set<AlgebraicName> {
-     let y = enPassant;
+function pawn(board: Board, initialPosition: GridCoordinates, passantInfo: PassantInfo = null): Set<AlgebraicName> {
     
     const player = playerAt(board, initialPosition);
 
@@ -27,8 +26,10 @@ function pawn(board: Board, initialPosition: GridCoordinates, enPassant: GridCoo
 
     moveVectors.forEach(vector => {
         const attackedPosition = displaceTo(initialPosition, vector);
-        if(isOnBoard(attackedPosition) && isOccupiedByPlayer(board, attackedPosition, otherPlayer(player)))
+        if((isOnBoard(attackedPosition) && isOccupiedByPlayer(board, attackedPosition, otherPlayer(player)))
+        || (passantInfo && areSamePositions(attackedPosition, passantInfo.passedPosition))){
             attackedPositions.add(algebraicName(attackedPosition));
+        }
     });
 
     return attackedPositions;

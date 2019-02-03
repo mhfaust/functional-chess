@@ -1,7 +1,8 @@
 import { rank, file, playerAt, isOccupied, isUnOccupied, 
-    isOccupiedByPlayer } from 'position-utils/index';
+    isOccupiedByPlayer, 
+    areSamePositions} from 'position-utils/index';
 
-function canPawnMove (board: Board, fromPosition: GridCoordinates, toPosition: GridCoordinates)
+function canPawnMove (board: Board, fromPosition: GridCoordinates, toPosition: GridCoordinates, passantInfo:PassantInfo = null)
     :boolean {
     
     const player = playerAt(board, fromPosition);
@@ -11,6 +12,10 @@ function canPawnMove (board: Board, fromPosition: GridCoordinates, toPosition: G
       
     if(stepsForward < 1 || stepsForward > 2 || Math.abs(stepsSideways) > 1)
         return false;
+
+    if(passantInfo && areSamePositions(toPosition, passantInfo.passedPosition)){
+        return true;
+    }
 
     //forward, can't capture or be blocked:
     if(stepsSideways === 0){
