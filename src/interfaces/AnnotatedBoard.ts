@@ -1,6 +1,6 @@
-declare type AnnotatedBoard = {
+interface AnnotatedBoard  {
     board: Board,
-    lastMoved:Player,
+    lastPlayerMoved:Player,
     lastPieceMoved: Piece,
     lastMoveFrom: GridCoordinates,
     lastMoveTo:GridCoordinates,
@@ -8,12 +8,12 @@ declare type AnnotatedBoard = {
     isInCheck:boolean,
     isCheckmate:boolean,
     passantInfo:PassantInfo,
-    castlingInfo:{
-        [Player.Black]:CastlingInfo,
-        [Player.White]:CastlingInfo
+    CastlingPreclusions:{
+        Black:CastlingPreclusion,
+        White:CastlingPreclusion
     }
     capturedPieces:{
-        [Player.Black]: Array<Piece>,
-        [Player.White]: Array<Piece>
+        Black: Array<Piece>,
+        White: Array<Piece>
     }
 }

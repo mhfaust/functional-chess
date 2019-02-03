@@ -3,7 +3,7 @@ import { Position } from "constants/algebraic";
 
 const x: AnnotatedBoard = {
     board: initialBoard(),
-    lastMoved: Player.White,
+    lastPlayerMoved: Player.White,
     lastPieceMoved: Piece.WhitePawn,
     lastMoveFrom: Position.E2,
     lastMoveTo:Position.E4,
@@ -14,16 +14,14 @@ const x: AnnotatedBoard = {
         passedPosition: null, 
         pawnAt: null
     },
-    castlingInfo:{
+    CastlingPreclusions:{
         Black:{
-            kingEverMoved:false,
-            kingRookEverMoved:false,
-            queenRookEverMoved:false
+            kingSide:false,
+            queenSide:false
         },
         White:{
-            kingEverMoved:false,
-            kingRookEverMoved:false,
-            queenRookEverMoved:false
+            kingSide:false,
+            queenSide:false
         }
     },
     capturedPieces:{

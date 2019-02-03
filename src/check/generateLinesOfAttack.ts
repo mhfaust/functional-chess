@@ -1,6 +1,7 @@
 import { playerAt, displaceFrom, isOnBoard, otherPlayer, pieceAt, locatePiece, algebraicName }
     from 'position-utils/index';
 import { blackAttackPatterns, whiteAttackPatterns} from 'constants/attackPatterns';
+import { isInCheck } from 'check/index';
 
 
 function * generateLinesOfAttack(board: Board, defender: Player, defendedPosition: GridCoordinates)
@@ -32,10 +33,9 @@ function * generateLinesOfAttack(board: Board, defender: Player, defendedPositio
                     if (playerAt(board, examinedPosition) === attacker
                         && canMoveLikeThis.has(pieceThere) 
                         && !attackLines.has(algebraicName(examinedPosition))){
-                    
-                        yield attackLine; 
-
-                        attackLines.set(algebraicName(examinedPosition), attackLine);
+            
+                            yield attackLine; 
+                            attackLines.set(algebraicName(examinedPosition), attackLine);
                     }
                     break;//found a piece, done with vector
                 }

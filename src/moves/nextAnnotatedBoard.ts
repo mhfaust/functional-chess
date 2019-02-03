@@ -1,6 +1,31 @@
 import nextBoard from "moves/nextBoard";
-import { playerAt, otherPlayer, locatePiece } from "position-utils/index";
+import { playerAt, otherPlayer, locatePiece, areSamePositions, rank, pieceAt, file } from "position-utils/index";
 import { isInCheck, isCheckmate } from "check/index";
+import { Position } from "constants/algebraic";
+
+const makePassantInfo = (prevBoard: Board, from:GridCoordinates, to:GridCoordinates): PassantInfo => {
+    const piece = pieceAt(prevBoard, from);
+    if(piece === Piece.BlackPawn && rank(from) === 6 && rank(to) === 4){
+        return {
+            pawnAt: to,
+            passedPosition: [file(to), 5]
+        };
+    } 
+    else if(piece !== Piece.WhitePawn && rank(from) === 1 && rank(to) === 3){
+        return {
+            pawnAt: to,
+            passedPosition: [file(to), 2]
+        };
+    }
+    return null;
+}
+
+const makeCapturedPieces = (board: Board, prevCaptures:Array<Piece>, defender: Player, moveTo: GridCoordinates) : Array<Piece> => {
+    return playerAt(board, moveTo) === defender 
+        ? [...prevCaptures, pieceAt(board, moveTo)]
+        : prevCaptures
+    ;
+}
 
 function nextAnnotatedBoard(previous: AnnotatedBoard,  
             pieceMovedFromPosition: GridCoordinates, 
@@ -10,35 +35,35 @@ function nextAnnotatedBoard(previous: AnnotatedBoard,
     const lastMoved = playerAt(previous.board, pieceMovedFromPosition);
     const nextPlayer = otherPlayer(lastMoved);
     const board = nextBoard(previous.board, pieceMovedFromPosition, pieceMovedToPosition);
-    const nextPlayerKingPosition = locatePiece(board, nextPlayer === Player.Black ? Piece.BlackKing : Piece.WhiteKing)
-    const nextTurnIsInCheck = isInCheck(board, nextPlayer, nextPlayerKingPosition)
-    const nextTurnIsCheckmate = isCheckmate(board, nextPlayer, nextPlayerKingPosition)
+    const nextPlayerKingPosition = locatePiece(board, nextPlayer === Player.Black ? Piece.BlackKing : Piece.WhiteKing);
+    const nextTurnIsInCheck = isInCheck(board, nextPlayer, nextPlayerKingPosition);
+    const nextTurnIsCheckmate = isCheckmate(board, nextPlayer, nextPlayerKingPosition);
 
-    return {
+    const movedFrom = (from: GridCoordinates) :boolean => areSamePositions(pieceMovedFromPosition, from)
+
+    const next : AnnotatedBoard = {
         board,
-        lastMoved,
+        lastPlayerMoved: lastMoved,
         lastPieceMoved: Piece.WhitePawn,
         lastMoveFrom: pieceMovedFromPosition,
         lastMoveTo: pieceMovedToPosition,
         whoseTurn: nextPlayer,
         isInCheck: nextTurnIsInCheck,
         isCheckmate: nextTurnIsCheckmate,
-        passantInfo: null,
-        castlingInfo:{
+        passantInfo: makePassantInfo(previous.board, pieceMovedFromPosition, pieceMovedToPosition),
+        CastlingPreclusions:{
             Black:{
-                kingEverMoved:false,
-                kingRookEverMoved:false,
-                queenRookEverMoved:false
+                kingSide: previous.CastlingPreclusions.Black.kingSide || movedFrom(Position.F8) || movedFrom(Position.H8),
+                queenSide: previous.CastlingPreclusions.Black.queenSide || movedFrom(Position.F8) || movedFrom(Position.A8)
             },
             White:{
-                kingEverMoved:false,
-                kingRookEverMoved:false,
-                queenRookEverMoved:false
+                kingSide: previous.CastlingPreclusions.White.kingSide || movedFrom(Position.F1) || movedFrom(Position.H1),
+                queenSide: previous.CastlingPreclusions.White.queenSide || movedFrom(Position.F1) || movedFrom(Position.A1)
             }
         },
         capturedPieces:{
-            Black:[],
-            White:[]
+            Black: makeCapturedPieces(previous.board, previous.capturedPieces.Black, Player.Black, pieceMovedToPosition),
+            White:makeCapturedPieces(previous.board, previous.capturedPieces.White, Player.White, pieceMovedToPosition)
         }
     }
 
