@@ -1,7 +1,7 @@
-import algebraicName from 'position-utils/algebraicName'
+import positionName from 'position-utils/positionName'
 
-describe('algebraicName', () => {
+describe('positionName', () => {
     it('gets A1 for [0,0]', () => {
-        expect(algebraicName([0,0])).toBe('A1');
+        expect(positionName([0,0])).toBe('A1');
     })
 })

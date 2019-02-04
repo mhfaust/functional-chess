@@ -1,8 +1,8 @@
 import queen from '../queenMoves';
-import { algebraicName } from 'position-utils/index'
+import { positionName } from 'position-utils/index'
 // import { textRender } from 'board-utils/index';
 import { Position } 
-    from 'constants/algebraic';
+    from 'constants/position';
 import { BP,WK,WQ,WR,__ } from 'board-utils/pieces-shorthand';
 describe('queen', () => {
 
@@ -14,7 +14,7 @@ describe('queen', () => {
             /*  B  */ [__,__,__,__,__,__,__,__],
             /*  C  */ [__,WQ,__,WK,__,__,BP,__],
             /*  D  */ [__,__,__,__,__,__,__,__],
-            /*  E  */ [__,__,__,__,__,__,__,__],
+            /*  E  */ [WK,__,__,__,__,__,__,__],
             /*  F  */ [__,__,__,__,BP,__,__,__],
             /*  G  */ [__,WR,__,__,__,__,__,__],
             /*  H  */ [__,__,__,__,__,__,__,__], 
@@ -35,8 +35,8 @@ describe('queen', () => {
             Position.B1,
             Position.B3,
             Position.A4
-        ].map(algebraicName))
-        const foundattackedPositions = queen(board, Position.C2);
+        ].map(positionName))
+        const foundattackedPositions = queen(board, Position.C2, Position.E1);
 
         expect(foundattackedPositions).toEqual(expectedattackedPositions)
     })

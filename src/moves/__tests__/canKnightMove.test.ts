@@ -1,6 +1,6 @@
 import canKnightMove from 'moves/canKnightMove'
 import { initialBoard } from 'board-utils/index'
-import { Position } from 'constants/algebraic';
+import { Position } from 'constants/position';
 
 describe('canKnightMove', () => {
     it('reports true attempting to move to empty square, 2 forward, 1 left.', () => {

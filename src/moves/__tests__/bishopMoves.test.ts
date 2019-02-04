@@ -1,6 +1,6 @@
-import bishop from '../bishopMoves';
-import { algebraicName } from 'position-utils/index';
-import { Position } from 'constants/algebraic';
+import bishopMoves from '../bishopMoves';
+import { positionName } from 'position-utils/index';
+import { Position } from 'constants/position';
 import { BK,BQ,BR,BN,BB,BP,WK,WQ,WR,WN,WB,WP,__ } from 'board-utils/pieces-shorthand';
 
 describe('bishop', () => {
@@ -19,7 +19,7 @@ describe('bishop', () => {
             /*  H  */ [__,__,__,__,__,__,__,BR],
             ];
         
-        const expectedattackedPositions = new Set([
+        const expectedLegalMoves = new Set([
             Position.E5,
             Position.F6,
             Position.G7,
@@ -30,11 +30,11 @@ describe('bishop', () => {
             Position.B2,
             Position.A1,
             Position.C5
-        ].map(algebraicName))
+        ].map(positionName))
 
-        const foundattackedPositions = bishop(board, Position.D4, Position.E1);
+        const foundLegalMoves = bishopMoves(board, Position.D4, Position.E1);
 
-        expect(foundattackedPositions).toEqual(expectedattackedPositions)
+        expect(foundLegalMoves).toEqual(expectedLegalMoves)
     })
 
     it('does not include moves putting self in check', () => {
@@ -50,16 +50,16 @@ describe('bishop', () => {
             /*  H  */ [__,__,__,__,__,__,__,BR],
             ];
             
-        const expectedattackedPositions = new Set([
+        const expecteLegalMoves = new Set([
             Position.E5,
             Position.F6,
             Position.G7,
             Position.C3,
             Position.B2,
-        ].map(algebraicName))
+        ].map(positionName))
 
-        const foundattackedPositions = bishop(board, Position.D4, Position.A1);
+        const foundLegalMoves = bishopMoves(board, Position.D4, Position.A1);
 
-        expect(foundattackedPositions).toEqual(expectedattackedPositions)   
+        expect(foundLegalMoves).toEqual(expecteLegalMoves)   
     })
 })

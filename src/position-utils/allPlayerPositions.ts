@@ -1,4 +1,4 @@
-import { pieceAt, algebraicName } from 'position-utils/index';
+import { pieceAt, positionName } from 'position-utils/index';
 import { BLACK_PIECES, WHITE_PIECES } from 'constants/pieces';
 
 function allPlayerPositions(board: Board, player: Player): Array<PiecePosition>{
@@ -12,7 +12,7 @@ function allPlayerPositions(board: Board, player: Player): Array<PiecePosition>{
 
         if(piece &&  allPlayerPieces.has(piece)){
             occupiedPositions.push({
-                position: algebraicName([i, j]),
+                position: positionName([i, j]),
                 piece
             });
         }

@@ -1,4 +1,4 @@
 type PiecePosition = {
-    position: AlgebraicName,
+    position: PositionName,
     piece: Piece
 }

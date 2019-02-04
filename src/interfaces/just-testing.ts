@@ -1,5 +1,5 @@
 import { initialBoard } from "board-utils/index";
-import { Position } from "constants/algebraic";
+import { Position } from "constants/position";
 
 const x: AnnotatedBoard = {
     board: initialBoard(),

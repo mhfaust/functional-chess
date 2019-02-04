@@ -1,5 +1,5 @@
 import canRookMove from 'moves/canRookMove';
-import { Position } from 'constants/algebraic';
+import { Position } from 'constants/position';
 import { BK,BR,BP,WP,__ } from 'board-utils/pieces-shorthand';
 
 const rook1Board = (): Board => [

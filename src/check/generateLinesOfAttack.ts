@@ -1,21 +1,33 @@
-import { playerAt, displaceFrom, isOnBoard, otherPlayer, pieceAt, locatePiece, algebraicName }
+import { playerAt, displaceFrom, isOnBoard, otherPlayer, pieceAt, positionName }
     from 'position-utils/index';
-import { blackAttackPatterns, whiteAttackPatterns} from 'constants/attackPatterns';
-import { isInCheck } from 'check/index';
+    import { kingVectors, knightVectors, rookVectors, bishopVectors, pawnBlackAttackVectors, pawnWhiteAttackVectors }
+    from 'constants/move-vectors'
 
+import { BK, BQ, BR, BN, BB, BP, WK, WQ, WR, WN, WB, WP } from 'board-utils/pieces-shorthand';
+
+const whiteAttackPatterns: Array<AttackPattern> = [
+    { vectors: pawnWhiteAttackVectors, canMoveLikeThis: new Set([WP, WQ, WB, WK]), limit: 1 },
+    { vectors: kingVectors, canMoveLikeThis: new Set([WK, WQ]), limit: 1 },
+    { vectors: knightVectors, canMoveLikeThis: new Set([WN]), limit: 1 },
+    { vectors: bishopVectors, canMoveLikeThis: new Set([WB, WQ]), limit: 0 },
+    { vectors: rookVectors, canMoveLikeThis: new Set([WR, WQ]), limit: 0 },
+];
+
+const blackAttackPatterns: Array<AttackPattern> = [
+    { vectors: pawnBlackAttackVectors, canMoveLikeThis: new Set([BP, BQ, BB, BK]), limit: 1 },
+    { vectors: kingVectors, canMoveLikeThis: new Set([BK, BQ]), limit: 1 },
+    { vectors: knightVectors, canMoveLikeThis: new Set([BN]), limit: 1 },
+    { vectors: bishopVectors, canMoveLikeThis: new Set([BB, BQ]), limit: 0 },
+    { vectors: rookVectors, canMoveLikeThis: new Set([BR, BQ]), limit: 0 },
+];
 
 function * generateLinesOfAttack(board: Board, defender: Player, defendedPosition: GridCoordinates)
     : IterableIterator<Array<GridCoordinates>>
 {
-
     const attacker = otherPlayer(defender);
     let attackPatterns = attacker === Player.Black ? blackAttackPatterns : whiteAttackPatterns;
 
-    const defendedPiece = pieceAt(board, defendedPosition);
-    const assessingCheck = defendedPiece === Piece.WhiteKing || defendedPiece === Piece.BlackKing;
-
-    //Using a Map here only to ensure no duplicate entries
-    const attackLines = new Map<AlgebraicName, Array<GridCoordinates>>();
+    const attackLines = new Map<PositionName, Array<GridCoordinates>>();
 
     for(let attackPattern of attackPatterns){
         const { canMoveLikeThis, vectors, limit, } = attackPattern;
@@ -32,23 +44,18 @@ function * generateLinesOfAttack(board: Board, defender: Player, defendedPositio
                     
                     if (playerAt(board, examinedPosition) === attacker
                         && canMoveLikeThis.has(pieceThere) 
-                        && !attackLines.has(algebraicName(examinedPosition))){
+                        && !attackLines.has(positionName(examinedPosition))){
             
                             yield attackLine; 
-                            attackLines.set(algebraicName(examinedPosition), attackLine);
+                            attackLines.set(positionName(examinedPosition), attackLine);
                     }
                     break;//found a piece, done with vector
                 }
                 else if (limit && step === limit) {
                     break;//attack patten only goes one or two out (knight, pawn, or king). done with vector.
                 }
-                //step++;
                 examinedPosition = displaceFrom(examinedPosition, vector);
             }
-        }
-        if(assessingCheck && attackLines.size === 2){
-            //done with outer attack-patterns loop -- there can't be more than 2 checking pieces.
-            break;
         }
     }
     return null;

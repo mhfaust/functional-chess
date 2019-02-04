@@ -1,5 +1,5 @@
 import canBishopMove from 'moves/canBishopMove'
-import { Position } from 'constants/algebraic';
+import { Position } from 'constants/position';
 import { BK,BQ,BR,BN,BB,BP,WK,WQ,WR,WN,WB,WP,__ } from 'board-utils/pieces-shorthand';
     
 describe('canBishopMove', () => {

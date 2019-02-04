@@ -1,35 +1,35 @@
 import { playerAt, displaceTo, isOnBoard, isUnOccupied, isOccupiedByPlayer, 
-        otherPlayer, algebraicName, locatePiece } 
+        otherPlayer, positionName, locatePiece } 
     from 'position-utils/index';
 
 import { bishopVectors } from 'constants/move-vectors'
 import { isInCheck } from 'check/index';
 import { nextBoard } from 'moves/index';
 
-function bishop(board: Board, initialPosition: GridCoordinates, kingPosition: GridCoordinates): Set<AlgebraicName> {
+function bishop(board: Board, moveFrom: GridCoordinates, kingPosition: GridCoordinates): Set<PositionName> {
     
-    const player = playerAt(board, initialPosition);
+    const player = playerAt(board, moveFrom);
 
-    const attackedPositions: Array<GridCoordinates> = [];
+    const legalMoves: Array<GridCoordinates> = [];
 
     bishopVectors.forEach((vector: MoveVector):void => {
 
-        let examinedPosition = displaceTo(initialPosition, vector);
+        let examinedPosition = displaceTo(moveFrom, vector);
 
         while(isOnBoard(examinedPosition) && isUnOccupied(board, examinedPosition)){
             
-            attackedPositions.push(examinedPosition);
+            legalMoves.push(examinedPosition);
             examinedPosition = displaceTo(examinedPosition, vector);
         }
         if(isOnBoard(examinedPosition) && isOccupiedByPlayer(board, examinedPosition, otherPlayer(player))){
             
-            attackedPositions.push(examinedPosition);
+            legalMoves.push(examinedPosition);
         }
     });
 
-    const doesntCheckSelf = (position:GridCoordinates):boolean => !isInCheck(nextBoard(board, initialPosition, position), player, kingPosition)
+    const doesntPutSelfInCheck = (position:GridCoordinates):boolean => !isInCheck(nextBoard(board, moveFrom, position), player, kingPosition)
 
-    return new Set(attackedPositions.filter(doesntCheckSelf).map(algebraicName));
+    return new Set(legalMoves.filter(doesntPutSelfInCheck).map(positionName));
 }
 
 export default bishop;
