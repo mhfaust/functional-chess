@@ -60,5 +60,5 @@ describe('rook', () => {
         const foundLegalMoves = rook(board, Position.E4, Position.E8);
 
         expect(foundLegalMoves).toEqual(expectedLegalMoves)
-    })
+    });
 });
