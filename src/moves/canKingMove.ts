@@ -1,4 +1,5 @@
 import { rank, file, playerAt } from 'position-utils/index';
+import movesIntoCheck from 'check/movesIntoCheck';
 
 function kingCanMove (board: Board, fromPosition: GridCoordinates, toPosition: GridCoordinates) 
     : boolean {
@@ -9,9 +10,10 @@ function kingCanMove (board: Board, fromPosition: GridCoordinates, toPosition: G
         Math.abs(rank(toPosition) - rank(fromPosition)) > 1
         || Math.abs(file(toPosition) - rank(fromPosition)) > 1
         || player === playerAt(board, toPosition)
+        || movesIntoCheck(board, fromPosition, toPosition, toPosition)
     ){
         return false;
-     }
+    }
 
     return true;
 }

@@ -1,6 +1,9 @@
 import { file, rank, isOnBoard, playerAt, isOccupied, areSamePositions, displaceTo } from 'position-utils/index'
+import { isInCheck } from 'check/index';
+import nextBoard from 'moves/nextBoard';
+import movesIntoCheck from 'check/movesIntoCheck';
 
-function canBishopMove (board: Board, fromPosition: GridCoordinates, toPosition: GridCoordinates)
+function canBishopMove (board: Board, fromPosition: GridCoordinates, toPosition: GridCoordinates, kingPosition: GridCoordinates)
     : boolean {
         
     if(!isOnBoard(toPosition))
@@ -24,28 +27,19 @@ function canBishopMove (board: Board, fromPosition: GridCoordinates, toPosition:
     if(Math.abs(fileMove) !== Math.abs(rankMove))
         return false;
 
-    //if we run into any pieces along the way, 
-    //can't get to the move-to position, so..
-
-    //Function to get position of one step further from
-    //a reference position in the direction of the move:
-    // const fileIncrement = Math.sign(fileMove);
-    // const rankIncrement =  Math.sign(rankMove);
-
-    // const nextStep = (position: GridCoordinates): GridCoordinates => [
-    //     position[0] + fileIncrement, 
-    //     position[1] + rankIncrement
-    // ];
-
     const moveVector = [Math.sign(fileMove),  Math.sign(rankMove)]
     //start checking one step out from the move-from position
     let step = displaceTo(fromPosition, moveVector);
 
     //and keep checking until we run into a piece or the move-to position:
-    while(!areSamePositions(step, toPosition)){
+    while(!areSamePositions(step, toPosition) ){
         if(isOccupied(board, step))
             return false;
-        step = displaceTo(fromPosition, moveVector);
+        step = displaceTo(step, moveVector);
+    }
+
+    if(movesIntoCheck(board, fromPosition, toPosition, kingPosition)){
+        return false;
     }
 
     return true;
