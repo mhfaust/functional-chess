@@ -80,7 +80,7 @@ describe('kingMoves', () => {
         expect(foundLegalMoves).toEqual(new Set([]));
     });
 
-    it('King can castle, king-side', () => {
+    it('White king can castle, king-side', () => {
         const board: Board = [
         /*         1  2  3  4  5  6  7  8  */
         /*  A  */ [WR,WP,__,__,__,__,BP,BR],
@@ -92,16 +92,6 @@ describe('kingMoves', () => {
         /*  G  */ [__,WP,__,__,__,__,BP,BN],
         /*  H  */ [WR,WP,__,__,__,__,BP,BR],
         ]; 
-        const expectedLegalMoves = new Set([
-            PositionName.C6,
-            PositionName.C7,
-            PositionName.C8,
-            PositionName.D6,
-            PositionName.D8,
-            PositionName.E6,
-            PositionName.E7,
-            PositionName.E8,
-        ]);
     
         const foundLegalMoves = kingMoves(board, Position.E1, noPreclusions);
 
@@ -109,7 +99,7 @@ describe('kingMoves', () => {
     });  
     
     
-    it('Cannot castle across check', () => {
+    it('White king cannot castle across check', () => {
         const board: Board = [
         /*         1  2  3  4  5  6  7  8  */
         /*  A  */ [WR,__,__,__,__,__,__,__],
@@ -128,7 +118,63 @@ describe('kingMoves', () => {
     });
 
      
-    it('Cannot castle into check', () => {
+    it('White king cannot castle into check', () => {
+        const board: Board = [
+        /*         1  2  3  4  5  6  7  8  */
+        /*  A  */ [WR,__,__,__,__,__,__,__],
+        /*  B  */ [__,__,__,__,__,__,__,__],
+        /*  C  */ [__,__,__,__,__,__,__,__],
+        /*  D  */ [__,__,__,__,__,__,__,BK],
+        /*  E  */ [WK,__,__,__,__,__,__,__],
+        /*  F  */ [__,__,__,__,__,__,__,__],
+        /*  G  */ [__,__,__,__,__,__,__,BR],
+        /*  H  */ [WR,__,__,__,__,__,__,__], 
+        ];
+    
+        const foundLegalMoves = kingMoves(board, Position.E1, noPreclusions);
+
+        expect(foundLegalMoves).not.toContain(PositionName.G1)
+    });
+
+    it('Black king can castle, queen-side', () => {
+        const board: Board = [
+        /*         1  2  3  4  5  6  7  8  */
+        /*  A  */ [WR,__,__,WP,__,__,BP,BR],
+        /*  B  */ [WN,WP,__,__,__,__,BP,__],
+        /*  C  */ [WB,WP,__,__,__,BN,BP,__],
+        /*  D  */ [WQ,WP,WB,__,BP,__,__,__],
+        /*  E  */ [__,__,__,WP,BP,__,__,BK],
+        /*  F  */ [WR,WP,WN,__,__,BQ,BP,BB],
+        /*  G  */ [WK,WP,__,BB,__,__,BP,BN],
+        /*  H  */ [__,WP,__,__,__,__,BP,BR],
+        ]; 
+    
+        const foundLegalMoves = kingMoves(board, Position.E8, noPreclusions);
+
+        expect(foundLegalMoves).toContain(PositionName.C8)
+    });  
+    
+    
+    it('White king cannot castle across check', () => {
+        const board: Board = [
+        /*         1  2  3  4  5  6  7  8  */
+        /*  A  */ [WR,__,__,__,__,__,__,__],
+        /*  B  */ [__,__,__,__,__,__,__,__],
+        /*  C  */ [__,__,__,__,__,__,__,__],
+        /*  D  */ [__,__,__,__,__,__,__,BK],
+        /*  E  */ [WK,__,__,__,__,__,__,__],
+        /*  F  */ [__,__,__,__,__,__,__,BR],
+        /*  G  */ [__,__,__,__,__,__,__,__],
+        /*  H  */ [WR,__,__,__,__,__,__,__], 
+        ];
+    
+        const foundLegalMoves = kingMoves(board, Position.E1, noPreclusions);
+
+        expect(foundLegalMoves).not.toContain(PositionName.G1)
+    });
+
+     
+    it('White king cannot castle into check', () => {
         const board: Board = [
         /*         1  2  3  4  5  6  7  8  */
         /*  A  */ [WR,__,__,__,__,__,__,__],

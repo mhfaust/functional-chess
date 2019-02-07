@@ -65,4 +65,6 @@ describe('queen', () => {
 
         expect(foundLegalMoves).toEqual(expectedLegalMoves)
     });
+
+    
 })

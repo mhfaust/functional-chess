@@ -65,4 +65,23 @@ describe('canBishopMove', () => {
         const answer = canBishopMove(bishop1Board(), Position.D4, Position.H8);
         expect(answer).toBe(false);
     });
+
+    it('Cannot put self in check', () => {
+        const board: Board = [
+            /*         1  2  3  4  5  6  7  8  */
+            /*  A  */ [WK,__,__,__,__,__,__,__],
+            /*  B  */ [__,__,__,__,__,__,__,__],
+            /*  C  */ [__,__,__,__,__,__,__,__],
+            /*  D  */ [__,__,__,WB,__,__,__,__],
+            /*  E  */ [__,__,__,__,__,__,__,__],
+            /*  F  */ [__,__,__,__,__,__,__,__],
+            /*  G  */ [__,__,__,__,__,__,BB,__],
+            /*  H  */ [__,__,__,__,__,__,__,BR],
+            ];
+            
+
+        const answer = canBishopMove(bishop1Board(), Position.D4, Position.E3);
+
+        expect(answer).toBe(false);  
+    })
 })
