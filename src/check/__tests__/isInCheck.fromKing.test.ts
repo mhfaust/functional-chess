@@ -54,7 +54,7 @@ describe('isInCheck: true', () => {
 })
 
 describe('isInCheck: false', () => {
-    fit('White King at D4 is NOT in check from Black King at D6', () => {
+    it('White King at D4 is NOT in check from Black King at D6', () => {
         const board: Board = [
 /*         1  2  3  4  5  6  7  8  */
 /*  A  */ [__,__,__,__,__,__,__,__],
