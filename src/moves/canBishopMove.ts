@@ -18,7 +18,7 @@ function canBishopMove (board: Board, fromPosition: GridCoordinates, toPosition:
     const fileMove = file(toPosition) - file(fromPosition);
     const rankMove = rank(toPosition) - rank(fromPosition);
 
-    //if either file and rank were unchanged then
+    //if neither file and rank were changed then
     //it's not a valid bishop move:
     if(fileMove === 0 || rankMove === 0)
         return false;

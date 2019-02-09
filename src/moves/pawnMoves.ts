@@ -29,15 +29,17 @@ function pawn(board: Board, moveFrom: GridCoordinates, kingPosition:GridCoordina
         }
     }
     const moveVectors: Array<MoveVector> = [ [-1,forwardDirection], [1,forwardDirection] ];
+    const other = otherPlayer(player)
 
     //attack moves
     moveVectors.forEach(vector => {
         const attackedPosition = displaceTo(moveFrom, vector);
-        if((isOnBoard(attackedPosition) && isOccupiedByPlayer(board, attackedPosition, otherPlayer(player)))
-        || (passantInfo && areSamePositions(attackedPosition, passantInfo.passedPosition))){
-            if(moveNotInCheck(attackedPosition)){
-                legalMoves.add(positionName(attackedPosition));
-            }
+
+        if((isOnBoard(attackedPosition) && isOccupiedByPlayer(board, attackedPosition, other))
+            || (passantInfo && areSamePositions(attackedPosition, passantInfo.passedPosition))){
+                if(moveNotInCheck(attackedPosition)){
+                    legalMoves.add(positionName(attackedPosition));
+                }
         }
     });
 

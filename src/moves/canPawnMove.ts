@@ -1,8 +1,9 @@
 import { rank, file, playerAt, isOccupied, isUnOccupied, 
     isOccupiedByPlayer, 
     areSamePositions} from 'position-utils/index';
+import movesIntoCheck from 'check/movesIntoCheck';
 
-function canPawnMove (board: Board, fromPosition: GridCoordinates, toPosition: GridCoordinates, passantInfo:PassantInfo = null)
+function canPawnMove (board: Board, fromPosition: GridCoordinates, toPosition: GridCoordinates, kingPosition: GridCoordinates, passantInfo:PassantInfo = null)
     :boolean {
     
     const player = playerAt(board, fromPosition);
@@ -10,34 +11,43 @@ function canPawnMove (board: Board, fromPosition: GridCoordinates, toPosition: G
     const stepsForward = (rank(toPosition) - rank(fromPosition)) * forwardDirection;
     const stepsSideways = file(toPosition) - file(fromPosition);
       
-    if(stepsForward < 1 || stepsForward > 2 || Math.abs(stepsSideways) > 1)
+    if(stepsForward < 1 || stepsForward > 2 || Math.abs(stepsSideways) > 1){
         return false;
-
-    if(passantInfo && areSamePositions(toPosition, passantInfo.passedPosition)){
-        return true;
     }
 
     //forward, can't capture or be blocked:
     if(stepsSideways === 0){
-        if(isOccupied(board, toPosition))
+        if(isOccupied(board, toPosition)){
             return false;
+        }
         if(stepsForward === 2){
-            if(player === Player.Black && rank(fromPosition) !== 6)
+            if(player === Player.Black && rank(fromPosition) !== 6){
                 return false;
-            if(player === Player.White && rank(fromPosition) !== 2)
+            }
+            if(player === Player.White && rank(fromPosition) !== 2){
                 return false;
-            if(isOccupied(board, [file(fromPosition), rank(fromPosition) + forwardDirection]))
+            }
+            //cannot jump over any piece
+            if(isOccupied(board, [file(fromPosition), rank(fromPosition) + forwardDirection])){
                 return false;
+            }
         }
     }
     //diagonal, must capture:
     else{
-        if(stepsForward !== 1)
+        if(stepsForward !== 1){
             return false;
-        if(isUnOccupied(board, toPosition))
+        }
+        if(isUnOccupied(board, toPosition) && (!passantInfo || !areSamePositions(toPosition, passantInfo.passedPosition))){
             return false;
-        if(isOccupiedByPlayer(board, toPosition, player))
+        }
+        if(isOccupiedByPlayer(board, toPosition, player)){
             return false;
+        }
+    }
+
+    if(movesIntoCheck(board, fromPosition, toPosition, kingPosition)){
+        return false;
     }
 
     return true;

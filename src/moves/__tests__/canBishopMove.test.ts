@@ -56,7 +56,7 @@ describe('canBishopMove', () => {
         expect(answer).toBe(false);
     });
 
-    it('can capture opponent piece', () => {
+    it('can capture opponent piece', () => { 
         const answer = canBishopMove(bishop1Board(), Position.D4, Position.G7, Position.E1);
         expect(answer).toBe(true);
     });
