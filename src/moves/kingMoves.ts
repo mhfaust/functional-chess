@@ -15,7 +15,7 @@ function kingMoves (board:Board, kingFrom:GridCoordinates, castlingPreclusions:C
         .filter(kingTo => !movesIntoCheck(board, kingFrom, kingTo, kingTo))
         .map(positionName));
 
-    const mayCastle = (isPrecluded:boolean, kingTo:GridCoordinates, castleMovesTo:GridCoordinates):boolean => {
+    const canCastle = (isPrecluded:boolean, kingTo:GridCoordinates, castleMovesTo:GridCoordinates):boolean => {
         return !isPrecluded
             && legalMoves.has(positionName(castleMovesTo))//king cant cross over check (where the castle lands)
             && playerAt(board, kingTo) === null
@@ -24,18 +24,18 @@ function kingMoves (board:Board, kingFrom:GridCoordinates, castlingPreclusions:C
 
     //castling moves:
     if(player === Player.White){
-        if(mayCastle(castlingPreclusions.kingSide, Position.G1, Position.F1)){
+        if(canCastle(castlingPreclusions.kingSide, Position.G1, Position.F1)){
             legalMoves.add(PositionName.G1);
         }
-        if(mayCastle(castlingPreclusions.queenSide, Position.C1, Position.D1)){
+        if(canCastle(castlingPreclusions.queenSide, Position.C1, Position.D1)){
             legalMoves.add(PositionName.C1);
         }
     }
     else if(player === Player.Black){
-        if(mayCastle(castlingPreclusions.kingSide, Position.G8, Position.F8)){
+        if(canCastle(castlingPreclusions.kingSide, Position.G8, Position.F8)){
             legalMoves.add(PositionName.G8);
         }
-        if(mayCastle(castlingPreclusions.queenSide, Position.C8, Position.D8)){
+        if(canCastle(castlingPreclusions.queenSide, Position.C8, Position.D8)){
             legalMoves.add(PositionName.C8);
         }
     }

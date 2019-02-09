@@ -47,6 +47,7 @@ function canPawnMove (board: Board, fromPosition: GridCoordinates, toPosition: G
     }
 
     if(movesIntoCheck(board, fromPosition, toPosition, kingPosition)){
+        console.log('this is why')
         return false;
     }
 

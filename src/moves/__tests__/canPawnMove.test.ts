@@ -120,7 +120,7 @@ describe('canPawnMove', () => {
             expect(answerNullPassantInfo).toBe(false);
         });
 
-        it('white pawn can attack a square passed by a black pawn moving from rank 2 to 4', () => {
+        fit('white pawn can attack a square passed by a black pawn moving from rank 2 to 4', () => {
 
             const passantInfo:PassantInfo = {
                 passedPosition:Position.G6,
