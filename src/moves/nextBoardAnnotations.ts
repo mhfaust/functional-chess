@@ -27,22 +27,22 @@ const makeCapturedPieces = (board: Board, prevCaptures:Array<Piece>, defender: P
     ;
 }
 
-function nextAnnotatedBoard(previous: AnnotatedBoard,  
+function nextBoardAnnotations(previousBoard: Board,
+            currentBoard:Board,
+            previousAnnotations: BoardAnnotations,  
             pieceMovedFromPosition: GridCoordinates, 
             pieceMovedToPosition: GridCoordinates)
-        : AnnotatedBoard
+        : BoardAnnotations
     {
-    const lastMoved = playerAt(previous.board, pieceMovedFromPosition);
+    const lastMoved = playerAt(previousBoard, pieceMovedFromPosition);
     const nextPlayer = otherPlayer(lastMoved);
-    const board = nextBoard(previous.board, pieceMovedFromPosition, pieceMovedToPosition);
-    const nextPlayerKingPosition = locatePiece(board, nextPlayer === Player.Black ? Piece.BlackKing : Piece.WhiteKing);
-    const nextTurnIsInCheck = isInCheck(board, nextPlayer, nextPlayerKingPosition);
-    const nextTurnIsCheckmate = isCheckmate(board, nextPlayer, nextPlayerKingPosition);
+    const nextPlayerKingPosition = locatePiece(currentBoard, nextPlayer === Player.Black ? Piece.BlackKing : Piece.WhiteKing);
+    const nextTurnIsInCheck = isInCheck(currentBoard, nextPlayer, nextPlayerKingPosition);
+    const nextTurnIsCheckmate = isCheckmate(currentBoard, nextPlayer, nextPlayerKingPosition);
 
     const movedFrom = (from: GridCoordinates) :boolean => areSamePositions(pieceMovedFromPosition, from)
 
-    const next : AnnotatedBoard = {
-        board,
+    const next : BoardAnnotations = {
         lastPlayerMoved: lastMoved,
         lastPieceMoved: Piece.WhitePawn,
         lastMoveFrom: pieceMovedFromPosition,
@@ -50,24 +50,24 @@ function nextAnnotatedBoard(previous: AnnotatedBoard,
         whoseTurn: nextPlayer,
         isInCheck: nextTurnIsInCheck,
         isCheckmate: nextTurnIsCheckmate,
-        passantInfo: makePassantInfo(previous.board, pieceMovedFromPosition, pieceMovedToPosition),
+        passantInfo: makePassantInfo(previousBoard, pieceMovedFromPosition, pieceMovedToPosition),
         CastlingPreclusions:{
             Black:{
-                kingSide: previous.CastlingPreclusions.Black.kingSide || movedFrom(Position.F8) || movedFrom(Position.H8),
-                queenSide: previous.CastlingPreclusions.Black.queenSide || movedFrom(Position.F8) || movedFrom(Position.A8)
+                kingSide: previousAnnotations.CastlingPreclusions.Black.kingSide || movedFrom(Position.F8) || movedFrom(Position.H8),
+                queenSide: previousAnnotations.CastlingPreclusions.Black.queenSide || movedFrom(Position.F8) || movedFrom(Position.A8)
             },
             White:{
-                kingSide: previous.CastlingPreclusions.White.kingSide || movedFrom(Position.F1) || movedFrom(Position.H1),
-                queenSide: previous.CastlingPreclusions.White.queenSide || movedFrom(Position.F1) || movedFrom(Position.A1)
+                kingSide: previousAnnotations.CastlingPreclusions.White.kingSide || movedFrom(Position.F1) || movedFrom(Position.H1),
+                queenSide: previousAnnotations.CastlingPreclusions.White.queenSide || movedFrom(Position.F1) || movedFrom(Position.A1)
             }
         },
         capturedPieces:{
-            Black: makeCapturedPieces(previous.board, previous.capturedPieces.Black, Player.Black, pieceMovedToPosition),
-            White:makeCapturedPieces(previous.board, previous.capturedPieces.White, Player.White, pieceMovedToPosition)
+            Black: makeCapturedPieces(previousBoard, previousAnnotations.capturedPieces.Black, Player.Black, pieceMovedToPosition),
+            White:makeCapturedPieces(previousBoard, previousAnnotations.capturedPieces.White, Player.White, pieceMovedToPosition)
         }
     }
 
-    return previous;
+    return next;
 }
 
-export default nextAnnotatedBoard;
+export default nextBoardAnnotations;

@@ -1,5 +1,4 @@
-interface AnnotatedBoard  {
-    board: Board,
+interface BoardAnnotations  {
     lastPlayerMoved:Player,
     lastPieceMoved: Piece,
     lastMoveFrom: GridCoordinates,

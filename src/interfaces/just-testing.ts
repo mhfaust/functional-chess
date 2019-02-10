@@ -1,8 +1,7 @@
 import { initialBoard } from "board-utils/index";
 import { Position } from "constants/position";
 
-const x: AnnotatedBoard = {
-    board: initialBoard(),
+const x: BoardAnnotations = {
     lastPlayerMoved: Player.White,
     lastPieceMoved: Piece.WhitePawn,
     lastMoveFrom: Position.E2,
