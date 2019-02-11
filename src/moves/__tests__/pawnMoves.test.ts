@@ -1,9 +1,9 @@
 import pawnMoves from '../pawnMoves';
-import { positionName } from 'position-utils/index'
+import { positionName, locatePiece } from 'position-utils/index'
 import { Position }  from 'constants/position';
 import { BK,BQ,BR,BN,BB,BP,WK,WQ,WR,WN,WB,WP,__ } from 'board-utils/pieces-shorthand';
 
-const pawn1Board = (): Board => [
+const pawn1Board: Board = [
     /*         1  2  3  4  5  6  7  8  */
     /*  A  */ [WR,WP,__,__,__,__,BP,BR],
     /*  B  */ [WN,WP,__,BP,__,__,__,BN],
@@ -14,6 +14,13 @@ const pawn1Board = (): Board => [
     /*  G  */ [WN,WP,__,__,BP,__,__,BN],
     /*  H  */ [WR,__,__,WP,BP,__,__,BR],
     ];
+
+const pawn1boardAnnotations:HasPassantInfo & HasKingPositions = {
+    blackKingPosition: locatePiece(pawn1Board, Piece.BlackKing),
+    whiteKingPosition: locatePiece(pawn1Board, Piece.WhiteKing),
+    pawnAt: null,
+    passedPosition:null
+}
 
 describe('white pawn', () => {
 
@@ -31,8 +38,8 @@ describe('white pawn', () => {
     testCases.forEach((testCase) => {
         it(`provides all possible moves from pawn at ${positionName(testCase.pawnPosition)} on pawn1board: `, () => {
 
-            const board =  pawn1Board();
-            const foundMoves = pawnMoves(board, testCase.pawnPosition, Position.E1);
+            const board =  pawn1Board;
+            const foundMoves = pawnMoves(board, testCase.pawnPosition, pawn1boardAnnotations);
     
             expect(foundMoves).toEqual(new Set(testCase.attackedPositions.map(positionName)));
         })
@@ -56,8 +63,8 @@ describe('black pawn', () => {
     testCases.forEach((testCase) => {
         it(`provides all possible moves from pawn at ${positionName(testCase.pawnPosition)} on pawn1board: `, () => {
 
-            const board =  pawn1Board();
-            const foundMoves = pawnMoves(board, testCase.pawnPosition, Position.E8);
+            const board =  pawn1Board;
+            const foundMoves = pawnMoves(board, testCase.pawnPosition, pawn1boardAnnotations);
     
             expect(foundMoves).toEqual(new Set(testCase.attackedPositions.map(positionName)));
         })
@@ -80,35 +87,54 @@ describe('en passant', () => {
 
     it('black pawn can attack a square passed by a white pawn moving from rank 2 to 4', () => {
 
-        const passantInfo:PassantInfo = {
-            passedPosition:Position.E3,
-            pawnAt:Position.E4
-        }
+        const annotations = {
+            blackKingPosition: locatePiece(board, Piece.BlackKing),
+            whiteKingPosition: locatePiece(board, Piece.WhiteKing),
+            pawnAt: Position.E4,
+            passedPosition:Position.E3
+        }; 
 
-        const foundMoves = pawnMoves(board, Position.D4, Position.E8, passantInfo);
+        const foundMoves = pawnMoves(board, Position.D4, annotations);
         expect(foundMoves).toContain(positionName(Position.E3));
     });
 
     it('black pawn cannot attack a passant-looking square if passant info is null', () => {
-        //this a "control-case" correlate to the previous test.
-        const foundMoves = pawnMoves(board, Position.D4, Position.E8, null);
+        
+        const annotations:HasPassantInfo & HasKingPositions = {
+            blackKingPosition: locatePiece(board, Piece.BlackKing),
+            whiteKingPosition: locatePiece(board, Piece.WhiteKing),
+            pawnAt: null,
+            passedPosition:null
+        };
+
+        const foundMoves = pawnMoves(board, Position.D4, annotations);
         expect(foundMoves).not.toContain(positionName(Position.E3));
     });
 
     it('white pawn can attack a square passed by a black pawn moving from rank 2 to 4', () => {
 
-        const passantInfo:PassantInfo = {
-            passedPosition:Position.G6,
-            pawnAt:Position.G5
-        }
+        const annotations:HasPassantInfo & HasKingPositions = {
+            blackKingPosition: locatePiece(board, Piece.BlackKing),
+            whiteKingPosition: locatePiece(board, Piece.WhiteKing),
+            pawnAt: Position.G5,
+            passedPosition:Position.G6
+        };
 
-        const foundMoves = pawnMoves(board, Position.H5, Position.E1, passantInfo);
+
+        const foundMoves = pawnMoves(board, Position.H5, annotations);
         expect(foundMoves).toContain(positionName(Position.G6));
     });
 
     it('white pawn cannot attack a passant-looking square if passant info is null', () => {
-        //this a "control-case" correlate to the previous test.
-        const foundMoves = pawnMoves(board, Position.H5, Position.E1, null);
+        
+        const annotations:HasPassantInfo & HasKingPositions = {
+            blackKingPosition: locatePiece(board, Piece.BlackKing),
+            whiteKingPosition: locatePiece(board, Piece.WhiteKing),
+            pawnAt: null,
+            passedPosition:null
+        };
+
+        const foundMoves = pawnMoves(board, Position.H5, annotations);
         expect(foundMoves).not.toContain(positionName(Position.G6));
     });
 });
@@ -129,8 +155,15 @@ describe('check', () => {
         const expectedLegalMoves = new Set([
             PositionName.G3,
         ])
+
+        const annotations:HasPassantInfo & HasKingPositions = {
+            blackKingPosition: locatePiece(board, Piece.BlackKing),
+            whiteKingPosition: locatePiece(board, Piece.WhiteKing),
+            pawnAt: null,
+            passedPosition:null
+        };
     
-        const foundLegalMoves = pawnMoves(board, Position.F2, Position.E1, null);
+        const foundLegalMoves = pawnMoves(board, Position.F2, annotations);
 
         expect(foundLegalMoves).toEqual(expectedLegalMoves)
     });
@@ -148,8 +181,15 @@ describe('check', () => {
             /*  H  */ [__,__,__,BQ,__,__,__,__],
         ];
         const expectedLegalMoves = new Set([])
+
+        const annotations:HasPassantInfo & HasKingPositions = {
+            blackKingPosition: locatePiece(board, Piece.BlackKing),
+            whiteKingPosition: locatePiece(board, Piece.WhiteKing),
+            pawnAt: null,
+            passedPosition:null
+        };
     
-        const foundLegalMoves = pawnMoves(board, Position.F2, Position.E1, null);
+        const foundLegalMoves = pawnMoves(board, Position.F2, annotations);
 
         expect(foundLegalMoves).toEqual(expectedLegalMoves)
     });

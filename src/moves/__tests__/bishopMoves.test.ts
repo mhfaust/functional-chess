@@ -1,5 +1,5 @@
 import bishopMoves from '../bishopMoves';
-import { positionName } from 'position-utils/index';
+import { positionName, locatePiece } from 'position-utils/index';
 import { Position } from 'constants/position';
 import { BK,BQ,BR,BN,BB,BP,WK,WQ,WR,WN,WB,WP,__ } from 'board-utils/pieces-shorthand';
 
@@ -13,7 +13,7 @@ describe('bishop', () => {
             /*  B  */ [__,__,__,__,__,WP,__,__],
             /*  C  */ [__,__,__,__,__,__,__,__],
             /*  D  */ [__,__,__,WB,__,__,__,__],
-            /*  E  */ [WK,__,__,__,__,__,__,__],
+            /*  E  */ [WK,__,__,__,__,__,__,BK],
             /*  F  */ [__,__,__,__,__,__,__,__],
             /*  G  */ [__,__,__,__,__,__,BP,__],
             /*  H  */ [__,__,__,__,__,__,__,BR],
@@ -30,9 +30,14 @@ describe('bishop', () => {
             Position.B2,
             Position.A1,
             Position.C5
-        ].map(positionName))
+        ].map(positionName));
 
-        const foundLegalMoves = bishopMoves(board, Position.D4, Position.E1);
+        const annotations = {
+            blackKingPosition: locatePiece(board, Piece.BlackKing),
+            whiteKingPosition: locatePiece(board, Piece.WhiteKing),
+        }
+
+        const foundLegalMoves = bishopMoves(board, Position.D4, annotations);
 
         expect(foundLegalMoves).toEqual(expectedLegalMoves)
     })
@@ -44,7 +49,7 @@ describe('bishop', () => {
             /*  B  */ [__,__,__,__,__,__,__,__],
             /*  C  */ [__,__,__,__,__,__,__,__],
             /*  D  */ [__,__,__,WB,__,__,__,__],
-            /*  E  */ [__,__,__,__,__,__,__,__],
+            /*  E  */ [__,__,__,__,__,__,__,BK],
             /*  F  */ [__,__,__,__,__,__,__,__],
             /*  G  */ [__,__,__,__,__,__,BB,__],
             /*  H  */ [__,__,__,__,__,__,__,BR],
@@ -56,9 +61,14 @@ describe('bishop', () => {
             Position.G7,
             Position.C3,
             Position.B2,
-        ].map(positionName))
+        ].map(positionName));
 
-        const foundLegalMoves = bishopMoves(board, Position.D4, Position.A1);
+        const annotations = {
+            blackKingPosition: locatePiece(board, Piece.BlackKing),
+            whiteKingPosition: locatePiece(board, Piece.WhiteKing),
+        }
+
+        const foundLegalMoves = bishopMoves(board, Position.D4, annotations);
 
         expect(foundLegalMoves).toEqual(expecteLegalMoves)   
     })

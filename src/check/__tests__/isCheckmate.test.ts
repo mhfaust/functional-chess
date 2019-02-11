@@ -1,6 +1,7 @@
 import isCheckmate from '../isCheckmate';
 import { Position } from 'constants/position';
 import { BK,BQ,BR,BN,BB,BP,WK,WQ,WR,WN,WB,WP,__ } from 'board-utils/pieces-shorthand';
+import { locatePiece } from 'position-utils/index';
 
 describe('isCheckmate', () => {
    
@@ -17,7 +18,12 @@ describe('isCheckmate', () => {
 /*  H  */ [__,__,__,__,__,WQ,BP,__],
         ];
 
-        expect(isCheckmate(board, Player.Black, Position.G8)).toBe(false)
+        const annotations:HasKingPositions = {
+            blackKingPosition: locatePiece(board, Piece.BlackKing),
+            whiteKingPosition: locatePiece(board, Piece.WhiteKing)
+        };
+
+        expect(isCheckmate(board, Player.Black, annotations)).toBe(false)
     });
 
     it('is NOT in checkmate (king can move out of check)', () => {
@@ -33,7 +39,12 @@ describe('isCheckmate', () => {
 /*  H  */ [__,__,__,__,__,__,WB,__],
         ];
 
-        expect(isCheckmate(board, Player.Black, Position.G8)).toBe(false)
+        const annotations:HasKingPositions = {
+            blackKingPosition: locatePiece(board, Piece.BlackKing),
+            whiteKingPosition: locatePiece(board, Piece.WhiteKing)
+        };
+
+        expect(isCheckmate(board, Player.Black, annotations)).toBe(false)
     });  
 
     it('is NOT in checkmate (king can take attacker)', () => {
@@ -49,7 +60,12 @@ describe('isCheckmate', () => {
 /*  H  */ [__,__,__,__,__,__,WB,__],
         ];
 
-        expect(isCheckmate(board, Player.Black, Position.G8)).toBe(false)
+        const annotations:HasKingPositions = {
+            blackKingPosition: locatePiece(board, Piece.BlackKing),
+            whiteKingPosition: locatePiece(board, Piece.WhiteKing)
+        };
+
+        expect(isCheckmate(board, Player.Black, annotations)).toBe(false)
     });
 
     it('is in checkmate (1)', () => {
@@ -65,7 +81,12 @@ describe('isCheckmate', () => {
 /*  H  */ [__,__,__,__,__,__,BP,__],
         ];
 
-        expect(isCheckmate(board, Player.Black, Position.G8)).toBe(true)
+        const annotations:HasKingPositions = {
+            blackKingPosition: locatePiece(board, Piece.BlackKing),
+            whiteKingPosition: locatePiece(board, Piece.WhiteKing)
+        };
+
+        expect(isCheckmate(board, Player.Black, annotations)).toBe(true)
     });
 
     it('is in checkmate (2)', () => {
@@ -81,7 +102,12 @@ describe('isCheckmate', () => {
 /*  H  */ [__,__,__,__,__,__,WQ,__],
         ];
 
-        expect(isCheckmate(board, Player.Black, Position.G8)).toBe(true)
+        const annotations:HasKingPositions = {
+            blackKingPosition: locatePiece(board, Piece.BlackKing),
+            whiteKingPosition: locatePiece(board, Piece.WhiteKing)
+        };
+
+        expect(isCheckmate(board, Player.Black, annotations)).toBe(true)
     });    
 
     it('is in checkmate (3)', () => {
@@ -97,7 +123,12 @@ describe('isCheckmate', () => {
 /*  H  */ [__,BR,__,WP,__,WQ,BP,__],
         ];
 
-        expect(isCheckmate(board, Player.White, Position.G1)).toBe(true)
+        const annotations:HasKingPositions = {
+            blackKingPosition: locatePiece(board, Piece.BlackKing),
+            whiteKingPosition: locatePiece(board, Piece.WhiteKing)
+        };
+
+        expect(isCheckmate(board, Player.White, annotations)).toBe(true)
     });  
    
     it('is in checkmate (4) -- double check!', () => {
@@ -113,7 +144,12 @@ describe('isCheckmate', () => {
 /*  H  */ [__,__,__,__,__,__,__,__], 
         ];
 
-        expect(isCheckmate(board, Player.White, Position.D1)).toBe(true)
+        const annotations:HasKingPositions = {
+            blackKingPosition: locatePiece(board, Piece.BlackKing),
+            whiteKingPosition: locatePiece(board, Piece.WhiteKing)
+        };
+
+        expect(isCheckmate(board, Player.White, annotations)).toBe(true)
     });     
     
     it('is in checkmate (5)', () => {
@@ -129,7 +165,12 @@ describe('isCheckmate', () => {
 /*  H  */ [__,__,__,__,BQ,__,__,__], 
         ];
 
-        expect(isCheckmate(board, Player.White, Position.D1)).toBe(true)
+        const annotations:HasKingPositions = {
+            blackKingPosition: locatePiece(board, Piece.BlackKing),
+            whiteKingPosition: locatePiece(board, Piece.WhiteKing)
+        };
+
+        expect(isCheckmate(board, Player.White, annotations)).toBe(true)
     }); 
 
     it('is NOT in checkmate (5 - knight removed)', () => {
@@ -145,6 +186,11 @@ describe('isCheckmate', () => {
 /*  H  */ [__,__,__,__,BQ,__,__,__], 
         ];
 
-        expect(isCheckmate(board, Player.White, Position.D1)).toBe(false)
+        const annotations:HasKingPositions = {
+            blackKingPosition: locatePiece(board, Piece.BlackKing),
+            whiteKingPosition: locatePiece(board, Piece.WhiteKing)
+        };
+
+        expect(isCheckmate(board, Player.White, annotations)).toBe(false)
     });
 })

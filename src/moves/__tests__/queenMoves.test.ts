@@ -1,5 +1,5 @@
 import queenMoves from '../queenMoves';
-import { positionName } from 'position-utils/index'
+import { positionName, locatePiece } from 'position-utils/index'
 // import { textRender } from 'board-utils/index';
 import { Position } 
     from 'constants/position';
@@ -36,7 +36,13 @@ describe('queen', () => {
             Position.B3,
             Position.A4
         ].map(positionName))
-        const foundattackedPositions = queenMoves(board, Position.C2, Position.E1);
+
+        const annotations:HasKingPositions = {
+            blackKingPosition: locatePiece(board, Piece.BlackKing),
+            whiteKingPosition: locatePiece(board, Piece.WhiteKing)
+        };
+        
+        const foundattackedPositions = queenMoves(board, Position.C2, annotations);
 
         expect(foundattackedPositions).toEqual(expectedattackedPositions)
     });
@@ -59,9 +65,14 @@ describe('queen', () => {
             PositionName.E5,
             PositionName.E6,
             PositionName.E7,
-        ])
+        ]);
+
+        const annotations:HasKingPositions = {
+            blackKingPosition: locatePiece(board, Piece.BlackKing),
+            whiteKingPosition: locatePiece(board, Piece.WhiteKing)
+        };
     
-        const foundLegalMoves = queenMoves(board, Position.E4, Position.E8);
+        const foundLegalMoves = queenMoves(board, Position.E4, annotations);
 
         expect(foundLegalMoves).toEqual(expectedLegalMoves)
     });

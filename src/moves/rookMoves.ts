@@ -3,14 +3,15 @@ import { playerAt, displaceTo, isOnBoard, isUnOccupied,
     from 'position-utils/index';
 import { isInCheck } from 'check/index';
 import { nextBoard } from 'moves/index';
+import movesIntoCheck from 'check/movesIntoCheck';
 
-function rook(board: Board, moveFrom: GridCoordinates, kingPosition: GridCoordinates): Set<PositionName> {
+function rook(board: Board, moveFrom: GridCoordinates, boardAnnotations:HasKingPositions): Set<PositionName> {
     
     const player = playerAt(board, moveFrom);
     const directions = [[0,1], [0,-1], [1,0], [-1,0]];
     const legalMoves : Array<GridCoordinates> = [];
 
-    const doesntPutSelfInCheck = (position:GridCoordinates):boolean => !isInCheck(nextBoard(board, moveFrom, position), player, kingPosition);
+    const doesntPutSelfInCheck = (position:GridCoordinates):boolean => !isInCheck(nextBoard(board, moveFrom, position), player, boardAnnotations);
 
     directions.forEach((direction) => {
         let examinedPosition = displaceTo(moveFrom, direction);
@@ -23,7 +24,10 @@ function rook(board: Board, moveFrom: GridCoordinates, kingPosition: GridCoordin
             legalMoves.push(examinedPosition);
     });
 
-    return new Set(legalMoves.filter(doesntPutSelfInCheck).map(positionName));
+    return new Set(legalMoves
+        .filter(position => !movesIntoCheck(board, moveFrom, position, boardAnnotations))
+        .map(positionName)
+    );
 }
 
 export default rook;

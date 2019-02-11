@@ -1,10 +1,13 @@
-import { nextBoard } from 'moves/index';
 import { generateLinesOfAttack } from 'check/index';
-import { displaceTo, otherPlayer, playerAt, isOnBoard, pieceAt } from 'position-utils/index';
+import { displaceTo, otherPlayer, playerAt, isOnBoard } from 'position-utils/index';
 import { kingVectors } from 'constants/move-vectors';
-import isInCheck from 'check/isInCheck';
+import movesIntoCheck from 'check/movesIntoCheck';
 
-function isCheckmate(board: Board, defender: Player, kingPosition: GridCoordinates){
+function isCheckmate(board: Board, defender: Player, boardAnnotations: HasKingPositions){
+    
+    const  kingPosition = defender === Player.Black 
+        ? boardAnnotations.blackKingPosition 
+        : boardAnnotations.whiteKingPosition;
 
     //is there any way to get out of check by moving the king?
     for(let i = 0; i < kingVectors.length; i++){
@@ -12,9 +15,7 @@ function isCheckmate(board: Board, defender: Player, kingPosition: GridCoordinat
         const kingMovesTo = displaceTo(kingPosition, vector);
 
         if(isOnBoard(kingMovesTo) && playerAt(board, kingMovesTo) !== defender){
-            
-            const boardAfterMove  = nextBoard(board, kingPosition, kingMovesTo);
-            if( !isInCheck(boardAfterMove, defender, kingMovesTo) ){
+            if( !movesIntoCheck(board, kingPosition, kingMovesTo, boardAnnotations) ){
                 return false;
             } 
         }   
@@ -26,14 +27,14 @@ function isCheckmate(board: Board, defender: Player, kingPosition: GridCoordinat
         return false;
     }
     
-    //There's no way to remove check from 2 pieces w/o moving the king
+    //There's no way to remove check from 2 pieces w/o moving the king,
+    //which we just tried.
     const secondLine = attackLines.next();
     if(secondLine.value){
         return true
     }
 
     const attacker = otherPlayer(defender);
-    const kingPiece = defender === Player.Black ? Piece.BlackKing : Piece.WhiteKing
 
     for(let positionOnCheckLine of checkLine.value){
         const defensiveMoves = generateLinesOfAttack(board, attacker, positionOnCheckLine);
@@ -46,15 +47,11 @@ function isCheckmate(board: Board, defender: Player, kingPosition: GridCoordinat
             //ending at a defender's piece:
             const defensiveMove: Array<GridCoordinates> = defensiveMoveInfo.value;
             const defendingPieceMovesFrom: GridCoordinates = defensiveMove[defensiveMove.length -1];
-            //we need to exclude moving the king piece  --
-            //we already ruled out that it can move, and considering it
-            //would complicate examining the resulting board for check:          
-            if(pieceAt(board, defendingPieceMovesFrom) !== kingPiece){
-                const boardAfterDefensiveMove = nextBoard(board, defendingPieceMovesFrom, positionOnCheckLine);
-                if(!isInCheck(boardAfterDefensiveMove, defender, kingPosition)){
-                    return false;
-                }
+            
+            if(!movesIntoCheck(board, defendingPieceMovesFrom, positionOnCheckLine, boardAnnotations)){
+                return false;
             }
+            
             defensiveMoveInfo = defensiveMoves.next();
         }
     }
@@ -62,21 +59,3 @@ function isCheckmate(board: Board, defender: Player, kingPosition: GridCoordinat
 }
 
 export default isCheckmate;
-
-//ALGORITHM
-
-// Assumes in check
-
-// get all defended king's moves
-//    if any --> not in check --> FALSE
-
-//Find all checking pieces, with array of spaces from attacker to king 
-//    if > 1 --> TRUE   (can't block 2 checking pieces with one move, 
-//       since king can't move, it's checkmate )
-//    
-//    get array of spaces (attack-line) from attacker to king 
-//        for each, get all pieces attacking each space
-//        do any moves blocking or taking the piece take king out of check 
-//                 (do isInCheck on resulting board)s
-//            yes --> FALSE
-//            no --> TRUE

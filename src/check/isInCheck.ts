@@ -1,11 +1,11 @@
 import { locatePiece } from 'position-utils/index';
 import { generateLinesOfAttack } from 'check/index'
 
-function isInCheck(board: Board, player: Player, nullableKingPosition: GridCoordinates){
-    
-    const kingPosition = nullableKingPosition 
-        ? nullableKingPosition 
-        : locatePiece(board, player === Player.Black ? Piece.BlackKing : Piece.WhiteKing);
+function isInCheck(board:Board, player:Player, boardAnnotations:HasKingPositions){
+
+    const  kingPosition = player === Player.Black 
+        ? boardAnnotations.blackKingPosition 
+        : boardAnnotations.whiteKingPosition;
 
     const attackLines = generateLinesOfAttack(board, player, kingPosition);
 

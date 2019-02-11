@@ -1,18 +1,19 @@
-interface BoardAnnotations  {
-    lastPlayerMoved:Player,
-    lastPieceMoved: Piece,
-    lastMoveFrom: GridCoordinates,
-    lastMoveTo:GridCoordinates,
-    whoseTurn:Player,
-    isInCheck:boolean,
-    isCheckmate:boolean,
-    passantInfo:PassantInfo,
-    CastlingPreclusions:{
-        Black:CastlingPreclusion,
-        White:CastlingPreclusion
-    }
+type BoardAnnotations = {
+    lastPlayerMoved:Player;
+    lastPieceMoved: Piece;
+    lastMoveFrom: GridCoordinates;
+    lastMoveTo:GridCoordinates;
+    whoseTurn:Player;
+    isInCheck:boolean;
+    isCheckmate:boolean;
+    pawnAt: GridCoordinates,
+    passedPosition:GridCoordinates,
+    whiteQueenSideCastlingPrecluded:boolean;
+    whiteKingSideCastlingPrecluded:boolean;
+    blackQueenSideCastlingPrecluded:boolean;
+    blackKingSideCastlingPrecluded:boolean;
     capturedPieces:{
-        Black: Array<Piece>,
+        Black: Array<Piece>;
         White: Array<Piece>
     }
 }

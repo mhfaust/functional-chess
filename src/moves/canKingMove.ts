@@ -1,7 +1,7 @@
 import { rank, file, playerAt } from 'position-utils/index';
 import movesIntoCheck from 'check/movesIntoCheck';
 
-function kingCanMove (board: Board, fromPosition: GridCoordinates, toPosition: GridCoordinates) 
+function canKingMove (board: Board, fromPosition: GridCoordinates, toPosition: GridCoordinates, boardAnnotations:HasKingPositions) 
     : boolean {
 
     const player = playerAt(board, fromPosition);
@@ -10,7 +10,7 @@ function kingCanMove (board: Board, fromPosition: GridCoordinates, toPosition: G
         Math.abs(rank(toPosition) - rank(fromPosition)) > 1
         || Math.abs(file(toPosition) - rank(fromPosition)) > 1
         || player === playerAt(board, toPosition)
-        || movesIntoCheck(board, fromPosition, toPosition, toPosition)
+        || movesIntoCheck(board, fromPosition, toPosition, boardAnnotations)
     ){
         return false;
     }
@@ -18,4 +18,4 @@ function kingCanMove (board: Board, fromPosition: GridCoordinates, toPosition: G
     return true;
 }
 
-export default kingCanMove;
+export default canKingMove;

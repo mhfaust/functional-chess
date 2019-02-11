@@ -4,18 +4,17 @@ import { isInCheck } from 'check/index';
 import { nextBoard } from 'moves/index';
 
 import { knightVectors } from 'constants/move-vectors'
+import movesIntoCheck from 'check/movesIntoCheck';
 
-function knight(board: Board, moveFrom: GridCoordinates, kingPosition: GridCoordinates): Set<PositionName> {
+function knight(board: Board, moveFrom: GridCoordinates, boardAnnotations:HasKingPositions): Set<PositionName> {
 
     const player = playerAt(board, moveFrom);
-
-    const doesntPutSelfInCheck = (position: GridCoordinates): boolean => !isInCheck(nextBoard(board, moveFrom, position), player, kingPosition);
 
     return new Set(knightVectors
         .map(vector => displaceTo(moveFrom, vector))
         .filter(isOnBoard)
         .filter(targetPosition => isUnOccupiedByPlayer(board, targetPosition, player))
-        .filter(doesntPutSelfInCheck)
+        .filter(position => !movesIntoCheck(board, moveFrom, position, boardAnnotations))
         .map(positionName));
 }
 

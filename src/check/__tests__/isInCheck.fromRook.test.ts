@@ -1,6 +1,7 @@
 import isInCheck from 'check/isInCheck';
 import { Position } from 'constants/position'
 import { BK,BQ,BR,BN,BB,BP,WK,WQ,WR,WN,WB,WP,__ } from 'board-utils/pieces-shorthand';
+import { locatePiece } from 'position-utils/index';
 
 describe('isInCheck: true', () => {
     it('rook checks king along a rank', () => {
@@ -16,7 +17,12 @@ describe('isInCheck: true', () => {
 /*  H  */ [__,__,__,__,__,__,__,__], 
         ];
 
-        expect(isInCheck(board, Player.Black, Position.E3)).toBe(true)
+        const annotations:HasKingPositions = {
+            blackKingPosition: locatePiece(board, Piece.BlackKing),
+            whiteKingPosition: locatePiece(board, Piece.WhiteKing)
+        };
+
+        expect(isInCheck(board, Player.Black, annotations)).toBe(true)
     });
 
     it('rook checks king along a file', () => {
@@ -32,6 +38,11 @@ describe('isInCheck: true', () => {
 /*  H  */ [__,__,__,__,__,__,__,__], 
         ];
 
-        expect(isInCheck(board, Player.Black, Position.E3)).toBe(true)
+        const annotations:HasKingPositions = {
+            blackKingPosition: locatePiece(board, Piece.BlackKing),
+            whiteKingPosition: locatePiece(board, Piece.WhiteKing)
+        };
+
+        expect(isInCheck(board, Player.Black, annotations)).toBe(true)
     });
 })

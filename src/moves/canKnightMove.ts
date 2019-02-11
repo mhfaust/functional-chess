@@ -1,7 +1,7 @@
 import { isOnBoard, playerAt, file, rank } from 'position-utils/index'
 import movesIntoCheck from 'check/movesIntoCheck';
 
-function canKnightMove (board: Board, fromPosition: GridCoordinates, toPosition: GridCoordinates, kingPosition:GridCoordinates) {
+function canKnightMove (board: Board, fromPosition: GridCoordinates, toPosition: GridCoordinates, annotations:HasKingPositions) {
 
     if(!isOnBoard(toPosition))
         return false;
@@ -21,7 +21,7 @@ function canKnightMove (board: Board, fromPosition: GridCoordinates, toPosition:
     if(rectangularAreaOfDisplacement !== 2)
         return false;
 
-    if(movesIntoCheck(board, fromPosition, toPosition, kingPosition)){
+    if(movesIntoCheck(board, fromPosition, toPosition, annotations)){
         return false;
     }
 

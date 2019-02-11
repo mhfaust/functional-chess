@@ -3,8 +3,10 @@ import { rank, file, playerAt, isOccupied, isUnOccupied,
     areSamePositions} from 'position-utils/index';
 import movesIntoCheck from 'check/movesIntoCheck';
 
-function canPawnMove (board: Board, fromPosition: GridCoordinates, toPosition: GridCoordinates, kingPosition: GridCoordinates, passantInfo:PassantInfo = null)
+function canPawnMove (board: Board, fromPosition: GridCoordinates, toPosition: GridCoordinates, annotations:HasKingPositions & HasPassantInfo)
     :boolean {
+
+    const { passedPosition } = annotations;
     
     const player = playerAt(board, fromPosition);
     const forwardDirection = player === Player.White ? 1 : -1;
@@ -38,7 +40,7 @@ function canPawnMove (board: Board, fromPosition: GridCoordinates, toPosition: G
         if(stepsForward !== 1){
             return false;
         }
-        if(isUnOccupied(board, toPosition) && (!passantInfo || !areSamePositions(toPosition, passantInfo.passedPosition))){
+        if(isUnOccupied(board, toPosition) && (!passedPosition || !areSamePositions(toPosition, passedPosition))){
             return false;
         }
         if(isOccupiedByPlayer(board, toPosition, player)){
@@ -46,8 +48,7 @@ function canPawnMove (board: Board, fromPosition: GridCoordinates, toPosition: G
         }
     }
 
-    if(movesIntoCheck(board, fromPosition, toPosition, kingPosition)){
-        console.log('this is why')
+    if(movesIntoCheck(board, fromPosition, toPosition, annotations)){
         return false;
     }
 

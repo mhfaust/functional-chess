@@ -1,5 +1,6 @@
 import isInCheck from 'check/isInCheck';
 import { BK,BQ,BR,BN,BB,BP,WK,WQ,WR,WN,WB,WP,__ } from 'board-utils/pieces-shorthand';
+import { locatePiece } from 'position-utils/index';
 
 describe('isInCheck: true', () => {
     it('White King  at D4 is in check from Black King at PIECE_POSITION', () => {
@@ -15,7 +16,12 @@ describe('isInCheck: true', () => {
 /*  H  */ [__,__,__,__,__,__,__,__], 
         ];
 
-        expect(isInCheck(board, Player.White, null)).toBe(true)
+        const annotations:HasKingPositions = {
+            blackKingPosition: locatePiece(board, Piece.BlackKing),
+            whiteKingPosition: locatePiece(board, Piece.WhiteKing)
+        };
+
+        expect(isInCheck(board, Player.White, annotations)).toBe(true)
 
     });
 
@@ -32,7 +38,12 @@ describe('isInCheck: true', () => {
 /*  H  */ [__,__,__,__,__,__,__,__], 
         ];
 
-        expect(isInCheck(board, Player.White, null)).toBe(true)
+        const annotations:HasKingPositions = {
+            blackKingPosition: locatePiece(board, Piece.BlackKing),
+            whiteKingPosition: locatePiece(board, Piece.WhiteKing)
+        };
+
+        expect(isInCheck(board, Player.White, annotations)).toBe(true)
 
     });
 
@@ -49,7 +60,12 @@ describe('isInCheck: true', () => {
 /*  H  */ [__,__,__,__,__,__,__,__], 
         ];
 
-        expect(isInCheck(board, Player.White, null)).toBe(true)
+        const annotations:HasKingPositions = {
+            blackKingPosition: locatePiece(board, Piece.BlackKing),
+            whiteKingPosition: locatePiece(board, Piece.WhiteKing)
+        };
+
+        expect(isInCheck(board, Player.White, annotations)).toBe(true)
     });
 })
 
@@ -67,7 +83,12 @@ describe('isInCheck: false', () => {
 /*  H  */ [__,__,__,__,__,__,__,__], 
         ];
 
-        expect(isInCheck(board, Player.White, null)).toBe(false)
+        const annotations:HasKingPositions = {
+            blackKingPosition: locatePiece(board, Piece.BlackKing),
+            whiteKingPosition: locatePiece(board, Piece.WhiteKing)
+        };
+
+        expect(isInCheck(board, Player.White, annotations)).toBe(false)
 
     });
 

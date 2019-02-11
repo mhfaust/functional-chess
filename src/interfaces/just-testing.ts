@@ -9,20 +9,12 @@ const x: BoardAnnotations = {
     whoseTurn: Player.Black,
     isInCheck: false,
     isCheckmate: false,
-    passantInfo: { 
-        passedPosition: null, 
-        pawnAt: null
-    },
-    CastlingPreclusions:{
-        Black:{
-            kingSide:false,
-            queenSide:false
-        },
-        White:{
-            kingSide:false,
-            queenSide:false
-        }
-    },
+    passedPosition: null, 
+    pawnAt: null,
+    whiteQueenSideCastlingPrecluded:false,
+    whiteKingSideCastlingPrecluded:false,
+    blackQueenSideCastlingPrecluded:false,
+    blackKingSideCastlingPrecluded:false,
     capturedPieces:{
         Black:[],
         White:[]

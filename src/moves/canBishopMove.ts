@@ -3,9 +3,9 @@ import { isInCheck } from 'check/index';
 import nextBoard from 'moves/nextBoard';
 import movesIntoCheck from 'check/movesIntoCheck';
 
-function canBishopMove (board: Board, fromPosition: GridCoordinates, toPosition: GridCoordinates, kingPosition: GridCoordinates)
+function canBishopMove (board: Board, fromPosition: GridCoordinates, toPosition: GridCoordinates, annotations:HasKingPositions)
     : boolean {
-        
+
     if(!isOnBoard(toPosition))
         return false;
     
@@ -38,7 +38,7 @@ function canBishopMove (board: Board, fromPosition: GridCoordinates, toPosition:
         step = displaceTo(step, moveVector);
     }
 
-    if(movesIntoCheck(board, fromPosition, toPosition, kingPosition)){
+    if(movesIntoCheck(board, fromPosition, toPosition, annotations)){
         return false;
     }
 

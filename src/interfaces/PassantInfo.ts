@@ -1,4 +1,4 @@
-type PassantInfo = {
+interface HasPassantInfo {
     pawnAt: GridCoordinates,
     passedPosition:GridCoordinates
 }

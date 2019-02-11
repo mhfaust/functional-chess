@@ -4,15 +4,16 @@ import { playerAt, displaceTo, isOnBoard, isUnOccupied, isOccupiedByPlayer,
 import { isInCheck } from 'check/index';
 import { nextBoard } from 'moves/index';
 
-function pawn(board: Board, moveFrom: GridCoordinates, kingPosition:GridCoordinates, passantInfo: PassantInfo = null): Set<PositionName> {
+function pawn(board: Board, moveFrom: GridCoordinates, annotations:HasKingPositions & HasPassantInfo): Set<PositionName> {
     
     const player = playerAt(board, moveFrom);
     const legalMoves: Set<PositionName> = new Set();
     const forwardDirection = player === Player.White ? 1 : -1;
     const initialRank = rank(moveFrom);
     const forward1 = displaceTo(moveFrom, [0, forwardDirection]);
+    const { passedPosition } = annotations;
 
-    const moveNotInCheck = (moveTo:GridCoordinates):boolean => !isInCheck(nextBoard(board, moveFrom, moveTo), player, kingPosition)
+    const moveNotInCheck = (moveTo:GridCoordinates):boolean => !isInCheck(nextBoard(board, moveFrom, moveTo), player, annotations)
      
     //advance moves
     if(isOnBoard(forward1) && isUnOccupied(board, forward1) && moveNotInCheck(forward1)){
@@ -36,7 +37,7 @@ function pawn(board: Board, moveFrom: GridCoordinates, kingPosition:GridCoordina
         const attackedPosition = displaceTo(moveFrom, vector);
 
         if((isOnBoard(attackedPosition) && isOccupiedByPlayer(board, attackedPosition, other))
-            || (passantInfo && areSamePositions(attackedPosition, passantInfo.passedPosition))){
+            || (passedPosition && areSamePositions(attackedPosition, passedPosition))){
                 if(moveNotInCheck(attackedPosition)){
                     legalMoves.add(positionName(attackedPosition));
                 }

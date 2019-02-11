@@ -1,5 +1,6 @@
 import isInCheck from 'check/isInCheck';
 import { BK,BQ,BR,BN,BB,BP,WK,WQ,WR,WN,WB,WP,__ } from 'board-utils/pieces-shorthand';
+import { locatePiece } from 'position-utils/index';
 
 describe('isInCheck: true', () => {
     it('White King at E1 is in check from Black Pawn at D2', () => {
@@ -15,7 +16,12 @@ describe('isInCheck: true', () => {
 /*  H  */ [__,__,__,__,__,__,__,__],
         ];
 
-        expect(isInCheck(board, Player.White, null)).toBe(true)
+        const annotations:HasKingPositions = {
+            blackKingPosition: locatePiece(board, Piece.BlackKing),
+            whiteKingPosition: locatePiece(board, Piece.WhiteKing)
+        };
+
+        expect(isInCheck(board, Player.White, annotations)).toBe(true)
     });
 
     it('White King at E1 is in check from Black Pawn at F2', () => {
@@ -47,7 +53,12 @@ describe('isInCheck: false', () => {
 /*  H  */ [__,__,__,__,__,__,__,__], 
         ];
 
-        expect(isInCheck(board, Player.White, null)).toBe(false)
+        const annotations:HasKingPositions = {
+            blackKingPosition: locatePiece(board, Piece.BlackKing),
+            whiteKingPosition: locatePiece(board, Piece.WhiteKing)
+        };
+
+        expect(isInCheck(board, Player.White, annotations)).toBe(false)
     });
 
     it('White King at E3 is NOT check from Pawn at D3', () => {
@@ -63,7 +74,12 @@ describe('isInCheck: false', () => {
 /*  H  */ [__,__,__,__,__,__,__,__], 
         ];
 
-        expect(isInCheck(board, Player.White, null)).toBe(false)
+        const annotations:HasKingPositions = {
+            blackKingPosition: locatePiece(board, Piece.BlackKing),
+            whiteKingPosition: locatePiece(board, Piece.WhiteKing)
+        };
+
+        expect(isInCheck(board, Player.White, annotations)).toBe(false)
     });
 
     it('White King at E3 is NOT check from Pawn at D2', () => {
@@ -79,7 +95,12 @@ describe('isInCheck: false', () => {
 /*  H  */ [__,__,__,__,__,__,__,__], 
         ];
 
-        expect(isInCheck(board, Player.White, null)).toBe(false)
+        const annotations:HasKingPositions = {
+            blackKingPosition: locatePiece(board, Piece.BlackKing),
+            whiteKingPosition: locatePiece(board, Piece.WhiteKing)
+        };
+
+        expect(isInCheck(board, Player.White, annotations)).toBe(false)
     });
 
     it('White King at E3 is NOT check from Pawn at E2', () => {
@@ -95,7 +116,12 @@ describe('isInCheck: false', () => {
 /*  H  */ [__,__,__,__,__,__,__,__], 
         ];
 
-        expect(isInCheck(board, Player.White, null)).toBe(false)
+        const annotations:HasKingPositions = {
+            blackKingPosition: locatePiece(board, Piece.BlackKing),
+            whiteKingPosition: locatePiece(board, Piece.WhiteKing)
+        };
+
+        expect(isInCheck(board, Player.White, annotations)).toBe(false)
     });
 
     it('White King at E3 is NOT check from Pawn at F2', () => {
@@ -111,7 +137,12 @@ describe('isInCheck: false', () => {
 /*  H  */ [__,__,__,__,__,__,__,__],
         ];
 
-        expect(isInCheck(board, Player.White, null)).toBe(false)
+        const annotations:HasKingPositions = {
+            blackKingPosition: locatePiece(board, Piece.BlackKing),
+            whiteKingPosition: locatePiece(board, Piece.WhiteKing)
+        };
+
+        expect(isInCheck(board, Player.White, annotations)).toBe(false)
     });
 
     it('White King at E3 is NOT check from Pawn at F3', () => {
@@ -127,7 +158,12 @@ describe('isInCheck: false', () => {
 /*  H  */ [__,__,__,__,__,__,__,__], 
         ];
 
-        expect(isInCheck(board, Player.White, null)).toBe(false)
+        const annotations:HasKingPositions = {
+            blackKingPosition: locatePiece(board, Piece.BlackKing),
+            whiteKingPosition: locatePiece(board, Piece.WhiteKing)
+        };
+
+        expect(isInCheck(board, Player.White, annotations)).toBe(false)
     });
 
     it('White King at E5 is NOT check from Pawn at E7', () => {
@@ -143,7 +179,12 @@ describe('isInCheck: false', () => {
 /*  H  */ [__,__,__,__,__,__,__,__], 
         ];
 
-        expect(isInCheck(board, Player.White, null)).toBe(false)
+        const annotations:HasKingPositions = {
+            blackKingPosition: locatePiece(board, Piece.BlackKing),
+            whiteKingPosition: locatePiece(board, Piece.WhiteKing)
+        };
+
+        expect(isInCheck(board, Player.White, annotations)).toBe(false)
     });
 
     it('White King at E5 is NOT check from Pawn at C7', () => {
@@ -159,7 +200,12 @@ describe('isInCheck: false', () => {
 /*  H  */ [__,__,__,__,__,__,__,__], 
         ];
 
-        expect(isInCheck(board, Player.White, null)).toBe(false)
+        const annotations:HasKingPositions = {
+            blackKingPosition: locatePiece(board, Piece.BlackKing),
+            whiteKingPosition: locatePiece(board, Piece.WhiteKing)
+        };
+
+        expect(isInCheck(board, Player.White, annotations)).toBe(false)
     });
 
     it('Black King at G7 IS in check from Pawn at F6', () => {
@@ -175,6 +221,11 @@ describe('isInCheck: false', () => {
 /*  H  */ [__,__,__,__,__,__,BP,__],
         ];
 
-        expect(isInCheck(board, Player.Black, null)).toBe(true)
+        const annotations:HasKingPositions = {
+            blackKingPosition: locatePiece(board, Piece.BlackKing),
+            whiteKingPosition: locatePiece(board, Piece.WhiteKing)
+        };
+
+        expect(isInCheck(board, Player.Black, annotations)).toBe(true)
     });
 })

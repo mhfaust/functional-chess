@@ -1,17 +1,20 @@
 
-import { initialBoard } from 'board-utils/index';
 import { Position } from 'constants/position';
-import { positionName } from 'position-utils/index'
 import { BK,BQ,BR,BN,BB,BP,WK,WQ,WR,WN,WB,WP,__ } from 'board-utils/pieces-shorthand';
 import { kingMoves } from 'moves/index';
+import { locatePiece } from 'position-utils/index';
 
-const noPreclusions:CastlingPreclusion = {
-    kingSide:false,
-    queenSide:false
+const noPreclusions:HasCastlingInfo = {
+    whiteQueenSideCastlingPrecluded:false,
+    whiteKingSideCastlingPrecluded:false,
+    blackQueenSideCastlingPrecluded:false,
+    blackKingSideCastlingPrecluded:false,
 }
-const noCastling:CastlingPreclusion = {
-    kingSide:true,
-    queenSide:true
+const allPrecluded:HasCastlingInfo = {
+    whiteQueenSideCastlingPrecluded:true,
+    whiteKingSideCastlingPrecluded:true,
+    blackQueenSideCastlingPrecluded:true,
+    blackKingSideCastlingPrecluded:true,
 }
 
 describe('kingMoves', () => {
@@ -28,10 +31,16 @@ describe('kingMoves', () => {
         /*  H  */ [WR,WP,__,__,__,__,BP,BR],
         ];
         const expectedLegalMoves = new Set([]);
-    
-        const foundLegalMoves = kingMoves(board, Position.E1, noPreclusions);
 
-        expect(foundLegalMoves).toEqual(expectedLegalMoves)
+        const kingPositions = {
+            whiteKingPosition: locatePiece(board, Piece.WhiteKing),
+            blackKingPosition: locatePiece(board, Piece.BlackKing)
+        }
+        const boardAnnotations = { ...noPreclusions, ...kingPositions };
+
+        const foundLegalMoves = kingMoves(board, Position.E1, boardAnnotations);
+
+        expect(foundLegalMoves).toEqual(expectedLegalMoves);
     });
 
     it('King moves any diection, only one square', () => {
@@ -56,8 +65,14 @@ describe('kingMoves', () => {
             PositionName.E7,
             PositionName.E8,
         ]);
+
+        const kingPositions = {
+            whiteKingPosition: locatePiece(board, Piece.WhiteKing),
+            blackKingPosition: locatePiece(board, Piece.BlackKing)
+        }
+        const boardAnnotations = { ...allPrecluded, ...kingPositions };
     
-        const foundLegalMoves = kingMoves(board, Position.D7, noCastling);
+        const foundLegalMoves = kingMoves(board, Position.D7, boardAnnotations);
 
         expect(foundLegalMoves).toEqual(expectedLegalMoves)
     });
@@ -74,8 +89,14 @@ describe('kingMoves', () => {
         /*  G  */ [WN,__,__,__,__,__,__,__],
         /*  H  */ [WR,__,__,__,__,__,__,__], 
         ];
+
+        const kingPositions = {
+            whiteKingPosition: locatePiece(board, Piece.WhiteKing),
+            blackKingPosition: locatePiece(board, Piece.BlackKing)
+        }
+        const boardAnnotations = { ...noPreclusions, ...kingPositions };
     
-        const foundLegalMoves = kingMoves(board, Position.E1, noPreclusions);
+        const foundLegalMoves = kingMoves(board, Position.E1, boardAnnotations);
 
         expect(foundLegalMoves).toEqual(new Set([]));
     });
@@ -92,8 +113,14 @@ describe('kingMoves', () => {
         /*  G  */ [__,WP,__,__,__,__,BP,BN],
         /*  H  */ [WR,WP,__,__,__,__,BP,BR],
         ]; 
+
+        const kingPositions = {
+            whiteKingPosition: locatePiece(board, Piece.WhiteKing),
+            blackKingPosition: locatePiece(board, Piece.BlackKing)
+        }
+        const boardAnnotations = { ...noPreclusions, ...kingPositions };
     
-        const foundLegalMoves = kingMoves(board, Position.E1, noPreclusions);
+        const foundLegalMoves = kingMoves(board, Position.E1, boardAnnotations);
 
         expect(foundLegalMoves).toContain(PositionName.G1)
     });  
@@ -112,7 +139,13 @@ describe('kingMoves', () => {
         /*  H  */ [WR,__,__,__,__,__,__,__], 
         ];
     
-        const foundLegalMoves = kingMoves(board, Position.E1, noPreclusions);
+        const kingPositions = {
+            whiteKingPosition: locatePiece(board, Piece.WhiteKing),
+            blackKingPosition: locatePiece(board, Piece.BlackKing)
+        }
+        const boardAnnotations = { ...noPreclusions, ...kingPositions };
+
+        const foundLegalMoves = kingMoves(board, Position.E1, boardAnnotations);
 
         expect(foundLegalMoves).not.toContain(PositionName.G1)
     });
@@ -130,8 +163,14 @@ describe('kingMoves', () => {
         /*  G  */ [__,__,__,__,__,__,__,BR],
         /*  H  */ [WR,__,__,__,__,__,__,__], 
         ];
+
+        const kingPositions = {
+            whiteKingPosition: locatePiece(board, Piece.WhiteKing),
+            blackKingPosition: locatePiece(board, Piece.BlackKing)
+        }
+        const boardAnnotations = { ...noPreclusions, ...kingPositions };
     
-        const foundLegalMoves = kingMoves(board, Position.E1, noPreclusions);
+        const foundLegalMoves = kingMoves(board, Position.E1, boardAnnotations);
 
         expect(foundLegalMoves).not.toContain(PositionName.G1)
     });
@@ -148,47 +187,15 @@ describe('kingMoves', () => {
         /*  G  */ [WK,WP,__,BB,__,__,BP,BN],
         /*  H  */ [__,WP,__,__,__,__,BP,BR],
         ]; 
+
+        const kingPositions = {
+            whiteKingPosition: locatePiece(board, Piece.WhiteKing),
+            blackKingPosition: locatePiece(board, Piece.BlackKing)
+        }
+        const boardAnnotations = { ...noPreclusions, ...kingPositions };
     
-        const foundLegalMoves = kingMoves(board, Position.E8, noPreclusions);
+        const foundLegalMoves = kingMoves(board, Position.E8, boardAnnotations);
 
         expect(foundLegalMoves).toContain(PositionName.C8)
     });  
-    
-    
-    it('White king cannot castle across check', () => {
-        const board: Board = [
-        /*         1  2  3  4  5  6  7  8  */
-        /*  A  */ [WR,__,__,__,__,__,__,__],
-        /*  B  */ [__,__,__,__,__,__,__,__],
-        /*  C  */ [__,__,__,__,__,__,__,__],
-        /*  D  */ [__,__,__,__,__,__,__,BK],
-        /*  E  */ [WK,__,__,__,__,__,__,__],
-        /*  F  */ [__,__,__,__,__,__,__,BR],
-        /*  G  */ [__,__,__,__,__,__,__,__],
-        /*  H  */ [WR,__,__,__,__,__,__,__], 
-        ];
-    
-        const foundLegalMoves = kingMoves(board, Position.E1, noPreclusions);
-
-        expect(foundLegalMoves).not.toContain(PositionName.G1)
-    });
-
-     
-    it('White king cannot castle into check', () => {
-        const board: Board = [
-        /*         1  2  3  4  5  6  7  8  */
-        /*  A  */ [WR,__,__,__,__,__,__,__],
-        /*  B  */ [__,__,__,__,__,__,__,__],
-        /*  C  */ [__,__,__,__,__,__,__,__],
-        /*  D  */ [__,__,__,__,__,__,__,BK],
-        /*  E  */ [WK,__,__,__,__,__,__,__],
-        /*  F  */ [__,__,__,__,__,__,__,__],
-        /*  G  */ [__,__,__,__,__,__,__,BR],
-        /*  H  */ [WR,__,__,__,__,__,__,__], 
-        ];
-    
-        const foundLegalMoves = kingMoves(board, Position.E1, noPreclusions);
-
-        expect(foundLegalMoves).not.toContain(PositionName.G1)
-    });
 })

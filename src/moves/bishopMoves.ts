@@ -7,8 +7,8 @@ import { isInCheck } from 'check/index';
 import { nextBoard } from 'moves/index';
 import movesIntoCheck from 'check/movesIntoCheck';
 
-function bishop(board: Board, moveFrom: GridCoordinates, kingPosition: GridCoordinates): Set<PositionName> {
-    
+function bishop(board: Board, moveFrom: GridCoordinates, annotations:HasKingPositions): Set<PositionName> {
+
     const player = playerAt(board, moveFrom);
 
     const legalMoves: Array<GridCoordinates> = [];
@@ -29,7 +29,7 @@ function bishop(board: Board, moveFrom: GridCoordinates, kingPosition: GridCoord
     });
 
     return new Set(legalMoves
-        .filter(moveTo => !movesIntoCheck(board, moveFrom, moveTo, kingPosition))
+        .filter(moveTo => !movesIntoCheck(board, moveFrom, moveTo, annotations))
         .map(positionName)
     );
 }
