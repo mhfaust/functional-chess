@@ -3,7 +3,7 @@ interface MoveStrategy {
         board: Board, 
         fromPosition: GridCoordinates, 
         toPosition: GridCoordinates, 
-        annotations:HasKingPositions
+        annotations: HasKingPositions
     )
     :boolean
 }

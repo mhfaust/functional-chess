@@ -3,7 +3,11 @@ import { rank, file, playerAt, isOccupied, isUnOccupied,
     areSamePositions} from 'position-utils/index';
 import movesIntoCheck from 'check/movesIntoCheck';
 
-function canPawnMove (board: Board, fromPosition: GridCoordinates, toPosition: GridCoordinates, boardAnnotations:HasKingPositions & HasPassantInfo)
+function canPawnMove (
+        board: Board, 
+        fromPosition: GridCoordinates, 
+        toPosition: GridCoordinates, 
+        boardAnnotations:HasKingPositions & HasPassantInfo)
     :boolean {
 
     const { passedPosition } = boardAnnotations;

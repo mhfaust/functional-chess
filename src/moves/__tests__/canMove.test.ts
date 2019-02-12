@@ -1,6 +1,6 @@
 import { locatePiece } from "position-utils/index";
 import { Position } from "constants/position";
-import { WK, __, BB, WB, BR } from "board-utils/pieces-shorthand";
+import { BK,BQ,BR,BN,BB,BP,WK,WQ,WR,WN,WB,WP,__ } from 'board-utils/pieces-shorthand';
 import canMove from "moves/canMove";
 
 describe('canMove Bishop', () => {
@@ -53,7 +53,28 @@ describe('canMove Knight', () => {
 
 describe('canMove Pawn', () => {
 
-    
+    it('black pawn can attack a square passed by a white pawn moving from rank 2 to 4', () => {
+        const board : Board = [
+            /*         1  2  3  4  5  6  7  8  */
+            /*  A  */ [WR,WP,__,__,__,__,BP,BR],
+            /*  B  */ [WN,WP,__,__,__,__,BP,BN],
+            /*  C  */ [WB,WP,__,__,__,__,BP,BB],
+            /*  D  */ [WQ,WP,__,BP,__,__,__,BQ],
+            /*  E  */ [WK,__,__,WP,__,__,BP,BK],
+            /*  F  */ [WB,WP,__,__,__,__,BP,BB],
+            /*  G  */ [WN,WP,__,__,BP,__,__,BN],
+            /*  H  */ [WR,__,__,__,WP,__,BP,BR],
+        ];
+        const annotations = {
+            whiteKingPosition: locatePiece(board, Piece.WhiteKing),
+            blackKingPosition: locatePiece(board, Piece.BlackKing),
+            passedPosition:Position.E3,
+            pawnAt:Position.E4
+        }
+
+        const answer = canMove(board, Position.D4, Position.E3, annotations);
+        expect(answer).toBe(true);
+    });
 });
 
 
