@@ -7,28 +7,30 @@ const isOkCastle = (board:Board,
     kingTo:GridCoordinates,
     boardAnnotations:HasCastlingInfo & HasKingPositions) => {
 
-        const { whiteQueenSideCastlingPrecluded, 
-            whiteKingSideCastlingPrecluded,
-            blackQueenSideCastlingPrecluded,
-            blackKingSideCastlingPrecluded,
-        } = boardAnnotations;
-
         const player = playerAt(board, kingFrom);
 
         if(player === Player.White){
-            if(!whiteKingSideCastlingPrecluded && areSamePositions(kingTo, Position.G1)){
-                
+            if(!boardAnnotations.whiteKingSideCastlingPrecluded 
+                    && areSamePositions(kingTo, Position.G1)
+                    && !movesIntoCheck(board, Position.E1, Position.F1, boardAnnotations)
+                ){
             }
-            if(!whiteQueenSideCastlingPrecluded && areSamePositions(kingTo, Position.C1)){
-                
+            if(!boardAnnotations.whiteQueenSideCastlingPrecluded 
+                    && areSamePositions(kingTo, Position.C1)
+                    && !movesIntoCheck(board, Position.E1, Position.D1, boardAnnotations)
+                ){
             }
         }
         else if(player === Player.Black){
-            if(!blackKingSideCastlingPrecluded && areSamePositions(kingTo, Position.G8)){
-                
+            if(!boardAnnotations.blackKingSideCastlingPrecluded 
+                    && areSamePositions(kingTo, Position.G8)
+                    && !movesIntoCheck(board, Position.E8, Position.F8, boardAnnotations)
+                ){
             }
-            if(!blackQueenSideCastlingPrecluded && areSamePositions(kingTo, Position.C8)){
-                
+            if(!boardAnnotations.blackQueenSideCastlingPrecluded 
+                    && areSamePositions(kingTo, Position.C8)
+                    && !movesIntoCheck(board, Position.E8, Position.D8, boardAnnotations)
+                ){
             }
         }
     }
