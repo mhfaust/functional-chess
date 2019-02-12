@@ -1,9 +1,7 @@
 import { file, rank, isOnBoard, playerAt, isOccupied, areSamePositions, displaceTo } from 'position-utils/index'
-import { isInCheck } from 'check/index';
-import nextBoard from 'moves/nextBoard';
 import movesIntoCheck from 'check/movesIntoCheck';
 
-function canBishopMove (board: Board, fromPosition: GridCoordinates, toPosition: GridCoordinates, annotations:HasKingPositions)
+function canBishopMove (board: Board, fromPosition: GridCoordinates, toPosition: GridCoordinates, boardAnnotations:HasKingPositions)
     : boolean {
 
     if(!isOnBoard(toPosition))
@@ -38,7 +36,7 @@ function canBishopMove (board: Board, fromPosition: GridCoordinates, toPosition:
         step = displaceTo(step, moveVector);
     }
 
-    if(movesIntoCheck(board, fromPosition, toPosition, annotations)){
+    if(movesIntoCheck(board, fromPosition, toPosition, boardAnnotations)){
         return false;
     }
 

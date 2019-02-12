@@ -3,10 +3,10 @@ import { rank, file, playerAt, isOccupied, isUnOccupied,
     areSamePositions} from 'position-utils/index';
 import movesIntoCheck from 'check/movesIntoCheck';
 
-function canPawnMove (board: Board, fromPosition: GridCoordinates, toPosition: GridCoordinates, annotations:HasKingPositions & HasPassantInfo)
+function canPawnMove (board: Board, fromPosition: GridCoordinates, toPosition: GridCoordinates, boardAnnotations:HasKingPositions & HasPassantInfo)
     :boolean {
 
-    const { passedPosition } = annotations;
+    const { passedPosition } = boardAnnotations;
     
     const player = playerAt(board, fromPosition);
     const forwardDirection = player === Player.White ? 1 : -1;
@@ -48,7 +48,7 @@ function canPawnMove (board: Board, fromPosition: GridCoordinates, toPosition: G
         }
     }
 
-    if(movesIntoCheck(board, fromPosition, toPosition, annotations)){
+    if(movesIntoCheck(board, fromPosition, toPosition, boardAnnotations)){
         return false;
     }
 

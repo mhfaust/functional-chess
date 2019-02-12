@@ -37,3 +37,33 @@ describe('canMove Bishop', () => {
         expect(canMove(board, Position.D4, Position.G1, annotations)).toBe(false);  
     });
 });
+
+
+describe('canMove King', () => {
+
+    
+});
+
+
+describe('canMove Knight', () => {
+
+    
+});
+
+
+describe('canMove Pawn', () => {
+
+    
+});
+
+
+describe('canMove Queen', () => {
+
+    
+});
+
+
+describe('canMove Rook', () => {
+
+    
+});

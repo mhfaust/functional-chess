@@ -1,7 +1,40 @@
-import { rank, file, playerAt } from 'position-utils/index';
+import { rank, file, playerAt, areSamePositions } from 'position-utils/index';
 import movesIntoCheck from 'check/movesIntoCheck';
+import { Position } from 'constants/position';
 
-function canKingMove (board: Board, fromPosition: GridCoordinates, toPosition: GridCoordinates, boardAnnotations:HasKingPositions) 
+const isOkCastle = (board:Board,
+    kingFrom:GridCoordinates,
+    kingTo:GridCoordinates,
+    boardAnnotations:HasCastlingInfo & HasKingPositions) => {
+
+        const { whiteQueenSideCastlingPrecluded, 
+            whiteKingSideCastlingPrecluded,
+            blackQueenSideCastlingPrecluded,
+            blackKingSideCastlingPrecluded,
+        } = boardAnnotations;
+
+        const player = playerAt(board, kingFrom);
+
+        if(player === Player.White){
+            if(!whiteKingSideCastlingPrecluded && areSamePositions(kingTo, Position.G1)){
+                
+            }
+            if(!whiteQueenSideCastlingPrecluded && areSamePositions(kingTo, Position.C1)){
+                
+            }
+        }
+        else if(player === Player.Black){
+            if(!blackKingSideCastlingPrecluded && areSamePositions(kingTo, Position.G8)){
+                
+            }
+            if(!blackQueenSideCastlingPrecluded && areSamePositions(kingTo, Position.C8)){
+                
+            }
+        }
+    }
+
+
+function canKingMove (board: Board, fromPosition: GridCoordinates, toPosition: GridCoordinates, boardAnnotations:HasKingPositions & HasCastlingInfo) 
     : boolean {
 
     const player = playerAt(board, fromPosition);
