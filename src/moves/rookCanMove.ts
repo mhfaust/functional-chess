@@ -2,7 +2,7 @@ import { rank, file, isOnBoard, playerAt, isOccupied, areSamePositions, displace
     from 'position-utils/index';
 import movesIntoCheck from 'check/movesIntoCheck';
 
-function canRookMove (board: Board, fromPosition: GridCoordinates, toPosition: GridCoordinates, boardAnnotations:HasKingPositions)
+function rookCanMove (board: Board, fromPosition: GridCoordinates, toPosition: GridCoordinates, boardAnnotations:HasKingPositions)
     : boolean {
     if(!isOnBoard(toPosition)){
         return false;
@@ -43,4 +43,4 @@ function canRookMove (board: Board, fromPosition: GridCoordinates, toPosition: G
     return true;
 }
 
-export default canRookMove;
+export default rookCanMove;

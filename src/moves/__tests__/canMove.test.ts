@@ -1,7 +1,7 @@
-import { locatePiece } from "position-utils/index";
 import { Position } from "constants/position";
 import { BK,BQ,BR,BN,BB,BP,WK,WQ,WR,WN,WB,WP,__ } from 'board-utils/pieces-shorthand';
 import canMove from "moves/canMove";
+import kingPositions from "board-utils/kingPositions";
 
 describe('canMove Bishop', () => {
     
@@ -18,29 +18,36 @@ describe('canMove Bishop', () => {
         /*  H  */ [__,__,__,__,__,__,__,BR],
         ];
 
-        const annotations = {
-            blackKingPosition: locatePiece(board, Piece.BlackKing),
-            whiteKingPosition: locatePiece(board, Piece.WhiteKing),
-        }
+        const annotations = kingPositions(board)
 
         expect(canMove(board, Position.D4, Position.C3, annotations)).toBe(true);  
-        expect(canMove(board, Position.D4, Position.B2, annotations)).toBe(true);  
-        expect(canMove(board, Position.D4, Position.E5, annotations)).toBe(true);  
-        expect(canMove(board, Position.D4, Position.F6, annotations)).toBe(true);  
-        expect(canMove(board, Position.D4, Position.G7, annotations)).toBe(true);
-
         expect(canMove(board, Position.D4, Position.C5, annotations)).toBe(false);  
-        expect(canMove(board, Position.D4, Position.B6, annotations)).toBe(false);  
-        expect(canMove(board, Position.D4, Position.A7, annotations)).toBe(false);  
-        expect(canMove(board, Position.D4, Position.E3, annotations)).toBe(false);  
-        expect(canMove(board, Position.D4, Position.F2, annotations)).toBe(false);  
-        expect(canMove(board, Position.D4, Position.G1, annotations)).toBe(false);  
     });
 });
 
 
 describe('canMove King', () => {
 
+    const board: Board = [
+        /*         1  2  3  4  5  6  7  8  */
+        /*  A  */ [WR,__,__,__,__,__,__,__],
+        /*  B  */ [__,__,__,__,__,__,__,__],
+        /*  C  */ [__,__,__,__,__,__,__,__],
+        /*  D  */ [__,__,__,__,__,__,__,BK],
+        /*  E  */ [WK,__,__,__,__,__,__,__],
+        /*  F  */ [__,__,__,__,__,__,__,__],
+        /*  G  */ [__,__,__,__,__,__,__,BR],
+        /*  H  */ [WR,__,__,__,__,__,__,__], 
+        ];
+        const noPreclusions:HasCastlingInfo = {
+            whiteQueenSideCastlingPrecluded:false,
+            whiteKingSideCastlingPrecluded:false,
+            blackQueenSideCastlingPrecluded:false,
+            blackKingSideCastlingPrecluded:false,
+        }
+        const boardAnnotations = { ...noPreclusions, ...kingPositions(board) };
+
+        expect(canMove(board, Position.E1, Position.G1, boardAnnotations)).toBe(false)
     
 });
 
@@ -66,8 +73,7 @@ describe('canMove Pawn', () => {
             /*  H  */ [WR,__,__,__,WP,__,BP,BR],
         ];
         const annotations = {
-            whiteKingPosition: locatePiece(board, Piece.WhiteKing),
-            blackKingPosition: locatePiece(board, Piece.BlackKing),
+            ...kingPositions(board),
             passedPosition:Position.E3,
             pawnAt:Position.E4
         }

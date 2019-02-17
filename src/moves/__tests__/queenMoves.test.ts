@@ -4,6 +4,7 @@ import { positionName, locatePiece } from 'position-utils/index'
 import { Position } 
     from 'constants/position';
 import { BQ,BP,WK,WQ,WR,BK,WP,__ } from 'board-utils/pieces-shorthand';
+import { kingPositions } from 'board-utils/index';
 describe('queen', () => {
 
     it(`provides all possible moves from queen on queen1board: `, () => {
@@ -37,12 +38,7 @@ describe('queen', () => {
             Position.A4
         ].map(positionName))
 
-        const annotations:HasKingPositions = {
-            blackKingPosition: locatePiece(board, Piece.BlackKing),
-            whiteKingPosition: locatePiece(board, Piece.WhiteKing)
-        };
-        
-        const foundattackedPositions = queenMoves(board, Position.C2, annotations);
+        const foundattackedPositions = queenMoves(board, Position.C2, kingPositions(board));
 
         expect(foundattackedPositions).toEqual(expectedattackedPositions)
     });
@@ -67,12 +63,7 @@ describe('queen', () => {
             PositionName.E7,
         ]);
 
-        const annotations:HasKingPositions = {
-            blackKingPosition: locatePiece(board, Piece.BlackKing),
-            whiteKingPosition: locatePiece(board, Piece.WhiteKing)
-        };
-    
-        const foundLegalMoves = queenMoves(board, Position.E4, annotations);
+        const foundLegalMoves = queenMoves(board, Position.E4, kingPositions(board));
 
         expect(foundLegalMoves).toEqual(expectedLegalMoves)
     });

@@ -2,7 +2,7 @@ import { playerAt, displaceTo, isOnBoard, isUnOccupied,
     isOccupiedByPlayer, otherPlayer, positionName } 
     from 'position-utils/index';
 import { isInCheck } from 'check/index';
-import { nextBoard } from 'moves/index';
+import { nextBoard } from 'board-utils/index';
 import movesIntoCheck from 'check/movesIntoCheck';
 
 function rook(board: Board, moveFrom: GridCoordinates, boardAnnotations:HasKingPositions): Set<PositionName> {

@@ -1,45 +1,43 @@
-import canKnightMove from 'moves/canKnightMove'
+import knightCanMove from 'moves/knightCanMove'
 import { initialBoard } from 'board-utils/index'
 import { Position } from 'constants/position';
 import { __, WK, WN, BK, BQ } from 'board-utils/pieces-shorthand';
 import { locatePiece } from 'position-utils/index';
+import kingPositions from 'board-utils/kingPositions';
 
-describe('canKnightMove', () => {
+describe('knightCanMove', () => {
 
 
-    const initialAnnotations = {
-        whiteKingPosition: locatePiece(initialBoard(), Piece.WhiteKing),
-        blackKingPosition: locatePiece(initialBoard(), Piece.BlackKing)
-    };
+    const initialAnnotations = kingPositions(initialBoard());
 
     it('reports true attempting to move to empty square, 2 forward, 1 left.', () => {
 
-        const answer = canKnightMove(initialBoard(), Position.B1, Position.A3, initialAnnotations)
+        const answer = knightCanMove(initialBoard(), Position.B1, Position.A3, initialAnnotations)
         expect(answer).toBe(true);
     });
 
     it('reports true attempting to move to empty square, 2 forward, 1 right.', () => {
        
 
-        const answer = canKnightMove(initialBoard(), Position.B1, Position.C3, initialAnnotations)
+        const answer = knightCanMove(initialBoard(), Position.B1, Position.C3, initialAnnotations)
         expect(answer).toBe(true);
     });
 
     it('reports false attempting to move to square occupied by own players piece.', () => {
         
-        const answer = canKnightMove(initialBoard(), Position.B1, Position.C2, initialAnnotations)
+        const answer = knightCanMove(initialBoard(), Position.B1, Position.C2, initialAnnotations)
         expect(answer).toBe(false);
     });
 
     it('reports false attempting to move to mechanically disallowed square', () => {
 
-        const answer = canKnightMove(initialBoard(), Position.B1, Position.B4, initialAnnotations)
+        const answer = knightCanMove(initialBoard(), Position.B1, Position.B4, initialAnnotations)
         expect(answer).toBe(false);
     });
 
     it('reports false attempting to move off-board', () => {
 
-        const answer = canKnightMove(initialBoard(), Position.B1, [-1,1], initialAnnotations)
+        const answer = knightCanMove(initialBoard(), Position.B1, [-1,1], initialAnnotations)
         expect(answer).toBe(false);
     })
 
@@ -56,12 +54,7 @@ describe('canKnightMove', () => {
             /*  H  */ [__,__,__,__,__,__,__,__], 
         ];
 
-        const annotations = {
-            whiteKingPosition: locatePiece(board, Piece.WhiteKing),
-            blackKingPosition: locatePiece(board, Piece.WhiteKing)
-        };
-
-        const answer = canKnightMove(board, Position.E4, Position.C3, annotations)
+        const answer = knightCanMove(board, Position.E4, Position.C3, kingPositions(board))
         expect(answer).toBe(false);
 
     })

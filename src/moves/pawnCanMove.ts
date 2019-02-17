@@ -3,7 +3,7 @@ import { rank, file, playerAt, isOccupied, isUnOccupied,
     areSamePositions} from 'position-utils/index';
 import movesIntoCheck from 'check/movesIntoCheck';
 
-function canPawnMove (
+function pawnCanMove (
         board: Board, 
         fromPosition: GridCoordinates, 
         toPosition: GridCoordinates, 
@@ -59,4 +59,4 @@ function canPawnMove (
     return true;
 }
 
-export default canPawnMove;
+export default pawnCanMove;

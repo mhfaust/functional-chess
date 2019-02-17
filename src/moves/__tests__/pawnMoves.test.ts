@@ -2,6 +2,7 @@ import pawnMoves from '../pawnMoves';
 import { positionName, locatePiece } from 'position-utils/index'
 import { Position }  from 'constants/position';
 import { BK,BQ,BR,BN,BB,BP,WK,WQ,WR,WN,WB,WP,__ } from 'board-utils/pieces-shorthand';
+import { kingPositions } from 'board-utils/index';
 
 const pawn1Board: Board = [
     /*         1  2  3  4  5  6  7  8  */
@@ -16,8 +17,7 @@ const pawn1Board: Board = [
     ];
 
 const pawn1boardAnnotations:HasPassantInfo & HasKingPositions = {
-    blackKingPosition: locatePiece(pawn1Board, Piece.BlackKing),
-    whiteKingPosition: locatePiece(pawn1Board, Piece.WhiteKing),
+    ...kingPositions(pawn1Board),
     pawnAt: null,
     passedPosition:null
 }

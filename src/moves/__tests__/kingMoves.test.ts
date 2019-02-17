@@ -3,6 +3,7 @@ import { Position } from 'constants/position';
 import { BK,BQ,BR,BN,BB,BP,WK,WQ,WR,WN,WB,WP,__ } from 'board-utils/pieces-shorthand';
 import { kingMoves } from 'moves/index';
 import { locatePiece } from 'position-utils/index';
+import kingPositions from 'board-utils/kingPositions';
 
 const noPreclusions:HasCastlingInfo = {
     whiteQueenSideCastlingPrecluded:false,
@@ -32,11 +33,7 @@ describe('kingMoves', () => {
         ];
         const expectedLegalMoves = new Set([]);
 
-        const kingPositions = {
-            whiteKingPosition: locatePiece(board, Piece.WhiteKing),
-            blackKingPosition: locatePiece(board, Piece.BlackKing)
-        }
-        const boardAnnotations = { ...noPreclusions, ...kingPositions };
+        const boardAnnotations = { ...noPreclusions, ...kingPositions(board) };
 
         const foundLegalMoves = kingMoves(board, Position.E1, boardAnnotations);
 
@@ -66,11 +63,7 @@ describe('kingMoves', () => {
             PositionName.E8,
         ]);
 
-        const kingPositions = {
-            whiteKingPosition: locatePiece(board, Piece.WhiteKing),
-            blackKingPosition: locatePiece(board, Piece.BlackKing)
-        }
-        const boardAnnotations = { ...allPrecluded, ...kingPositions };
+        const boardAnnotations = { ...allPrecluded, ...kingPositions(board) };
     
         const foundLegalMoves = kingMoves(board, Position.D7, boardAnnotations);
 
@@ -90,11 +83,7 @@ describe('kingMoves', () => {
         /*  H  */ [WR,__,__,__,__,__,__,__], 
         ];
 
-        const kingPositions = {
-            whiteKingPosition: locatePiece(board, Piece.WhiteKing),
-            blackKingPosition: locatePiece(board, Piece.BlackKing)
-        }
-        const boardAnnotations = { ...noPreclusions, ...kingPositions };
+        const boardAnnotations = { ...noPreclusions, ...kingPositions(board) };
     
         const foundLegalMoves = kingMoves(board, Position.E1, boardAnnotations);
 
@@ -114,11 +103,7 @@ describe('kingMoves', () => {
         /*  H  */ [WR,WP,__,__,__,__,BP,BR],
         ]; 
 
-        const kingPositions = {
-            whiteKingPosition: locatePiece(board, Piece.WhiteKing),
-            blackKingPosition: locatePiece(board, Piece.BlackKing)
-        }
-        const boardAnnotations = { ...noPreclusions, ...kingPositions };
+        const boardAnnotations = { ...noPreclusions, ...kingPositions(board) };
     
         const foundLegalMoves = kingMoves(board, Position.E1, boardAnnotations);
 
@@ -139,11 +124,7 @@ describe('kingMoves', () => {
         /*  H  */ [WR,__,__,__,__,__,__,__], 
         ];
     
-        const kingPositions = {
-            whiteKingPosition: locatePiece(board, Piece.WhiteKing),
-            blackKingPosition: locatePiece(board, Piece.BlackKing)
-        }
-        const boardAnnotations = { ...noPreclusions, ...kingPositions };
+        const boardAnnotations = { ...noPreclusions, ...kingPositions(board) };
 
         const foundLegalMoves = kingMoves(board, Position.E1, boardAnnotations);
 
@@ -164,11 +145,7 @@ describe('kingMoves', () => {
         /*  H  */ [WR,__,__,__,__,__,__,__], 
         ];
 
-        const kingPositions = {
-            whiteKingPosition: locatePiece(board, Piece.WhiteKing),
-            blackKingPosition: locatePiece(board, Piece.BlackKing)
-        }
-        const boardAnnotations = { ...noPreclusions, ...kingPositions };
+        const boardAnnotations = { ...noPreclusions, ...kingPositions(board) };
     
         const foundLegalMoves = kingMoves(board, Position.E1, boardAnnotations);
 
@@ -188,11 +165,7 @@ describe('kingMoves', () => {
         /*  H  */ [__,WP,__,__,__,__,BP,BR],
         ]; 
 
-        const kingPositions = {
-            whiteKingPosition: locatePiece(board, Piece.WhiteKing),
-            blackKingPosition: locatePiece(board, Piece.BlackKing)
-        }
-        const boardAnnotations = { ...noPreclusions, ...kingPositions };
+        const boardAnnotations = { ...noPreclusions, ...kingPositions(board) };
     
         const foundLegalMoves = kingMoves(board, Position.E8, boardAnnotations);
 

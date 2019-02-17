@@ -2,6 +2,7 @@ import rook from '../rookMoves';
 import { Position } from 'constants/position';
 import { BK,BR,BP,WP,WR,__ } from 'board-utils/pieces-shorthand';
 import { locatePiece } from 'position-utils/index';
+import { kingPositions } from 'board-utils/index';
 
 describe('rook', () => {
 
@@ -33,14 +34,9 @@ describe('rook', () => {
             PositionName.H4
         ]);
 
-        const annotations:HasKingPositions = {
-            blackKingPosition: locatePiece(board, Piece.BlackKing),
-            whiteKingPosition: locatePiece(board, Piece.WhiteKing)
-        };
+        const foundLegalMoves = rook(board, Position.E4, kingPositions(board));
 
-        const foundLegalMoves = rook(board, Position.E4, annotations);
-
-        expect(foundLegalMoves).toEqual(expectedLegalMoves)
+        expect(foundLegalMoves).toEqual(expectedLegalMoves);
     })
 
     it('does not include moves putting self in check', () => {
@@ -61,14 +57,9 @@ describe('rook', () => {
             PositionName.E5,
             PositionName.E6,
             PositionName.E7,
-        ])
+        ]);
 
-        const annotations:HasKingPositions = {
-            blackKingPosition: locatePiece(board, Piece.BlackKing),
-            whiteKingPosition: locatePiece(board, Piece.WhiteKing)
-        };
-    
-        const foundLegalMoves = rook(board, Position.E4, annotations);
+        const foundLegalMoves = rook(board, Position.E4, kingPositions(board));
 
         expect(foundLegalMoves).toEqual(expectedLegalMoves)
     });

@@ -1,4 +1,3 @@
-import nextBoard from "moves/nextBoard";
 import { playerAt, otherPlayer, locatePiece, areSamePositions, rank, pieceAt, file } from "position-utils/index";
 import { isInCheck, isCheckmate } from "check/index";
 import { Position } from "constants/position";

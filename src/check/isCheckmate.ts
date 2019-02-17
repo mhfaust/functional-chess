@@ -1,7 +1,6 @@
-import { generateLinesOfAttack } from 'check/index';
+import { generateLinesOfAttack, movesIntoCheck } from 'check/index';
 import { displaceTo, otherPlayer, playerAt, isOnBoard } from 'position-utils/index';
 import { kingVectors } from 'constants/move-vectors';
-import movesIntoCheck from 'check/movesIntoCheck';
 
 function isCheckmate(board: Board, defender: Player, boardAnnotations: HasKingPositions){
     

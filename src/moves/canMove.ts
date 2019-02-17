@@ -1,18 +1,18 @@
-import { canBishopMove, canKingMove, canKnightMove, canPawnMove, canQueenMove, canRookMove } from 'moves/index';
+import { bishopCanMove, kingCanMove, knightCanMove, pawnCanMove, queenCanMove, rookCanMove } from 'moves/index';
 
 const strategies: Map<Piece, MoveStrategy> = new Map([
-    [ Piece.BlackBishop, canBishopMove ],
-    [ Piece.WhiteBishop, canBishopMove ],
-    [ Piece.BlackKnight, canKnightMove ],
-    [ Piece.WhiteKnight, canKnightMove ],
-    [ Piece.BlackRook, canRookMove ],
-    [ Piece.WhiteRook, canRookMove ],
-    [ Piece.BlackQueen, canQueenMove ],
-    [ Piece.WhiteQueen, canQueenMove ],
-    [ Piece.BlackKing, canKingMove ],
-    [ Piece.WhiteKing, canKingMove ],
-    [ Piece.BlackPawn, canPawnMove ],
-    [ Piece.WhitePawn, canPawnMove ],
+    [ Piece.BlackBishop, bishopCanMove ],
+    [ Piece.WhiteBishop, bishopCanMove ],
+    [ Piece.BlackKnight, knightCanMove ],
+    [ Piece.WhiteKnight, knightCanMove ],
+    [ Piece.BlackRook, rookCanMove ],
+    [ Piece.WhiteRook, rookCanMove ],
+    [ Piece.BlackQueen, queenCanMove ],
+    [ Piece.WhiteQueen, queenCanMove ],
+    [ Piece.BlackKing, kingCanMove ],
+    [ Piece.WhiteKing, kingCanMove ],
+    [ Piece.BlackPawn, pawnCanMove ],
+    [ Piece.WhitePawn, pawnCanMove ],
 ]);
 
 function canMove (

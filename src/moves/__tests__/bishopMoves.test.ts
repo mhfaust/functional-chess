@@ -1,7 +1,8 @@
 import bishopMoves from '../bishopMoves';
-import { positionName, locatePiece } from 'position-utils/index';
+import { positionName } from 'position-utils/index';
 import { Position } from 'constants/position';
 import { BK,BQ,BR,BN,BB,BP,WK,WQ,WR,WN,WB,WP,__ } from 'board-utils/pieces-shorthand';
+import kingPositions from 'board-utils/kingPositions';
 
 describe('bishop', () => {
 
@@ -32,12 +33,7 @@ describe('bishop', () => {
             Position.C5
         ].map(positionName));
 
-        const annotations = {
-            blackKingPosition: locatePiece(board, Piece.BlackKing),
-            whiteKingPosition: locatePiece(board, Piece.WhiteKing),
-        }
-
-        const foundLegalMoves = bishopMoves(board, Position.D4, annotations);
+        const foundLegalMoves = bishopMoves(board, Position.D4, kingPositions(board));
 
         expect(foundLegalMoves).toEqual(expectedLegalMoves)
     })
@@ -63,12 +59,8 @@ describe('bishop', () => {
             Position.B2,
         ].map(positionName));
 
-        const annotations = {
-            blackKingPosition: locatePiece(board, Piece.BlackKing),
-            whiteKingPosition: locatePiece(board, Piece.WhiteKing),
-        }
 
-        const foundLegalMoves = bishopMoves(board, Position.D4, annotations);
+        const foundLegalMoves = bishopMoves(board, Position.D4, kingPositions(board));
 
         expect(foundLegalMoves).toEqual(expecteLegalMoves)   
     })

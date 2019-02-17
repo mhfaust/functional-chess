@@ -1,7 +1,6 @@
-import { nextBoard } from "moves/index";
-import isInCheck from "check/isInCheck";
+import { nextBoard, updateKingPositions } from "board-utils/index";
+import { isInCheck } from "check/index";
 import { playerAt } from "position-utils/index";
-import updateKingPositions from "board-utils/updateKingPositions";
 
 function movesIntoCheck(board:Board, moveFrom:GridCoordinates, moveTo:GridCoordinates, annotations:HasKingPositions):boolean{
    

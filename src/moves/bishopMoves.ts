@@ -3,7 +3,7 @@ import { playerAt, displaceTo, isOnBoard, isUnOccupied, isOccupiedByPlayer,
     from 'position-utils/index';
 
 import { bishopVectors } from 'constants/move-vectors'
-import movesIntoCheck from 'check/movesIntoCheck';
+import { movesIntoCheck } from 'check/index';
 
 function bishop(board: Board, moveFrom: GridCoordinates, annotations:HasKingPositions): Set<PositionName> {
 
