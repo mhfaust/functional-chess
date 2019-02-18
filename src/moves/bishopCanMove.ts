@@ -1,5 +1,5 @@
 import { file, rank, isOnBoard, playerAt, isOccupied, areSamePositions, displaceTo } from 'position-utils/index'
-import { movesIntoCheck } from 'check/index';
+import movesIntoCheck from 'check/movesIntoCheck';
 
 function bishopCanMove (board: Board, fromPosition: GridCoordinates, toPosition: GridCoordinates, boardAnnotations:HasKingPositions)
     : boolean {
@@ -35,7 +35,7 @@ function bishopCanMove (board: Board, fromPosition: GridCoordinates, toPosition:
             return false;
         step = displaceTo(step, moveVector);
     }
-
+console.log(movesIntoCheck)
     if(movesIntoCheck(board, fromPosition, toPosition, boardAnnotations)){
         return false;
     }
