@@ -1,4 +1,4 @@
-interface MoveStrategy { 
+interface CanMoveStrategy { 
     (
         board: Board, 
         fromPosition: GridCoordinates, 
