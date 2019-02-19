@@ -12,6 +12,8 @@ type BoardAnnotations = {
     whiteKingSideCastlingPrecluded:boolean;
     blackQueenSideCastlingPrecluded:boolean;
     blackKingSideCastlingPrecluded:boolean;
+    whiteKingPosition:GridCoordinates,
+    blackKingPosition:GridCoordinates
     capturedPieces:{
         Black: Array<Piece>;
         White: Array<Piece>

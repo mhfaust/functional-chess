@@ -1,9 +1,8 @@
-interface CanMoveStrategy { 
+interface Moves { 
     (
         board: Board, 
         fromPosition: GridCoordinates, 
-        toPosition: GridCoordinates, 
         annotations: HasKingPositions
     )
-    :boolean
+    :Set<PositionName>
 }

@@ -1,6 +1,6 @@
 import { bishopCanMove, kingCanMove, knightCanMove, pawnCanMove, queenCanMove, rookCanMove } from 'moves/index';
 
-const strategies: Map<Piece, CanMoveStrategy> = new Map([
+const strategies: Map<Piece, CanMove> = new Map([
     [ Piece.BlackBishop, bishopCanMove ],
     [ Piece.WhiteBishop, bishopCanMove ],
     [ Piece.BlackKnight, knightCanMove ],
@@ -22,7 +22,7 @@ function canMove (
         annotations:HasKingPositions)
     : boolean {
         
-        const strategy:CanMoveStrategy = strategies.get(Piece.WhiteBishop);
+        const strategy:CanMove = strategies.get(Piece.WhiteBishop);
         return strategy(board, fromPosition, toPosition, annotations);
 }
 

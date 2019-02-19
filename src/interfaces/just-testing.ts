@@ -15,6 +15,8 @@ const x: BoardAnnotations = {
     whiteKingSideCastlingPrecluded:false,
     blackQueenSideCastlingPrecluded:false,
     blackKingSideCastlingPrecluded:false,
+    whiteKingPosition:Position.E1,
+        blackKingPosition:Position.E8,
     capturedPieces:{
         Black:[],
         White:[]

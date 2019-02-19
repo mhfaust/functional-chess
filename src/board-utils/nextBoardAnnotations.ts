@@ -63,7 +63,9 @@ function nextBoardAnnotations(previousBoard: Board,
         capturedPieces:{
             Black:makeCapturedPieces(previousBoard, previousAnnotations.capturedPieces.Black, Player.Black, pieceMovedToPosition),
             White:makeCapturedPieces(previousBoard, previousAnnotations.capturedPieces.White, Player.White, pieceMovedToPosition)
-        }
+        },
+        whiteKingPosition:Position.E1,
+        blackKingPosition:Position.E8
     }
 
     return next;
