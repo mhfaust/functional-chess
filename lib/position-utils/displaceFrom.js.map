@@ -1,1 +1,0 @@
-{"version":3,"file":"displaceFrom.js","sourceRoot":"","sources":["../../src/positions/displaceFrom.ts"],"names":[],"mappings":";;;;IAOI,SAAS,YAAY,CAAG,eAAgC,EAAE,MAAkB;QAGpE,OAAO;YACH,YAAI,CAAC,eAAe,CAAC,GAAG,YAAI,CAAC,MAAM,CAAC;YACpC,YAAI,CAAC,eAAe,CAAC,GAAG,YAAI,CAAC,MAAM,CAAC;SACvC,CAAC;IACN,CAAC;;;;;;;;YAAA,CAAC;iCAEK,YAAY;QAAC,CAAC"}

@@ -1,5 +1,5 @@
-type AttackPattern = {
+interface AttackPattern {
     vectors: ReadonlyArray<MoveVector>, 
-    canMoveLikeThis: Set<Piece>, 
+    canAttackLikeThis: Set<Piece>, 
     limit: number,
 }

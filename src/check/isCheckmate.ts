@@ -40,7 +40,7 @@ function isCheckmate(board: Board, defender: Player, boardAnnotations: KingAnnot
     //Now look for a way out of check that would block the line of attack by
     //moving another defending piece in between.
 
-    //Examine each square from the king to the attacking/checking pice, 
+    //Examine each square from the king to the attacking/checking piece, 
     //and see if that square is under "attack" by a defender's piece,
     //and if so, be sure moving it there would fully remove the player from check,
     //important because the moved piece may have been pinned.
@@ -65,6 +65,7 @@ function isCheckmate(board: Board, defender: Player, boardAnnotations: KingAnnot
             defensiveMoveInfo = defensiveMoves.next();
         }
     }
+    //No blocking move = checkmate.
     return true;
 }
 

@@ -6,19 +6,19 @@ import { playerAt, displaceFrom, isOnBoard, otherPlayer, pieceAt, positionName }
 import { BK, BQ, BR, BN, BB, BP, WK, WQ, WR, WN, WB, WP } from 'positions/pieces-shorthand';
 
 const whiteAttackPatterns: Array<AttackPattern> = [
-    { vectors: pawnWhiteAttackVectors, canMoveLikeThis: new Set([WP, WQ, WB, WK]), limit: 1 },
-    { vectors: kingVectors, canMoveLikeThis: new Set([WK, WQ]), limit: 1 },
-    { vectors: knightVectors, canMoveLikeThis: new Set([WN]), limit: 1 },
-    { vectors: bishopVectors, canMoveLikeThis: new Set([WB, WQ]), limit: 0 },
-    { vectors: rookVectors, canMoveLikeThis: new Set([WR, WQ]), limit: 0 },
+    { vectors: pawnWhiteAttackVectors, canAttackLikeThis: new Set([WP, WQ, WB, WK]), limit: 1 },
+    { vectors: kingVectors, canAttackLikeThis: new Set([WK, WQ]), limit: 1 },
+    { vectors: knightVectors, canAttackLikeThis: new Set([WN]), limit: 1 },
+    { vectors: bishopVectors, canAttackLikeThis: new Set([WB, WQ]), limit: 0 },
+    { vectors: rookVectors, canAttackLikeThis: new Set([WR, WQ]), limit: 0 },
 ];
 
 const blackAttackPatterns: Array<AttackPattern> = [
-    { vectors: pawnBlackAttackVectors, canMoveLikeThis: new Set([BP, BQ, BB, BK]), limit: 1 },
-    { vectors: kingVectors, canMoveLikeThis: new Set([BK, BQ]), limit: 1 },
-    { vectors: knightVectors, canMoveLikeThis: new Set([BN]), limit: 1 },
-    { vectors: bishopVectors, canMoveLikeThis: new Set([BB, BQ]), limit: 0 },
-    { vectors: rookVectors, canMoveLikeThis: new Set([BR, BQ]), limit: 0 },
+    { vectors: pawnBlackAttackVectors, canAttackLikeThis: new Set([BP, BQ, BB, BK]), limit: 1 },
+    { vectors: kingVectors, canAttackLikeThis: new Set([BK, BQ]), limit: 1 },
+    { vectors: knightVectors, canAttackLikeThis: new Set([BN]), limit: 1 },
+    { vectors: bishopVectors, canAttackLikeThis: new Set([BB, BQ]), limit: 0 },
+    { vectors: rookVectors, canAttackLikeThis: new Set([BR, BQ]), limit: 0 },
 ];
 
 function * generateLinesOfAttack(board: Board, defender: Player, defendedPosition: GridCoordinates)
@@ -30,7 +30,7 @@ function * generateLinesOfAttack(board: Board, defender: Player, defendedPositio
     const attackLines = new Map<PositionName, Array<GridCoordinates>>();
 
     for(let attackPattern of attackPatterns){
-        const { canMoveLikeThis, vectors, limit, } = attackPattern;
+        const { canAttackLikeThis: canMoveLikeThis, vectors, limit, } = attackPattern;
 
         for(let vector of vectors){   
             const attackLine = [];
@@ -47,7 +47,7 @@ function * generateLinesOfAttack(board: Board, defender: Player, defendedPositio
                         && !attackLines.has(positionName(examinedPosition))){
             
                             yield attackLine; 
-                            
+
                             attackLines.set(positionName(examinedPosition), attackLine);
                     }
                     break;//found a piece, done with vector
