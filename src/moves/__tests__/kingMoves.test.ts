@@ -3,7 +3,7 @@ import { Position } from 'constants/position';
 import { BK,BQ,BR,BN,BB,BP,WK,WQ,WR,WN,WB,WP,__ } from 'positions/pieces-shorthand';
 import { kingMoves } from 'moves/index';
 import { locatePiece } from 'positions/index';
-import kingPositions from 'board-utils/kingPositions';
+import kingPositions from 'board/kingPositions';
 
 const noPreclusions:CastlingAnnotations = {
     whiteQueenSideCastlingPrecluded:false,

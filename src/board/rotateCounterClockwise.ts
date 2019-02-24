@@ -1,4 +1,4 @@
-import { emptyBoard } from 'board-utils/index'
+import { emptyBoard } from 'board/index'
 
 function rotateCounterClockwise(board: Board){
 

@@ -2,7 +2,7 @@ import { playerAt, displaceTo, isOnBoard, isUnOccupied, isOccupiedByPlayer,
     otherPlayer, positionName, rank, file, areSamePositions } 
     from 'positions/index';
 import { isInCheck } from 'check/index';
-import { nextBoard } from 'board-utils/index';
+import { nextBoard } from 'board/index';
 
 function pawn(board: Board, moveFrom: GridCoordinates, annotations:KingAnnotations & EnPassantAnnotations): Set<PositionName> {
     

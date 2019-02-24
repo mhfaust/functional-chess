@@ -23,17 +23,27 @@ function isCheckmate(board: Board, defender: Player, boardAnnotations: KingAnnot
     const attackLines = generateLinesOfAttack(board, defender, kingPosition);
     const checkLine = attackLines.next();
     if(checkLine.value === null){
+        //Not checkmate if they're not in check!
         return false;
     }
     
     //There's no way to remove check from 2 pieces w/o moving the king,
-    //which we just tried.
+    //which we just looked for, above.
     const secondLine = attackLines.next();
+    //So if there's a 2nd line of attack, it's checkmate: 
     if(secondLine.value){
         return true
     }
 
     const attacker = otherPlayer(defender);
+
+    //Now look for a way out of check that would block the line of attack by
+    //moving another defending piece in between.
+
+    //Examine each square from the king to the attacking/checking pice, 
+    //and see if that square is under "attack" by a defender's piece,
+    //and if so, be sure moving it there would fully remove the player from check,
+    //important because the moved piece may have been pinned.
 
     for(let positionOnCheckLine of checkLine.value){
         const defensiveMoves = generateLinesOfAttack(board, attacker, positionOnCheckLine);
@@ -43,8 +53,9 @@ function isCheckmate(board: Board, defender: Player, boardAnnotations: KingAnnot
         while(!defensiveMoveInfo.done){
             //This will be a line of grid-coordinates, starting
             //one step away from the position on the check-line and 
-            //ending at a defender's piece:
+            //ending at a defender's piece...:
             const defensiveMove: Array<GridCoordinates> = defensiveMoveInfo.value;
+            //...so to get the moved piece's position, get the last coordinates from the "line-of-attck"
             const defendingPieceMovesFrom: GridCoordinates = defensiveMove[defensiveMove.length -1];
             
             if(!movesIntoCheck(board, defendingPieceMovesFrom, positionOnCheckLine, boardAnnotations)){

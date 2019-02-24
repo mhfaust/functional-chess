@@ -1,5 +1,5 @@
 import { unicodeSymbols } from "constants/pieces";
-import { rotateCounterClockwise } from "board-utils";
+import { rotateCounterClockwise } from "board";
 import { bgWhite, black, blue }  from "chalk";
 
 const topLine     = "   ┌───┬───┬───┬───┬───┬───┬───┬───┐  \n";
@@ -20,8 +20,3 @@ function asciiBoard(board){
 }
 
 export default asciiBoard;
-
-
-
-
-// │ a

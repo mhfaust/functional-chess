@@ -1,4 +1,4 @@
-import { nextBoard, updateKingPositions } from "board-utils/index";
+import { nextBoard, updateKingPositions } from "board/index";
 import { isInCheck } from "check/index";
 import { playerAt } from "positions/index";
 

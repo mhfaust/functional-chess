@@ -2,7 +2,7 @@ import rook from '../rookMoves';
 import { Position } from 'constants/position';
 import { BK,BR,BP,WP,WR,__ } from 'positions/pieces-shorthand';
 import { locatePiece } from 'positions/index';
-import { kingPositions } from 'board-utils/index';
+import { kingPositions } from 'board/index';
 
 describe('rook', () => {
 

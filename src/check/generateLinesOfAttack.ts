@@ -47,6 +47,7 @@ function * generateLinesOfAttack(board: Board, defender: Player, defendedPositio
                         && !attackLines.has(positionName(examinedPosition))){
             
                             yield attackLine; 
+                            
                             attackLines.set(positionName(examinedPosition), attackLine);
                     }
                     break;//found a piece, done with vector

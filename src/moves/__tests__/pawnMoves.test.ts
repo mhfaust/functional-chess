@@ -2,7 +2,7 @@ import pawnMoves from '../pawnMoves';
 import { positionName, locatePiece } from 'positions/index'
 import { Position }  from 'constants/position';
 import { BK,BQ,BR,BN,BB,BP,WK,WQ,WR,WN,WB,WP,__ } from 'positions/pieces-shorthand';
-import { kingPositions } from 'board-utils/index';
+import { kingPositions } from 'board/index';
 
 const pawn1Board: Board = [
     /*         1  2  3  4  5  6  7  8  */

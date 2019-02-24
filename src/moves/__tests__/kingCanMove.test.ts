@@ -1,7 +1,7 @@
 import { Position } from 'constants/position';
 import { BK,BQ,BR,BN,BB,BP,WK,WQ,WR,WN,WB,WP,__ } from 'positions/pieces-shorthand';
 import { kingCanMove } from 'moves/index';
-import kingPositions from 'board-utils/kingPositions';
+import kingPositions from 'board/kingPositions';
 
 const noPreclusions:CastlingAnnotations = {
     whiteQueenSideCastlingPrecluded:false,
