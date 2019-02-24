@@ -1,4 +1,3 @@
-import { initialBoard } from "board-utils/index";
 import { Position } from "constants/position";
 
 const x: BoardAnnotations = {
@@ -16,11 +15,9 @@ const x: BoardAnnotations = {
     blackQueenSideCastlingPrecluded:false,
     blackKingSideCastlingPrecluded:false,
     whiteKingPosition:Position.E1,
-        blackKingPosition:Position.E8,
-    capturedPieces:{
-        Black:[],
-        White:[]
-    }
+    blackKingPosition:Position.E8,
+    capturedWhitePieces:[],
+    capturedBlackPieces:[]
 }
 
 export default () => x;

@@ -1,3 +1,5 @@
+//Wraps all the fileds required for determining move legalities,
+//and included additional info to make UI easier:
 interface BoardAnnotations extends MoveAnnotations {
     lastPlayerMoved:Player;
     lastPieceMoved: Piece;
@@ -6,8 +8,6 @@ interface BoardAnnotations extends MoveAnnotations {
     whoseTurn:Player;
     isInCheck:boolean;
     isCheckmate:boolean;
-    capturedPieces:{
-        Black: Array<Piece>;
-        White: Array<Piece>
-    }
+    capturedBlackPieces: Array<Piece>,
+    capturedWhitePieces: Array<Piece>,
 }

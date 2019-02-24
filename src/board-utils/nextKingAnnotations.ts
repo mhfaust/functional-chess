@@ -1,6 +1,6 @@
 import { pieceAt } from "positions/index";
 
-function nextKingPositions(
+function nextKingAnnotations(
         board:Board,
         moveFrom:GridCoordinates,
         moveTo:GridCoordinates,
@@ -22,4 +22,4 @@ function nextKingPositions(
 
 }
 
-export default nextKingPositions;
+export default nextKingAnnotations;
