@@ -5,7 +5,7 @@ import { playerAt, displaceTo, isOnBoard, isUnOccupied, isOccupiedByPlayer,
 import { bishopVectors } from 'constants/move-vectors'
 import { movesIntoCheck } from 'check/index';
 
-function bishop(board: Board, moveFrom: GridCoordinates, annotations:HasKingPositions): Set<PositionName> {
+function bishop(board: Board, moveFrom: GridCoordinates, annotations:KingAnnotations): Set<PositionName> {
 
     const player = playerAt(board, moveFrom);
 

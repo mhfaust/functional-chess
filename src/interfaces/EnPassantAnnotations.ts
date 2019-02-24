@@ -1,4 +1,4 @@
-interface HasPassantInfo {
+interface EnPassantAnnotations {
     pawnAt: GridCoordinates,
     passedPosition:GridCoordinates
 }

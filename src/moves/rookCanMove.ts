@@ -2,7 +2,7 @@ import { rank, file, isOnBoard, playerAt, isOccupied, areSamePositions, displace
     from 'positions/index';
 import movesIntoCheck from 'check/movesIntoCheck';
 
-function rookCanMove (board: Board, fromPosition: GridCoordinates, toPosition: GridCoordinates, boardAnnotations:HasKingPositions)
+function rookCanMove (board: Board, fromPosition: GridCoordinates, toPosition: GridCoordinates, boardAnnotations:KingAnnotations)
     : boolean {
     if(!isOnBoard(toPosition)){
         return false;

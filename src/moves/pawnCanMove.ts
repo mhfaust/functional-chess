@@ -7,7 +7,7 @@ function pawnCanMove (
         board: Board, 
         fromPosition: GridCoordinates, 
         toPosition: GridCoordinates, 
-        boardAnnotations:HasKingPositions & HasPassantInfo)
+        boardAnnotations:KingAnnotations & EnPassantAnnotations)
     :boolean {
 
     const { passedPosition } = boardAnnotations;

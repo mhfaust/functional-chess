@@ -1,6 +1,6 @@
 import { rookMoves, bishopMoves } from 'moves/index'
 
-function queen(board:Board, moveFrom:GridCoordinates, boardAnnotations:HasKingPositions){
+function queen(board:Board, moveFrom:GridCoordinates, boardAnnotations:KingAnnotations){
     return new Set([
         ...rookMoves(board, moveFrom, boardAnnotations), 
         ...bishopMoves(board, moveFrom, boardAnnotations)

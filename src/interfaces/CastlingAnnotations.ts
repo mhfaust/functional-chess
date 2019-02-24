@@ -1,4 +1,4 @@
-interface HasCastlingInfo {
+interface CastlingAnnotations {
     whiteQueenSideCastlingPrecluded:boolean,
     whiteKingSideCastlingPrecluded:boolean,
     blackQueenSideCastlingPrecluded:boolean,

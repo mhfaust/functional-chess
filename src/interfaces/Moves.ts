@@ -2,7 +2,7 @@ interface Moves {
     (
         board: Board, 
         fromPosition: GridCoordinates, 
-        annotations: HasKingPositions
+        annotations: MoveAnnotations
     )
     :Set<PositionName>
 }

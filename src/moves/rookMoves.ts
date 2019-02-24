@@ -5,7 +5,7 @@ import { isInCheck } from 'check/index';
 import { nextBoard } from 'board-utils/index';
 import movesIntoCheck from 'check/movesIntoCheck';
 
-function rook(board: Board, moveFrom: GridCoordinates, boardAnnotations:HasKingPositions): Set<PositionName> {
+function rook(board: Board, moveFrom: GridCoordinates, boardAnnotations:KingAnnotations): Set<PositionName> {
     
     const player = playerAt(board, moveFrom);
     const directions = [[0,1], [0,-1], [1,0], [-1,0]];

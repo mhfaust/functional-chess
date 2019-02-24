@@ -18,7 +18,7 @@ describe('isCheckmate', () => {
 /*  H  */ [__,__,__,__,__,WQ,BP,__],
         ];
 
-        const annotations:HasKingPositions = {
+        const annotations:KingAnnotations = {
             blackKingPosition: locatePiece(board, Piece.BlackKing),
             whiteKingPosition: locatePiece(board, Piece.WhiteKing)
         };
@@ -39,7 +39,7 @@ describe('isCheckmate', () => {
 /*  H  */ [__,__,__,__,__,__,WB,__],
         ];
 
-        const annotations:HasKingPositions = {
+        const annotations:KingAnnotations = {
             blackKingPosition: locatePiece(board, Piece.BlackKing),
             whiteKingPosition: locatePiece(board, Piece.WhiteKing)
         };
@@ -60,7 +60,7 @@ describe('isCheckmate', () => {
 /*  H  */ [__,__,__,__,__,__,WB,__],
         ];
 
-        const annotations:HasKingPositions = {
+        const annotations:KingAnnotations = {
             blackKingPosition: locatePiece(board, Piece.BlackKing),
             whiteKingPosition: locatePiece(board, Piece.WhiteKing)
         };
@@ -81,7 +81,7 @@ describe('isCheckmate', () => {
 /*  H  */ [__,__,__,__,__,__,BP,__],
         ];
 
-        const annotations:HasKingPositions = {
+        const annotations:KingAnnotations = {
             blackKingPosition: locatePiece(board, Piece.BlackKing),
             whiteKingPosition: locatePiece(board, Piece.WhiteKing)
         };
@@ -102,7 +102,7 @@ describe('isCheckmate', () => {
 /*  H  */ [__,__,__,__,__,__,WQ,__],
         ];
 
-        const annotations:HasKingPositions = {
+        const annotations:KingAnnotations = {
             blackKingPosition: locatePiece(board, Piece.BlackKing),
             whiteKingPosition: locatePiece(board, Piece.WhiteKing)
         };
@@ -123,7 +123,7 @@ describe('isCheckmate', () => {
 /*  H  */ [__,BR,__,WP,__,WQ,BP,__],
         ];
 
-        const annotations:HasKingPositions = {
+        const annotations:KingAnnotations = {
             blackKingPosition: locatePiece(board, Piece.BlackKing),
             whiteKingPosition: locatePiece(board, Piece.WhiteKing)
         };
@@ -144,7 +144,7 @@ describe('isCheckmate', () => {
 /*  H  */ [__,__,__,__,__,__,__,__], 
         ];
 
-        const annotations:HasKingPositions = {
+        const annotations:KingAnnotations = {
             blackKingPosition: locatePiece(board, Piece.BlackKing),
             whiteKingPosition: locatePiece(board, Piece.WhiteKing)
         };
@@ -165,7 +165,7 @@ describe('isCheckmate', () => {
 /*  H  */ [__,__,__,__,BQ,__,__,__], 
         ];
 
-        const annotations:HasKingPositions = {
+        const annotations:KingAnnotations = {
             blackKingPosition: locatePiece(board, Piece.BlackKing),
             whiteKingPosition: locatePiece(board, Piece.WhiteKing)
         };
@@ -186,7 +186,7 @@ describe('isCheckmate', () => {
 /*  H  */ [__,__,__,__,BQ,__,__,__], 
         ];
 
-        const annotations:HasKingPositions = {
+        const annotations:KingAnnotations = {
             blackKingPosition: locatePiece(board, Piece.BlackKing),
             whiteKingPosition: locatePiece(board, Piece.WhiteKing)
         };

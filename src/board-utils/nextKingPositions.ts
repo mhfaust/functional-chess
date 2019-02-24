@@ -4,10 +4,10 @@ function nextKingPositions(
         board:Board,
         moveFrom:GridCoordinates,
         moveTo:GridCoordinates,
-        boardAnnotations: HasKingPositions
-    ):HasKingPositions {
+        boardAnnotations: KingAnnotations
+    ):KingAnnotations {
     
-    const p:HasKingPositions = {
+    const p:KingAnnotations = {
         whiteKingPosition: boardAnnotations.whiteKingPosition,
         blackKingPosition: boardAnnotations.blackKingPosition
     }

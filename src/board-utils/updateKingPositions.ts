@@ -4,7 +4,7 @@ function updateKingPositions(
         board:Board, 
         moveFrom:GridCoordinates, 
         moveTo:GridCoordinates, 
-        boardAnnotations: HasKingPositions
+        boardAnnotations: KingAnnotations
     ){
     const revisedKingPosition = pieceAt(board, moveFrom) === Piece.BlackKing 
             ? { blackKingPosition: moveTo }

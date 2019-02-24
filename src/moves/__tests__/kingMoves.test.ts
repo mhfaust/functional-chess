@@ -5,13 +5,13 @@ import { kingMoves } from 'moves/index';
 import { locatePiece } from 'positions/index';
 import kingPositions from 'board-utils/kingPositions';
 
-const noPreclusions:HasCastlingInfo = {
+const noPreclusions:CastlingAnnotations = {
     whiteQueenSideCastlingPrecluded:false,
     whiteKingSideCastlingPrecluded:false,
     blackQueenSideCastlingPrecluded:false,
     blackKingSideCastlingPrecluded:false,
 }
-const allPrecluded:HasCastlingInfo = {
+const allPrecluded:CastlingAnnotations = {
     whiteQueenSideCastlingPrecluded:true,
     whiteKingSideCastlingPrecluded:true,
     blackQueenSideCastlingPrecluded:true,

@@ -1,7 +1,7 @@
 import { isOnBoard, playerAt, file, rank } from 'positions/index'
 import movesIntoCheck from 'check/movesIntoCheck';
 
-function knightCanMove (board: Board, fromPosition: GridCoordinates, toPosition: GridCoordinates, boardAnnotations:HasKingPositions) {
+function knightCanMove (board: Board, fromPosition: GridCoordinates, toPosition: GridCoordinates, boardAnnotations:KingAnnotations) {
 
     if(!isOnBoard(toPosition))
         return false;

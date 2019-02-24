@@ -3,6 +3,17 @@ import { BK,BQ,BR,BN,BB,BP,WK,WQ,WR,WN,WB,WP,__ } from 'positions/pieces-shortha
 import canMove from "moves/canMove";
 import kingPositions from "board-utils/kingPositions";
 
+const defaultMoveAnnotations: MoveAnnotations = {
+    whiteKingPosition: null,
+    blackKingPosition: null,
+    passedPosition: null,
+    pawnAt: null,
+    blackKingSideCastlingPrecluded:false,
+    blackQueenSideCastlingPrecluded:false,
+    whiteKingSideCastlingPrecluded:false,
+    whiteQueenSideCastlingPrecluded:false
+}
+
 describe('canMove Bishop', () => {
     
     it('Can move bishop only along axis of potential check while blocking check', () => {
@@ -18,7 +29,10 @@ describe('canMove Bishop', () => {
         /*  H  */ [__,__,__,__,__,__,__,BR],
         ];
 
-        const annotations = kingPositions(board)
+        const annotations = {
+            ...defaultMoveAnnotations,
+            ...kingPositions(board)
+        }
 
         expect(canMove(board, Position.D4, Position.C3, annotations)).toBe(true);  
         expect(canMove(board, Position.D4, Position.C5, annotations)).toBe(false);  
@@ -39,13 +53,13 @@ describe('canMove King', () => {
         /*  G  */ [__,__,__,__,__,__,__,BR],
         /*  H  */ [WR,__,__,__,__,__,__,__], 
         ];
-        const noPreclusions:HasCastlingInfo = {
+        const noPreclusions:CastlingAnnotations = {
             whiteQueenSideCastlingPrecluded:false,
             whiteKingSideCastlingPrecluded:false,
             blackQueenSideCastlingPrecluded:false,
             blackKingSideCastlingPrecluded:false,
         }
-        const boardAnnotations = { ...noPreclusions, ...kingPositions(board) };
+        const boardAnnotations = { ...defaultMoveAnnotations, ...noPreclusions, ...kingPositions(board) };
 
         expect(canMove(board, Position.E1, Position.G1, boardAnnotations)).toBe(false)
     
@@ -73,6 +87,7 @@ describe('canMove Pawn', () => {
             /*  H  */ [WR,__,__,__,WP,__,BP,BR],
         ];
         const annotations = {
+            ...defaultMoveAnnotations,
             ...kingPositions(board),
             passedPosition:Position.E3,
             pawnAt:Position.E4
@@ -97,8 +112,13 @@ describe('canMove Queen', () => {
         /*  H  */ [__,__,__,__,__,__,__,__], 
         ];
 
+        const annotations = {
+            ...defaultMoveAnnotations,
+            ...kingPositions(board)
+        }
+
         it('can capture opponent piece, diagonally', () => {
-            expect(canMove(board, Position.C2, Position.F5, kingPositions(board))).toBe(true)
+            expect(canMove(board, Position.C2, Position.F5, annotations)).toBe(true)
         });
     
 });

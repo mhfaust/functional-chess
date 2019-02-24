@@ -4,7 +4,7 @@ import { playerAt, displaceTo, isOnBoard, isUnOccupied, isOccupiedByPlayer,
 import { isInCheck } from 'check/index';
 import { nextBoard } from 'board-utils/index';
 
-function pawn(board: Board, moveFrom: GridCoordinates, annotations:HasKingPositions & HasPassantInfo): Set<PositionName> {
+function pawn(board: Board, moveFrom: GridCoordinates, annotations:KingAnnotations & EnPassantAnnotations): Set<PositionName> {
     
     const player = playerAt(board, moveFrom);
     const legalMoves: Set<PositionName> = new Set();

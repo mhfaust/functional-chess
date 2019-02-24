@@ -1,4 +1,4 @@
-type BoardAnnotations = {
+interface BoardAnnotations extends MoveAnnotations {
     lastPlayerMoved:Player;
     lastPieceMoved: Piece;
     lastMoveFrom: GridCoordinates;
@@ -6,14 +6,6 @@ type BoardAnnotations = {
     whoseTurn:Player;
     isInCheck:boolean;
     isCheckmate:boolean;
-    pawnAt: GridCoordinates,
-    passedPosition:GridCoordinates,
-    whiteQueenSideCastlingPrecluded:boolean;
-    whiteKingSideCastlingPrecluded:boolean;
-    blackQueenSideCastlingPrecluded:boolean;
-    blackKingSideCastlingPrecluded:boolean;
-    whiteKingPosition:GridCoordinates,
-    blackKingPosition:GridCoordinates
     capturedPieces:{
         Black: Array<Piece>;
         White: Array<Piece>

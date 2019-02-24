@@ -2,7 +2,7 @@ import { playerAt, otherPlayer, locatePiece, areSamePositions, rank, pieceAt, fi
 import { isInCheck, isCheckmate } from "check/index";
 import { Position } from "constants/position";
 
-const makePassantInfo = (prevBoard: Board, from:GridCoordinates, to:GridCoordinates): HasPassantInfo => {
+const makePassantInfo = (prevBoard: Board, from:GridCoordinates, to:GridCoordinates): EnPassantAnnotations => {
     const piece = pieceAt(prevBoard, from);
     if(piece === Piece.BlackPawn && rank(from) === 6 && rank(to) === 4){
         return {
