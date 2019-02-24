@@ -1,5 +1,5 @@
 import queenCanMove  from 'moves/queenCanMove'
-import { BP,WK,WQ,WR,__ } from 'board-utils/pieces-shorthand';
+import { BP,WK,WQ,WR,__ } from 'positions/pieces-shorthand';
 import { Position } from 'constants/position';
 import { kingPositions } from 'board-utils/index';
 

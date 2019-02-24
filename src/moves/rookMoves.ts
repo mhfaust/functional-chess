@@ -1,6 +1,6 @@
 import { playerAt, displaceTo, isOnBoard, isUnOccupied, 
     isOccupiedByPlayer, otherPlayer, positionName } 
-    from 'position-utils/index';
+    from 'positions/index';
 import { isInCheck } from 'check/index';
 import { nextBoard } from 'board-utils/index';
 import movesIntoCheck from 'check/movesIntoCheck';

@@ -1,9 +1,9 @@
 import { playerAt, displaceFrom, isOnBoard, otherPlayer, pieceAt, positionName }
-    from 'position-utils/index';
+    from 'positions/index';
     import { kingVectors, knightVectors, rookVectors, bishopVectors, pawnBlackAttackVectors, pawnWhiteAttackVectors }
     from 'constants/move-vectors'
 
-import { BK, BQ, BR, BN, BB, BP, WK, WQ, WR, WN, WB, WP } from 'board-utils/pieces-shorthand';
+import { BK, BQ, BR, BN, BB, BP, WK, WQ, WR, WN, WB, WP } from 'positions/pieces-shorthand';
 
 const whiteAttackPatterns: Array<AttackPattern> = [
     { vectors: pawnWhiteAttackVectors, canMoveLikeThis: new Set([WP, WQ, WB, WK]), limit: 1 },

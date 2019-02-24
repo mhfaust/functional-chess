@@ -1,4 +1,4 @@
-import { locatePiece } from "position-utils/index";
+import { locatePiece } from "positions/index";
 
 function kingPositions(board: Board): HasKingPositions{
     return {

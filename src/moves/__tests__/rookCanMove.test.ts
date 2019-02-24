@@ -1,7 +1,7 @@
 import rookCanMove from 'moves/rookCanMove';
 import { Position } from 'constants/position';
-import { BK,BR,BP,WP,__ } from 'board-utils/pieces-shorthand';
-import { locatePiece } from 'position-utils/index';
+import { BK,BR,BP,WP,__ } from 'positions/pieces-shorthand';
+import { locatePiece } from 'positions/index';
 import { kingPositions } from 'board-utils/index';
 
 const rook1Board: Board = [

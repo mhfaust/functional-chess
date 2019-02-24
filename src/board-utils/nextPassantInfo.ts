@@ -1,4 +1,4 @@
-import { pieceAt, rank, file } from "position-utils/index";
+import { pieceAt, rank, file } from "positions/index";
 
 const nextPassantInfo = (prevBoard: Board, from:GridCoordinates, to:GridCoordinates): HasPassantInfo => {
     const piece = pieceAt(prevBoard, from);

@@ -1,6 +1,6 @@
 import { rank, file, playerAt, isOccupied, isUnOccupied, 
     isOccupiedByPlayer, 
-    areSamePositions} from 'position-utils/index';
+    areSamePositions} from 'positions/index';
 import movesIntoCheck from 'check/movesIntoCheck';
 
 function pawnCanMove (

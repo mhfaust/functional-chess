@@ -1,4 +1,4 @@
-import { locatePiece } from 'position-utils/index';
+import { locatePiece } from 'positions/index';
 import { generateLinesOfAttack } from 'check/index'
 
 function isInCheck(board:Board, player:Player, boardAnnotations:HasKingPositions){

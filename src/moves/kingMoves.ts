@@ -1,5 +1,5 @@
 import { playerAt, isOnBoard, isUnOccupiedByPlayer, positionName, displaceTo }  
-    from 'position-utils/index';
+    from 'positions/index';
 import { kingVectors } from 'constants/move-vectors'
 import { Position } from 'constants/position';
 import movesIntoCheck from 'check/movesIntoCheck';

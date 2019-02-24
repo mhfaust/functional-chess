@@ -1,7 +1,7 @@
 import isCheckmate from '../isCheckmate';
 import { Position } from 'constants/position';
-import { BK,BQ,BR,BN,BB,BP,WK,WQ,WR,WN,WB,WP,__ } from 'board-utils/pieces-shorthand';
-import { locatePiece } from 'position-utils/index';
+import { BK,BQ,BR,BN,BB,BP,WK,WQ,WR,WN,WB,WP,__ } from 'positions/pieces-shorthand';
+import { locatePiece } from 'positions/index';
 
 describe('isCheckmate', () => {
    

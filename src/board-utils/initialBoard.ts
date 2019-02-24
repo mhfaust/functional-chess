@@ -1,4 +1,4 @@
-import { BK,BQ,BR,BN,BB,BP,WK,WQ,WR,WN,WB,WP,__ } from 'board-utils/pieces-shorthand';
+import { BK,BQ,BR,BN,BB,BP,WK,WQ,WR,WN,WB,WP,__ } from 'positions/pieces-shorthand';
 
 export default (): Board => [
 /*         1  2  3  4  5  6  7  8  */

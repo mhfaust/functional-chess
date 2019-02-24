@@ -1,9 +1,9 @@
 import queenMoves from '../queenMoves';
-import { positionName, locatePiece } from 'position-utils/index'
+import { positionName, locatePiece } from 'positions/index'
 // import { textRender } from 'board-utils/index';
 import { Position } 
     from 'constants/position';
-import { BQ,BP,WK,WQ,WR,BK,WP,__ } from 'board-utils/pieces-shorthand';
+import { BQ,BP,WK,WQ,WR,BK,WP,__ } from 'positions/pieces-shorthand';
 import { kingPositions } from 'board-utils/index';
 describe('queen', () => {
 

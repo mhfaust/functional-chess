@@ -1,7 +1,7 @@
 import pawnCanMove from 'moves/pawnCanMove'
-import { BK,BQ,BR,BN,BB,BP,WK,WQ,WR,WN,WB,WP,__ } from 'board-utils/pieces-shorthand';
+import { BK,BQ,BR,BN,BB,BP,WK,WQ,WR,WN,WB,WP,__ } from 'positions/pieces-shorthand';
 import { Position } from 'constants/position';
-import { locatePiece } from 'position-utils/index';
+import { locatePiece } from 'positions/index';
 import kingPositions from 'board-utils/kingPositions';
 
 describe('pawnCanMove', () => {

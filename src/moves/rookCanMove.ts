@@ -1,5 +1,5 @@
 import { rank, file, isOnBoard, playerAt, isOccupied, areSamePositions, displaceTo }
-    from 'position-utils/index';
+    from 'positions/index';
 import movesIntoCheck from 'check/movesIntoCheck';
 
 function rookCanMove (board: Board, fromPosition: GridCoordinates, toPosition: GridCoordinates, boardAnnotations:HasKingPositions)

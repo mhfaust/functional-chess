@@ -1,8 +1,8 @@
 import knightCanMove from 'moves/knightCanMove'
 import { initialBoard } from 'board-utils/index'
 import { Position } from 'constants/position';
-import { __, WK, WN, BK, BQ } from 'board-utils/pieces-shorthand';
-import { locatePiece } from 'position-utils/index';
+import { __, WK, WN, BK, BQ } from 'positions/pieces-shorthand';
+import { locatePiece } from 'positions/index';
 import kingPositions from 'board-utils/kingPositions';
 
 describe('knightCanMove', () => {

@@ -1,4 +1,4 @@
-import { pieceAt } from "position-utils/index";
+import { pieceAt } from "positions/index";
 
 function nextKingPositions(
         board:Board,

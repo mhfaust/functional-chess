@@ -1,6 +1,6 @@
 import { playerAt, displaceTo, isOnBoard, isUnOccupied, isOccupiedByPlayer, 
         otherPlayer, positionName } 
-    from 'position-utils/index';
+    from 'positions/index';
 
 import { bishopVectors } from 'constants/move-vectors'
 import { movesIntoCheck } from 'check/index';

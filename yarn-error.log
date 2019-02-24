@@ -27,7 +27,7 @@ npm manifest:
     "main": "index.js",
     "scripts": {
       "test": "jest",
-      "index": "create-index src/board-utils src/position-utils src/piece-specific-move-mechanics src/boards src/attacked-positions  --extensions js ts"
+      "index": "create-index src/board-utils src/positions src/piece-specific-move-mechanics src/boards src/attacked-positions  --extensions js ts"
     },
     "keywords": [
       "chess"

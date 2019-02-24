@@ -1,4 +1,4 @@
-import { playerAt, otherPlayer, locatePiece, areSamePositions, rank, pieceAt, file } from "position-utils/index";
+import { playerAt, otherPlayer, locatePiece, areSamePositions, rank, pieceAt, file } from "positions/index";
 import { isInCheck, isCheckmate } from "check/index";
 import { Position } from "constants/position";
 
