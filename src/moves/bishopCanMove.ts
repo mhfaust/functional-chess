@@ -1,7 +1,11 @@
 import { file, rank, isOnBoard, playerAt, isOccupied, areSamePositions, displaceTo } from 'positions/index'
 import movesIntoCheck from 'check/movesIntoCheck';
 
-function bishopCanMove (board: Board, fromPosition: GridCoordinates, toPosition: GridCoordinates, boardAnnotations:KingAnnotations)
+function bishopCanMove (
+    board: Board, 
+    fromPosition: GridCoordinates, 
+    toPosition: GridCoordinates, 
+    boardAnnotations:KingAnnotations)
     : boolean {
 
     if(!isOnBoard(toPosition))

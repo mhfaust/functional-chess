@@ -3,7 +3,11 @@ import movesIntoCheck from 'check/movesIntoCheck';
 import { Position } from 'constants/position';
 
 
-function kingCanMove (board: Board, fromPosition: GridCoordinates, toPosition: GridCoordinates, boardAnnotations:KingAnnotations & CastlingAnnotations) 
+function kingCanMove (
+    board: Board, 
+    fromPosition: GridCoordinates, 
+    toPosition: GridCoordinates, 
+    boardAnnotations:KingAnnotations & CastlingAnnotations) 
     : boolean {
 
     const player = playerAt(board, fromPosition);

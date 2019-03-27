@@ -4,7 +4,11 @@ import { playerAt, isOnBoard, isUnOccupiedByPlayer, positionName, displaceTo }
 import { knightVectors } from 'constants/move-vectors'
 import movesIntoCheck from 'check/movesIntoCheck';
 
-function knight(board: Board, moveFrom: GridCoordinates, boardAnnotations:KingAnnotations): Set<PositionName> {
+function knight(
+    board: Board, 
+    moveFrom: GridCoordinates, 
+    boardAnnotations: KingAnnotations)
+    : Set<PositionName> {
 
     const player = playerAt(board, moveFrom);
 

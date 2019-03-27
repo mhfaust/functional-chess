@@ -1,7 +1,12 @@
-import rookCanMove from 'moves/rookCanMove';
-import bishopCanMove from 'moves/bishopCanMove';
+import {
+    rookCanMove,
+    bishopCanMove } from 'moves/index';
 
-function queenCanMove (board: Board, fromPosition: GridCoordinates, toPosition: GridCoordinates, boardAnnotations:KingAnnotations) 
+function queenCanMove (
+    board: Board, 
+    fromPosition: GridCoordinates, 
+    toPosition: GridCoordinates, 
+    boardAnnotations:KingAnnotations) 
     : boolean {
     
     return rookCanMove(board, fromPosition, toPosition, boardAnnotations)

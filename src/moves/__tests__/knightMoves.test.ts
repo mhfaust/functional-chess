@@ -35,8 +35,8 @@ describe('knight', () => {
     it('can move from initial board black king knight to A3 and C3 only', () => {
         const legalMoves = knightMoves(initialBoard(), Position.G8, kingPositions(initialBoard()));
         
-        expect(legalMoves).toContain('F6')
-        expect(legalMoves).toContain('H6')
+        expect(legalMoves).toContain(PositionName.F6)
+        expect(legalMoves).toContain(PositionName.H6)
         expect(legalMoves.size).toBe(2)
     });
 

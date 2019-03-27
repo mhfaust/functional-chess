@@ -1,13 +1,19 @@
-import { bishopMoves, kingMoves, knightMoves, pawnMoves, queenMoves, rookMoves } from 'moves/index';
+import { 
+    bishopMoves, 
+    kingMoves, 
+    knightMoves, 
+    pawnMoves, 
+    queenMoves, 
+    rookMoves } from 'moves/index';
 
 //Each of the piece-specific move functions has a less-demanding signtaure for 
 //annotations than the combined moves, so we cury them to match it
-const bishop = (b:Board,f:GridCoordinates,a:MoveAnnotations) => bishopMoves(b,f,a);
-const knight = (b:Board,f:GridCoordinates,a:MoveAnnotations) => knightMoves(b,f,a);
-const rook = (b:Board,f:GridCoordinates,a:MoveAnnotations) => rookMoves(b,f,a);
-const pawn = (b:Board,f:GridCoordinates,a:MoveAnnotations) => pawnMoves(b,f,a);
-const king = (b:Board,f:GridCoordinates,a:MoveAnnotations) => kingMoves(b,f,a);
-const queen = (b:Board,f:GridCoordinates,a:MoveAnnotations) => queenMoves(b,f,a);
+const bishop = (b:Board,g:GridCoordinates,a:MoveAnnotations) => bishopMoves(b,g,a);
+const knight = (b:Board,g:GridCoordinates,a:MoveAnnotations) => knightMoves(b,g,a);
+const rook = (b:Board,g:GridCoordinates,a:MoveAnnotations) => rookMoves(b,g,a);
+const pawn = (b:Board,g:GridCoordinates,a:MoveAnnotations) => pawnMoves(b,g,a);
+const king = (b:Board,g:GridCoordinates,a:MoveAnnotations) => kingMoves(b,g,a);
+const queen = (b:Board,g:GridCoordinates,a:MoveAnnotations) => queenMoves(b,g,a);
 
 const strategies: Map<Piece, Moves> = new Map([
     [ Piece.BlackBishop, bishop ],
@@ -25,9 +31,9 @@ const strategies: Map<Piece, Moves> = new Map([
 ]);
 
 function moves (
-        board:Board, 
-        fromPosition:GridCoordinates, 
-        annotations:MoveAnnotations)
+    board:Board, 
+    fromPosition:GridCoordinates, 
+    annotations:MoveAnnotations)
     : Set<PositionName> {
         
         const strategy:Moves = strategies.get(Piece.WhiteBishop);

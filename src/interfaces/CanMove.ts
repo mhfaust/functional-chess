@@ -3,7 +3,7 @@ interface CanMove {
         board: Board, 
         fromPosition: GridCoordinates, 
         toPosition: GridCoordinates, 
-        annotations: MoveAnnotations
+        annotations: MoveAnnotations    
     )
     :boolean
 }

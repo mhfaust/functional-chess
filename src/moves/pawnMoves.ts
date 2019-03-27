@@ -1,10 +1,21 @@
-import { playerAt, displaceTo, isOnBoard, isUnOccupied, isOccupiedByPlayer, 
-    otherPlayer, positionName, rank, file, areSamePositions } 
-    from 'positions/index';
+import { 
+    playerAt, 
+    displaceTo, 
+    isOnBoard, 
+    isUnOccupied, 
+    isOccupiedByPlayer, 
+    otherPlayer, 
+    positionName, 
+    rank, 
+    areSamePositions } from 'positions/index';
 import { isInCheck } from 'check/index';
 import { nextBoard } from 'board/index';
 
-function pawn(board: Board, moveFrom: GridCoordinates, annotations:KingAnnotations & EnPassantAnnotations): Set<PositionName> {
+function pawn(
+    board: Board, 
+    moveFrom: GridCoordinates, 
+    annotations:KingAnnotations & EnPassantAnnotations)
+    : Set<PositionName> {
     
     const player = playerAt(board, moveFrom);
     const legalMoves: Set<PositionName> = new Set();

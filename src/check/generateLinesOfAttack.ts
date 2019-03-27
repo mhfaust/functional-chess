@@ -21,7 +21,10 @@ const blackAttackPatterns: Array<AttackPattern> = [
     { vectors: rookVectors, canAttackLikeThis: new Set([BR, BQ]), limit: 0 },
 ];
 
-function * generateLinesOfAttack(board: Board, defender: Player, defendedPosition: GridCoordinates)
+function * generateLinesOfAttack(
+    board: Board, 
+    defender: Player, 
+    defendedPosition: GridCoordinates)
     : IterableIterator<Array<GridCoordinates>>
 {
     const attacker = otherPlayer(defender);

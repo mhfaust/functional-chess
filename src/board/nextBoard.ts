@@ -1,7 +1,10 @@
 import { file, rank, pieceAt } from 'positions/index';
 import { emptyBoard } from 'board/index';
 
-function nextBoard(previousBoard: Board, pieceMovedFromPosition: GridCoordinates, pieceMovedToPosition: GridCoordinates) 
+function nextBoard(
+    previousBoard: Board, 
+    pieceMovedFromPosition: GridCoordinates, 
+    pieceMovedToPosition: GridCoordinates) 
     : Board  {
 
     const newBoard : Board = emptyBoard();

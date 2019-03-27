@@ -7,19 +7,16 @@ function nextKingAnnotations(
         boardAnnotations: KingAnnotations
     ):KingAnnotations {
     
-    const p:KingAnnotations = {
-        whiteKingPosition: boardAnnotations.whiteKingPosition,
-        blackKingPosition: boardAnnotations.blackKingPosition
-    }
+        const revisedKingPosition = pieceAt(board, moveFrom) === Piece.BlackKing 
+        ? { blackKingPosition: moveTo }
+        : pieceAt(board, moveFrom) === Piece.WhiteKing 
+            ? { whiteKingPosition: moveTo }
+            : { };
 
-    if(pieceAt(board, moveFrom) === Piece.BlackKing){
-        p.blackKingPosition = moveTo;
-    }
-    else if(pieceAt(board, moveFrom) === Piece.WhiteKing){
-        p.whiteKingPosition = moveTo;
-    }
-    return boardAnnotations;
-
+        return {
+            ...boardAnnotations,
+            ...revisedKingPosition
+        }
 }
 
 export default nextKingAnnotations;

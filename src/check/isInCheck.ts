@@ -1,7 +1,10 @@
 import { locatePiece } from 'positions/index';
 import { generateLinesOfAttack } from 'check/index'
 
-function isInCheck(board:Board, player:Player, boardAnnotations:KingAnnotations){
+function isInCheck(
+    board:Board, 
+    player:Player, 
+    boardAnnotations:KingAnnotations): boolean{
 
     const  kingPosition = player === Player.Black 
         ? boardAnnotations.blackKingPosition 

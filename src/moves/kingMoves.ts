@@ -1,10 +1,18 @@
-import { playerAt, isOnBoard, isUnOccupiedByPlayer, positionName, displaceTo }  
-    from 'positions/index';
+import { 
+    playerAt, 
+    isOnBoard, 
+    isUnOccupiedByPlayer, 
+    positionName, 
+    displaceTo }  from 'positions/index';
 import { kingVectors } from 'constants/move-vectors'
 import { Position } from 'constants/position';
 import movesIntoCheck from 'check/movesIntoCheck';
 
-function kingMoves (board:Board, kingFrom:GridCoordinates, boardAnnotations:CastlingAnnotations & KingAnnotations): Set<PositionName> {
+function kingMoves (
+    board:Board, 
+    kingFrom:GridCoordinates, 
+    boardAnnotations:CastlingAnnotations & KingAnnotations)
+    : Set<PositionName> {
 
     const { whiteQueenSideCastlingPrecluded, 
         whiteKingSideCastlingPrecluded,
