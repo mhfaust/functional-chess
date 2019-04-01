@@ -1,5 +1,5 @@
-import allPlayerPositions from '../allPlayerPositions'
-import { initialBoard } from 'board/index'
+import allPlayerPositions from 'positions/allPlayerPositions'
+import { initialBoard } from 'board'
 
 describe('allPlayerPositions finds all white piecesonr initial board', () => {
 

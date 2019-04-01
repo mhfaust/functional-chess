@@ -1,6 +1,6 @@
-import { playerAt, otherPlayer, pieceAt } from "positions/index";
-import { isInCheck, isCheckmate } from "check/index";
-import { nextKingAnnotations, nextCastlingAnnotations, nextEnPassantAnnotations } from "board/index";
+import { playerAt, otherPlayer, pieceAt } from "positions";
+import { isInCheck, isCheckmate } from "check";
+import { nextKingAnnotations, nextCastlingAnnotations, nextEnPassantAnnotations } from "board";
 
 const makeCapturedPieces = (board: Board, prevCaptures:Array<Piece>, defender: Player, moveTo: GridCoordinates) : Array<Piece> => {
     return playerAt(board, moveTo) === defender 

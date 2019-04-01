@@ -3,9 +3,11 @@ caller is responsible for checking if the new
 position is on the board
 */
 
-import { rank, file } from 'positions/index';
+import { rank, file } from 'positions';
     
-    function displaceFrom  (currentPosition: GridCoordinates, vector: MoveVector)
+    function displaceFrom  (
+        currentPosition: GridCoordinates, 
+        vector: MoveVector)
         : GridCoordinates {
 
             return [

@@ -1,4 +1,10 @@
-import { bishopCanMove, kingCanMove, knightCanMove, pawnCanMove, queenCanMove, rookCanMove } from 'moves/index';
+import { 
+    bishopCanMove, 
+    kingCanMove, 
+    knightCanMove, 
+    pawnCanMove, 
+    queenCanMove, 
+    rookCanMove } from 'moves';
 
 //Each of the piece-specific can-move functions has a less-demanding signtaure for 
 //annotations than the combined canMove, so we cury them to match it
@@ -25,10 +31,10 @@ const strategies: Map<Piece, CanMove> = new Map([
 ]);
 
 function canMove (
-        board:Board, 
-        fromPosition:GridCoordinates, 
-        toPosition:GridCoordinates, 
-        annotations:MoveAnnotations)
+    board:Board, 
+    fromPosition:GridCoordinates, 
+    toPosition:GridCoordinates, 
+    annotations:MoveAnnotations)
     : boolean {
         
         const strategy:CanMove = strategies.get(Piece.WhiteBishop);

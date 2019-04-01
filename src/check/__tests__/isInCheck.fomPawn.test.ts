@@ -1,6 +1,6 @@
 import isInCheck from 'check/isInCheck';
 import { BK,BQ,BR,BN,BB,BP,WK,WQ,WR,WN,WB,WP,__ } from 'positions/pieces-shorthand';
-import { locatePiece } from 'positions/index';
+import { locatePiece } from 'positions';
 
 describe('isInCheck: true', () => {
     it('White King at E1 is in check from Black Pawn at D2', () => {

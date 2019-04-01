@@ -5,7 +5,7 @@ import {
     isOccupied, 
     isUnOccupied, 
     isOccupiedByPlayer, 
-    areSamePositions } from 'positions/index';
+    areSamePositions } from 'positions';
 import movesIntoCheck from 'check/movesIntoCheck';
 
 function pawnCanMove (

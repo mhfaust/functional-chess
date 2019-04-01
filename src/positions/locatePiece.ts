@@ -1,5 +1,5 @@
 // import { Piece } from 'constants/pieces'
-import { pieceAt } from 'positions/index'
+import { pieceAt } from 'positions'
 
 function locatePiece(board: Board, piece: Piece) : GridCoordinates {
     for(let file = 0; file < 8; file++){

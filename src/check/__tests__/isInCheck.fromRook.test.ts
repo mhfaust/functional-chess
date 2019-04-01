@@ -1,7 +1,7 @@
 import isInCheck from 'check/isInCheck';
 import { Position } from 'constants/position'
 import { BK,BQ,BR,BN,BB,BP,WK,WQ,WR,WN,WB,WP,__ } from 'positions/pieces-shorthand';
-import { locatePiece } from 'positions/index';
+import { locatePiece } from 'positions';
 
 describe('isInCheck: true', () => {
     it('rook checks king along a rank', () => {

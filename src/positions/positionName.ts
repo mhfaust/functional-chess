@@ -1,4 +1,4 @@
-import { rank, file } from 'positions/index';
+import { rank, file } from 'positions';
 
 const grid = [
     [PositionName.A1,PositionName.A2,PositionName.A3,PositionName.A4,PositionName.A5,PositionName.A6,PositionName.A7,PositionName.A8,],

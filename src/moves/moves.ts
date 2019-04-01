@@ -4,7 +4,7 @@ import {
     knightMoves, 
     pawnMoves, 
     queenMoves, 
-    rookMoves } from 'moves/index';
+    rookMoves } from 'moves';
 
 //Each of the piece-specific move functions has a less-demanding signtaure for 
 //annotations than the combined moves, so we cury them to match it

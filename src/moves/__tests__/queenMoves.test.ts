@@ -1,10 +1,10 @@
 import queenMoves from '../queenMoves';
-import { positionName, locatePiece } from 'positions/index'
-// import { textRender } from 'board/index';
+import { positionName, locatePiece } from 'positions'
+// import { textRender } from 'board';
 import { Position } 
     from 'constants/position';
 import { BQ,BP,WK,WQ,WR,BK,WP,__ } from 'positions/pieces-shorthand';
-import { kingPositions } from 'board/index';
+import { kingPositions } from 'board';
 describe('queen', () => {
 
     it(`provides all possible moves from queen on queen1board: `, () => {

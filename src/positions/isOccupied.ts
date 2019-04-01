@@ -1,6 +1,11 @@
 import { ALL_PIECES } from "constants/pieces";
-import { pieceAt } from 'positions/index';
+import { pieceAt } from 'positions';
 
-const isOccupied = (board: Board, position: GridCoordinates): boolean => ALL_PIECES.has(pieceAt(board, position))
+function isOccupied  (
+    board: Board, 
+    position: GridCoordinates)
+    : boolean {
+        return ALL_PIECES.has(pieceAt(board, position));
+    }
     
 export default isOccupied;

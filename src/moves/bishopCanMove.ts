@@ -1,4 +1,11 @@
-import { file, rank, isOnBoard, playerAt, isOccupied, areSamePositions, displaceTo } from 'positions/index'
+import { 
+    file, 
+    rank, 
+    isOnBoard, 
+    playerAt, 
+    isOccupied, 
+    areSamePositions, 
+    displaceTo } from 'positions'
 import movesIntoCheck from 'check/movesIntoCheck';
 
 function bishopCanMove (
@@ -35,8 +42,9 @@ function bishopCanMove (
 
     //and keep checking until we run into a piece or the move-to position:
     while(!areSamePositions(step, toPosition) ){
-        if(isOccupied(board, step))
+        if(isOccupied(board, step)){
             return false;
+        }
         step = displaceTo(step, moveVector);
     }
 

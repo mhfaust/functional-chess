@@ -1,5 +1,13 @@
-import { generateLinesOfAttack, movesIntoCheck } from 'check/index';
-import { displaceTo, otherPlayer, playerAt, isOnBoard } from 'positions/index';
+import { 
+    generateLinesOfAttack, 
+    movesIntoCheck } from 'check';
+
+import { 
+    displaceTo, 
+    otherPlayer, 
+    playerAt, 
+    isOnBoard } from 'positions';
+    
 import { kingVectors } from 'constants/move-vectors';
 
 function isCheckmate(
@@ -46,7 +54,7 @@ function isCheckmate(
     //Examine each square from the king to the attacking/checking piece, 
     //and see if that square is under "attack" by a defender's piece,
     //and if so, be sure moving it there would fully remove the player from check,
-    //important because the moved piece may have been pinned.
+    //important because the blocking piece may have been pinned.
 
     for(let positionOnCheckLine of checkLine.value){
         const defensiveMoves = generateLinesOfAttack(board, attacker, positionOnCheckLine);

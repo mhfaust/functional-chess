@@ -7,9 +7,9 @@ import {
     otherPlayer, 
     positionName, 
     rank, 
-    areSamePositions } from 'positions/index';
-import { isInCheck } from 'check/index';
-import { nextBoard } from 'board/index';
+    areSamePositions } from 'positions';
+import { isInCheck } from 'check';
+import { nextBoard } from 'board';
 
 function pawn(
     board: Board, 

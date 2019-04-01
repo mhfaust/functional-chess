@@ -1,4 +1,4 @@
-// import { initialBoard, nextBoard } from "board/index";
+// import { initialBoard, nextBoard } from "board";
 // import initialBoardAnnotations from "board/initialBoardAnnotations";
 // import canMove from "moves/canMove";
 // import nextBoardAnnotations from "board/nextBoardAnnotations";

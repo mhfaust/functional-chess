@@ -1,4 +1,4 @@
-import { pieceAt } from "positions/index";
+import { pieceAt } from "positions";
 
 function nextKingAnnotations(
         board:Board,

@@ -1,5 +1,5 @@
 import isOccupied from 'positions/isOccupied'
-import { initialBoard } from 'board/index'
+import { initialBoard } from 'board'
 import { Position } 
     from 'constants/position';
 

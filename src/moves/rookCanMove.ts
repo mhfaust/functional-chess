@@ -5,7 +5,7 @@ import {
     playerAt, 
     isOccupied, 
     areSamePositions, 
-    displaceTo } from 'positions/index';
+    displaceTo } from 'positions';
     
 import movesIntoCheck from 'check/movesIntoCheck';
 

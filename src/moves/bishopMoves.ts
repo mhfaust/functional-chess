@@ -5,10 +5,10 @@ import {
     isUnOccupied, 
     isOccupiedByPlayer, 
     otherPlayer, 
-    positionName } from 'positions/index';
+    positionName } from 'positions';
 
 import { bishopVectors } from 'constants/move-vectors'
-import { movesIntoCheck } from 'check/index';
+import { movesIntoCheck } from 'check';
 
 function bishop(
     board: Board, 
@@ -17,7 +17,6 @@ function bishop(
     : Set<PositionName> {
 
     const player = playerAt(board, moveFrom);
-
     const legalMoves: Array<GridCoordinates> = [];
 
     bishopVectors.forEach((vector: MoveVector):void => {
@@ -25,12 +24,10 @@ function bishop(
         let examinedPosition = displaceTo(moveFrom, vector);
 
         while(isOnBoard(examinedPosition) && isUnOccupied(board, examinedPosition)){
-            
             legalMoves.push(examinedPosition);
             examinedPosition = displaceTo(examinedPosition, vector);
         }
         if(isOnBoard(examinedPosition) && isOccupiedByPlayer(board, examinedPosition, otherPlayer(player))){
-            
             legalMoves.push(examinedPosition);
         }
     });

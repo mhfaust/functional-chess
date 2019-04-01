@@ -1,4 +1,4 @@
-import { pieceAt, rank, file } from "positions/index";
+import { pieceAt, rank, file } from "positions";
 
 const nextEnPassantAnnotations = (prevBoard: Board, from:GridCoordinates, to:GridCoordinates): EnPassantAnnotations => {
     const piece = pieceAt(prevBoard, from);

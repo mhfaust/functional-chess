@@ -1,5 +1,5 @@
 import { ALL_PIECES } from 'constants/pieces'
-import { file, rank } from 'positions/index'
+import { file, rank } from 'positions'
 
 function pieceAt (board: Board, position: GridCoordinates): Piece {
     const found: Piece = board[file(position)][rank(position)];

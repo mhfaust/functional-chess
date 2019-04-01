@@ -1,8 +1,8 @@
 import rookCanMove from 'moves/rookCanMove';
 import { Position } from 'constants/position';
 import { BK,BR,BP,WP,__ } from 'positions/pieces-shorthand';
-import { locatePiece } from 'positions/index';
-import { kingPositions } from 'board/index';
+import { locatePiece } from 'positions';
+import { kingPositions } from 'board';
 
 const rook1Board: Board = [
 /*         1  2  3  4  5  6  7  8  */

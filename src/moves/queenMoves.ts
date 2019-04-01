@@ -1,4 +1,4 @@
-import { rookMoves, bishopMoves } from 'moves/index'
+import { rookMoves, bishopMoves } from 'moves'
 
 function queen(
     board:Board, 

@@ -1,4 +1,4 @@
-import { locatePiece } from "positions/index";
+import { locatePiece } from "positions";
 
 function kingPositions(board: Board): KingAnnotations{
     return {

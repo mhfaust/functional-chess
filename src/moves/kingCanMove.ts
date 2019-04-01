@@ -1,4 +1,4 @@
-import { rank, file, playerAt, areSamePositions } from 'positions/index';
+import { rank, file, playerAt, areSamePositions } from 'positions';
 import movesIntoCheck from 'check/movesIntoCheck';
 import { Position } from 'constants/position';
 

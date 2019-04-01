@@ -1,4 +1,4 @@
-import { isOnBoard, playerAt, file, rank } from 'positions/index'
+import { isOnBoard, playerAt, file, rank } from 'positions'
 import movesIntoCheck from 'check/movesIntoCheck';
 
 function knightCanMove (

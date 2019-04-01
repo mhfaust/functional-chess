@@ -1,4 +1,4 @@
-import { areSamePositions } from "positions/index";
+import { areSamePositions } from "positions";
 import { Position } from "constants/position";
 
 

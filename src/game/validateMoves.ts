@@ -1,8 +1,9 @@
-import { initialBoard, 
+import { 
+    initialBoard, 
     nextBoard, 
     initialBoardAnnotations, 
-    nextBoardAnnotations } from "board/index";
-import { canMove } from "moves/index";
+    nextBoardAnnotations } from "board";
+import { canMove } from "moves";
 
 function validateGameMoves(moves:Array<[GridCoordinates, GridCoordinates]>){
 

@@ -1,6 +1,6 @@
 import {
     rookCanMove,
-    bishopCanMove } from 'moves/index';
+    bishopCanMove } from 'moves';
 
 function queenCanMove (
     board: Board, 

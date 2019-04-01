@@ -1,5 +1,9 @@
-import { playerAt, isOnBoard, isUnOccupiedByPlayer, positionName, displaceTo }
-    from 'positions/index';
+import { 
+    playerAt, 
+    isOnBoard, 
+    isUnOccupiedByPlayer, 
+    positionName, 
+    displaceTo } from 'positions';
 
 import { knightVectors } from 'constants/move-vectors'
 import movesIntoCheck from 'check/movesIntoCheck';

@@ -1,5 +1,5 @@
-import { file, rank, pieceAt } from 'positions/index';
-import { emptyBoard } from 'board/index';
+import { file, rank, pieceAt } from 'positions';
+import { emptyBoard } from 'board';
 
 function nextBoard(
     previousBoard: Board, 

@@ -1,7 +1,7 @@
 import knightMoves from 'moves/knightMoves';
-import { initialBoard } from 'board/index';
+import { initialBoard } from 'board';
 import { Position } from 'constants/position';
-import { positionName, locatePiece } from 'positions/index'
+import { positionName, locatePiece } from 'positions'
 import { BK,BQ,BR,BN,BB,BP,WK,WQ,WR,WN,WB,WP,__ } from 'positions/pieces-shorthand';
 import kingPositions from 'board/kingPositions';
 

@@ -1,6 +1,9 @@
 import { Position } from "constants/position";
 
-function parseSimplePawnForward(notation:string, board: Board):[GridCoordinates, GridCoordinates]{
+function parseSimplePawnForward(
+    notation:string, 
+    board: Board)
+    :[GridCoordinates, GridCoordinates]{
 
 
 

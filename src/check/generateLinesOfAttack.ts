@@ -1,7 +1,17 @@
-import { playerAt, displaceFrom, isOnBoard, otherPlayer, pieceAt, positionName }
-    from 'positions/index';
-    import { kingVectors, knightVectors, rookVectors, bishopVectors, pawnBlackAttackVectors, pawnWhiteAttackVectors }
-    from 'constants/move-vectors'
+import { 
+    playerAt, 
+    displaceFrom, 
+    isOnBoard, 
+    otherPlayer, 
+    pieceAt, 
+    positionName } from 'positions';
+import { 
+    kingVectors, 
+    knightVectors, 
+    rookVectors, 
+    bishopVectors, 
+    pawnBlackAttackVectors, 
+    pawnWhiteAttackVectors } from 'constants/move-vectors'
 
 import { BK, BQ, BR, BN, BB, BP, WK, WQ, WR, WN, WB, WP } from 'positions/pieces-shorthand';
 

@@ -1,12 +1,13 @@
-import { nextBoard, nextKingAnnotations } from "board/index";
-import { isInCheck } from "check/index";
-import { playerAt } from "positions/index";
+import { nextBoard, nextKingAnnotations } from "board";
+import { isInCheck } from "check";
+import { playerAt } from "positions";
 
 function movesIntoCheck(
     board:Board, 
     moveFrom:GridCoordinates, 
     moveTo:GridCoordinates, 
-    annotations:KingAnnotations): boolean{
+    annotations:KingAnnotations)
+    : boolean{
    
     const next = nextBoard(board, moveFrom, moveTo);
 

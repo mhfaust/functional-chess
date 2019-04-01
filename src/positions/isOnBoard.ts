@@ -1,4 +1,4 @@
-import { rank, file } from 'positions/index'
+import { rank, file } from 'positions'
 
 const isOnBoard = (position: GridCoordinates) => 
     file(position) > -1 &&
