@@ -1,4 +1,4 @@
-// import { initialBoard, nextBoard } from "board";
+// import { initialBoard, move } from "board";
 // import initialBoardAnnotations from "board/initialBoardAnnotations";
 // import canMoveTo from "moves/canMoveTo";
 // import nextBoardAnnotations from "board/nextBoardAnnotations";
@@ -33,7 +33,7 @@ type Game = Array<Turn>
 //                 return false;
 //             }
 
-//             const newBoard = nextBoard(currentBoard, moveFrom, moveTo);
+//             const newBoard = move(currentBoard, moveFrom, moveTo);
 //             boardStack.push(newBoard);
 //             annotationsStack.push(nextBoardAnnotations(currentBoard, newBoard, currentAnnotations, moveFrom, moveTo));
 //         };

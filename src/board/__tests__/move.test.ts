@@ -1,8 +1,8 @@
-import nextBoard from 'board/nextBoard';
+import move from 'board/move';
 import { Position } from 'constants/position';
 import { BK,BQ,BR,BN,BB,BP,WK,WQ,WR,WN,WB,WP,__ } from 'positions/pieces-shorthand';
 
-describe('nextBoard', () => {
+describe('move', () => {
 
     it('is in checkmate (1)', () => {
         const boardBefore: Board = [
@@ -29,6 +29,6 @@ describe('nextBoard', () => {
 /*  H  */ [__,__,__,__,__,__,BP,BK],
         ];        
 
-        expect(nextBoard(boardBefore, Position.G8, Position.H8)).toEqual(boardAfter)
+        expect(move(boardBefore, Position.G8, Position.H8)).toEqual(boardAfter)
     })
 })

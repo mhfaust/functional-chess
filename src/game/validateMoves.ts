@@ -1,6 +1,6 @@
 import { 
     initialBoard, 
-    nextBoard, 
+    move, 
     initialBoardAnnotations, 
     nextBoardAnnotations } from "board";
 import { canMoveTo } from "moves";  
@@ -20,7 +20,7 @@ function validateGameMoves(moves:Array<[GridCoordinates, GridCoordinates]>){
             return false;
         }
 
-        const newBoard = nextBoard(currentBoard, moveFrom, moveTo);
+        const newBoard = move(currentBoard, moveFrom, moveTo);
         boardStack.push(newBoard);
         annotationsStack.push(nextBoardAnnotations(currentBoard, newBoard, currentAnnotations, moveFrom, moveTo));
     };

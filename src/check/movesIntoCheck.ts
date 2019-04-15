@@ -1,4 +1,4 @@
-import { nextBoard, nextKingAnnotations } from "board";
+import { move, nextKingAnnotations } from "board";
 import { isInCheck } from "check";
 import { playerAt } from "positions";
 
@@ -9,7 +9,7 @@ function movesIntoCheck(
     annotations:KingAnnotations)
     : boolean{
    
-    const next = nextBoard(board, moveFrom, moveTo);
+    const next = move(board, moveFrom, moveTo);
 
     const updatedAnnotations = nextKingAnnotations(board, moveFrom, moveTo, annotations);
     

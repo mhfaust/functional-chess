@@ -1,10 +1,10 @@
 import { file, rank, pieceAt } from 'positions';
 import { emptyBoard } from 'board';
 
-function nextBoard(
+function move(
     previousBoard: Board, 
-    pieceMovedFromPosition: GridCoordinates, 
-    pieceMovedToPosition: GridCoordinates) 
+    fromPosition: GridCoordinates, 
+    toPosition: GridCoordinates) 
     : Board  {
 
     const newBoard : Board = emptyBoard();
@@ -15,10 +15,10 @@ function nextBoard(
         }
     }
 
-    newBoard[file(pieceMovedFromPosition)][rank(pieceMovedFromPosition)] = Piece.Empty;
-    newBoard[file(pieceMovedToPosition)][rank(pieceMovedToPosition)] = pieceAt(previousBoard, pieceMovedFromPosition)
+    newBoard[file(fromPosition)][rank(fromPosition)] = Piece.Empty;
+    newBoard[file(toPosition)][rank(toPosition)] = pieceAt(previousBoard, fromPosition)
     
     return newBoard;
 }
 
-export default nextBoard;
+export default move;

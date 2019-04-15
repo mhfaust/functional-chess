@@ -7,7 +7,7 @@ import {
     otherPlayer, 
     positionName } from 'positions';
 import { isInCheck } from 'check';
-import { nextBoard } from 'board';
+import { move } from 'board';
 import movesIntoCheck from 'check/movesIntoCheck';
 
 function rook(board: Board, moveFrom: GridCoordinates, boardAnnotations:KingAnnotations): Set<PositionName> {
@@ -16,7 +16,7 @@ function rook(board: Board, moveFrom: GridCoordinates, boardAnnotations:KingAnno
     const directions = [[0,1], [0,-1], [1,0], [-1,0]];
     const legalMoves : Array<GridCoordinates> = [];
 
-    const doesntPutSelfInCheck = (position:GridCoordinates):boolean => !isInCheck(nextBoard(board, moveFrom, position), player, boardAnnotations);
+    const doesntPutSelfInCheck = (position:GridCoordinates):boolean => !isInCheck(move(board, moveFrom, position), player, boardAnnotations);
 
     directions.forEach((direction) => {
         let examinedPosition = displaceTo(moveFrom, direction);
