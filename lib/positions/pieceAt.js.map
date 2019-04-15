@@ -1,1 +1,0 @@
-{"version":3,"file":"pieceAt.js","sourceRoot":"","sources":["../../src/positions/pieceAt.ts"],"names":[],"mappings":";;;;IAGA,SAAS,OAAO,CAAE,KAAY,EAAE,QAAyB;QACrD,IAAM,KAAK,GAAU,KAAK,CAAC,gBAAI,CAAC,QAAQ,CAAC,CAAC,CAAC,gBAAI,CAAC,QAAQ,CAAC,CAAC,CAAC;QAE3D,IAAG,mBAAU,CAAC,GAAG,CAAC,KAAK,CAAC;YACpB,OAAO,KAAK,CAAC;;YAEb,UAAmB;IAC3B,CAAC;;;;;;;;;;;iCAEc,OAAO;QAAC,CAAC"}

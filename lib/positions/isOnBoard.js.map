@@ -1,1 +1,0 @@
-{"version":3,"file":"isOnBoard.js","sourceRoot":"","sources":["../../src/positions/isOnBoard.ts"],"names":[],"mappings":";;;;;;;;;;;YAEM,SAAS,GAAG,UAAC,QAAyB;gBACxC,OAAA,gBAAI,CAAC,QAAQ,CAAC,GAAG,CAAC,CAAC;oBACnB,gBAAI,CAAC,QAAQ,CAAC,GAAG,CAAC;oBAClB,gBAAI,CAAC,QAAQ,CAAC,GAAG,CAAC,CAAC;oBACnB,gBAAI,CAAC,QAAQ,CAAC,GAAG,CAAC;YAHlB,CAGkB,CAAC;iCAER,SAAS;QAAC,CAAC"}

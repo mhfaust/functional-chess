@@ -1,1 +1,0 @@
-{"version":3,"file":"queenMoves.js","sourceRoot":"","sources":["../../src/moves/queenMoves.ts"],"names":[],"mappings":";;;;;;;;;;;;;;;;;;;;;;;;IAEA,SAAS,KAAK,CACV,KAAW,EACX,QAAwB,EACxB,gBAAgC;QAEhC,OAAO,IAAI,GAAG,UACP,iBAAS,CAAC,KAAK,EAAE,QAAQ,EAAE,gBAAgB,CAAC,EAC5C,mBAAW,CAAC,KAAK,EAAE,QAAQ,EAAE,gBAAgB,CAAC,EACnD,CAAC;IACP,CAAC;;;;;;;;iCAEc,KAAK;QAAC,CAAC"}
