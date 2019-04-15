@@ -1,6 +1,6 @@
 import { Position } from "constants/position";
 import { BK,BQ,BR,BN,BB,BP,WK,WQ,WR,WN,WB,WP,__ } from 'positions/pieces-shorthand';
-import canMove from "moves/canMove";
+import canMoveTo from "moves/canMoveTo";
 import kingPositions from "board/kingPositions";
 
 const defaultMoveAnnotations: MoveAnnotations = {
@@ -14,7 +14,7 @@ const defaultMoveAnnotations: MoveAnnotations = {
     whiteQueenSideCastlingPrecluded:false
 }
 
-describe('canMove Bishop', () => {
+describe('canMoveTo Bishop', () => {
     
     it('Can move bishop only along axis of potential check while blocking check', () => {
         const board: Board = [
@@ -34,13 +34,13 @@ describe('canMove Bishop', () => {
             ...kingPositions(board)
         }
 
-        expect(canMove(board, Position.D4, Position.C3, annotations)).toBe(true);  
-        expect(canMove(board, Position.D4, Position.C5, annotations)).toBe(false);  
+        expect(canMoveTo(board, Position.D4, Position.C3, annotations)).toBe(true);  
+        expect(canMoveTo(board, Position.D4, Position.C5, annotations)).toBe(false);  
     });
 });
 
 
-describe('canMove King', () => {
+describe('canMoveTo King', () => {
 
     const board: Board = [
         /*         1  2  3  4  5  6  7  8  */
@@ -61,18 +61,18 @@ describe('canMove King', () => {
         }
         const boardAnnotations = { ...defaultMoveAnnotations, ...noPreclusions, ...kingPositions(board) };
 
-        expect(canMove(board, Position.E1, Position.G1, boardAnnotations)).toBe(false)
+        expect(canMoveTo(board, Position.E1, Position.G1, boardAnnotations)).toBe(false)
     
 });
 
 
-describe('canMove Knight', () => {
+describe('canMoveTo Knight', () => {
 
     
 });
 
 
-describe('canMove Pawn', () => {
+describe('canMoveTo Pawn', () => {
 
     it('black pawn can attack a square passed by a white pawn moving from rank 2 to 4', () => {
         const board : Board = [
@@ -93,13 +93,13 @@ describe('canMove Pawn', () => {
             pawnAt:Position.E4
         }
 
-        const answer = canMove(board, Position.D4, Position.E3, annotations);
+        const answer = canMoveTo(board, Position.D4, Position.E3, annotations);
         expect(answer).toBe(true);
     });
 });
 
 
-describe('canMove Queen', () => {
+describe('canMoveTo Queen', () => {
     const board:Board = [
         /*         1  2  3  4  5  6  7  8  */
         /*  A  */ [__,__,__,__,__,__,__,__],
@@ -118,13 +118,13 @@ describe('canMove Queen', () => {
         }
 
         it('can capture opponent piece, diagonally', () => {
-            expect(canMove(board, Position.C2, Position.F5, annotations)).toBe(true)
+            expect(canMoveTo(board, Position.C2, Position.F5, annotations)).toBe(true)
         });
     
 });
 
 
-describe('canMove Rook', () => {
+describe('canMoveTo Rook', () => {
 
     
 });

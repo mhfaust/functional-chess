@@ -3,7 +3,7 @@ import {
     nextBoard, 
     initialBoardAnnotations, 
     nextBoardAnnotations } from "board";
-import { canMove } from "moves";
+import { canMoveTo } from "moves";  
 
 function validateGameMoves(moves:Array<[GridCoordinates, GridCoordinates]>){
 
@@ -16,7 +16,7 @@ function validateGameMoves(moves:Array<[GridCoordinates, GridCoordinates]>){
         const currentBoard = boardStack[boardStack.length - 1];
         const currentAnnotations = annotationsStack[annotationsStack.length - 1];
 
-        if(currentAnnotations.isCheckmate || !canMove(currentBoard, moveFrom, moveTo, currentAnnotations)){
+        if(currentAnnotations.isCheckmate || !canMoveTo(currentBoard, moveFrom, moveTo, currentAnnotations)){
             return false;
         }
 

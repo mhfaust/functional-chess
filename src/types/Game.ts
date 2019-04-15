@@ -1,6 +1,6 @@
 // import { initialBoard, nextBoard } from "board";
 // import initialBoardAnnotations from "board/initialBoardAnnotations";
-// import canMove from "moves/canMove";
+// import canMoveTo from "moves/canMoveTo";
 // import nextBoardAnnotations from "board/nextBoardAnnotations";
 
 type Game = Array<Turn>
@@ -29,7 +29,7 @@ type Game = Array<Turn>
 //             const currentBoard = boardStack[boardStack.length - 1];
 //             const currentAnnotations = annotationsStack[annotationsStack.length - 1];
 
-//             if(currentAnnotations.isCheckmate || !canMove(currentBoard, moveFrom, moveTo, currentAnnotations)){
+//             if(currentAnnotations.isCheckmate || !canMoveTo(currentBoard, moveFrom, moveTo, currentAnnotations)){
 //                 return false;
 //             }
 

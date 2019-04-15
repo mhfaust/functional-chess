@@ -1,4 +1,7 @@
-import { canMove } from 'moves'
+import { canMoveTo, possbileMoves } from 'moves'
+import { initialBoard } from 'board'
 export default {
-    canMove
+    canMoveTo,
+    possbileMoves,
+    initialBoard,
 }

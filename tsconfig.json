@@ -7,7 +7,7 @@
         "module": "system",
         "moduleResolution": "Node",
         "noImplicitAny": true,
-        "outDir": "lib/",
+        "outDir": "dist/",
         "paths": {
             "*": ["*", "./src/*"]
           },

@@ -7,14 +7,14 @@ ChessBoard (?)
     probably no need for a class
 
 move calculations:
-    canMove(fromCoords, toCoords)
+    canMoveTo(fromCoords, toCoords)
     allowedMoves(piceCoords)
-    - note, probably not efficient to use canMove as part of allowedMoves
+    - note, probably not efficient to use canMoveTo as part of allowedMoves
     
 isInCheck(player)
 isInCheckMate(player)
 
-canMove(coord){
+canMoveTo(coord){
     getPiece at coord
     exit if no piece
     get move explore strategy for piece type

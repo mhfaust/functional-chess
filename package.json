@@ -1,7 +1,7 @@
 {
-  "name": "chess",
+  "name": "functional-chess",
   "version": "0.0.1",
-  "description": "Chess board game",
+  "description": "Chess rules engine written in a functional style",
   "main": "index.js",
   "scripts": {
     "test": "jest",

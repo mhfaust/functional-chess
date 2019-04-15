@@ -1,4 +1,4 @@
-interface CanMove { 
+interface canMoveTo { 
     (
         board: Board, 
         fromPosition: GridCoordinates, 
