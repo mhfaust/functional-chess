@@ -5,14 +5,14 @@ import {
     nextBoardAnnotations } from "board";
 import { canMoveTo } from "moves";  
 
-function validateGameMoves(moves:Array<[GridCoordinates, GridCoordinates]>){
+function validateGameMoves(gameMoves:Array<[GridCoordinates, GridCoordinates]>){
 
     let boardStack = [initialBoard()];
     let annotationsStack = [initialBoardAnnotations()];
 
-    for(let move of moves){
-        const moveFrom:GridCoordinates = move[0];
-        const moveTo:GridCoordinates = move[1];
+    for(let gameMove of gameMoves){
+        const moveFrom:GridCoordinates = gameMove[0];
+        const moveTo:GridCoordinates = gameMove[1];
         const currentBoard = boardStack[boardStack.length - 1];
         const currentAnnotations = annotationsStack[annotationsStack.length - 1];
 
