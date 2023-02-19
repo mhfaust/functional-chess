@@ -9,9 +9,9 @@ function nextKingAnnotations(
         boardAnnotations: KingAnnotations
     ):KingAnnotations {
     
-        const revisedKingPosition = pieceAt(board, moveFrom) === 'BlackKing' 
+        const revisedKingPosition = pieceAt(board, moveFrom) === 'Black King' 
         ? { blackKingPosition: moveTo }
-        : pieceAt(board, moveFrom) === 'WhiteKing' 
+        : pieceAt(board, moveFrom) === 'White King' 
             ? { whiteKingPosition: moveTo }
             : { };
 

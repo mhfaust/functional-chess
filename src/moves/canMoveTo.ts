@@ -22,18 +22,18 @@ const king = (b: Board, t: GridCoordinates, f: GridCoordinates, a: MoveAnnotatio
 const queen = (b: Board, t: GridCoordinates, f: GridCoordinates, a: MoveAnnotations) => queenCanMove(b, t, f, a);
 
 const strategies: Map<Piece, CanMoveTo> = new Map([
-    [ 'BlackBishop', bishop ],
-    [ 'WhiteBishop', bishop ],
-    [ 'BlackKnight', knight ],
-    [ 'WhiteKnight', knight ],
-    [ 'BlackRook', rook ],
-    [ 'WhiteRook', rook ],
-    [ 'BlackQueen', queen ],
-    [ 'WhiteQueen', queen ],
-    [ 'BlackKing', king ],
-    [ 'WhiteKing', king ],
-    [ 'BlackPawn', pawn ],
-    [ 'WhitePawn', pawn ],
+    [ 'Black Bishop', bishop ],
+    [ 'White Bishop', bishop ],
+    [ 'Black Knight', knight ],
+    [ 'White Knight', knight ],
+    [ 'Black Rook', rook ],
+    [ 'White Rook', rook ],
+    [ 'Black Queen', queen ],
+    [ 'White Queen', queen ],
+    [ 'Black King', king ],
+    [ 'White King', king ],
+    [ 'Black Pawn', pawn ],
+    [ 'White Pawn', pawn ],
 ]);
 
 function canMoveTo (

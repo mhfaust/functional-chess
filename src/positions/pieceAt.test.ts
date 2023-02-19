@@ -7,11 +7,11 @@ import { BK,BQ,BR,BN,BB,BP,WK,WQ,WR,WN,WB,WP,__ } from 'positions/pieces-shortha
 
 describe('pieceAt', () => {
     it('gets the white queen knight from the initial board', () => {
-        expect(pieceAt(initialBoard(), Position.B1)).toBe('WhiteKnight');
+        expect(pieceAt(initialBoard(), Position.B1)).toBe('White Knight');
     });
 
     it('gets the black queen from the inital board', () => {
-        expect(pieceAt(initialBoard(), Position.D8)).toBe('BlackQueen')
+        expect(pieceAt(initialBoard(), Position.D8)).toBe('Black Queen')
     })
 
     it('gets null for a square without a piece', () => {

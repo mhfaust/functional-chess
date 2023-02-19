@@ -38,7 +38,7 @@ function nextBoardAnnotations(
         ...nextKingPositions,
         ...{
             lastPlayerMoved: lastMoved,
-            lastPieceMoved: 'WhitePawn',
+            lastPieceMoved: 'White Pawn',
             lastMoveFrom: pieceMovedFromPosition,
             lastMoveTo: pieceMovedToPosition,
             whoseTurn: nextPlayer,

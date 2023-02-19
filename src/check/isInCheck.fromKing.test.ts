@@ -19,8 +19,8 @@ describe('isInCheck: true', () => {
         ];
 
         const annotations: KingAnnotations = {
-            blackKingPosition: locatePiece(board, 'BlackKing'),
-            whiteKingPosition: locatePiece(board, 'WhiteKing')
+            blackKingPosition: locatePiece(board, 'Black King'),
+            whiteKingPosition: locatePiece(board, 'White King')
         };
 
         expect(isInCheck(board, Player.White, annotations)).toBe(true)
@@ -41,8 +41,8 @@ describe('isInCheck: true', () => {
         ];
 
         const annotations: KingAnnotations = {
-            blackKingPosition: locatePiece(board, 'BlackKing'),
-            whiteKingPosition: locatePiece(board, 'WhiteKing')
+            blackKingPosition: locatePiece(board, 'Black King'),
+            whiteKingPosition: locatePiece(board, 'White King')
         };
 
         expect(isInCheck(board, Player.White, annotations)).toBe(true)
@@ -63,8 +63,8 @@ describe('isInCheck: true', () => {
         ];
 
         const annotations: KingAnnotations = {
-            blackKingPosition: locatePiece(board, 'BlackKing'),
-            whiteKingPosition: locatePiece(board, 'WhiteKing')
+            blackKingPosition: locatePiece(board, 'Black King'),
+            whiteKingPosition: locatePiece(board, 'White King')
         };
 
         expect(isInCheck(board, Player.White, annotations)).toBe(true)
@@ -86,8 +86,8 @@ describe('isInCheck: false', () => {
         ];
 
         const annotations: KingAnnotations = {
-            blackKingPosition: locatePiece(board, 'BlackKing'),
-            whiteKingPosition: locatePiece(board, 'WhiteKing')
+            blackKingPosition: locatePiece(board, 'Black King'),
+            whiteKingPosition: locatePiece(board, 'White King')
         };
 
         expect(isInCheck(board, Player.White, annotations)).toBe(false)

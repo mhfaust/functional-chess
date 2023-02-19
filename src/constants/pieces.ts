@@ -1,20 +1,20 @@
 import { Piece } from "enums/piece";
 
 const blackPieces : ReadonlyArray<Piece> = Object.freeze([
-    'BlackKing',
-    'BlackQueen',
-    'BlackRook',
-    'BlackKnight',
-    'BlackBishop',
-    'BlackPawn'
+    'Black King',
+    'Black Queen',
+    'Black Rook',
+    'Black Knight',
+    'Black Bishop',
+    'Black Pawn'
 ]);
 const whitePieces  : ReadonlyArray<Piece> = Object.freeze([
-    'WhiteKing',
-    'WhiteQueen',
-    'WhiteRook',
-    'WhiteKnight',
-    'WhiteBishop',
-    'WhitePawn'
+    'White King',
+    'White Queen',
+    'White Rook',
+    'White Knight',
+    'White Bishop',
+    'White Pawn'
 ]);
 
 export const BLACK_PIECES = Object.freeze(new Set(blackPieces));
@@ -22,17 +22,17 @@ export const WHITE_PIECES = Object.freeze(new Set(whitePieces));
 export const ALL_PIECES = Object.freeze(new Set([...blackPieces, ...whitePieces]));
 
 export const unicodeSymbols = Object.freeze({
-    WhiteKing: '♔',
-    WhiteQueen: '♕',
-    WhiteRook: '♖',
-    WhiteBishop: '♗',
-    WhiteKnight: '♘',
-    WhitePawn: '♙',
-    BlackKing: '♚',
-    BlackQueen: '♛',
-    BlackRook: '♜',
-    BlackBishop: '♝',
-    BlackKnight: '♞',
-    BlackPawn: '♟',
-    Empty: ' '
+    'White King': '♔',
+    'White Queen': '♕',
+    'White Rook': '♖',
+    'White Bishop': '♗',
+    'White Knight': '♘',
+    'White Pawn': '♙',
+    'Black King': '♚',
+    'Black Queen': '♛',
+    'Black Rook': '♜',
+    'Black Bishop': '♝',
+    'Black Knight': '♞',
+    'Black Pawn': '♟',
+    'Empty': ' '
 });

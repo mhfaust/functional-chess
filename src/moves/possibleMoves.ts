@@ -22,18 +22,18 @@ const king = (b: Board,g: GridCoordinates,a: MoveAnnotations) => kingMoves(b,g,a
 const queen = (b: Board,g: GridCoordinates,a: MoveAnnotations) => queenMoves(b,g,a);
 
 const strategies: Map<Piece, Moves> = new Map([
-    [ 'BlackBishop', bishop ],
-    [ 'WhiteBishop', bishop ],
-    [ 'BlackKnight', knight ],
-    [ 'WhiteKnight', knight ],
-    [ 'BlackRook', rook ],
-    [ 'WhiteRook', rook ],
-    [ 'BlackQueen', queen ],
-    [ 'WhiteQueen', queen ],
-    [ 'BlackKing', king ],
-    [ 'WhiteKing', king ],
-    [ 'BlackPawn', pawn ],
-    [ 'WhitePawn', pawn ],
+    [ 'Black Bishop', bishop ],
+    [ 'White Bishop', bishop ],
+    [ 'Black Knight', knight ],
+    [ 'White Knight', knight ],
+    [ 'Black Rook', rook ],
+    [ 'White Rook', rook ],
+    [ 'Black Queen', queen ],
+    [ 'White Queen', queen ],
+    [ 'Black King', king ],
+    [ 'White King', king ],
+    [ 'Black Pawn', pawn ],
+    [ 'White Pawn', pawn ],
 ]);
 
 function moves (
@@ -42,7 +42,7 @@ function moves (
     annotations:MoveAnnotations)
     : Set<PositionName> {
         
-        const strategy:Moves = strategies.get('WhiteBishop');
+        const strategy:Moves = strategies.get('White Bishop');
         return strategy(board, fromPosition, annotations);
 }
 

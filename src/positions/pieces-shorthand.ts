@@ -1,15 +1,15 @@
 import { Piece } from "enums/piece";
 
 export const __ : Piece = null;
-export const WK : Piece = 'WhiteKing';
-export const WQ : Piece = 'WhiteQueen';
-export const WB : Piece = 'WhiteBishop';
-export const WN : Piece = 'WhiteKnight';
-export const WR : Piece = 'WhiteRook';
-export const WP : Piece = 'WhitePawn';
-export const BK : Piece = 'BlackKing';
-export const BQ : Piece = 'BlackQueen';
-export const BB : Piece = 'BlackBishop';
-export const BN : Piece = 'BlackKnight';
-export const BR : Piece = 'BlackRook';
-export const BP : Piece = 'BlackPawn';
+export const WK : Piece = 'White King';
+export const WQ : Piece = 'White Queen';
+export const WB : Piece = 'White Bishop';
+export const WN : Piece = 'White Knight';
+export const WR : Piece = 'White Rook';
+export const WP : Piece = 'White Pawn';
+export const BK : Piece = 'Black King';
+export const BQ : Piece = 'Black Queen';
+export const BB : Piece = 'Black Bishop';
+export const BN : Piece = 'Black Knight';
+export const BR : Piece = 'Black Rook';
+export const BP : Piece = 'Black Pawn';
