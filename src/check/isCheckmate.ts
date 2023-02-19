@@ -11,7 +11,7 @@ import {
 import { kingVectors } from 'constants/move-vectors';
 import { KingAnnotations } from 'interfaces/KingAnnotations';
 import { Board } from 'types/Board';
-import { Player } from 'enums/player';
+import { Player } from 'board/player';
 
 function isCheckmate(
     board: Board, 

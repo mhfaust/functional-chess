@@ -1,6 +1,6 @@
 import { rank, file, playerAt, areSamePositions } from 'positions';
 import movesIntoCheck from 'check/movesIntoCheck';
-import { Position } from 'constants/position';
+import COORDS from 'positions/coordinates'
 import { CastlingAnnotations } from 'interfaces/CastlingAnnotations';
 import { KingAnnotations } from 'interfaces/KingAnnotations';
 import { Board } from 'types/Board';
@@ -26,16 +26,16 @@ function kingCanMove (
     //white castling
     if(player === 'White'){
         if(!boardAnnotations.whiteKingSideCastlingPrecluded 
-                && areSamePositions(toPosition, Position.G1)
-                && !movesIntoCheck(board, Position.E1, Position.F1, boardAnnotations)//across check
-                && !movesIntoCheck(board, Position.E1, Position.G1, boardAnnotations)//into check
+                && areSamePositions(toPosition, COORDS.G1)
+                && !movesIntoCheck(board, COORDS.E1, COORDS.F1, boardAnnotations)//across check
+                && !movesIntoCheck(board, COORDS.E1, COORDS.G1, boardAnnotations)//into check
             ){
                 return true;
         }
         if(!boardAnnotations.whiteQueenSideCastlingPrecluded 
-                && areSamePositions(toPosition, Position.C1)
-                && !movesIntoCheck(board, Position.E1, Position.D1, boardAnnotations)//across check
-                && !movesIntoCheck(board, Position.E1, Position.C1, boardAnnotations)//into check
+                && areSamePositions(toPosition, COORDS.C1)
+                && !movesIntoCheck(board, COORDS.E1, COORDS.D1, boardAnnotations)//across check
+                && !movesIntoCheck(board, COORDS.E1, COORDS.C1, boardAnnotations)//into check
             ){
                 return true;
         }
@@ -43,16 +43,16 @@ function kingCanMove (
     //black castling
     if(player === 'Black'){
         if(!boardAnnotations.blackKingSideCastlingPrecluded 
-                && areSamePositions(toPosition, Position.G8)
-                && !movesIntoCheck(board, Position.E8, Position.F8, boardAnnotations)//across check
-                && !movesIntoCheck(board, Position.E8, Position.G8, boardAnnotations)//into check
+                && areSamePositions(toPosition, COORDS.G8)
+                && !movesIntoCheck(board, COORDS.E8, COORDS.F8, boardAnnotations)//across check
+                && !movesIntoCheck(board, COORDS.E8, COORDS.G8, boardAnnotations)//into check
             ){
                 return true;
         }
         if(!boardAnnotations.blackQueenSideCastlingPrecluded 
-                && areSamePositions(toPosition, Position.C8)
-                && !movesIntoCheck(board, Position.E8, Position.D8, boardAnnotations)//across check
-                && !movesIntoCheck(board, Position.E8, Position.C8, boardAnnotations)//into check
+                && areSamePositions(toPosition, COORDS.C8)
+                && !movesIntoCheck(board, COORDS.E8, COORDS.D8, boardAnnotations)//across check
+                && !movesIntoCheck(board, COORDS.E8, COORDS.C8, boardAnnotations)//into check
             ){
                 return true;
         }

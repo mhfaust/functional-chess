@@ -1,5 +1,5 @@
 import { ALL_PIECES } from 'constants/pieces'
-import { Piece } from 'enums/piece';
+import { Piece } from 'positions/piece';
 import { file, rank } from 'positions'
 import { Board, PieceOrEmpty } from 'types/Board';
 

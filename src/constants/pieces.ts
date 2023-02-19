@@ -1,4 +1,4 @@
-import { Piece } from "enums/piece";
+import { Piece } from "positions/piece";
 
 const blackPieces : ReadonlyArray<Piece> = Object.freeze([
     'Black King',

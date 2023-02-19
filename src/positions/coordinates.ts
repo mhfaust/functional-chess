@@ -1,77 +1,75 @@
-import { Position } from 'constants/position'
-import { PositionName } from 'enums/positionName';
+import { PositionName } from "positions/positionName";
 
-const mapping : Map<PositionName, GridCoordinates> = new Map<PositionName, GridCoordinates>();
+type RankIndex = 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7;
+type FileIndex = RankIndex;
 
-mapping.set('A1', Position.A1);
-mapping.set('A2', Position.A2);
-mapping.set('A3', Position.A3);
-mapping.set('A4', Position.A4);
-mapping.set('A5', Position.A5);
-mapping.set('A6', Position.A6);
-mapping.set('A7', Position.A7);
-mapping.set('B8', Position.B8);
-mapping.set('B1', Position.B1);
-mapping.set('B2', Position.B2);
-mapping.set('B3', Position.B3);
-mapping.set('B4', Position.B4);
-mapping.set('B5', Position.B5);
-mapping.set('B6', Position.B6);
-mapping.set('B7', Position.B7);
-mapping.set('B8', Position.B8);
-mapping.set('C1', Position.C1);
-mapping.set('C2', Position.C2);
-mapping.set('C3', Position.C3);
-mapping.set('C4', Position.C4);
-mapping.set('C5', Position.C5);
-mapping.set('C6', Position.C6);
-mapping.set('C7', Position.C7);
-mapping.set('C8', Position.C8);
-mapping.set('D1', Position.D1);
-mapping.set('D2', Position.D2);
-mapping.set('D3', Position.D3);
-mapping.set('D4', Position.D4);
-mapping.set('D5', Position.D5);
-mapping.set('D6', Position.D6);
-mapping.set('D7', Position.D7);
-mapping.set('D8', Position.D8);
-mapping.set('E1', Position.E1);
-mapping.set('E2', Position.E2);
-mapping.set('E3', Position.E3);
-mapping.set('E4', Position.E4);
-mapping.set('E5', Position.E5);
-mapping.set('E6', Position.E6);
-mapping.set('E7', Position.E7);
-mapping.set('E8', Position.E8);
-mapping.set('F1', Position.F1);
-mapping.set('F2', Position.F2);
-mapping.set('F3', Position.F3);
-mapping.set('F4', Position.F4);
-mapping.set('F5', Position.F5);
-mapping.set('F6', Position.F6);
-mapping.set('F7', Position.F7);
-mapping.set('F8', Position.F8);
-mapping.set('G1', Position.G1);
-mapping.set('G2', Position.G2);
-mapping.set('G3', Position.G3);
-mapping.set('G4', Position.G4);
-mapping.set('G5', Position.G5);
-mapping.set('G6', Position.G6);
-mapping.set('G7', Position.G7);
-mapping.set('G8', Position.G8);
-mapping.set('H1', Position.H1);
-mapping.set('H2', Position.H2);
-mapping.set('H3', Position.H3);
-mapping.set('H4', Position.H4);
-mapping.set('H5', Position.H5);
-mapping.set('H6', Position.H6);
-mapping.set('H7', Position.H7);
-mapping.set('H8', Position.H8);
+const { freeze } = Object;
 
+const COORDS: Record<PositionName, readonly [FileIndex, RankIndex]> = {
+    A1: freeze([0, 0]),
+    A2: freeze([0, 1]),
+    A3: freeze([0, 2]),
+    A4: freeze([0, 3]),
+    A5: freeze([0, 4]),
+    A6: freeze([0, 5]),
+    A7: freeze([0, 6]),
+    A8: freeze([0, 7]),
+    B1: freeze([1, 0]),
+    B2: freeze([1, 1]),
+    B3: freeze([1, 2]),
+    B4: freeze([1, 3]),
+    B5: freeze([1, 4]),
+    B6: freeze([1, 5]),
+    B7: freeze([1, 6]),
+    B8: freeze([1, 7]),
+    C1: freeze([2, 0]),
+    C2: freeze([2, 1]),
+    C3: freeze([2, 2]),
+    C4: freeze([2, 3]),
+    C5: freeze([2, 4]),
+    C6: freeze([2, 5]),
+    C7: freeze([2, 6]),
+    C8: freeze([2, 7]),
+    D1: freeze([3, 0]),
+    D2: freeze([3, 1]),
+    D3: freeze([3, 2]),
+    D4: freeze([3, 3]),
+    D5: freeze([3, 4]),
+    D6: freeze([3, 5]),
+    D7: freeze([3, 6]),
+    D8: freeze([3, 7]),
+    E1: freeze([4, 0]),
+    E2: freeze([4, 1]),
+    E3: freeze([4, 2]),
+    E4: freeze([4, 3]),
+    E5: freeze([4, 4]),
+    E6: freeze([4, 5]),
+    E7: freeze([4, 6]),
+    E8: freeze([4, 7]),
+    F1: freeze([5, 0]),
+    F2: freeze([5, 1]),
+    F3: freeze([5, 2]),
+    F4: freeze([5, 3]),
+    F5: freeze([5, 4]),
+    F6: freeze([5, 5]),
+    F7: freeze([5, 6]),
+    F8: freeze([5, 7]),
+    G1: freeze([6, 0]),
+    G2: freeze([6, 1]),
+    G3: freeze([6, 2]),
+    G4: freeze([6, 3]),
+    G5: freeze([6, 4]),
+    G6: freeze([6, 5]),
+    G7: freeze([6, 6]),
+    G8: freeze([6, 7]),
+    H1: freeze([7, 0]),
+    H2: freeze([7, 1]),
+    H3: freeze([7, 2]),
+    H4: freeze([7, 3]),
+    H5: freeze([7, 4]),
+    H6: freeze([7, 5]),
+    H7: freeze([7, 6]),
+    H8: freeze([7, 7])
+};
 
-function coordinates(positionName: PositionName): GridCoordinates {
-    
-    return mapping.get(positionName);
-}
-
-export default coordinates;
+export default COORDS;

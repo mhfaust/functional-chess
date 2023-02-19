@@ -1,11 +1,11 @@
-import { Position } from "constants/position";
+import COORDS from 'positions/coordinates'
 import { BoardAnnotations } from "interfaces/BoardAnnotations";
 
 const x: BoardAnnotations = {
     lastPlayerMoved: 'White',
     lastPieceMoved: 'White Pawn',
-    lastMoveFrom: Position.E2,
-    lastMoveTo: Position.E4,
+    lastMoveFrom: COORDS.E2,
+    lastMoveTo: COORDS.E4,
     whoseTurn: 'Black',
     isInCheck: false,
     isCheckmate: false,
@@ -15,8 +15,8 @@ const x: BoardAnnotations = {
     whiteKingSideCastlingPrecluded: false,
     blackQueenSideCastlingPrecluded: false,
     blackKingSideCastlingPrecluded: false,
-    whiteKingPosition: Position.E1,
-    blackKingPosition: Position.E8,
+    whiteKingPosition: COORDS.E1,
+    blackKingPosition: COORDS.E8,
     capturedWhitePieces: [],
     capturedBlackPieces: []
 }

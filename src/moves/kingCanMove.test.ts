@@ -1,4 +1,4 @@
-import { Position } from 'constants/position';
+import COORDS from 'positions/coordinates'
 import { BK,BQ,BR,BN,BB,BP,WK,WQ,WR,WN,WB,WP,__ } from 'positions/pieces-shorthand';
 import { kingCanMove } from 'moves';
 import kingPositions from 'board/kingPositions';
@@ -35,10 +35,10 @@ describe('kingCanMove', () => {
 
         const boardAnnotations = { ...noPreclusions, ...kingPositions(board) };
 
-        const tries = [Position.D1, Position.D2, Position.E2, Position.F2, Position.F1]
+        const tries = [COORDS.D1, COORDS.D2, COORDS.E2, COORDS.F2, COORDS.F1]
 
         tries.forEach(position => {
-            expect(kingCanMove(board, Position.E1, position, boardAnnotations)).toBe(false)
+            expect(kingCanMove(board, COORDS.E1, position, boardAnnotations)).toBe(false)
         })
     });
 
@@ -58,13 +58,13 @@ describe('kingCanMove', () => {
         const boardAnnotations = { ...noPreclusions, ...kingPositions(board) };
 
         const tries = [ 
-            Position.D3, Position.D4, Position.D5, 
-            Position.E3,              Position.E5,
-            Position.F3, Position.F4, Position.F5
+            COORDS.D3, COORDS.D4, COORDS.D5, 
+            COORDS.E3,              COORDS.E5,
+            COORDS.F3, COORDS.F4, COORDS.F5
         ];
 
         tries.forEach(position => {
-            expect(kingCanMove(board, Position.E4, position, boardAnnotations)).toBe(true)
+            expect(kingCanMove(board, COORDS.E4, position, boardAnnotations)).toBe(true)
         })
     });    
 
@@ -83,7 +83,7 @@ describe('kingCanMove', () => {
 
         const boardAnnotations = { ...noPreclusions, ...kingPositions(board) };
 
-        expect(kingCanMove(board, Position.E1, Position.F1, boardAnnotations)).toBe(false);
+        expect(kingCanMove(board, COORDS.E1, COORDS.F1, boardAnnotations)).toBe(false);
     });
 
     it('White king can castle, king-side', () => {
@@ -101,7 +101,7 @@ describe('kingCanMove', () => {
 
         const boardAnnotations = { ...noPreclusions, ...kingPositions(board) };
     
-        expect(kingCanMove(board, Position.E1, Position.G1, boardAnnotations)).toBe(true)
+        expect(kingCanMove(board, COORDS.E1, COORDS.G1, boardAnnotations)).toBe(true)
     });  
     
     
@@ -120,7 +120,7 @@ describe('kingCanMove', () => {
     
         const boardAnnotations = { ...noPreclusions, ...kingPositions(board) };
 
-        expect(kingCanMove(board, Position.E1, Position.G1, boardAnnotations)).toBe(false)
+        expect(kingCanMove(board, COORDS.E1, COORDS.G1, boardAnnotations)).toBe(false)
     });
 
      
@@ -139,7 +139,7 @@ describe('kingCanMove', () => {
 
         const boardAnnotations = { ...noPreclusions, ...kingPositions(board) };
 
-        expect(kingCanMove(board, Position.E1, Position.G1, boardAnnotations)).toBe(false)
+        expect(kingCanMove(board, COORDS.E1, COORDS.G1, boardAnnotations)).toBe(false)
     });
 
     it('Black king can castle, queen-side', () => {
@@ -157,6 +157,6 @@ describe('kingCanMove', () => {
 
         const boardAnnotations = { ...noPreclusions, ...kingPositions(board) };
     
-        expect(kingCanMove(board, Position.E8, Position.C8, boardAnnotations)).toBe(true)
+        expect(kingCanMove(board, COORDS.E8, COORDS.C8, boardAnnotations)).toBe(true)
     });  
 })

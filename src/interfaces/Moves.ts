@@ -1,4 +1,4 @@
-import { PositionName } from "enums/positionName";
+import { PositionName } from "positions/positionName";
 import { Board } from "types/Board";
 import { MoveAnnotations } from "./MoveAnnotations";
 

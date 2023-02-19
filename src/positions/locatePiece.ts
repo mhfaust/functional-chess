@@ -1,5 +1,5 @@
 // import { Piece } from 'constants/pieces'
-import { Piece } from 'enums/piece';
+import { Piece } from 'positions/piece';
 import { pieceAt } from 'positions'
 import { Board } from 'types/Board';
 

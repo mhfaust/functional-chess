@@ -1,5 +1,5 @@
 import rook from './rookMoves';
-import { Position } from 'constants/position';
+import COORDS from 'positions/coordinates'
 import { BK,BR,BP,WP,WR,__ } from 'positions/pieces-shorthand';
 import { locatePiece } from 'positions';
 import { kingPositions } from 'board';
@@ -35,7 +35,7 @@ describe('rook', () => {
             'H4'
         ]);
 
-        const foundLegalMoves = rook(board, Position.E4, kingPositions(board));
+        const foundLegalMoves = rook(board, COORDS.E4, kingPositions(board));
 
         expect(foundLegalMoves).toEqual(expectedLegalMoves);
     })
@@ -60,7 +60,7 @@ describe('rook', () => {
             'E7',
         ]);
 
-        const foundLegalMoves = rook(board, Position.E4, kingPositions(board));
+        const foundLegalMoves = rook(board, COORDS.E4, kingPositions(board));
 
         expect(foundLegalMoves).toEqual(expectedLegalMoves)
     });

@@ -1,4 +1,4 @@
-import { Piece } from "enums/piece";
+import { Piece } from "positions/piece";
 
 export type AttackPattern = {
     vectors: ReadonlyArray<MoveVector>; 

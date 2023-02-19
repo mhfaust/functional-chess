@@ -1,5 +1,5 @@
-import { Position } from "constants/position";
-import { Player } from "enums/player";
+import COORDS from 'positions/coordinates'
+import { Player } from "board/player";
 import { Board } from "types/Board";
 
 
@@ -24,7 +24,7 @@ const pieceWithDeparturePos  = `(${P})(${pos})(${pos})`; //e.g. Ne4
 
 // const strategies = new Map<string, ParsesAlgebraicNotation> ([
 //     [ simplePawnForward, (s: string) => {
-//         [Position.A1, Position.A1] 
+//         [COORDS.A1, COORDS.A1] 
 //     }]
 // ]);
 
@@ -36,5 +36,5 @@ function moveFromAlgebraicNotation(notation: string, board: Board, player: Playe
         return 
     }
 
-    return [Position.E8, Position.E1];
+    return [COORDS.E8, COORDS.E1];
 }

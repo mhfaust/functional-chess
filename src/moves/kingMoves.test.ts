@@ -1,5 +1,5 @@
 
-import { Position } from 'constants/position';
+import COORDS from 'positions/coordinates'
 import { BK,BQ,BR,BN,BB,BP,WK,WQ,WR,WN,WB,WP,__ } from 'positions/pieces-shorthand';
 import { kingMoves } from 'moves';
 import { locatePiece } from 'positions';
@@ -37,7 +37,7 @@ describe('kingMoves', () => {
 
         const boardAnnotations = { ...noPreclusions, ...kingPositions(board) };
 
-        const foundLegalMoves = kingMoves(board, Position.E1, boardAnnotations);
+        const foundLegalMoves = kingMoves(board, COORDS.E1, boardAnnotations);
 
         expect(foundLegalMoves).toEqual(expectedLegalMoves);
     });
@@ -58,7 +58,7 @@ describe('kingMoves', () => {
 
         const boardAnnotations = { ...allPrecluded, ...kingPositions(board) };
     
-        const foundLegalMoves = kingMoves(board, Position.D7, boardAnnotations);
+        const foundLegalMoves = kingMoves(board, COORDS.D7, boardAnnotations);
 
         expect(foundLegalMoves).toEqual(expectedLegalMoves)
     });
@@ -78,7 +78,7 @@ describe('kingMoves', () => {
 
         const boardAnnotations = { ...noPreclusions, ...kingPositions(board) };
     
-        const foundLegalMoves = kingMoves(board, Position.E1, boardAnnotations);
+        const foundLegalMoves = kingMoves(board, COORDS.E1, boardAnnotations);
 
         expect(foundLegalMoves).toEqual(new Set([]));
     });
@@ -98,7 +98,7 @@ describe('kingMoves', () => {
 
         const boardAnnotations = { ...noPreclusions, ...kingPositions(board) };
     
-        const foundLegalMoves = kingMoves(board, Position.E1, boardAnnotations);
+        const foundLegalMoves = kingMoves(board, COORDS.E1, boardAnnotations);
 
         expect(foundLegalMoves).toContain('G1')
     });  
@@ -119,7 +119,7 @@ describe('kingMoves', () => {
     
         const boardAnnotations = { ...noPreclusions, ...kingPositions(board) };
 
-        const foundLegalMoves = kingMoves(board, Position.E1, boardAnnotations);
+        const foundLegalMoves = kingMoves(board, COORDS.E1, boardAnnotations);
 
         expect(foundLegalMoves).not.toContain('G1')
     });
@@ -140,7 +140,7 @@ describe('kingMoves', () => {
 
         const boardAnnotations = { ...noPreclusions, ...kingPositions(board) };
     
-        const foundLegalMoves = kingMoves(board, Position.E1, boardAnnotations);
+        const foundLegalMoves = kingMoves(board, COORDS.E1, boardAnnotations);
 
         expect(foundLegalMoves).not.toContain('G1')
     });
@@ -160,7 +160,7 @@ describe('kingMoves', () => {
 
         const boardAnnotations = { ...noPreclusions, ...kingPositions(board) };
     
-        const foundLegalMoves = kingMoves(board, Position.E8, boardAnnotations);
+        const foundLegalMoves = kingMoves(board, COORDS.E8, boardAnnotations);
 
         expect(foundLegalMoves).toContain('C8')
     });  

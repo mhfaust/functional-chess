@@ -1,4 +1,4 @@
-import { Piece } from 'enums/piece';
+import { Piece } from 'positions/piece';
 import { CanMoveTo } from 'interfaces/CanMove';
 import { MoveAnnotations } from 'interfaces/MoveAnnotations';
 import { 

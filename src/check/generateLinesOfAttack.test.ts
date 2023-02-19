@@ -1,5 +1,5 @@
 import generateLinesOfAttack from './generateLinesOfAttack';
-import { Position } from 'constants/position';
+import COORDS from 'positions/coordinates'
 import { BK,BQ,BR,BN,BB,BP,WK,WQ,WR,WN,WB,WP,__ }from 'positions/pieces-shorthand';
 import { Board } from 'types/Board';
 
@@ -16,8 +16,8 @@ describe('generateLinesOfAttack', () => {
 /*  G  */ [__,__,__,__,__,__,__,__],
 /*  H  */ [__,__,__,__,__,__,__,__], 
         ];
-        const linesOfAttack = generateLinesOfAttack(board, 'White', Position.E5);
-        expect(linesOfAttack.next().value).toEqual([Position.D4, Position.C3]);
+        const linesOfAttack = generateLinesOfAttack(board, 'White', COORDS.E5);
+        expect(linesOfAttack.next().value).toEqual([COORDS.D4, COORDS.C3]);
         expect(linesOfAttack.next().done).toBe(true);       
     });
 
@@ -33,7 +33,7 @@ describe('generateLinesOfAttack', () => {
 /*  G  */ [__,__,__,__,__,__,__,__],
 /*  H  */ [__,__,__,__,__,__,__,__]
         ];
-        const linesOfAttack = generateLinesOfAttack(board, 'White', Position.E5)
+        const linesOfAttack = generateLinesOfAttack(board, 'White', COORDS.E5)
         const returned = linesOfAttack.next();
         expect(returned.value).toBeNull();       
         expect(returned.done).toBe(true);       
@@ -52,7 +52,7 @@ describe('generateLinesOfAttack', () => {
 /*  H  */ [__,__,__,__,__,__,__,__], 
         ];
 
-        const linesOfAttack = generateLinesOfAttack(board, 'White', Position.E5)
+        const linesOfAttack = generateLinesOfAttack(board, 'White', COORDS.E5)
         const returned = linesOfAttack.next();
         expect(returned.value).toBeNull();       
         expect(returned.done).toBe(true);       
@@ -70,8 +70,8 @@ describe('generateLinesOfAttack', () => {
 /*  G  */ [__,__,__,__,__,__,__,__],
 /*  H  */ [__,__,__,__,__,__,__,__], 
         ];
-        const linesOfAttack = generateLinesOfAttack(board, 'White', Position.E5)
-        expect(linesOfAttack.next().value).toEqual([Position.D5]) ;       
+        const linesOfAttack = generateLinesOfAttack(board, 'White', COORDS.E5)
+        expect(linesOfAttack.next().value).toEqual([COORDS.D5]) ;       
         expect(linesOfAttack.next().done).toBe(true); 
     });
 
@@ -87,15 +87,15 @@ describe('generateLinesOfAttack', () => {
 /*  G  */ [__,__,__,__,__,__,__,__],
 /*  H  */ [__,__,__,WN,__,__,__,__], 
         ];
-        const linesOfAttack = generateLinesOfAttack(board, 'Black', Position.F3)
+        const linesOfAttack = generateLinesOfAttack(board, 'Black', COORDS.F3)
 
         //order of seeking attack-patterns: pawn, king, knight, bishop, rook
-        expect(linesOfAttack.next().value).toEqual([Position.E2])
-        expect(linesOfAttack.next().value).toEqual([Position.F2])
-        expect(linesOfAttack.next().value).toEqual([Position.H4])
-        expect(linesOfAttack.next().value).toEqual([Position.E4, Position.D5])
-        expect(linesOfAttack.next().value).toEqual([Position.F4, Position.F5, Position.F6, Position.F7])
-        expect(linesOfAttack.next().value).toEqual([Position.E3, Position.D3, Position.C3, Position.B3, Position.A3])     
+        expect(linesOfAttack.next().value).toEqual([COORDS.E2])
+        expect(linesOfAttack.next().value).toEqual([COORDS.F2])
+        expect(linesOfAttack.next().value).toEqual([COORDS.H4])
+        expect(linesOfAttack.next().value).toEqual([COORDS.E4, COORDS.D5])
+        expect(linesOfAttack.next().value).toEqual([COORDS.F4, COORDS.F5, COORDS.F6, COORDS.F7])
+        expect(linesOfAttack.next().value).toEqual([COORDS.E3, COORDS.D3, COORDS.C3, COORDS.B3, COORDS.A3])     
         expect(linesOfAttack.next().done).toBe(true)     
     });    
 })

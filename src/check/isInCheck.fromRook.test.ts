@@ -1,5 +1,5 @@
 import isInCheck from 'check/isInCheck';
-import { Position } from 'constants/position'
+import COORDS from 'positions/coordinates'
 import { BK,BQ,BR,BN,BB,BP,WK,WQ,WR,WN,WB,WP,__ } from 'positions/pieces-shorthand';
 import { locatePiece } from 'positions';
 import { KingAnnotations } from 'interfaces/KingAnnotations';

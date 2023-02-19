@@ -1,7 +1,7 @@
 import playerAt from './playerAt';
 import { isUnOccupied } from 'positions';
 import { Board } from 'types/Board';
-import { Player } from 'enums/player';
+import { Player } from 'board/player';
 
 function isUnOccupiedByPlayer (board: Board, position: GridCoordinates, player: Player): boolean {
     if(isUnOccupied(board, position))

@@ -1,5 +1,5 @@
 import rookCanMove from 'moves/rookCanMove';
-import { Position } from 'constants/position';
+import COORDS from 'positions/coordinates'
 import { BK,BR,BP,WP,__ } from 'positions/pieces-shorthand';
 import { locatePiece } from 'positions';
 import { kingPositions } from 'board';
@@ -22,36 +22,36 @@ describe('rookCanMove', () => {
     it('cannot move to its current position', () => {
 
 
-        expect(rookCanMove(rook1Board, Position.E4, Position.E4, kingPositions(rook1Board))).toBe(false);
+        expect(rookCanMove(rook1Board, COORDS.E4, COORDS.E4, kingPositions(rook1Board))).toBe(false);
     });
 
     describe('along rank', () => {
         it('cannot pass over opponent piece: (E4 -> E1)', () => {
-            expect(rookCanMove(rook1Board, Position.E4, Position.E1, kingPositions(rook1Board))).toBe(false);
+            expect(rookCanMove(rook1Board, COORDS.E4, COORDS.E1, kingPositions(rook1Board))).toBe(false);
         });
 
         it('can capture: (E4 -> E2)', () => {
-            expect(rookCanMove(rook1Board, Position.E4, Position.E2, kingPositions(rook1Board))).toBe(true);
+            expect(rookCanMove(rook1Board, COORDS.E4, COORDS.E2, kingPositions(rook1Board))).toBe(true);
         });
 
         it('can: (E4 -> E3)', () => {
-            expect(rookCanMove(rook1Board, Position.E4, Position.E3, kingPositions(rook1Board))).toBe(true);
+            expect(rookCanMove(rook1Board, COORDS.E4, COORDS.E3, kingPositions(rook1Board))).toBe(true);
         });
 
         it('can: (E4 -> E5)', () => {
-            expect(rookCanMove(rook1Board, Position.E4, Position.E5, kingPositions(rook1Board))).toBe(true);
+            expect(rookCanMove(rook1Board, COORDS.E4, COORDS.E5, kingPositions(rook1Board))).toBe(true);
         });
 
         it('can : (E4 -> E6)', () => {
-            expect(rookCanMove(rook1Board, Position.E4, Position.E6, kingPositions(rook1Board))).toBe(true);
+            expect(rookCanMove(rook1Board, COORDS.E4, COORDS.E6, kingPositions(rook1Board))).toBe(true);
         });
     
         it('can move along rank  (E4 -> E7)', () => {
-            expect(rookCanMove(rook1Board, Position.E4, Position.E7, kingPositions(rook1Board))).toBe(true);
+            expect(rookCanMove(rook1Board, COORDS.E4, COORDS.E7, kingPositions(rook1Board))).toBe(true);
         });
     
         it('cannot move onto own players piece', () => {
-            expect(rookCanMove(rook1Board, Position.E4, Position.E8, kingPositions(rook1Board))).toBe(false);
+            expect(rookCanMove(rook1Board, COORDS.E4, COORDS.E8, kingPositions(rook1Board))).toBe(false);
         })
     })
 

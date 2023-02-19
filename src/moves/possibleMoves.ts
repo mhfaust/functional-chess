@@ -1,5 +1,5 @@
-import { Piece } from 'enums/piece';
-import { PositionName } from 'enums/positionName';
+import { Piece } from 'positions/piece';
+import { PositionName } from 'positions/positionName';
 import { MoveAnnotations } from 'interfaces/MoveAnnotations';
 import { Moves } from 'interfaces/Moves';
 import { 

@@ -1,4 +1,4 @@
-import { Position } from "constants/position";
+import COORDS from 'positions/coordinates'
 import { Board } from "types/Board";
 
 function parseSimplePawnForward(
@@ -8,7 +8,7 @@ function parseSimplePawnForward(
 
 
 
-    return [Position.E1, Position.E1];
+    return [COORDS.E1, COORDS.E1];
 }
 
 export default parseSimplePawnForward;

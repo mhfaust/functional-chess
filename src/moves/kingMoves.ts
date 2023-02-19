@@ -5,11 +5,11 @@ import {
     positionName, 
     displaceTo }  from 'positions';
 import { kingVectors } from 'constants/move-vectors'
-import { Position } from 'constants/position';
+import COORDS from 'positions/coordinates'
 import movesIntoCheck from 'check/movesIntoCheck';
 import { CastlingAnnotations } from 'interfaces/CastlingAnnotations';
 import { KingAnnotations } from 'interfaces/KingAnnotations';
-import { PositionName } from 'enums/positionName';
+import { PositionName } from 'positions/positionName';
 import { Board } from 'types/Board';
 
 function kingMoves (
@@ -42,18 +42,18 @@ function kingMoves (
 
     //castling moves:
     if(player === 'White'){
-        if(canCastle(whiteKingSideCastlingPrecluded, Position.G1, Position.F1)){
+        if(canCastle(whiteKingSideCastlingPrecluded, COORDS.G1, COORDS.F1)){
             legalMoves.add('G1');
         }
-        if(canCastle(whiteQueenSideCastlingPrecluded, Position.C1, Position.D1)){
+        if(canCastle(whiteQueenSideCastlingPrecluded, COORDS.C1, COORDS.D1)){
             legalMoves.add('C1');
         }
     }
     else if(player === 'Black'){
-        if(canCastle(blackKingSideCastlingPrecluded, Position.G8, Position.F8)){
+        if(canCastle(blackKingSideCastlingPrecluded, COORDS.G8, COORDS.F8)){
             legalMoves.add('G8');
         }
-        if(canCastle(blackQueenSideCastlingPrecluded, Position.C8, Position.D8)){
+        if(canCastle(blackQueenSideCastlingPrecluded, COORDS.C8, COORDS.D8)){
             legalMoves.add('C8');
         }
     }

@@ -1,9 +1,14 @@
 import { pieceAt, positionName } from 'positions';
 import { BLACK_PIECES, WHITE_PIECES } from 'constants/pieces';
-import { PiecePosition } from 'interfaces/PiecePosition';
 import { Board } from 'types/Board';
-import { Player } from 'enums/player';
+import { Player } from 'board/player';
+import { Piece } from 'positions/piece';
+import { PositionName } from 'positions/positionName';
 
+export type PiecePosition = {
+    position: PositionName;
+    piece: Piece;
+}
 function allPlayerPositions(board: Board, player: Player): Array<PiecePosition>{
     
     const occupiedPositions: Array<PiecePosition> = [];

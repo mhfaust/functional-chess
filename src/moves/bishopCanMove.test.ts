@@ -1,5 +1,5 @@
 import bishopCanMove from 'moves/bishopCanMove'
-import { Position } from 'constants/position';
+import COORDS from 'positions/coordinates'
 import { BK,BQ,BR,BN,BB,BP,WK,WQ,WR,WN,WB,WP,__ } from 'positions/pieces-shorthand';
 import kingPositions from 'board/kingPositions';
 import { Board } from 'types/Board';
@@ -20,61 +20,61 @@ describe('bishopCanMove', () => {
 
     it('can advance left', () => {
 
-        const answer = bishopCanMove(bishop1Board, Position.D4, Position.C5, kingPositions(bishop1Board));
+        const answer = bishopCanMove(bishop1Board, COORDS.D4, COORDS.C5, kingPositions(bishop1Board));
         expect(answer).toBe(true);
     });
 
     it('can advance right', () => {
 
-        const answer = bishopCanMove(bishop1Board, Position.D4, Position.F6, kingPositions(bishop1Board));
+        const answer = bishopCanMove(bishop1Board, COORDS.D4, COORDS.F6, kingPositions(bishop1Board));
         expect(answer).toBe(true);
     });
 
     it('can retreat left', () => {
 
-        const answer = bishopCanMove(bishop1Board, Position.D4, Position.A1, kingPositions(bishop1Board));
+        const answer = bishopCanMove(bishop1Board, COORDS.D4, COORDS.A1, kingPositions(bishop1Board));
         expect(answer).toBe(true);
     });
 
     it('can retreat right', () => {
 
-        const answer = bishopCanMove(bishop1Board, Position.D4, Position.G1, kingPositions(bishop1Board));
+        const answer = bishopCanMove(bishop1Board, COORDS.D4, COORDS.G1, kingPositions(bishop1Board));
         expect(answer).toBe(true);
     });
 
     it('cannot move unequal forward and right displacements', () => {
 
-        const answer = bishopCanMove(bishop1Board, Position.D4, Position.H6, kingPositions(bishop1Board));
+        const answer = bishopCanMove(bishop1Board, COORDS.D4, COORDS.H6, kingPositions(bishop1Board));
         expect(answer).toBe(false);
     });
 
     it('canot move laterally', () => {
 
-        const answer = bishopCanMove(bishop1Board, Position.D4, Position.H4, kingPositions(bishop1Board));
+        const answer = bishopCanMove(bishop1Board, COORDS.D4, COORDS.H4, kingPositions(bishop1Board));
         expect(answer).toBe(false);
     });
 
     it('canot advance forward', () => {
 
-        const answer = bishopCanMove(bishop1Board, Position.D4, Position.D8, kingPositions(bishop1Board));
+        const answer = bishopCanMove(bishop1Board, COORDS.D4, COORDS.D8, kingPositions(bishop1Board));
         expect(answer).toBe(false);
     });
 
     it('cannot capture own piece', () => {
 
-        const answer = bishopCanMove(bishop1Board, Position.D4, Position.B6, kingPositions(bishop1Board));
+        const answer = bishopCanMove(bishop1Board, COORDS.D4, COORDS.B6, kingPositions(bishop1Board));
         expect(answer).toBe(false);
     });
 
     it('can capture opponent piece', () => { 
 
-        const answer = bishopCanMove(bishop1Board, Position.D4, Position.G7, kingPositions(bishop1Board));
+        const answer = bishopCanMove(bishop1Board, COORDS.D4, COORDS.G7, kingPositions(bishop1Board));
         expect(answer).toBe(true);
     });
 
     it('cannot move beyond a piece', () => {
 
-        const answer = bishopCanMove(bishop1Board, Position.D4, Position.H8, kingPositions(bishop1Board));
+        const answer = bishopCanMove(bishop1Board, COORDS.D4, COORDS.H8, kingPositions(bishop1Board));
         expect(answer).toBe(false);
     });
 
@@ -92,8 +92,8 @@ describe('bishopCanMove', () => {
             /*  H  */ [__,__,__,__,__,__,__,BR],
         ];
             
-        expect(bishopCanMove(board, Position.D4, Position.E3, kingPositions(board))).toBe(false);  
-        expect(bishopCanMove(board, Position.D4, Position.C5, kingPositions(board))).toBe(false);  
+        expect(bishopCanMove(board, COORDS.D4, COORDS.E3, kingPositions(board))).toBe(false);  
+        expect(bishopCanMove(board, COORDS.D4, COORDS.C5, kingPositions(board))).toBe(false);  
     });
 
 
@@ -111,10 +111,10 @@ describe('bishopCanMove', () => {
         ];
 
 
-        expect(bishopCanMove(board, Position.D4, Position.C3, kingPositions(board))).toBe(true);  
-        expect(bishopCanMove(board, Position.D4, Position.B2, kingPositions(board))).toBe(true);  
-        expect(bishopCanMove(board, Position.D4, Position.E5, kingPositions(board))).toBe(true);  
-        expect(bishopCanMove(board, Position.D4, Position.F6, kingPositions(board))).toBe(true);  
-        expect(bishopCanMove(board, Position.D4, Position.G7, kingPositions(board))).toBe(true);  
+        expect(bishopCanMove(board, COORDS.D4, COORDS.C3, kingPositions(board))).toBe(true);  
+        expect(bishopCanMove(board, COORDS.D4, COORDS.B2, kingPositions(board))).toBe(true);  
+        expect(bishopCanMove(board, COORDS.D4, COORDS.E5, kingPositions(board))).toBe(true);  
+        expect(bishopCanMove(board, COORDS.D4, COORDS.F6, kingPositions(board))).toBe(true);  
+        expect(bishopCanMove(board, COORDS.D4, COORDS.G7, kingPositions(board))).toBe(true);  
     });
 })

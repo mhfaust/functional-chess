@@ -1,5 +1,5 @@
 import { generateLinesOfAttack } from 'check'
-import { Player } from 'enums/player';
+import { Player } from 'board/player';
 import { KingAnnotations } from 'interfaces/KingAnnotations';
 import { Board } from 'types/Board';
 

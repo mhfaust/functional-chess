@@ -1,7 +1,7 @@
 //Wraps all the fileds required for determining move legalities,
 
-import { Piece } from "enums/piece";
-import { Player } from "enums/player";
+import { Piece } from "positions/piece";
+import { Player } from "board/player";
 import { MoveAnnotations } from "./MoveAnnotations";
 
 //and included additional info to make UI easier:

@@ -3,8 +3,8 @@ import { isInCheck, isCheckmate } from "check";
 import { nextKingAnnotations, nextCastlingAnnotations, nextEnPassantAnnotations } from "board";
 import { BoardAnnotations } from "interfaces/BoardAnnotations";
 import { Board } from "types/Board";
-import { Piece } from "enums/piece";
-import { Player } from "enums/player";
+import { Piece } from "positions/piece";
+import { Player } from "board/player";
 
 const makeCapturedPieces = (board: Board, prevCaptures: Array<Piece>, defender: Player, moveTo: GridCoordinates) : Array<Piece> => {
     

@@ -1,8 +1,7 @@
-import allPlayerPositions from 'positions/allPlayerPositions'
+import allPlayerPositions, { PiecePosition } from 'positions/allPlayerPositions'
 import { initialBoard } from 'board'
-import { PiecePosition } from 'interfaces/PiecePosition';
-import { PositionName } from 'enums/positionName';
-import { Piece } from 'enums/piece';
+import { PositionName } from 'positions/positionName';
+import { Piece } from 'positions/piece';
 
 describe('allPlayerPositions finds all white piecesonr initial board', () => {
 

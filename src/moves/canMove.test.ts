@@ -1,4 +1,4 @@
-import { Position } from "constants/position";
+import COORDS from 'positions/coordinates'
 import { BK,BQ,BR,BN,BB,BP,WK,WQ,WR,WN,WB,WP,__ } from 'positions/pieces-shorthand';
 import canMoveTo from "moves/canMoveTo";
 import kingPositions from "board/kingPositions";
@@ -37,8 +37,8 @@ describe('canMoveTo Bishop', () => {
             ...kingPositions(board)
         }
 
-        expect(canMoveTo(board, Position.D4, Position.C3, annotations)).toBe(true);  
-        expect(canMoveTo(board, Position.D4, Position.C5, annotations)).toBe(false);  
+        expect(canMoveTo(board, COORDS.D4, COORDS.C3, annotations)).toBe(true);  
+        expect(canMoveTo(board, COORDS.D4, COORDS.C5, annotations)).toBe(false);  
     });
 });
 
@@ -64,7 +64,7 @@ describe('canMoveTo King', () => {
         }
         const boardAnnotations = { ...defaultMoveAnnotations, ...noPreclusions, ...kingPositions(board) };
 
-        expect(canMoveTo(board, Position.E1, Position.G1, boardAnnotations)).toBe(false)
+        expect(canMoveTo(board, COORDS.E1, COORDS.G1, boardAnnotations)).toBe(false)
     
 });
 
@@ -92,11 +92,11 @@ describe('canMoveTo Pawn', () => {
         const annotations = {
             ...defaultMoveAnnotations,
             ...kingPositions(board),
-            passedPosition: Position.E3,
-            pawnAt: Position.E4
+            passedPosition: COORDS.E3,
+            pawnAt: COORDS.E4
         }
 
-        const answer = canMoveTo(board, Position.D4, Position.E3, annotations);
+        const answer = canMoveTo(board, COORDS.D4, COORDS.E3, annotations);
         expect(answer).toBe(true);
     });
 });
@@ -121,7 +121,7 @@ describe('canMoveTo Queen', () => {
         }
 
         it('can capture opponent piece, diagonally', () => {
-            expect(canMoveTo(board, Position.C2, Position.F5, annotations)).toBe(true)
+            expect(canMoveTo(board, COORDS.C2, COORDS.F5, annotations)).toBe(true)
         });
     
 });

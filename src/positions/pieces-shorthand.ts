@@ -1,4 +1,4 @@
-import { Piece } from "enums/piece";
+import { Piece } from "positions/piece";
 
 export const __ : Piece = null;
 export const WK : Piece = 'White King';

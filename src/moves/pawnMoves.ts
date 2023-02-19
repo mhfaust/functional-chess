@@ -12,7 +12,7 @@ import { isInCheck } from 'check';
 import { move } from 'board';
 import { KingAnnotations } from 'interfaces/KingAnnotations';
 import { EnPassantAnnotations } from 'interfaces/EnPassantAnnotations';
-import { PositionName } from 'enums/positionName';
+import { PositionName } from 'positions/positionName';
 import { Board } from 'types/Board';
 
 function pawn(

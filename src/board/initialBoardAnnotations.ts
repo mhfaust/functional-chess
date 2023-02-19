@@ -1,4 +1,4 @@
-import { Position } from "constants/position";
+import COORDS from 'positions/coordinates'
 import { BoardAnnotations } from "interfaces/BoardAnnotations";
 
 function initialBoardAnnotations(): BoardAnnotations{
@@ -12,8 +12,8 @@ function initialBoardAnnotations(): BoardAnnotations{
         isCheckmate: false,
         capturedBlackPieces: [],
         capturedWhitePieces: [],
-        blackKingPosition: Position.E1,
-        whiteKingPosition: Position.E8,
+        blackKingPosition: COORDS.E1,
+        whiteKingPosition: COORDS.E8,
         blackKingSideCastlingPrecluded: false,
         blackQueenSideCastlingPrecluded: false,
         whiteKingSideCastlingPrecluded: false,

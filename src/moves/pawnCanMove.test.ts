@@ -1,6 +1,6 @@
 import pawnCanMove from 'moves/pawnCanMove'
 import { BK,BQ,BR,BN,BB,BP,WK,WQ,WR,WN,WB,WP,__ } from 'positions/pieces-shorthand';
-import { Position } from 'constants/position';
+import COORDS from 'positions/coordinates'
 import { locatePiece } from 'positions';
 import kingPositions from 'board/kingPositions';
 import { EnPassantAnnotations } from 'interfaces/EnPassantAnnotations';
@@ -30,7 +30,7 @@ describe('pawnCanMove', () => {
                 pawnAt: null
             }
 
-            const answer = pawnCanMove(board, Position.C3, Position.C4, annotations);
+            const answer = pawnCanMove(board, COORDS.C3, COORDS.C4, annotations);
             expect(answer).toBe(true);
         });
     
@@ -42,7 +42,7 @@ describe('pawnCanMove', () => {
                 pawnAt: null
             }
 
-            const answer = pawnCanMove(board, Position.H4, Position.H5, annotations);
+            const answer = pawnCanMove(board, COORDS.H4, COORDS.H5, annotations);
             expect(answer).toBe(false);
         });
     
@@ -54,7 +54,7 @@ describe('pawnCanMove', () => {
                 pawnAt: null
             }
 
-            const answer = pawnCanMove(board, Position.D4, Position.E5, annotations);
+            const answer = pawnCanMove(board, COORDS.D4, COORDS.E5, annotations);
             expect(answer).toBe(true);
         });
     
@@ -66,7 +66,7 @@ describe('pawnCanMove', () => {
                 pawnAt: null
             }
 
-            const answer = pawnCanMove(board, Position.C3, Position.B4, annotations);
+            const answer = pawnCanMove(board, COORDS.C3, COORDS.B4, annotations);
             expect(answer).toBe(true);
         });
 
@@ -78,7 +78,7 @@ describe('pawnCanMove', () => {
                 pawnAt: null
             }
 
-            const answer = pawnCanMove(board, Position.G2, Position.F3, annotations);
+            const answer = pawnCanMove(board, COORDS.G2, COORDS.F3, annotations);
             expect(answer).toBe(false);
         })
 
@@ -90,7 +90,7 @@ describe('pawnCanMove', () => {
                 pawnAt: null
             }
 
-            const answer = pawnCanMove(board, Position.E2, Position.F3, annotations);
+            const answer = pawnCanMove(board, COORDS.E2, COORDS.F3, annotations);
             expect(answer).toBe(false);
         })
 
@@ -102,7 +102,7 @@ describe('pawnCanMove', () => {
                 pawnAt: null
             }
 
-            const answer = pawnCanMove(board, Position.G5, Position.H5, annotations);
+            const answer = pawnCanMove(board, COORDS.G5, COORDS.H5, annotations);
             expect(answer).toBe(false);
         });
 
@@ -114,7 +114,7 @@ describe('pawnCanMove', () => {
                 pawnAt: null
             }
 
-            const answer = pawnCanMove(board, Position.H4, Position.G4, annotations);
+            const answer = pawnCanMove(board, COORDS.H4, COORDS.G4, annotations);
             expect(answer).toBe(false);
         })
     });
@@ -141,7 +141,7 @@ describe('pawnCanMove', () => {
                 pawnAt: null
             }
 
-            const answer = pawnCanMove(board, Position.E5, Position.E4, annotations);
+            const answer = pawnCanMove(board, COORDS.E5, COORDS.E4, annotations);
             expect(answer).toBe(true);
         });
     
@@ -153,7 +153,7 @@ describe('pawnCanMove', () => {
                 pawnAt: null
             }
 
-            const answer = pawnCanMove(board, Position.D5, Position.D4, annotations);
+            const answer = pawnCanMove(board, COORDS.D5, COORDS.D4, annotations);
             expect(answer).toBe(false);
         });
     
@@ -165,7 +165,7 @@ describe('pawnCanMove', () => {
                 pawnAt: null
             }
 
-            const answer = pawnCanMove(board, Position.E5, Position.D4, annotations);
+            const answer = pawnCanMove(board, COORDS.E5, COORDS.D4, annotations);
             expect(answer).toBe(true);
         });
     
@@ -177,7 +177,7 @@ describe('pawnCanMove', () => {
                 pawnAt: null
             }
 
-            const answer = pawnCanMove(board, Position.G5, Position.H4, annotations);
+            const answer = pawnCanMove(board, COORDS.G5, COORDS.H4, annotations);
             expect(answer).toBe(true);
         });
 
@@ -189,7 +189,7 @@ describe('pawnCanMove', () => {
                 pawnAt: null
             }
 
-            const answer = pawnCanMove(board, Position.B4, Position.B5, annotations);
+            const answer = pawnCanMove(board, COORDS.B4, COORDS.B5, annotations);
             expect(answer).toBe(false);
         });
 
@@ -201,7 +201,7 @@ describe('pawnCanMove', () => {
                 pawnAt: null
             }
 
-            const answer = pawnCanMove(board, Position.H4, Position.G4, annotations);
+            const answer = pawnCanMove(board, COORDS.H4, COORDS.G4, annotations);
             expect(answer).toBe(false);
         })
     });
@@ -223,11 +223,11 @@ describe('pawnCanMove', () => {
 
             const annotations = {
                 ...kingPositions(board),
-                passedPosition: Position.E3,
-                pawnAt: Position.E4
+                passedPosition: COORDS.E3,
+                pawnAt: COORDS.E4
             }
 
-            const answer = pawnCanMove(board, Position.D4, Position.E3, annotations);
+            const answer = pawnCanMove(board, COORDS.D4, COORDS.E3, annotations);
             expect(answer).toBe(true);
         });
 
@@ -238,7 +238,7 @@ describe('pawnCanMove', () => {
                 passedPosition: null,
                 pawnAt: null
             }
-            const answerNullPassantInfo = pawnCanMove(board, Position.D4, Position.E3, annotations);
+            const answerNullPassantInfo = pawnCanMove(board, COORDS.D4, COORDS.E3, annotations);
             expect(answerNullPassantInfo).toBe(false);
         });
 
@@ -246,11 +246,11 @@ describe('pawnCanMove', () => {
 
             const annotations = {
                 ...kingPositions(board),
-                passedPosition: Position.G6,
-                pawnAt: Position.G5
+                passedPosition: COORDS.G6,
+                pawnAt: COORDS.G5
             }
 
-            const answer = pawnCanMove(board, Position.H5, Position.G6, annotations);
+            const answer = pawnCanMove(board, COORDS.H5, COORDS.G6, annotations);
             expect(answer).toBe(true);
         });
 
@@ -262,7 +262,7 @@ describe('pawnCanMove', () => {
                 pawnAt: null
             }
 
-            const answerNullPassantInfo = pawnCanMove(board, Position.H5, Position.G6, annotations);
+            const answerNullPassantInfo = pawnCanMove(board, COORDS.H5, COORDS.G6, annotations);
             expect(answerNullPassantInfo).toBe(false);
         });
     })
