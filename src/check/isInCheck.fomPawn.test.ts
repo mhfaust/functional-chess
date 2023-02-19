@@ -1,6 +1,7 @@
 import isInCheck from 'check/isInCheck';
 import { BK,BQ,BR,BN,BB,BP,WK,WQ,WR,WN,WB,WP,__ } from 'positions/pieces-shorthand';
 import { locatePiece } from 'positions';
+import { KingAnnotations } from 'interfaces/KingAnnotations';
 
 describe('isInCheck: true', () => {
     it('White King at E1 is in check from Black Pawn at D2', () => {
@@ -16,7 +17,7 @@ describe('isInCheck: true', () => {
 /*  H  */ [__,__,__,__,__,__,__,__],
         ];
 
-        const annotations:KingAnnotations = {
+        const annotations: KingAnnotations = {
             blackKingPosition: locatePiece(board, Piece.BlackKing),
             whiteKingPosition: locatePiece(board, Piece.WhiteKing)
         };
@@ -53,7 +54,7 @@ describe('isInCheck: false', () => {
 /*  H  */ [__,__,__,__,__,__,__,__], 
         ];
 
-        const annotations:KingAnnotations = {
+        const annotations: KingAnnotations = {
             blackKingPosition: locatePiece(board, Piece.BlackKing),
             whiteKingPosition: locatePiece(board, Piece.WhiteKing)
         };
@@ -74,7 +75,7 @@ describe('isInCheck: false', () => {
 /*  H  */ [__,__,__,__,__,__,__,__], 
         ];
 
-        const annotations:KingAnnotations = {
+        const annotations: KingAnnotations = {
             blackKingPosition: locatePiece(board, Piece.BlackKing),
             whiteKingPosition: locatePiece(board, Piece.WhiteKing)
         };
@@ -95,7 +96,7 @@ describe('isInCheck: false', () => {
 /*  H  */ [__,__,__,__,__,__,__,__], 
         ];
 
-        const annotations:KingAnnotations = {
+        const annotations: KingAnnotations = {
             blackKingPosition: locatePiece(board, Piece.BlackKing),
             whiteKingPosition: locatePiece(board, Piece.WhiteKing)
         };
@@ -116,7 +117,7 @@ describe('isInCheck: false', () => {
 /*  H  */ [__,__,__,__,__,__,__,__], 
         ];
 
-        const annotations:KingAnnotations = {
+        const annotations: KingAnnotations = {
             blackKingPosition: locatePiece(board, Piece.BlackKing),
             whiteKingPosition: locatePiece(board, Piece.WhiteKing)
         };
@@ -137,7 +138,7 @@ describe('isInCheck: false', () => {
 /*  H  */ [__,__,__,__,__,__,__,__],
         ];
 
-        const annotations:KingAnnotations = {
+        const annotations: KingAnnotations = {
             blackKingPosition: locatePiece(board, Piece.BlackKing),
             whiteKingPosition: locatePiece(board, Piece.WhiteKing)
         };
@@ -158,7 +159,7 @@ describe('isInCheck: false', () => {
 /*  H  */ [__,__,__,__,__,__,__,__], 
         ];
 
-        const annotations:KingAnnotations = {
+        const annotations: KingAnnotations = {
             blackKingPosition: locatePiece(board, Piece.BlackKing),
             whiteKingPosition: locatePiece(board, Piece.WhiteKing)
         };
@@ -179,7 +180,7 @@ describe('isInCheck: false', () => {
 /*  H  */ [__,__,__,__,__,__,__,__], 
         ];
 
-        const annotations:KingAnnotations = {
+        const annotations: KingAnnotations = {
             blackKingPosition: locatePiece(board, Piece.BlackKing),
             whiteKingPosition: locatePiece(board, Piece.WhiteKing)
         };
@@ -200,7 +201,7 @@ describe('isInCheck: false', () => {
 /*  H  */ [__,__,__,__,__,__,__,__], 
         ];
 
-        const annotations:KingAnnotations = {
+        const annotations: KingAnnotations = {
             blackKingPosition: locatePiece(board, Piece.BlackKing),
             whiteKingPosition: locatePiece(board, Piece.WhiteKing)
         };
@@ -221,7 +222,7 @@ describe('isInCheck: false', () => {
 /*  H  */ [__,__,__,__,__,__,BP,__],
         ];
 
-        const annotations:KingAnnotations = {
+        const annotations: KingAnnotations = {
             blackKingPosition: locatePiece(board, Piece.BlackKing),
             whiteKingPosition: locatePiece(board, Piece.WhiteKing)
         };

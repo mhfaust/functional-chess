@@ -9,8 +9,9 @@ import {
 import { isInCheck } from 'check';
 import { move } from 'board';
 import movesIntoCheck from 'check/movesIntoCheck';
+import { KingAnnotations } from 'interfaces/KingAnnotations';
 
-function rook(board: Board, moveFrom: GridCoordinates, boardAnnotations:KingAnnotations): Set<PositionName> {
+function rook(board: Board, moveFrom: GridCoordinates, boardAnnotations: KingAnnotations): Set<PositionName> {
     
     const player = playerAt(board, moveFrom);
     const directions = [[0,1], [0,-1], [1,0], [-1,0]];

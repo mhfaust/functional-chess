@@ -1,6 +1,9 @@
 //Wraps all the fileds required for determining move legalities,
+
+import { MoveAnnotations } from "./MoveAnnotations";
+
 //and included additional info to make UI easier:
-interface BoardAnnotations extends MoveAnnotations {
+export type BoardAnnotations = MoveAnnotations & {
     lastPlayerMoved:Player;
     lastPieceMoved: Piece;
     lastMoveFrom: GridCoordinates;

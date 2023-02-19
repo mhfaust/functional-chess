@@ -3,10 +3,12 @@ import {
     isOnBoard, 
     isUnOccupiedByPlayer, 
     positionName, 
-    displaceTo } from 'positions';
+    displaceTo 
+} from 'positions';
 
 import { knightVectors } from 'constants/move-vectors'
 import movesIntoCheck from 'check/movesIntoCheck';
+import { KingAnnotations } from 'interfaces/KingAnnotations';
 
 function knight(
     board: Board, 

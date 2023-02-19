@@ -1,4 +1,4 @@
-interface EnPassantAnnotations {
-    pawnAt: GridCoordinates,
-    passedPosition:GridCoordinates
-}
+export type EnPassantAnnotations = {
+    pawnAt: GridCoordinates;
+    passedPosition:GridCoordinates;
+};

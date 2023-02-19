@@ -1,4 +1,4 @@
-interface MovePattern {
-    vectors: ReadonlyArray<MoveVector>
-    limit: number,
+export type MovePattern = {
+    vectors: ReadonlyArray<MoveVector>;
+    limit: number;
 }

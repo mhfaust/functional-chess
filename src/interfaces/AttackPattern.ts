@@ -1,5 +1,5 @@
-interface AttackPattern {
-    vectors: ReadonlyArray<MoveVector>, 
-    canAttackLikeThis: Set<Piece>, 
-    limit: number,
+export type AttackPattern = {
+    vectors: ReadonlyArray<MoveVector>; 
+    canAttackLikeThis: Set<Piece>; 
+    limit: number;
 }

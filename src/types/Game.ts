@@ -3,6 +3,8 @@
 // import canMoveTo from "moves/canMoveTo";
 // import nextBoardAnnotations from "board/nextBoardAnnotations";
 
+import { Turn } from "interfaces/Turn";
+
 type Game = Array<Turn>
 
 // class Game {

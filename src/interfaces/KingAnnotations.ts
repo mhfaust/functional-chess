@@ -1,4 +1,4 @@
-interface KingAnnotations {
-    whiteKingPosition:GridCoordinates,
-    blackKingPosition:GridCoordinates
-}
+export type KingAnnotations = {
+    whiteKingPosition:GridCoordinates;
+    blackKingPosition:GridCoordinates;
+};

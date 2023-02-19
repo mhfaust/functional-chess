@@ -1,5 +1,6 @@
 import allPlayerPositions from 'positions/allPlayerPositions'
 import { initialBoard } from 'board'
+import { PiecePosition } from 'interfaces/PiecePosition';
 
 describe('allPlayerPositions finds all white piecesonr initial board', () => {
 

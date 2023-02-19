@@ -7,11 +7,13 @@ import {
 import { kingVectors } from 'constants/move-vectors'
 import { Position } from 'constants/position';
 import movesIntoCheck from 'check/movesIntoCheck';
+import { CastlingAnnotations } from 'interfaces/CastlingAnnotations';
+import { KingAnnotations } from 'interfaces/KingAnnotations';
 
 function kingMoves (
     board:Board, 
     kingFrom:GridCoordinates, 
-    boardAnnotations:CastlingAnnotations & KingAnnotations)
+    boardAnnotations: CastlingAnnotations & KingAnnotations)
     : Set<PositionName> {
 
     const { whiteQueenSideCastlingPrecluded, 

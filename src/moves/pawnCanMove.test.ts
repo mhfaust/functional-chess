@@ -3,6 +3,8 @@ import { BK,BQ,BR,BN,BB,BP,WK,WQ,WR,WN,WB,WP,__ } from 'positions/pieces-shortha
 import { Position } from 'constants/position';
 import { locatePiece } from 'positions';
 import kingPositions from 'board/kingPositions';
+import { EnPassantAnnotations } from 'interfaces/EnPassantAnnotations';
+import { KingAnnotations } from 'interfaces/KingAnnotations';
 
 describe('pawnCanMove', () => {
 
@@ -21,7 +23,7 @@ describe('pawnCanMove', () => {
     describe('white', () => {
         it('can move one space forward when NOT blocked', () => {
 
-            const annotations:EnPassantAnnotations & KingAnnotations = {
+            const annotations: EnPassantAnnotations & KingAnnotations = {
                 ...kingPositions(board),
                 passedPosition:null,
                 pawnAt:null
@@ -33,7 +35,7 @@ describe('pawnCanMove', () => {
     
         it('cannot move one space forward when IS blocked', () => {
                         
-            const annotations:EnPassantAnnotations & KingAnnotations = {
+            const annotations: EnPassantAnnotations & KingAnnotations = {
                 ...kingPositions(board),
                 passedPosition:null,
                 pawnAt:null
@@ -45,7 +47,7 @@ describe('pawnCanMove', () => {
     
         it('can capture forward right', () => {
                         
-            const annotations:EnPassantAnnotations & KingAnnotations = {
+            const annotations: EnPassantAnnotations & KingAnnotations = {
                 ...kingPositions(board),
                 passedPosition:null,
                 pawnAt:null
@@ -57,7 +59,7 @@ describe('pawnCanMove', () => {
     
         it('can capture forward left', () => {
 
-            const annotations:EnPassantAnnotations & KingAnnotations = {
+            const annotations: EnPassantAnnotations & KingAnnotations = {
                 ...kingPositions(board),
                 passedPosition:null,
                 pawnAt:null
@@ -69,7 +71,7 @@ describe('pawnCanMove', () => {
 
         it('cannot move foward left to empty square', () => {
 
-            const annotations:EnPassantAnnotations & KingAnnotations = {
+            const annotations: EnPassantAnnotations & KingAnnotations = {
                 ...kingPositions(board),
                 passedPosition:null,
                 pawnAt:null
@@ -81,7 +83,7 @@ describe('pawnCanMove', () => {
 
         it('cannot move foward right to empty square', () => {
 
-            const annotations:EnPassantAnnotations & KingAnnotations = {
+            const annotations: EnPassantAnnotations & KingAnnotations = {
                 ...kingPositions(board),
                 passedPosition:null,
                 pawnAt:null
@@ -93,7 +95,7 @@ describe('pawnCanMove', () => {
 
         it('cannot move backward', () => {
 
-            const annotations:EnPassantAnnotations & KingAnnotations = {
+            const annotations: EnPassantAnnotations & KingAnnotations = {
                 ...kingPositions(board),
                 passedPosition:null,
                 pawnAt:null
@@ -105,7 +107,7 @@ describe('pawnCanMove', () => {
 
         it('cannot move sideways', () => {
 
-            const annotations:EnPassantAnnotations & KingAnnotations = {
+            const annotations: EnPassantAnnotations & KingAnnotations = {
                 ...kingPositions(board),
                 passedPosition:null,
                 pawnAt:null
@@ -132,7 +134,7 @@ describe('pawnCanMove', () => {
 
         it('can move one space forward when NOT blocked', () => {
 
-            const annotations:EnPassantAnnotations & KingAnnotations = {
+            const annotations: EnPassantAnnotations & KingAnnotations = {
                 ...kingPositions(board),
                 passedPosition:null,
                 pawnAt:null
@@ -144,7 +146,7 @@ describe('pawnCanMove', () => {
     
         it('can move one space forward when IS blocked', () => {
 
-            const annotations:EnPassantAnnotations & KingAnnotations = {
+            const annotations: EnPassantAnnotations & KingAnnotations = {
                 ...kingPositions(board),
                 passedPosition:null,
                 pawnAt:null
@@ -156,7 +158,7 @@ describe('pawnCanMove', () => {
     
         it('can capture forward right', () => {
 
-            const annotations:EnPassantAnnotations & KingAnnotations = {
+            const annotations: EnPassantAnnotations & KingAnnotations = {
                 ...kingPositions(board),
                 passedPosition:null,
                 pawnAt:null
@@ -168,7 +170,7 @@ describe('pawnCanMove', () => {
     
         it('can capture forward left', () => {
 
-            const annotations:EnPassantAnnotations & KingAnnotations = {
+            const annotations: EnPassantAnnotations & KingAnnotations = {
                 ...kingPositions(board),
                 passedPosition:null,
                 pawnAt:null
@@ -180,7 +182,7 @@ describe('pawnCanMove', () => {
 
         it('cannot move backward', () => {
 
-            const annotations:EnPassantAnnotations & KingAnnotations = {
+            const annotations: EnPassantAnnotations & KingAnnotations = {
                 ...kingPositions(board),
                 passedPosition:null,
                 pawnAt:null
@@ -192,7 +194,7 @@ describe('pawnCanMove', () => {
 
         it('cannot move sideways', () => {
 
-            const annotations:EnPassantAnnotations & KingAnnotations = {
+            const annotations: EnPassantAnnotations & KingAnnotations = {
                 ...kingPositions(board),
                 passedPosition:null,
                 pawnAt:null
@@ -230,7 +232,7 @@ describe('pawnCanMove', () => {
 
         it('black pawn cannot attack a passant-looking square if passant info is null', () => {
             
-            const annotations:EnPassantAnnotations & KingAnnotations = {
+            const annotations: EnPassantAnnotations & KingAnnotations = {
                 ...kingPositions(board),
                 passedPosition:null,
                 pawnAt:null
@@ -253,7 +255,7 @@ describe('pawnCanMove', () => {
 
         it('white pawn cannot attack a passant-looking square if passant info is null', () => {
 
-            const annotations:EnPassantAnnotations & KingAnnotations = {
+            const annotations: EnPassantAnnotations & KingAnnotations = {
                 ...kingPositions(board),
                 passedPosition:null,
                 pawnAt:null

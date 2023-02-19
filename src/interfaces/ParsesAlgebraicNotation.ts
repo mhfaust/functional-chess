@@ -1,3 +1,3 @@
-interface ParsesAlgebraicNotation {
-    (algebreaicNotation:string):[GridCoordinates, GridCoordinates]
+export type ParsesAlgebraicNotation = {
+    (algebreaicNotation:string): [GridCoordinates, GridCoordinates]
 }

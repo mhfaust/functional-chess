@@ -1,3 +1,4 @@
+import { KingAnnotations } from "interfaces/KingAnnotations";
 import { locatePiece } from "positions";
 
 function kingPositions(board: Board): KingAnnotations{

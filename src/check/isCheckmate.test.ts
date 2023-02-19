@@ -1,7 +1,7 @@
 import isCheckmate from './isCheckmate';
-import { Position } from 'constants/position';
 import { BK,BQ,BR,BN,BB,BP,WK,WQ,WR,WN,WB,WP,__ } from 'positions/pieces-shorthand';
 import { locatePiece } from 'positions';
+import { KingAnnotations } from 'interfaces/KingAnnotations';
 
 describe('isCheckmate', () => {
    
@@ -18,7 +18,7 @@ describe('isCheckmate', () => {
 /*  H  */ [__,__,__,__,__,WQ,BP,__],
         ];
 
-        const annotations:KingAnnotations = {
+        const annotations: KingAnnotations = {
             blackKingPosition: locatePiece(board, Piece.BlackKing),
             whiteKingPosition: locatePiece(board, Piece.WhiteKing)
         };

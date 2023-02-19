@@ -1,3 +1,0 @@
-// interface RegexMatch {
-//     groups: 
-// }

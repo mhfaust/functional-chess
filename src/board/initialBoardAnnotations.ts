@@ -1,6 +1,7 @@
 import { Position } from "constants/position";
+import { BoardAnnotations } from "interfaces/BoardAnnotations";
 
-function initialBoardAnnotations():BoardAnnotations{
+function initialBoardAnnotations(): BoardAnnotations{
     return{
         lastPlayerMoved:null,
         lastPieceMoved: null,

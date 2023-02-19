@@ -1,13 +1,15 @@
 import { rank, file, playerAt, areSamePositions } from 'positions';
 import movesIntoCheck from 'check/movesIntoCheck';
 import { Position } from 'constants/position';
+import { CastlingAnnotations } from 'interfaces/CastlingAnnotations';
+import { KingAnnotations } from 'interfaces/KingAnnotations';
 
 
 function kingCanMove (
     board: Board, 
     fromPosition: GridCoordinates, 
     toPosition: GridCoordinates, 
-    boardAnnotations:KingAnnotations & CastlingAnnotations) 
+    boardAnnotations: KingAnnotations & CastlingAnnotations) 
     : boolean {
 
     const player = playerAt(board, fromPosition);

@@ -7,12 +7,14 @@ import {
     isOccupiedByPlayer, 
     areSamePositions } from 'positions';
 import movesIntoCheck from 'check/movesIntoCheck';
+import { KingAnnotations } from 'interfaces/KingAnnotations';
+import { EnPassantAnnotations } from 'interfaces/EnPassantAnnotations';
 
 function pawnCanMove (
         board: Board, 
         fromPosition: GridCoordinates, 
         toPosition: GridCoordinates, 
-        boardAnnotations:KingAnnotations & EnPassantAnnotations)
+        boardAnnotations: KingAnnotations & EnPassantAnnotations)
     :boolean {
 
     const { passedPosition } = boardAnnotations;

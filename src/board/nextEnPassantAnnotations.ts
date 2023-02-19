@@ -1,3 +1,4 @@
+import { EnPassantAnnotations } from "interfaces/EnPassantAnnotations";
 import { pieceAt, rank, file } from "positions";
 
 const nextEnPassantAnnotations = (prevBoard: Board, from:GridCoordinates, to:GridCoordinates): EnPassantAnnotations => {

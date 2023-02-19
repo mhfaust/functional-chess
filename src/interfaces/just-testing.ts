@@ -1,4 +1,5 @@
 import { Position } from "constants/position";
+import { BoardAnnotations } from "interfaces/BoardAnnotations";
 
 const x: BoardAnnotations = {
     lastPlayerMoved: Player.White,

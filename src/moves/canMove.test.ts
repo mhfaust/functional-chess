@@ -2,6 +2,8 @@ import { Position } from "constants/position";
 import { BK,BQ,BR,BN,BB,BP,WK,WQ,WR,WN,WB,WP,__ } from 'positions/pieces-shorthand';
 import canMoveTo from "moves/canMoveTo";
 import kingPositions from "board/kingPositions";
+import { CastlingAnnotations } from "interfaces/CastlingAnnotations";
+import { MoveAnnotations } from "interfaces/MoveAnnotations";
 
 const defaultMoveAnnotations: MoveAnnotations = {
     whiteKingPosition: null,
@@ -53,7 +55,7 @@ describe('canMoveTo King', () => {
         /*  G  */ [__,__,__,__,__,__,__,BR],
         /*  H  */ [WR,__,__,__,__,__,__,__], 
         ];
-        const noPreclusions:CastlingAnnotations = {
+        const noPreclusions: CastlingAnnotations = {
             whiteQueenSideCastlingPrecluded:false,
             whiteKingSideCastlingPrecluded:false,
             blackQueenSideCastlingPrecluded:false,

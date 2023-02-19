@@ -2,14 +2,15 @@ import { Position } from 'constants/position';
 import { BK,BQ,BR,BN,BB,BP,WK,WQ,WR,WN,WB,WP,__ } from 'positions/pieces-shorthand';
 import { kingCanMove } from 'moves';
 import kingPositions from 'board/kingPositions';
+import { CastlingAnnotations } from 'interfaces/CastlingAnnotations';
 
-const noPreclusions:CastlingAnnotations = {
+const noPreclusions: CastlingAnnotations = {
     whiteQueenSideCastlingPrecluded:false,
     whiteKingSideCastlingPrecluded:false,
     blackQueenSideCastlingPrecluded:false,
     blackKingSideCastlingPrecluded:false,
 }
-const allPrecluded:CastlingAnnotations = {
+const allPrecluded: CastlingAnnotations = {
     whiteQueenSideCastlingPrecluded:true,
     whiteKingSideCastlingPrecluded:true,
     blackQueenSideCastlingPrecluded:true,

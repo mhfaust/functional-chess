@@ -1,12 +1,13 @@
 import { areSamePositions } from "positions";
 import { Position } from "constants/position";
+import { CastlingAnnotations } from "interfaces/CastlingAnnotations";
 
 
 
 function nextCastlingAnnotations(
     pieceMovedFromPosition:GridCoordinates,
     previousAnnotations: CastlingAnnotations
-):CastlingAnnotations {
+): CastlingAnnotations {
 
     const movedFrom = (from: GridCoordinates) :boolean => areSamePositions(pieceMovedFromPosition, from)
 

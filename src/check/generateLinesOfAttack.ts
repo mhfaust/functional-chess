@@ -4,16 +4,19 @@ import {
     isOnBoard, 
     otherPlayer, 
     pieceAt, 
-    positionName } from 'positions';
+    positionName 
+} from 'positions';
 import { 
     kingVectors, 
     knightVectors, 
     rookVectors, 
     bishopVectors, 
     pawnBlackAttackVectors, 
-    pawnWhiteAttackVectors } from 'constants/move-vectors'
+    pawnWhiteAttackVectors 
+} from 'constants/move-vectors'
 
 import { BK, BQ, BR, BN, BB, BP, WK, WQ, WR, WN, WB, WP } from 'positions/pieces-shorthand';
+import { AttackPattern } from 'interfaces/AttackPattern';
 
 const whiteAttackPatterns: Array<AttackPattern> = [
     { vectors: pawnWhiteAttackVectors, canAttackLikeThis: new Set([WP, WQ, WB, WK]), limit: 1 },

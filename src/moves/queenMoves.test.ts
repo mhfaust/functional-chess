@@ -1,6 +1,5 @@
 import queenMoves from './queenMoves';
 import { positionName, locatePiece } from 'positions'
-// import { textRender } from 'board';
 import { Position } 
     from 'constants/position';
 import { BQ,BP,WK,WQ,WR,BK,WP,__ } from 'positions/pieces-shorthand';

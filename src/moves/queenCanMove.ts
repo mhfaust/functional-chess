@@ -1,3 +1,4 @@
+import { KingAnnotations } from 'interfaces/KingAnnotations';
 import {
     rookCanMove,
     bishopCanMove } from 'moves';
@@ -6,7 +7,7 @@ function queenCanMove (
     board: Board, 
     fromPosition: GridCoordinates, 
     toPosition: GridCoordinates, 
-    boardAnnotations:KingAnnotations) 
+    boardAnnotations: KingAnnotations) 
     : boolean {
     
     return rookCanMove(board, fromPosition, toPosition, boardAnnotations)

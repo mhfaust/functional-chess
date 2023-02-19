@@ -1,7 +1,5 @@
 import { rookVectors, bishopVectors, knightVectors, kingVectors, queenVectors, pawnBlackAttackVectors, pawnWhiteAttackVectors } from './move-vectors'
 
-
-
 describe('move-vectors', () => {
     [
         rookVectors, 

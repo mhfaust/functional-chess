@@ -1,4 +1,4 @@
-import { 
+ import { 
     playerAt, 
     displaceTo, 
     isOnBoard, 
@@ -10,11 +10,13 @@ import {
     areSamePositions } from 'positions';
 import { isInCheck } from 'check';
 import { move } from 'board';
+import { KingAnnotations } from 'interfaces/KingAnnotations';
+import { EnPassantAnnotations } from 'interfaces/EnPassantAnnotations';
 
 function pawn(
     board: Board, 
     moveFrom: GridCoordinates, 
-    annotations:KingAnnotations & EnPassantAnnotations)
+    annotations: KingAnnotations & EnPassantAnnotations)
     : Set<PositionName> {
     
     const player = playerAt(board, moveFrom);

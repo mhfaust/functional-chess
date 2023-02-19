@@ -9,6 +9,7 @@ import {
     isOnBoard } from 'positions';
     
 import { kingVectors } from 'constants/move-vectors';
+import { KingAnnotations } from 'interfaces/KingAnnotations';
 
 function isCheckmate(
     board: Board, 

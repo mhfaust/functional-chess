@@ -9,11 +9,12 @@ import {
 
 import { bishopVectors } from 'constants/move-vectors'
 import { movesIntoCheck } from 'check';
+import { KingAnnotations } from 'interfaces/KingAnnotations';
 
 function bishop(
     board: Board, 
     moveFrom: GridCoordinates, 
-    annotations:KingAnnotations)
+    annotations: KingAnnotations)
     : Set<PositionName> {
 
     const player = playerAt(board, moveFrom);

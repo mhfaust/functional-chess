@@ -1,3 +1,4 @@
+import { KingAnnotations } from "interfaces/KingAnnotations";
 import { pieceAt } from "positions";
 
 function nextKingAnnotations(

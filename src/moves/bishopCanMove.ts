@@ -7,12 +7,13 @@ import {
     areSamePositions, 
     displaceTo } from 'positions'
 import movesIntoCheck from 'check/movesIntoCheck';
+import { KingAnnotations } from 'interfaces/KingAnnotations';
 
 function bishopCanMove (
     board: Board, 
     fromPosition: GridCoordinates, 
     toPosition: GridCoordinates, 
-    boardAnnotations:KingAnnotations)
+    boardAnnotations: KingAnnotations)
     : boolean {
 
     if(!isOnBoard(toPosition))

@@ -1,4 +1,4 @@
-interface PiecePosition {
-    position: PositionName,
-    piece: Piece
+export type PiecePosition = {
+    position: PositionName;
+    piece: Piece;
 }
