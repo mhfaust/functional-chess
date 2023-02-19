@@ -1,4 +1,4 @@
-import { rookVectors, bishopVectors, knightVectors, kingVectors, queenVectors, pawnBlackAttackVectors, pawnWhiteAttackVectors } from '../move-vectors'
+import { rookVectors, bishopVectors, knightVectors, kingVectors, queenVectors, pawnBlackAttackVectors, pawnWhiteAttackVectors } from './move-vectors'
 
 
 

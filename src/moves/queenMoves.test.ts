@@ -1,4 +1,4 @@
-import queenMoves from '../queenMoves';
+import queenMoves from './queenMoves';
 import { positionName, locatePiece } from 'positions'
 // import { textRender } from 'board';
 import { Position } 

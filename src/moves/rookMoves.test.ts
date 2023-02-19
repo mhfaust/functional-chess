@@ -1,4 +1,4 @@
-import rook from '../rookMoves';
+import rook from './rookMoves';
 import { Position } from 'constants/position';
 import { BK,BR,BP,WP,WR,__ } from 'positions/pieces-shorthand';
 import { locatePiece } from 'positions';

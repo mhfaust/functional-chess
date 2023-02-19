@@ -1,4 +1,4 @@
-import pawnMoves from '../pawnMoves';
+import pawnMoves from './pawnMoves';
 import { positionName, locatePiece } from 'positions'
 import { Position }  from 'constants/position';
 import { BK,BQ,BR,BN,BB,BP,WK,WQ,WR,WN,WB,WP,__ } from 'positions/pieces-shorthand';

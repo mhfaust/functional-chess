@@ -1,4 +1,4 @@
-import generateLinesOfAttack from '../generateLinesOfAttack';
+import generateLinesOfAttack from './generateLinesOfAttack';
 import { Position } from 'constants/position';
 import { BK,BQ,BR,BN,BB,BP,WK,WQ,WR,WN,WB,WP,__ }from 'positions/pieces-shorthand';
 
