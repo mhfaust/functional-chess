@@ -11,10 +11,10 @@ const defaultMoveAnnotations: MoveAnnotations = {
     blackKingPosition: null,
     passedPosition: null,
     pawnAt: null,
-    blackKingSideCastlingPrecluded:false,
-    blackQueenSideCastlingPrecluded:false,
-    whiteKingSideCastlingPrecluded:false,
-    whiteQueenSideCastlingPrecluded:false
+    blackKingSideCastlingPrecluded: false,
+    blackQueenSideCastlingPrecluded: false,
+    whiteKingSideCastlingPrecluded: false,
+    whiteQueenSideCastlingPrecluded: false
 }
 
 describe('canMoveTo Bishop', () => {
@@ -57,10 +57,10 @@ describe('canMoveTo King', () => {
         /*  H  */ [WR,__,__,__,__,__,__,__], 
         ];
         const noPreclusions: CastlingAnnotations = {
-            whiteQueenSideCastlingPrecluded:false,
-            whiteKingSideCastlingPrecluded:false,
-            blackQueenSideCastlingPrecluded:false,
-            blackKingSideCastlingPrecluded:false,
+            whiteQueenSideCastlingPrecluded: false,
+            whiteKingSideCastlingPrecluded: false,
+            blackQueenSideCastlingPrecluded: false,
+            blackKingSideCastlingPrecluded: false,
         }
         const boardAnnotations = { ...defaultMoveAnnotations, ...noPreclusions, ...kingPositions(board) };
 
@@ -92,8 +92,8 @@ describe('canMoveTo Pawn', () => {
         const annotations = {
             ...defaultMoveAnnotations,
             ...kingPositions(board),
-            passedPosition:Position.E3,
-            pawnAt:Position.E4
+            passedPosition: Position.E3,
+            pawnAt: Position.E4
         }
 
         const answer = canMoveTo(board, Position.D4, Position.E3, annotations);
@@ -103,7 +103,7 @@ describe('canMoveTo Pawn', () => {
 
 
 describe('canMoveTo Queen', () => {
-    const board:Board = [
+    const board: Board = [
         /*         1  2  3  4  5  6  7  8  */
         /*  A  */ [__,__,__,__,__,__,__,__],
         /*  B  */ [__,__,__,__,__,__,__,__],

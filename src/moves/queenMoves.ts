@@ -4,8 +4,8 @@ import { rookMoves, bishopMoves } from 'moves'
 import { Board } from 'types/Board';
 
 function queen(
-    board:Board, 
-    moveFrom:GridCoordinates, 
+    board: Board, 
+    moveFrom: GridCoordinates, 
     boardAnnotations: KingAnnotations)
     : Set<PositionName>{
     return new Set([

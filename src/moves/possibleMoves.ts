@@ -37,12 +37,12 @@ const strategies: Map<Piece, Moves> = new Map([
 ]);
 
 function moves (
-    board:Board, 
-    fromPosition:GridCoordinates, 
-    annotations:MoveAnnotations)
+    board: Board, 
+    fromPosition: GridCoordinates, 
+    annotations: MoveAnnotations)
     : Set<PositionName> {
         
-        const strategy:Moves = strategies.get('White Bishop');
+        const strategy: Moves = strategies.get('White Bishop');
         return strategy(board, fromPosition, annotations);
 }
 

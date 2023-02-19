@@ -22,7 +22,7 @@ const pawn1Board: Board = [
 const pawn1boardAnnotations: EnPassantAnnotations & KingAnnotations = {
     ...kingPositions(pawn1Board),
     pawnAt: null,
-    passedPosition:null
+    passedPosition: null
 }
 
 describe('white pawn', () => {
@@ -94,7 +94,7 @@ describe('en passant', () => {
             blackKingPosition: locatePiece(board, 'Black King'),
             whiteKingPosition: locatePiece(board, 'White King'),
             pawnAt: Position.E4,
-            passedPosition:Position.E3
+            passedPosition: Position.E3
         }; 
 
         const foundMoves = pawnMoves(board, Position.D4, annotations);
@@ -107,7 +107,7 @@ describe('en passant', () => {
             blackKingPosition: locatePiece(board, 'Black King'),
             whiteKingPosition: locatePiece(board, 'White King'),
             pawnAt: null,
-            passedPosition:null
+            passedPosition: null
         };
 
         const foundMoves = pawnMoves(board, Position.D4, annotations);
@@ -120,7 +120,7 @@ describe('en passant', () => {
             blackKingPosition: locatePiece(board, 'Black King'),
             whiteKingPosition: locatePiece(board, 'White King'),
             pawnAt: Position.G5,
-            passedPosition:Position.G6
+            passedPosition: Position.G6
         };
 
 
@@ -134,7 +134,7 @@ describe('en passant', () => {
             blackKingPosition: locatePiece(board, 'Black King'),
             whiteKingPosition: locatePiece(board, 'White King'),
             pawnAt: null,
-            passedPosition:null
+            passedPosition: null
         };
 
         const foundMoves = pawnMoves(board, Position.H5, annotations);
@@ -163,7 +163,7 @@ describe('check', () => {
             blackKingPosition: locatePiece(board, 'Black King'),
             whiteKingPosition: locatePiece(board, 'White King'),
             pawnAt: null,
-            passedPosition:null
+            passedPosition: null
         };
     
         const foundLegalMoves = pawnMoves(board, Position.F2, annotations);
@@ -189,7 +189,7 @@ describe('check', () => {
             blackKingPosition: locatePiece(board, 'Black King'),
             whiteKingPosition: locatePiece(board, 'White King'),
             pawnAt: null,
-            passedPosition:null
+            passedPosition: null
         };
     
         const foundLegalMoves = pawnMoves(board, Position.F2, annotations);

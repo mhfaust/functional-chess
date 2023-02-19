@@ -5,11 +5,11 @@ import { CastlingAnnotations } from "interfaces/CastlingAnnotations";
 
 
 function nextCastlingAnnotations(
-    pieceMovedFromPosition:GridCoordinates,
+    pieceMovedFromPosition: GridCoordinates,
     previousAnnotations: CastlingAnnotations
 ): CastlingAnnotations {
 
-    const movedFrom = (from: GridCoordinates) :boolean => areSamePositions(pieceMovedFromPosition, from)
+    const movedFrom = (from: GridCoordinates) : boolean => areSamePositions(pieceMovedFromPosition, from)
 
     return{
         whiteQueenSideCastlingPrecluded: previousAnnotations.whiteQueenSideCastlingPrecluded || movedFrom(Position.F1) || movedFrom(Position.A1),

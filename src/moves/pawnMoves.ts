@@ -28,7 +28,7 @@ function pawn(
     const forward1 = displaceTo(moveFrom, [0, forwardDirection]);
     const { passedPosition } = annotations;
 
-    const moveNotInCheck = (moveTo:GridCoordinates):boolean => !isInCheck(move(board, moveFrom, moveTo), player, annotations)
+    const moveNotInCheck = (moveTo: GridCoordinates): boolean => !isInCheck(move(board, moveFrom, moveTo), player, annotations)
      
     //advance moves
     if(isOnBoard(forward1) && isUnOccupied(board, forward1) && moveNotInCheck(forward1)){

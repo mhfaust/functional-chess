@@ -6,16 +6,16 @@ import { CastlingAnnotations } from 'interfaces/CastlingAnnotations';
 import { Board } from 'types/Board';
 
 const noPreclusions: CastlingAnnotations = {
-    whiteQueenSideCastlingPrecluded:false,
-    whiteKingSideCastlingPrecluded:false,
-    blackQueenSideCastlingPrecluded:false,
-    blackKingSideCastlingPrecluded:false,
+    whiteQueenSideCastlingPrecluded: false,
+    whiteKingSideCastlingPrecluded: false,
+    blackQueenSideCastlingPrecluded: false,
+    blackKingSideCastlingPrecluded: false,
 }
 const allPrecluded: CastlingAnnotations = {
-    whiteQueenSideCastlingPrecluded:true,
-    whiteKingSideCastlingPrecluded:true,
-    blackQueenSideCastlingPrecluded:true,
-    blackKingSideCastlingPrecluded:true,
+    whiteQueenSideCastlingPrecluded: true,
+    whiteKingSideCastlingPrecluded: true,
+    blackQueenSideCastlingPrecluded: true,
+    blackKingSideCastlingPrecluded: true,
 }
 
 describe('kingCanMove', () => {

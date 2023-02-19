@@ -13,8 +13,8 @@ import { PositionName } from 'enums/positionName';
 import { Board } from 'types/Board';
 
 function kingMoves (
-    board:Board, 
-    kingFrom:GridCoordinates, 
+    board: Board, 
+    kingFrom: GridCoordinates, 
     boardAnnotations: CastlingAnnotations & KingAnnotations)
     : Set<PositionName> {
 
@@ -33,7 +33,7 @@ function kingMoves (
         .filter(kingTo => !movesIntoCheck(board, kingFrom, kingTo, boardAnnotations))
         .map(positionName));
 
-    const canCastle = (isPrecluded:boolean, kingTo:GridCoordinates, castleMovesTo:GridCoordinates):boolean => {
+    const canCastle = (isPrecluded: boolean, kingTo: GridCoordinates, castleMovesTo: GridCoordinates): boolean => {
         return !isPrecluded
             && legalMoves.has(positionName(castleMovesTo))//king cant cross over check (where the castle lands)
             && playerAt(board, kingTo) === null

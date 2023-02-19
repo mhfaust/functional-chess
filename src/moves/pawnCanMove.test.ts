@@ -26,8 +26,8 @@ describe('pawnCanMove', () => {
 
             const annotations: EnPassantAnnotations & KingAnnotations = {
                 ...kingPositions(board),
-                passedPosition:null,
-                pawnAt:null
+                passedPosition: null,
+                pawnAt: null
             }
 
             const answer = pawnCanMove(board, Position.C3, Position.C4, annotations);
@@ -38,8 +38,8 @@ describe('pawnCanMove', () => {
                         
             const annotations: EnPassantAnnotations & KingAnnotations = {
                 ...kingPositions(board),
-                passedPosition:null,
-                pawnAt:null
+                passedPosition: null,
+                pawnAt: null
             }
 
             const answer = pawnCanMove(board, Position.H4, Position.H5, annotations);
@@ -50,8 +50,8 @@ describe('pawnCanMove', () => {
                         
             const annotations: EnPassantAnnotations & KingAnnotations = {
                 ...kingPositions(board),
-                passedPosition:null,
-                pawnAt:null
+                passedPosition: null,
+                pawnAt: null
             }
 
             const answer = pawnCanMove(board, Position.D4, Position.E5, annotations);
@@ -62,8 +62,8 @@ describe('pawnCanMove', () => {
 
             const annotations: EnPassantAnnotations & KingAnnotations = {
                 ...kingPositions(board),
-                passedPosition:null,
-                pawnAt:null
+                passedPosition: null,
+                pawnAt: null
             }
 
             const answer = pawnCanMove(board, Position.C3, Position.B4, annotations);
@@ -74,8 +74,8 @@ describe('pawnCanMove', () => {
 
             const annotations: EnPassantAnnotations & KingAnnotations = {
                 ...kingPositions(board),
-                passedPosition:null,
-                pawnAt:null
+                passedPosition: null,
+                pawnAt: null
             }
 
             const answer = pawnCanMove(board, Position.G2, Position.F3, annotations);
@@ -86,8 +86,8 @@ describe('pawnCanMove', () => {
 
             const annotations: EnPassantAnnotations & KingAnnotations = {
                 ...kingPositions(board),
-                passedPosition:null,
-                pawnAt:null
+                passedPosition: null,
+                pawnAt: null
             }
 
             const answer = pawnCanMove(board, Position.E2, Position.F3, annotations);
@@ -98,8 +98,8 @@ describe('pawnCanMove', () => {
 
             const annotations: EnPassantAnnotations & KingAnnotations = {
                 ...kingPositions(board),
-                passedPosition:null,
-                pawnAt:null
+                passedPosition: null,
+                pawnAt: null
             }
 
             const answer = pawnCanMove(board, Position.G5, Position.H5, annotations);
@@ -110,8 +110,8 @@ describe('pawnCanMove', () => {
 
             const annotations: EnPassantAnnotations & KingAnnotations = {
                 ...kingPositions(board),
-                passedPosition:null,
-                pawnAt:null
+                passedPosition: null,
+                pawnAt: null
             }
 
             const answer = pawnCanMove(board, Position.H4, Position.G4, annotations);
@@ -137,8 +137,8 @@ describe('pawnCanMove', () => {
 
             const annotations: EnPassantAnnotations & KingAnnotations = {
                 ...kingPositions(board),
-                passedPosition:null,
-                pawnAt:null
+                passedPosition: null,
+                pawnAt: null
             }
 
             const answer = pawnCanMove(board, Position.E5, Position.E4, annotations);
@@ -149,8 +149,8 @@ describe('pawnCanMove', () => {
 
             const annotations: EnPassantAnnotations & KingAnnotations = {
                 ...kingPositions(board),
-                passedPosition:null,
-                pawnAt:null
+                passedPosition: null,
+                pawnAt: null
             }
 
             const answer = pawnCanMove(board, Position.D5, Position.D4, annotations);
@@ -161,8 +161,8 @@ describe('pawnCanMove', () => {
 
             const annotations: EnPassantAnnotations & KingAnnotations = {
                 ...kingPositions(board),
-                passedPosition:null,
-                pawnAt:null
+                passedPosition: null,
+                pawnAt: null
             }
 
             const answer = pawnCanMove(board, Position.E5, Position.D4, annotations);
@@ -173,8 +173,8 @@ describe('pawnCanMove', () => {
 
             const annotations: EnPassantAnnotations & KingAnnotations = {
                 ...kingPositions(board),
-                passedPosition:null,
-                pawnAt:null
+                passedPosition: null,
+                pawnAt: null
             }
 
             const answer = pawnCanMove(board, Position.G5, Position.H4, annotations);
@@ -185,8 +185,8 @@ describe('pawnCanMove', () => {
 
             const annotations: EnPassantAnnotations & KingAnnotations = {
                 ...kingPositions(board),
-                passedPosition:null,
-                pawnAt:null
+                passedPosition: null,
+                pawnAt: null
             }
 
             const answer = pawnCanMove(board, Position.B4, Position.B5, annotations);
@@ -197,8 +197,8 @@ describe('pawnCanMove', () => {
 
             const annotations: EnPassantAnnotations & KingAnnotations = {
                 ...kingPositions(board),
-                passedPosition:null,
-                pawnAt:null
+                passedPosition: null,
+                pawnAt: null
             }
 
             const answer = pawnCanMove(board, Position.H4, Position.G4, annotations);
@@ -223,8 +223,8 @@ describe('pawnCanMove', () => {
 
             const annotations = {
                 ...kingPositions(board),
-                passedPosition:Position.E3,
-                pawnAt:Position.E4
+                passedPosition: Position.E3,
+                pawnAt: Position.E4
             }
 
             const answer = pawnCanMove(board, Position.D4, Position.E3, annotations);
@@ -235,8 +235,8 @@ describe('pawnCanMove', () => {
             
             const annotations: EnPassantAnnotations & KingAnnotations = {
                 ...kingPositions(board),
-                passedPosition:null,
-                pawnAt:null
+                passedPosition: null,
+                pawnAt: null
             }
             const answerNullPassantInfo = pawnCanMove(board, Position.D4, Position.E3, annotations);
             expect(answerNullPassantInfo).toBe(false);
@@ -246,8 +246,8 @@ describe('pawnCanMove', () => {
 
             const annotations = {
                 ...kingPositions(board),
-                passedPosition:Position.G6,
-                pawnAt:Position.G5
+                passedPosition: Position.G6,
+                pawnAt: Position.G5
             }
 
             const answer = pawnCanMove(board, Position.H5, Position.G6, annotations);
@@ -258,8 +258,8 @@ describe('pawnCanMove', () => {
 
             const annotations: EnPassantAnnotations & KingAnnotations = {
                 ...kingPositions(board),
-                passedPosition:null,
-                pawnAt:null
+                passedPosition: null,
+                pawnAt: null
             }
 
             const answerNullPassantInfo = pawnCanMove(board, Position.H5, Position.G6, annotations);

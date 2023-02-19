@@ -19,7 +19,7 @@ function rook(board: Board, moveFrom: GridCoordinates, boardAnnotations: KingAnn
     const directions = [[0,1], [0,-1], [1,0], [-1,0]];
     const legalMoves : Array<GridCoordinates> = [];
 
-    const doesntPutSelfInCheck = (position:GridCoordinates):boolean => !isInCheck(move(board, moveFrom, position), player, boardAnnotations);
+    const doesntPutSelfInCheck = (position: GridCoordinates): boolean => !isInCheck(move(board, moveFrom, position), player, boardAnnotations);
 
     directions.forEach((direction) => {
         let examinedPosition = displaceTo(moveFrom, direction);

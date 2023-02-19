@@ -1,4 +1,4 @@
 export type KingAnnotations = {
-    whiteKingPosition:GridCoordinates;
-    blackKingPosition:GridCoordinates;
+    whiteKingPosition: GridCoordinates;
+    blackKingPosition: GridCoordinates;
 };

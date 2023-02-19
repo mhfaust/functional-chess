@@ -22,7 +22,7 @@ function bishop(
     const player = playerAt(board, moveFrom);
     const legalMoves: Array<GridCoordinates> = [];
 
-    bishopVectors.forEach((vector: MoveVector):void => {
+    bishopVectors.forEach((vector: MoveVector): void => {
 
         let examinedPosition = displaceTo(moveFrom, vector);
 

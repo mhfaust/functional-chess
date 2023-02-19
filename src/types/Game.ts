@@ -8,26 +8,26 @@ import { Turn } from "interfaces/Turn";
 type Game = Array<Turn>
 
 // class Game {
-//     constructor(turns:Array<Turn>)
-//     constructor(moves:Array<[GridCoordinates, GridCoordinates]>)
-//     constructor(arg:Array<[GridCoordinates, GridCoordinates]> | Array<Turn>){
+//     constructor(turns: Array<Turn>)
+//     constructor(moves: Array<[GridCoordinates, GridCoordinates]>)
+//     constructor(arg: Array<[GridCoordinates, GridCoordinates]> | Array<Turn>){
 
 //     }
 
-//     private _turns:Array<Turn> 
+//     private _turns: Array<Turn> 
 
-//     get turns():Array<Turn>{
+//     get turns(): Array<Turn>{
 //         return [];
 //     }
 
-//     private validateMoves(moves:Array<[GridCoordinates, GridCoordinates]>){
+//     private validateMoves(moves: Array<[GridCoordinates, GridCoordinates]>){
 
 //         let boardStack = [initialBoard()];
 //         let annotationsStack = [initialBoardAnnotations()];
 
 //         for(let move of moves){
-//             const moveFrom:GridCoordinates = move[0];
-//             const moveTo:GridCoordinates = move[1];
+//             const moveFrom: GridCoordinates = move[0];
+//             const moveTo: GridCoordinates = move[1];
 //             const currentBoard = boardStack[boardStack.length - 1];
 //             const currentAnnotations = annotationsStack[annotationsStack.length - 1];
 
@@ -41,7 +41,7 @@ type Game = Array<Turn>
 //         };
 //     }
 
-//     private validateTurns(turns:Array<Turn>){
+//     private validateTurns(turns: Array<Turn>){
 
 //     }
 

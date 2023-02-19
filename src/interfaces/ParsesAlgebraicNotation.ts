@@ -1,3 +1,3 @@
 export type ParsesAlgebraicNotation = {
-    (algebreaicNotation:string): [GridCoordinates, GridCoordinates]
+    (algebreaicNotation: string): [GridCoordinates, GridCoordinates]
 }

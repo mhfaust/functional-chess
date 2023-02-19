@@ -5,9 +5,9 @@ import { playerAt } from "positions";
 import { Board } from "types/Board";
 
 function movesIntoCheck(
-    board:Board, 
-    moveFrom:GridCoordinates, 
-    moveTo:GridCoordinates, 
+    board: Board, 
+    moveFrom: GridCoordinates, 
+    moveTo: GridCoordinates, 
     annotations: KingAnnotations)
     : boolean{
    

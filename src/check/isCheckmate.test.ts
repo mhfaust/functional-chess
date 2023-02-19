@@ -40,7 +40,7 @@ describe('isCheckmate', () => {
 /*  H  */ [__,__,__,__,__,__,WB,__],
         ];
 
-        const annotations:KingAnnotations = {
+        const annotations: KingAnnotations = {
             blackKingPosition: locatePiece(board, 'Black King'),
             whiteKingPosition: locatePiece(board, 'White King')
         };
@@ -61,7 +61,7 @@ describe('isCheckmate', () => {
 /*  H  */ [__,__,__,__,__,__,WB,__],
         ];
 
-        const annotations:KingAnnotations = {
+        const annotations: KingAnnotations = {
             blackKingPosition: locatePiece(board, 'Black King'),
             whiteKingPosition: locatePiece(board, 'White King')
         };
@@ -82,7 +82,7 @@ describe('isCheckmate', () => {
 /*  H  */ [__,__,__,__,__,__,BP,__],
         ];
 
-        const annotations:KingAnnotations = {
+        const annotations: KingAnnotations = {
             blackKingPosition: locatePiece(board, 'Black King'),
             whiteKingPosition: locatePiece(board, 'White King')
         };
@@ -103,7 +103,7 @@ describe('isCheckmate', () => {
 /*  H  */ [__,__,__,__,__,__,WQ,__],
         ];
 
-        const annotations:KingAnnotations = {
+        const annotations: KingAnnotations = {
             blackKingPosition: locatePiece(board, 'Black King'),
             whiteKingPosition: locatePiece(board, 'White King')
         };
@@ -124,7 +124,7 @@ describe('isCheckmate', () => {
 /*  H  */ [__,BR,__,WP,__,WQ,BP,__],
         ];
 
-        const annotations:KingAnnotations = {
+        const annotations: KingAnnotations = {
             blackKingPosition: locatePiece(board, 'Black King'),
             whiteKingPosition: locatePiece(board, 'White King')
         };
@@ -145,7 +145,7 @@ describe('isCheckmate', () => {
 /*  H  */ [__,__,__,__,__,__,__,__], 
         ];
 
-        const annotations:KingAnnotations = {
+        const annotations: KingAnnotations = {
             blackKingPosition: locatePiece(board, 'Black King'),
             whiteKingPosition: locatePiece(board, 'White King')
         };
@@ -166,7 +166,7 @@ describe('isCheckmate', () => {
 /*  H  */ [__,__,__,__,BQ,__,__,__], 
         ];
 
-        const annotations:KingAnnotations = {
+        const annotations: KingAnnotations = {
             blackKingPosition: locatePiece(board, 'Black King'),
             whiteKingPosition: locatePiece(board, 'White King')
         };
@@ -187,7 +187,7 @@ describe('isCheckmate', () => {
 /*  H  */ [__,__,__,__,BQ,__,__,__], 
         ];
 
-        const annotations:KingAnnotations = {
+        const annotations: KingAnnotations = {
             blackKingPosition: locatePiece(board, 'Black King'),
             whiteKingPosition: locatePiece(board, 'White King')
         };

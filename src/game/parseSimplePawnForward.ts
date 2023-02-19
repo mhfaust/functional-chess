@@ -2,9 +2,9 @@ import { Position } from "constants/position";
 import { Board } from "types/Board";
 
 function parseSimplePawnForward(
-    notation:string, 
+    notation: string, 
     board: Board)
-    :[GridCoordinates, GridCoordinates]{
+    : [GridCoordinates, GridCoordinates]{
 
 
 

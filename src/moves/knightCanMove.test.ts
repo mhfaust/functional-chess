@@ -43,7 +43,7 @@ describe('knightCanMove', () => {
     })
 
     it('cannot move pinned knight',() =>{
-        const board:Board = [
+        const board: Board = [
             /*         1  2  3  4  5  6  7  8  */
             /*  A  */ [__,__,__,__,__,__,__,__],
             /*  B  */ [__,__,__,__,__,__,__,__],

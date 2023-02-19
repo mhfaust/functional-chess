@@ -3,11 +3,11 @@ import { pieceAt } from "positions";
 import { Board } from "types/Board";
 
 function nextKingAnnotations(
-        board:Board,
-        moveFrom:GridCoordinates,
-        moveTo:GridCoordinates,
+        board: Board,
+        moveFrom: GridCoordinates,
+        moveTo: GridCoordinates,
         boardAnnotations: KingAnnotations
-    ):KingAnnotations {
+    ): KingAnnotations {
     
         const revisedKingPosition = pieceAt(board, moveFrom) === 'Black King' 
         ? { blackKingPosition: moveTo }

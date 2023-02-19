@@ -23,13 +23,13 @@ const pieceWithDepartureRank  = `(${P})(${rank})(${pos})`; //e.g. Ne4
 const pieceWithDeparturePos  = `(${P})(${pos})(${pos})`; //e.g. Ne4
 
 // const strategies = new Map<string, ParsesAlgebraicNotation> ([
-//     [ simplePawnForward, (s:string) => {
+//     [ simplePawnForward, (s: string) => {
 //         [Position.A1, Position.A1] 
 //     }]
 // ]);
 
 
-function moveFromAlgebraicNotation(notation:string, board: Board, player: Player): [GridCoordinates, GridCoordinates]{
+function moveFromAlgebraicNotation(notation: string, board: Board, player: Player): [GridCoordinates, GridCoordinates]{
 
     let pawnForwardNote = notation.match(pawnForward);
     if(pawnForwardNote){

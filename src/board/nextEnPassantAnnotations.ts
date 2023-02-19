@@ -2,7 +2,7 @@ import { EnPassantAnnotations } from "interfaces/EnPassantAnnotations";
 import { pieceAt, rank, file } from "positions";
 import { Board } from "types/Board";
 
-const nextEnPassantAnnotations = (prevBoard: Board, from:GridCoordinates, to:GridCoordinates): EnPassantAnnotations => {
+const nextEnPassantAnnotations = (prevBoard: Board, from: GridCoordinates, to: GridCoordinates): EnPassantAnnotations => {
     const piece = pieceAt(prevBoard, from);
     if(piece === 'Black Pawn' && rank(from) === 6 && rank(to) === 4){
         return {

@@ -16,7 +16,7 @@ const makeCapturedPieces = (board: Board, prevCaptures: Array<Piece>, defender: 
 
 function nextBoardAnnotations(
             previousBoard: Board,
-            currentBoard:Board,
+            currentBoard: Board,
             previousAnnotations: BoardAnnotations,  
             pieceMovedFromPosition: GridCoordinates, 
             pieceMovedToPosition: GridCoordinates)
