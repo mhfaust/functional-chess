@@ -1,6 +1,7 @@
 import move from 'board/move';
 import { Position } from 'constants/position';
 import { BK,BQ,BR,BN,BB,BP,WK,WQ,WR,WN,WB,WP,__ } from 'positions/pieces-shorthand';
+import { Board } from 'types/Board';
 
 describe('move', () => {
 

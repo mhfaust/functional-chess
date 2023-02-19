@@ -18,6 +18,7 @@ import {
 import { BK, BQ, BR, BN, BB, BP, WK, WQ, WR, WN, WB, WP } from 'positions/pieces-shorthand';
 import { AttackPattern } from 'interfaces/AttackPattern';
 import { PositionName } from 'enums/positionName';
+import { Board } from 'types/Board';
 
 const whiteAttackPatterns: Array<AttackPattern> = [
     { vectors: pawnWhiteAttackVectors, canAttackLikeThis: new Set([WP, WQ, WB, WK]), limit: 1 },

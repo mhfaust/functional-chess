@@ -2,6 +2,7 @@ import isInCheck from 'check/isInCheck';
 import { BK,BQ,BR,BN,BB,BP,WK,WQ,WR,WN,WB,WP,__ } from 'positions/pieces-shorthand';
 import { locatePiece } from 'positions';
 import { KingAnnotations } from 'interfaces/KingAnnotations';
+import { Board } from 'types/Board';
 
 describe('isInCheck: true', () => {
     it('White King at F3 is IN check from Black Queen at E4', () => {
@@ -18,8 +19,8 @@ describe('isInCheck: true', () => {
         ];
 
         const annotations: KingAnnotations = {
-            blackKingPosition: locatePiece(board, Piece.BlackKing),
-            whiteKingPosition: locatePiece(board, Piece.WhiteKing)
+            blackKingPosition: locatePiece(board, 'BlackKing'),
+            whiteKingPosition: locatePiece(board, 'WhiteKing')
         };
 
         expect(isInCheck(board, Player.White, annotations)).toBe(true)
@@ -39,8 +40,8 @@ describe('isInCheck: true', () => {
         ];
 
         const annotations: KingAnnotations = {
-            blackKingPosition: locatePiece(board, Piece.BlackKing),
-            whiteKingPosition: locatePiece(board, Piece.WhiteKing)
+            blackKingPosition: locatePiece(board, 'BlackKing'),
+            whiteKingPosition: locatePiece(board, 'WhiteKing')
         };
 
         expect(isInCheck(board, Player.White, annotations)).toBe(true)
@@ -60,8 +61,8 @@ describe('isInCheck: true', () => {
         ];
 
         const annotations: KingAnnotations = {
-            blackKingPosition: locatePiece(board, Piece.BlackKing),
-            whiteKingPosition: locatePiece(board, Piece.WhiteKing)
+            blackKingPosition: locatePiece(board, 'BlackKing'),
+            whiteKingPosition: locatePiece(board, 'WhiteKing')
         };
 
         expect(isInCheck(board, Player.White, annotations)).toBe(false)

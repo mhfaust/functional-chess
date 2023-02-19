@@ -1,6 +1,7 @@
 import { isOnBoard, playerAt, file, rank } from 'positions'
 import movesIntoCheck from 'check/movesIntoCheck';
 import { KingAnnotations } from 'interfaces/KingAnnotations';
+import { Board } from 'types/Board';
 
 function knightCanMove (
     board: Board, 

@@ -1,5 +1,6 @@
 import { ALL_PIECES } from "constants/pieces";
 import { pieceAt } from 'positions';
+import { Board } from "types/Board";
 
 function isOccupied  (
     board: Board, 

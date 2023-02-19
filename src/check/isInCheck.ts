@@ -1,5 +1,6 @@
 import { generateLinesOfAttack } from 'check'
 import { KingAnnotations } from 'interfaces/KingAnnotations';
+import { Board } from 'types/Board';
 
 function isInCheck(
     board:Board, 

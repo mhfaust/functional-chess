@@ -2,6 +2,7 @@ import queenCanMove  from 'moves/queenCanMove'
 import { BP,WK,WQ,WR,__ } from 'positions/pieces-shorthand';
 import { Position } from 'constants/position';
 import { kingPositions } from 'board';
+import { Board } from 'types/Board';
 
 describe('queenCanMove', () => {
     const queen1Board:Board = [

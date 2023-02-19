@@ -5,6 +5,7 @@ import { kingMoves } from 'moves';
 import { locatePiece } from 'positions';
 import kingPositions from 'board/kingPositions';
 import { CastlingAnnotations } from 'interfaces/CastlingAnnotations';
+import { Board } from 'types/Board';
 
 const noPreclusions: CastlingAnnotations = {
     whiteQueenSideCastlingPrecluded:false,

@@ -9,6 +9,7 @@ import {
     
 import movesIntoCheck from 'check/movesIntoCheck';
 import { KingAnnotations } from 'interfaces/KingAnnotations';
+import { Board } from 'types/Board';
 
 function rookCanMove (
     board: Board, 

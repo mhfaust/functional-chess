@@ -8,6 +8,7 @@ import {
     displaceTo } from 'positions'
 import movesIntoCheck from 'check/movesIntoCheck';
 import { KingAnnotations } from 'interfaces/KingAnnotations';
+import { Board } from 'types/Board';
 
 function bishopCanMove (
     board: Board, 

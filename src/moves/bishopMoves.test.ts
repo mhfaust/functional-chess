@@ -3,6 +3,7 @@ import { positionName } from 'positions';
 import { Position } from 'constants/position';
 import { BK,BQ,BR,BN,BB,BP,WK,WQ,WR,WN,WB,WP,__ } from 'positions/pieces-shorthand';
 import kingPositions from 'board/kingPositions';
+import { Board } from 'types/Board';
 
 describe('bishop', () => {
 

@@ -1,4 +1,5 @@
 import { emptyBoard } from 'board'
+import { Board } from 'types/Board';
 
 function rotateCounterClockwise(board: Board){
 

@@ -10,6 +10,7 @@ import movesIntoCheck from 'check/movesIntoCheck';
 import { CastlingAnnotations } from 'interfaces/CastlingAnnotations';
 import { KingAnnotations } from 'interfaces/KingAnnotations';
 import { PositionName } from 'enums/positionName';
+import { Board } from 'types/Board';
 
 function kingMoves (
     board:Board, 

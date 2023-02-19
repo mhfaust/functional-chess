@@ -1,5 +1,6 @@
 import { file, rank, pieceAt } from 'positions';
 import { emptyBoard } from 'board';
+import { Board } from 'types/Board';
 
 function move(
     previousBoard: Board, 
@@ -15,7 +16,7 @@ function move(
         }
     }
 
-    newBoard[file(fromPosition)][rank(fromPosition)] = Piece.Empty;
+    newBoard[file(fromPosition)][rank(fromPosition)] = null;
     newBoard[file(toPosition)][rank(toPosition)] = pieceAt(previousBoard, fromPosition)
     
     return newBoard;

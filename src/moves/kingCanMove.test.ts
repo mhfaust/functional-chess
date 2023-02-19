@@ -3,6 +3,7 @@ import { BK,BQ,BR,BN,BB,BP,WK,WQ,WR,WN,WB,WP,__ } from 'positions/pieces-shortha
 import { kingCanMove } from 'moves';
 import kingPositions from 'board/kingPositions';
 import { CastlingAnnotations } from 'interfaces/CastlingAnnotations';
+import { Board } from 'types/Board';
 
 const noPreclusions: CastlingAnnotations = {
     whiteQueenSideCastlingPrecluded:false,

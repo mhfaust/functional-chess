@@ -4,6 +4,7 @@ import canMoveTo from "moves/canMoveTo";
 import kingPositions from "board/kingPositions";
 import { CastlingAnnotations } from "interfaces/CastlingAnnotations";
 import { MoveAnnotations } from "interfaces/MoveAnnotations";
+import { Board } from "types/Board";
 
 const defaultMoveAnnotations: MoveAnnotations = {
     whiteKingPosition: null,

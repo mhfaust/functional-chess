@@ -3,6 +3,7 @@ import movesIntoCheck from 'check/movesIntoCheck';
 import { Position } from 'constants/position';
 import { CastlingAnnotations } from 'interfaces/CastlingAnnotations';
 import { KingAnnotations } from 'interfaces/KingAnnotations';
+import { Board } from 'types/Board';
 
 
 function kingCanMove (

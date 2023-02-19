@@ -1,5 +1,6 @@
 import { KingAnnotations } from "interfaces/KingAnnotations";
 import { pieceAt } from "positions";
+import { Board } from "types/Board";
 
 function nextKingAnnotations(
         board:Board,
@@ -8,9 +9,9 @@ function nextKingAnnotations(
         boardAnnotations: KingAnnotations
     ):KingAnnotations {
     
-        const revisedKingPosition = pieceAt(board, moveFrom) === Piece.BlackKing 
+        const revisedKingPosition = pieceAt(board, moveFrom) === 'BlackKing' 
         ? { blackKingPosition: moveTo }
-        : pieceAt(board, moveFrom) === Piece.WhiteKing 
+        : pieceAt(board, moveFrom) === 'WhiteKing' 
             ? { whiteKingPosition: moveTo }
             : { };
 

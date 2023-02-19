@@ -2,6 +2,7 @@ import { move, nextKingAnnotations } from "board";
 import { isInCheck } from "check";
 import { KingAnnotations } from "interfaces/KingAnnotations";
 import { playerAt } from "positions";
+import { Board } from "types/Board";
 
 function movesIntoCheck(
     board:Board, 

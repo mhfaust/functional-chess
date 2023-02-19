@@ -2,6 +2,7 @@ import { KingAnnotations } from 'interfaces/KingAnnotations';
 import {
     rookCanMove,
     bishopCanMove } from 'moves';
+import { Board } from 'types/Board';
 
 function queenCanMove (
     board: Board, 

@@ -9,6 +9,7 @@ import {
 import movesIntoCheck from 'check/movesIntoCheck';
 import { KingAnnotations } from 'interfaces/KingAnnotations';
 import { EnPassantAnnotations } from 'interfaces/EnPassantAnnotations';
+import { Board } from 'types/Board';
 
 function pawnCanMove (
         board: Board, 

@@ -10,6 +10,7 @@ import {
     
 import { kingVectors } from 'constants/move-vectors';
 import { KingAnnotations } from 'interfaces/KingAnnotations';
+import { Board } from 'types/Board';
 
 function isCheckmate(
     board: Board, 

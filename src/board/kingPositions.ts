@@ -1,10 +1,11 @@
 import { KingAnnotations } from "interfaces/KingAnnotations";
 import { locatePiece } from "positions";
+import { Board } from "types/Board";
 
 function kingPositions(board: Board): KingAnnotations{
     return {
-        whiteKingPosition: locatePiece(board, Piece.WhiteKing),
-        blackKingPosition: locatePiece(board, Piece.BlackKing)
+        whiteKingPosition: locatePiece(board, 'WhiteKing'),
+        blackKingPosition: locatePiece(board, 'BlackKing')
     };
 }
 

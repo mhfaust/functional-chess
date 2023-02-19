@@ -1,5 +1,6 @@
 //Wraps all the fileds required for determining move legalities,
 
+import { Piece } from "enums/piece";
 import { MoveAnnotations } from "./MoveAnnotations";
 
 //and included additional info to make UI easier:

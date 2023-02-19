@@ -4,6 +4,7 @@ import { Position }
     from 'constants/position';
 import { BQ,BP,WK,WQ,WR,BK,WP,__ } from 'positions/pieces-shorthand';
 import { kingPositions } from 'board';
+import { Board } from 'types/Board';
 describe('queen', () => {
 
     it(`provides all possible moves from queen on queen1board: `, () => {

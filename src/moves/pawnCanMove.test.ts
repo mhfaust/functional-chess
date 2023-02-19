@@ -5,6 +5,7 @@ import { locatePiece } from 'positions';
 import kingPositions from 'board/kingPositions';
 import { EnPassantAnnotations } from 'interfaces/EnPassantAnnotations';
 import { KingAnnotations } from 'interfaces/KingAnnotations';
+import { Board } from 'types/Board';
 
 describe('pawnCanMove', () => {
 

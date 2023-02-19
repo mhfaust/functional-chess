@@ -1,6 +1,19 @@
-type BoardFile = [Piece,Piece,Piece,Piece,Piece,Piece,Piece,Piece];
+import { Piece } from "enums/piece";
 
-type Board = [
+export type PieceOrEmpty = Piece | null;
+
+export type BoardFile = [
+    PieceOrEmpty, 
+    PieceOrEmpty, 
+    PieceOrEmpty, 
+    PieceOrEmpty, 
+    PieceOrEmpty, 
+    PieceOrEmpty, 
+    PieceOrEmpty, 
+    PieceOrEmpty
+];
+
+export type Board = [
     BoardFile,
     BoardFile,
     BoardFile,

@@ -4,6 +4,7 @@ import { Position } from 'constants/position';
 import { __, WK, WN, BK, BQ } from 'positions/pieces-shorthand';
 import { locatePiece } from 'positions';
 import kingPositions from 'board/kingPositions';
+import { Board } from 'types/Board';
 
 describe('knightCanMove', () => {
 

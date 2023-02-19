@@ -3,7 +3,7 @@ import { BoardAnnotations } from "interfaces/BoardAnnotations";
 
 const x: BoardAnnotations = {
     lastPlayerMoved: Player.White,
-    lastPieceMoved: Piece.WhitePawn,
+    lastPieceMoved: 'WhitePawn',
     lastMoveFrom: Position.E2,
     lastMoveTo:Position.E4,
     whoseTurn: Player.Black,

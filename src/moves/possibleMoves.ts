@@ -1,3 +1,4 @@
+import { Piece } from 'enums/piece';
 import { PositionName } from 'enums/positionName';
 import { MoveAnnotations } from 'interfaces/MoveAnnotations';
 import { Moves } from 'interfaces/Moves';
@@ -9,6 +10,7 @@ import {
     queenMoves, 
     rookMoves 
 } from 'moves';
+import { Board } from 'types/Board';
 
 //Each of the piece-specific move functions has a less-demanding signtaure for 
 //annotations than the combined moves, so we cury them to match it
@@ -20,18 +22,18 @@ const king = (b: Board,g: GridCoordinates,a: MoveAnnotations) => kingMoves(b,g,a
 const queen = (b: Board,g: GridCoordinates,a: MoveAnnotations) => queenMoves(b,g,a);
 
 const strategies: Map<Piece, Moves> = new Map([
-    [ Piece.BlackBishop, bishop ],
-    [ Piece.WhiteBishop, bishop ],
-    [ Piece.BlackKnight, knight ],
-    [ Piece.WhiteKnight, knight ],
-    [ Piece.BlackRook, rook ],
-    [ Piece.WhiteRook, rook ],
-    [ Piece.BlackQueen, queen ],
-    [ Piece.WhiteQueen, queen ],
-    [ Piece.BlackKing, king ],
-    [ Piece.WhiteKing, king ],
-    [ Piece.BlackPawn, pawn ],
-    [ Piece.WhitePawn, pawn ],
+    [ 'BlackBishop', bishop ],
+    [ 'WhiteBishop', bishop ],
+    [ 'BlackKnight', knight ],
+    [ 'WhiteKnight', knight ],
+    [ 'BlackRook', rook ],
+    [ 'WhiteRook', rook ],
+    [ 'BlackQueen', queen ],
+    [ 'WhiteQueen', queen ],
+    [ 'BlackKing', king ],
+    [ 'WhiteKing', king ],
+    [ 'BlackPawn', pawn ],
+    [ 'WhitePawn', pawn ],
 ]);
 
 function moves (
@@ -40,7 +42,7 @@ function moves (
     annotations:MoveAnnotations)
     : Set<PositionName> {
         
-        const strategy:Moves = strategies.get(Piece.WhiteBishop);
+        const strategy:Moves = strategies.get('WhiteBishop');
         return strategy(board, fromPosition, annotations);
 }
 

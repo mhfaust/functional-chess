@@ -3,6 +3,7 @@ import { Position } from 'constants/position';
 import { BK,BR,BP,WP,__ } from 'positions/pieces-shorthand';
 import { locatePiece } from 'positions';
 import { kingPositions } from 'board';
+import { Board } from 'types/Board';
 
 const rook1Board: Board = [
 /*         1  2  3  4  5  6  7  8  */

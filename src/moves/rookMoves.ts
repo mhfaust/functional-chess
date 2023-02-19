@@ -11,6 +11,7 @@ import { move } from 'board';
 import movesIntoCheck from 'check/movesIntoCheck';
 import { KingAnnotations } from 'interfaces/KingAnnotations';
 import { PositionName } from 'enums/positionName';
+import { Board } from 'types/Board';
 
 function rook(board: Board, moveFrom: GridCoordinates, boardAnnotations: KingAnnotations): Set<PositionName> {
     

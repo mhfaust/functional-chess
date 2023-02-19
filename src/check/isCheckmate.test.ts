@@ -2,6 +2,7 @@ import isCheckmate from './isCheckmate';
 import { BK,BQ,BR,BN,BB,BP,WK,WQ,WR,WN,WB,WP,__ } from 'positions/pieces-shorthand';
 import { locatePiece } from 'positions';
 import { KingAnnotations } from 'interfaces/KingAnnotations';
+import { Board } from 'types/Board';
 
 describe('isCheckmate', () => {
    
@@ -19,8 +20,8 @@ describe('isCheckmate', () => {
         ];
 
         const annotations: KingAnnotations = {
-            blackKingPosition: locatePiece(board, Piece.BlackKing),
-            whiteKingPosition: locatePiece(board, Piece.WhiteKing)
+            blackKingPosition: locatePiece(board, 'BlackKing'),
+            whiteKingPosition: locatePiece(board, 'WhiteKing')
         };
 
         expect(isCheckmate(board, Player.Black, annotations)).toBe(false)
@@ -40,8 +41,8 @@ describe('isCheckmate', () => {
         ];
 
         const annotations:KingAnnotations = {
-            blackKingPosition: locatePiece(board, Piece.BlackKing),
-            whiteKingPosition: locatePiece(board, Piece.WhiteKing)
+            blackKingPosition: locatePiece(board, 'BlackKing'),
+            whiteKingPosition: locatePiece(board, 'WhiteKing')
         };
 
         expect(isCheckmate(board, Player.Black, annotations)).toBe(false)
@@ -61,8 +62,8 @@ describe('isCheckmate', () => {
         ];
 
         const annotations:KingAnnotations = {
-            blackKingPosition: locatePiece(board, Piece.BlackKing),
-            whiteKingPosition: locatePiece(board, Piece.WhiteKing)
+            blackKingPosition: locatePiece(board, 'BlackKing'),
+            whiteKingPosition: locatePiece(board, 'WhiteKing')
         };
 
         expect(isCheckmate(board, Player.Black, annotations)).toBe(false)
@@ -82,8 +83,8 @@ describe('isCheckmate', () => {
         ];
 
         const annotations:KingAnnotations = {
-            blackKingPosition: locatePiece(board, Piece.BlackKing),
-            whiteKingPosition: locatePiece(board, Piece.WhiteKing)
+            blackKingPosition: locatePiece(board, 'BlackKing'),
+            whiteKingPosition: locatePiece(board, 'WhiteKing')
         };
 
         expect(isCheckmate(board, Player.Black, annotations)).toBe(true)
@@ -103,8 +104,8 @@ describe('isCheckmate', () => {
         ];
 
         const annotations:KingAnnotations = {
-            blackKingPosition: locatePiece(board, Piece.BlackKing),
-            whiteKingPosition: locatePiece(board, Piece.WhiteKing)
+            blackKingPosition: locatePiece(board, 'BlackKing'),
+            whiteKingPosition: locatePiece(board, 'WhiteKing')
         };
 
         expect(isCheckmate(board, Player.Black, annotations)).toBe(true)
@@ -124,8 +125,8 @@ describe('isCheckmate', () => {
         ];
 
         const annotations:KingAnnotations = {
-            blackKingPosition: locatePiece(board, Piece.BlackKing),
-            whiteKingPosition: locatePiece(board, Piece.WhiteKing)
+            blackKingPosition: locatePiece(board, 'BlackKing'),
+            whiteKingPosition: locatePiece(board, 'WhiteKing')
         };
 
         expect(isCheckmate(board, Player.White, annotations)).toBe(true)
@@ -145,8 +146,8 @@ describe('isCheckmate', () => {
         ];
 
         const annotations:KingAnnotations = {
-            blackKingPosition: locatePiece(board, Piece.BlackKing),
-            whiteKingPosition: locatePiece(board, Piece.WhiteKing)
+            blackKingPosition: locatePiece(board, 'BlackKing'),
+            whiteKingPosition: locatePiece(board, 'WhiteKing')
         };
 
         expect(isCheckmate(board, Player.White, annotations)).toBe(true)
@@ -166,8 +167,8 @@ describe('isCheckmate', () => {
         ];
 
         const annotations:KingAnnotations = {
-            blackKingPosition: locatePiece(board, Piece.BlackKing),
-            whiteKingPosition: locatePiece(board, Piece.WhiteKing)
+            blackKingPosition: locatePiece(board, 'BlackKing'),
+            whiteKingPosition: locatePiece(board, 'WhiteKing')
         };
 
         expect(isCheckmate(board, Player.White, annotations)).toBe(true)
@@ -187,8 +188,8 @@ describe('isCheckmate', () => {
         ];
 
         const annotations:KingAnnotations = {
-            blackKingPosition: locatePiece(board, Piece.BlackKing),
-            whiteKingPosition: locatePiece(board, Piece.WhiteKing)
+            blackKingPosition: locatePiece(board, 'BlackKing'),
+            whiteKingPosition: locatePiece(board, 'WhiteKing')
         };
 
         expect(isCheckmate(board, Player.White, annotations)).toBe(false)

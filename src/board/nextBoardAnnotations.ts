@@ -2,8 +2,11 @@ import { playerAt, otherPlayer, pieceAt } from "positions";
 import { isInCheck, isCheckmate } from "check";
 import { nextKingAnnotations, nextCastlingAnnotations, nextEnPassantAnnotations } from "board";
 import { BoardAnnotations } from "interfaces/BoardAnnotations";
+import { Board } from "types/Board";
+import { Piece } from "enums/piece";
 
-const makeCapturedPieces = (board: Board, prevCaptures:Array<Piece>, defender: Player, moveTo: GridCoordinates) : Array<Piece> => {
+const makeCapturedPieces = (board: Board, prevCaptures: Array<Piece>, defender: Player, moveTo: GridCoordinates) : Array<Piece> => {
+    
     return playerAt(board, moveTo) === defender 
         ? [...prevCaptures, pieceAt(board, moveTo)]
         : prevCaptures
@@ -35,7 +38,7 @@ function nextBoardAnnotations(
         ...nextKingPositions,
         ...{
             lastPlayerMoved: lastMoved,
-            lastPieceMoved: Piece.WhitePawn,
+            lastPieceMoved: 'WhitePawn',
             lastMoveFrom: pieceMovedFromPosition,
             lastMoveTo: pieceMovedToPosition,
             whoseTurn: nextPlayer,

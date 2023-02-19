@@ -1,6 +1,7 @@
 import { pieceAt, positionName } from 'positions';
 import { BLACK_PIECES, WHITE_PIECES } from 'constants/pieces';
 import { PiecePosition } from 'interfaces/PiecePosition';
+import { Board } from 'types/Board';
 
 function allPlayerPositions(board: Board, player: Player): Array<PiecePosition>{
     
