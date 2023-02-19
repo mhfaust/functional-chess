@@ -23,7 +23,7 @@ describe('isInCheck: true', () => {
             whiteKingPosition: locatePiece(board, 'White King')
         };
 
-        expect(isInCheck(board, Player.White, annotations)).toBe(true)
+        expect(isInCheck(board, 'White', annotations)).toBe(true)
 
     });
 
@@ -45,7 +45,7 @@ describe('isInCheck: true', () => {
             whiteKingPosition: locatePiece(board, 'White King')
         };
 
-        expect(isInCheck(board, Player.White, annotations)).toBe(true)
+        expect(isInCheck(board, 'White', annotations)).toBe(true)
 
     });
 
@@ -67,7 +67,7 @@ describe('isInCheck: true', () => {
             whiteKingPosition: locatePiece(board, 'White King')
         };
 
-        expect(isInCheck(board, Player.White, annotations)).toBe(true)
+        expect(isInCheck(board, 'White', annotations)).toBe(true)
     });
 })
 
@@ -90,7 +90,7 @@ describe('isInCheck: false', () => {
             whiteKingPosition: locatePiece(board, 'White King')
         };
 
-        expect(isInCheck(board, Player.White, annotations)).toBe(false)
+        expect(isInCheck(board, 'White', annotations)).toBe(false)
 
     });
 

@@ -23,7 +23,7 @@ describe('isInCheck: true', () => {
             whiteKingPosition: locatePiece(board, 'White King')
         };
 
-        expect(isInCheck(board, Player.White, annotations)).toBe(true)
+        expect(isInCheck(board, 'White', annotations)).toBe(true)
     });
 
     it('White King at F3 is IN check from Black Queen at F4', () => {
@@ -44,7 +44,7 @@ describe('isInCheck: true', () => {
             whiteKingPosition: locatePiece(board, 'White King')
         };
 
-        expect(isInCheck(board, Player.White, annotations)).toBe(true)
+        expect(isInCheck(board, 'White', annotations)).toBe(true)
     });
 
     it('White King at F3 is NOT in check from Black Queen at E5', () => {
@@ -65,7 +65,7 @@ describe('isInCheck: true', () => {
             whiteKingPosition: locatePiece(board, 'White King')
         };
 
-        expect(isInCheck(board, Player.White, annotations)).toBe(false)
+        expect(isInCheck(board, 'White', annotations)).toBe(false)
     });    
 
 });

@@ -11,13 +11,14 @@ import {
 import { kingVectors } from 'constants/move-vectors';
 import { KingAnnotations } from 'interfaces/KingAnnotations';
 import { Board } from 'types/Board';
+import { Player } from 'enums/player';
 
 function isCheckmate(
     board: Board, 
     defender: Player, 
     boardAnnotations: KingAnnotations){
     
-    const  kingPosition = defender === Player.Black 
+    const  kingPosition = defender === 'Black' 
         ? boardAnnotations.blackKingPosition 
         : boardAnnotations.whiteKingPosition;
 

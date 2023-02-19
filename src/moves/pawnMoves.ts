@@ -23,7 +23,7 @@ function pawn(
     
     const player = playerAt(board, moveFrom);
     const legalMoves: Set<PositionName> = new Set();
-    const forwardDirection = player === Player.White ? 1 : -1;
+    const forwardDirection = player === 'White' ? 1 : -1;
     const initialRank = rank(moveFrom);
     const forward1 = displaceTo(moveFrom, [0, forwardDirection]);
     const { passedPosition } = annotations;
@@ -36,7 +36,7 @@ function pawn(
         
         //can only advance if the pawn has never moved.
         //Also note, we only test if we already know the first space is clear
-        const pawnHasNotMoved = (player === Player.White && initialRank === 1) || (player === Player.Black && initialRank === 6)
+        const pawnHasNotMoved = (player === 'White' && initialRank === 1) || (player === 'Black' && initialRank === 6)
         if(pawnHasNotMoved){
             const forward2 = displaceTo(moveFrom, [0, 2 * forwardDirection]);
             if(isOnBoard(forward1) && isUnOccupied(board, forward2) && moveNotInCheck(forward2)){

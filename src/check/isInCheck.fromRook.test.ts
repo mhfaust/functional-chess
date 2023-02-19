@@ -24,7 +24,7 @@ describe('isInCheck: true', () => {
             whiteKingPosition: locatePiece(board, 'White King')
         };
 
-        expect(isInCheck(board, Player.Black, annotations)).toBe(true)
+        expect(isInCheck(board, 'Black', annotations)).toBe(true)
     });
 
     it('rook checks king along a file', () => {
@@ -45,6 +45,6 @@ describe('isInCheck: true', () => {
             whiteKingPosition: locatePiece(board, 'White King')
         };
 
-        expect(isInCheck(board, Player.Black, annotations)).toBe(true)
+        expect(isInCheck(board, 'Black', annotations)).toBe(true)
     });
 })

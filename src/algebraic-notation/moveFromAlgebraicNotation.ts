@@ -1,4 +1,5 @@
 import { Position } from "constants/position";
+import { Player } from "enums/player";
 import { Board } from "types/Board";
 
 
@@ -28,7 +29,7 @@ const pieceWithDeparturePos  = `(${P})(${pos})(${pos})`; //e.g. Ne4
 // ]);
 
 
-function moveFromAlgebraicNotation(notation:string, board: Board, player:Player): [GridCoordinates, GridCoordinates]{
+function moveFromAlgebraicNotation(notation:string, board: Board, player: Player): [GridCoordinates, GridCoordinates]{
 
     let pawnForwardNote = notation.match(pawnForward);
     if(pawnForwardNote){

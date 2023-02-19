@@ -41,7 +41,7 @@ function kingMoves (
     }
 
     //castling moves:
-    if(player === Player.White){
+    if(player === 'White'){
         if(canCastle(whiteKingSideCastlingPrecluded, Position.G1, Position.F1)){
             legalMoves.add('G1');
         }
@@ -49,7 +49,7 @@ function kingMoves (
             legalMoves.add('C1');
         }
     }
-    else if(player === Player.Black){
+    else if(player === 'Black'){
         if(canCastle(blackKingSideCastlingPrecluded, Position.G8, Position.F8)){
             legalMoves.add('G8');
         }

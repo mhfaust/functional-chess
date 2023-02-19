@@ -7,7 +7,7 @@ function initialBoardAnnotations(): BoardAnnotations{
         lastPieceMoved: null,
         lastMoveFrom: null,
         lastMoveTo:null,
-        whoseTurn:Player.White,
+        whoseTurn: 'White',
         isInCheck:false,
         isCheckmate:false,
         capturedBlackPieces: [],

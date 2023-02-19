@@ -24,7 +24,7 @@ function kingCanMove (
         }
     
     //white castling
-    if(player === Player.White){
+    if(player === 'White'){
         if(!boardAnnotations.whiteKingSideCastlingPrecluded 
                 && areSamePositions(toPosition, Position.G1)
                 && !movesIntoCheck(board, Position.E1, Position.F1, boardAnnotations)//across check
@@ -41,7 +41,7 @@ function kingCanMove (
         }
     }
     //black castling
-    if(player === Player.Black){
+    if(player === 'Black'){
         if(!boardAnnotations.blackKingSideCastlingPrecluded 
                 && areSamePositions(toPosition, Position.G8)
                 && !movesIntoCheck(board, Position.E8, Position.F8, boardAnnotations)//across check

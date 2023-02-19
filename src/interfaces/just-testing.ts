@@ -2,11 +2,11 @@ import { Position } from "constants/position";
 import { BoardAnnotations } from "interfaces/BoardAnnotations";
 
 const x: BoardAnnotations = {
-    lastPlayerMoved: Player.White,
+    lastPlayerMoved: 'White',
     lastPieceMoved: 'White Pawn',
     lastMoveFrom: Position.E2,
     lastMoveTo:Position.E4,
-    whoseTurn: Player.Black,
+    whoseTurn: 'Black',
     isInCheck: false,
     isCheckmate: false,
     passedPosition: null, 

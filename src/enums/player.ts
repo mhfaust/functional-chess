@@ -1,4 +1,1 @@
-declare const enum Player{
-    Black = 'Black',
-    White = 'White'
-}
+export type Player = 'Black' | 'White'

@@ -1,9 +1,6 @@
-const opposites = {
-    [Player.Black]: Player.White,
-    [Player.White]: Player.Black
-}
+import { Player } from "enums/player";
 
 function otherPlayer (player: Player): Player {
-    return opposites[player];
+    return player === 'White' ? 'Black' : 'White'
 }
 export default otherPlayer;

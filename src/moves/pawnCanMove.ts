@@ -21,7 +21,7 @@ function pawnCanMove (
     const { passedPosition } = boardAnnotations;
     
     const player = playerAt(board, fromPosition);
-    const forwardDirection = player === Player.White ? 1 : -1;
+    const forwardDirection = player === 'White' ? 1 : -1;
     const stepsForward = (rank(toPosition) - rank(fromPosition)) * forwardDirection;
     const stepsSideways = file(toPosition) - file(fromPosition);
       
@@ -35,10 +35,10 @@ function pawnCanMove (
             return false;
         }
         if(stepsForward === 2){
-            if(player === Player.Black && rank(fromPosition) !== 6){
+            if(player === 'Black' && rank(fromPosition) !== 6){
                 return false;
             }
-            if(player === Player.White && rank(fromPosition) !== 2){
+            if(player === 'White' && rank(fromPosition) !== 2){
                 return false;
             }
             //cannot jump over any piece

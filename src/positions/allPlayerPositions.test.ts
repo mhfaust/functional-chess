@@ -6,7 +6,7 @@ import { Piece } from 'enums/piece';
 
 describe('allPlayerPositions finds all white piecesonr initial board', () => {
 
-    const results = allPlayerPositions(initialBoard(), Player.White);
+    const results = allPlayerPositions(initialBoard(), 'White');
 
     const foundWhitePieceAt = (piece: Piece, position: PositionName) =>{
         return results.some((result: PiecePosition) =>
@@ -67,7 +67,7 @@ describe('allPlayerPositions finds all white piecesonr initial board', () => {
 
 describe('allPlayerPositions finds all white piecesonr initial board', () => {
 
-    const results = allPlayerPositions(initialBoard(), Player.Black);
+    const results = allPlayerPositions(initialBoard(), 'Black');
 
     const foundBlackPieceAt = (piece: Piece, position: PositionName) =>{
         return results.some((result: PiecePosition) =>

@@ -19,6 +19,7 @@ import { BK, BQ, BR, BN, BB, BP, WK, WQ, WR, WN, WB, WP } from 'positions/pieces
 import { AttackPattern } from 'interfaces/AttackPattern';
 import { PositionName } from 'enums/positionName';
 import { Board } from 'types/Board';
+import { Player } from 'enums/player';
 
 const whiteAttackPatterns: Array<AttackPattern> = [
     { vectors: pawnWhiteAttackVectors, canAttackLikeThis: new Set([WP, WQ, WB, WK]), limit: 1 },
@@ -43,7 +44,7 @@ function * generateLinesOfAttack(
     : IterableIterator<Array<GridCoordinates>>
 {
     const attacker = otherPlayer(defender);
-    let attackPatterns = attacker === Player.Black ? blackAttackPatterns : whiteAttackPatterns;
+    let attackPatterns = attacker === 'Black' ? blackAttackPatterns : whiteAttackPatterns;
 
     const attackLines = new Map<PositionName, Array<GridCoordinates>>();
 

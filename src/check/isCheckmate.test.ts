@@ -24,7 +24,7 @@ describe('isCheckmate', () => {
             whiteKingPosition: locatePiece(board, 'White King')
         };
 
-        expect(isCheckmate(board, Player.Black, annotations)).toBe(false)
+        expect(isCheckmate(board, 'Black', annotations)).toBe(false)
     });
 
     it('is NOT in checkmate (king can move out of check)', () => {
@@ -45,7 +45,7 @@ describe('isCheckmate', () => {
             whiteKingPosition: locatePiece(board, 'White King')
         };
 
-        expect(isCheckmate(board, Player.Black, annotations)).toBe(false)
+        expect(isCheckmate(board, 'Black', annotations)).toBe(false)
     });  
 
     it('is NOT in checkmate (king can take attacker)', () => {
@@ -66,7 +66,7 @@ describe('isCheckmate', () => {
             whiteKingPosition: locatePiece(board, 'White King')
         };
 
-        expect(isCheckmate(board, Player.Black, annotations)).toBe(false)
+        expect(isCheckmate(board, 'Black', annotations)).toBe(false)
     });
 
     it('is in checkmate (1)', () => {
@@ -87,7 +87,7 @@ describe('isCheckmate', () => {
             whiteKingPosition: locatePiece(board, 'White King')
         };
 
-        expect(isCheckmate(board, Player.Black, annotations)).toBe(true)
+        expect(isCheckmate(board, 'Black', annotations)).toBe(true)
     });
 
     it('is in checkmate (2)', () => {
@@ -108,7 +108,7 @@ describe('isCheckmate', () => {
             whiteKingPosition: locatePiece(board, 'White King')
         };
 
-        expect(isCheckmate(board, Player.Black, annotations)).toBe(true)
+        expect(isCheckmate(board, 'Black', annotations)).toBe(true)
     });    
 
     it('is in checkmate (3)', () => {
@@ -129,7 +129,7 @@ describe('isCheckmate', () => {
             whiteKingPosition: locatePiece(board, 'White King')
         };
 
-        expect(isCheckmate(board, Player.White, annotations)).toBe(true)
+        expect(isCheckmate(board, 'White', annotations)).toBe(true)
     });  
    
     it('is in checkmate (4) -- double check!', () => {
@@ -150,7 +150,7 @@ describe('isCheckmate', () => {
             whiteKingPosition: locatePiece(board, 'White King')
         };
 
-        expect(isCheckmate(board, Player.White, annotations)).toBe(true)
+        expect(isCheckmate(board, 'White', annotations)).toBe(true)
     });     
     
     it('is in checkmate (5)', () => {
@@ -171,7 +171,7 @@ describe('isCheckmate', () => {
             whiteKingPosition: locatePiece(board, 'White King')
         };
 
-        expect(isCheckmate(board, Player.White, annotations)).toBe(true)
+        expect(isCheckmate(board, 'White', annotations)).toBe(true)
     }); 
 
     it('is NOT in checkmate (5 - knight removed)', () => {
@@ -192,6 +192,6 @@ describe('isCheckmate', () => {
             whiteKingPosition: locatePiece(board, 'White King')
         };
 
-        expect(isCheckmate(board, Player.White, annotations)).toBe(false)
+        expect(isCheckmate(board, 'White', annotations)).toBe(false)
     });
 })

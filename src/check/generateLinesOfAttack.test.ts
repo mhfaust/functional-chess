@@ -16,7 +16,7 @@ describe('generateLinesOfAttack', () => {
 /*  G  */ [__,__,__,__,__,__,__,__],
 /*  H  */ [__,__,__,__,__,__,__,__], 
         ];
-        const linesOfAttack = generateLinesOfAttack(board, Player.White, Position.E5);
+        const linesOfAttack = generateLinesOfAttack(board, 'White', Position.E5);
         expect(linesOfAttack.next().value).toEqual([Position.D4, Position.C3]);
         expect(linesOfAttack.next().done).toBe(true);       
     });
@@ -33,7 +33,7 @@ describe('generateLinesOfAttack', () => {
 /*  G  */ [__,__,__,__,__,__,__,__],
 /*  H  */ [__,__,__,__,__,__,__,__]
         ];
-        const linesOfAttack = generateLinesOfAttack(board, Player.White, Position.E5)
+        const linesOfAttack = generateLinesOfAttack(board, 'White', Position.E5)
         const returned = linesOfAttack.next();
         expect(returned.value).toBeNull();       
         expect(returned.done).toBe(true);       
@@ -52,7 +52,7 @@ describe('generateLinesOfAttack', () => {
 /*  H  */ [__,__,__,__,__,__,__,__], 
         ];
 
-        const linesOfAttack = generateLinesOfAttack(board, Player.White, Position.E5)
+        const linesOfAttack = generateLinesOfAttack(board, 'White', Position.E5)
         const returned = linesOfAttack.next();
         expect(returned.value).toBeNull();       
         expect(returned.done).toBe(true);       
@@ -70,7 +70,7 @@ describe('generateLinesOfAttack', () => {
 /*  G  */ [__,__,__,__,__,__,__,__],
 /*  H  */ [__,__,__,__,__,__,__,__], 
         ];
-        const linesOfAttack = generateLinesOfAttack(board, Player.White, Position.E5)
+        const linesOfAttack = generateLinesOfAttack(board, 'White', Position.E5)
         expect(linesOfAttack.next().value).toEqual([Position.D5]) ;       
         expect(linesOfAttack.next().done).toBe(true); 
     });
@@ -87,7 +87,7 @@ describe('generateLinesOfAttack', () => {
 /*  G  */ [__,__,__,__,__,__,__,__],
 /*  H  */ [__,__,__,WN,__,__,__,__], 
         ];
-        const linesOfAttack = generateLinesOfAttack(board, Player.Black, Position.F3)
+        const linesOfAttack = generateLinesOfAttack(board, 'Black', Position.F3)
 
         //order of seeking attack-patterns: pawn, king, knight, bishop, rook
         expect(linesOfAttack.next().value).toEqual([Position.E2])
