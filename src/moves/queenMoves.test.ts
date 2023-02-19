@@ -55,11 +55,11 @@ describe('queen', () => {
             /*  H  */ [__,__,__,WP,__,__,__,__],
             ];
         const expectedLegalMoves = new Set([
-            PositionName.E2,
-            PositionName.E3,
-            PositionName.E5,
-            PositionName.E6,
-            PositionName.E7,
+            'E2',
+            'E3',
+            'E5',
+            'E6',
+            'E7',
         ]);
 
         const foundLegalMoves = queenMoves(board, Position.E4, kingPositions(board));

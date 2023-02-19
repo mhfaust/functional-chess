@@ -1,3 +1,4 @@
+import { PositionName } from 'enums/positionName';
 import { KingAnnotations } from 'interfaces/KingAnnotations';
 import { rookMoves, bishopMoves } from 'moves'
 

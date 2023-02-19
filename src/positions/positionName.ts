@@ -1,14 +1,15 @@
+import { PositionName } from 'enums/positionName';
 import { rank, file } from 'positions';
 
-const grid = [
-    [PositionName.A1,PositionName.A2,PositionName.A3,PositionName.A4,PositionName.A5,PositionName.A6,PositionName.A7,PositionName.A8,],
-    [PositionName.B1,PositionName.B2,PositionName.B3,PositionName.B4,PositionName.B5,PositionName.B6,PositionName.B7,PositionName.B8,],
-    [PositionName.C1,PositionName.C2,PositionName.C3,PositionName.C4,PositionName.C5,PositionName.C6,PositionName.C7,PositionName.C8,],
-    [PositionName.D1,PositionName.D2,PositionName.D3,PositionName.D4,PositionName.D5,PositionName.D6,PositionName.D7,PositionName.D8,],
-    [PositionName.E1,PositionName.E2,PositionName.E3,PositionName.E4,PositionName.E5,PositionName.E6,PositionName.E7,PositionName.E8,],
-    [PositionName.F1,PositionName.F2,PositionName.F3,PositionName.F4,PositionName.F5,PositionName.F6,PositionName.F7,PositionName.F8,],
-    [PositionName.G1,PositionName.G2,PositionName.G3,PositionName.G4,PositionName.G5,PositionName.G6,PositionName.G7,PositionName.G8,],
-    [PositionName.H1,PositionName.H2,PositionName.H3,PositionName.H4,PositionName.H5,PositionName.H6,PositionName.H7,PositionName.H8,],
+const grid: PositionName[][] = [
+    ['A1','A2','A3','A4','A5','A6','A7','A8',],
+    ['B1','B2','B3','B4','B5','B6','B7','B8',],
+    ['C1','C2','C3','C4','C5','C6','C7','C8',],
+    ['D1','D2','D3','D4','D5','D6','D7','D8',],
+    ['E1','E2','E3','E4','E5','E6','E7','E8',],
+    ['F1','F2','F3','F4','F5','F6','F7','F8',],
+    ['G1','G2','G3','G4','G5','G6','G7','G8',],
+    ['H1','H2','H3','H4','H5','H6','H7','H8',],
 ]
 
 function positionName (position: GridCoordinates): PositionName {

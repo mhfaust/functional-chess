@@ -53,16 +53,7 @@ describe('kingMoves', () => {
         /*  G  */ [__,__,__,__,__,__,__,__],
         /*  H  */ [__,__,__,__,__,__,__,__], 
         ];
-        const expectedLegalMoves = new Set([
-            PositionName.C6,
-            PositionName.C7,
-            PositionName.C8,
-            PositionName.D6,
-            PositionName.D8,
-            PositionName.E6,
-            PositionName.E7,
-            PositionName.E8,
-        ]);
+        const expectedLegalMoves = new Set(['C6','C7','C8','D6','D8','E6','E7','E8']);
 
         const boardAnnotations = { ...allPrecluded, ...kingPositions(board) };
     
@@ -108,7 +99,7 @@ describe('kingMoves', () => {
     
         const foundLegalMoves = kingMoves(board, Position.E1, boardAnnotations);
 
-        expect(foundLegalMoves).toContain(PositionName.G1)
+        expect(foundLegalMoves).toContain('G1')
     });  
     
     
@@ -129,7 +120,7 @@ describe('kingMoves', () => {
 
         const foundLegalMoves = kingMoves(board, Position.E1, boardAnnotations);
 
-        expect(foundLegalMoves).not.toContain(PositionName.G1)
+        expect(foundLegalMoves).not.toContain('G1')
     });
 
      
@@ -150,7 +141,7 @@ describe('kingMoves', () => {
     
         const foundLegalMoves = kingMoves(board, Position.E1, boardAnnotations);
 
-        expect(foundLegalMoves).not.toContain(PositionName.G1)
+        expect(foundLegalMoves).not.toContain('G1')
     });
 
     it('Black king can castle, queen-side', () => {
@@ -170,6 +161,6 @@ describe('kingMoves', () => {
     
         const foundLegalMoves = kingMoves(board, Position.E8, boardAnnotations);
 
-        expect(foundLegalMoves).toContain(PositionName.C8)
+        expect(foundLegalMoves).toContain('C8')
     });  
 })

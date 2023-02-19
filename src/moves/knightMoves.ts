@@ -9,6 +9,7 @@ import {
 import { knightVectors } from 'constants/move-vectors'
 import movesIntoCheck from 'check/movesIntoCheck';
 import { KingAnnotations } from 'interfaces/KingAnnotations';
+import { PositionName } from 'enums/positionName';
 
 function knight(
     board: Board, 

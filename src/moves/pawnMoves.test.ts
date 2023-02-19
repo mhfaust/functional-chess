@@ -155,7 +155,7 @@ describe('check', () => {
             /*  H  */ [__,__,__,__,__,__,__,__],
         ];
         const expectedLegalMoves = new Set([
-            PositionName.G3,
+            'G3',
         ])
 
         const annotations: EnPassantAnnotations & KingAnnotations = {

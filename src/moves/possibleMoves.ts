@@ -1,3 +1,4 @@
+import { PositionName } from 'enums/positionName';
 import { MoveAnnotations } from 'interfaces/MoveAnnotations';
 import { Moves } from 'interfaces/Moves';
 import { 

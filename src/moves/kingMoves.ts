@@ -9,6 +9,7 @@ import { Position } from 'constants/position';
 import movesIntoCheck from 'check/movesIntoCheck';
 import { CastlingAnnotations } from 'interfaces/CastlingAnnotations';
 import { KingAnnotations } from 'interfaces/KingAnnotations';
+import { PositionName } from 'enums/positionName';
 
 function kingMoves (
     board:Board, 
@@ -41,18 +42,18 @@ function kingMoves (
     //castling moves:
     if(player === Player.White){
         if(canCastle(whiteKingSideCastlingPrecluded, Position.G1, Position.F1)){
-            legalMoves.add(PositionName.G1);
+            legalMoves.add('G1');
         }
         if(canCastle(whiteQueenSideCastlingPrecluded, Position.C1, Position.D1)){
-            legalMoves.add(PositionName.C1);
+            legalMoves.add('C1');
         }
     }
     else if(player === Player.Black){
         if(canCastle(blackKingSideCastlingPrecluded, Position.G8, Position.F8)){
-            legalMoves.add(PositionName.G8);
+            legalMoves.add('G8');
         }
         if(canCastle(blackQueenSideCastlingPrecluded, Position.C8, Position.D8)){
-            legalMoves.add(PositionName.C8);
+            legalMoves.add('C8');
         }
     }
     return legalMoves;

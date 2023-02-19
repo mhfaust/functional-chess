@@ -10,6 +10,7 @@ import {
 import { bishopVectors } from 'constants/move-vectors'
 import { movesIntoCheck } from 'check';
 import { KingAnnotations } from 'interfaces/KingAnnotations';
+import { PositionName } from 'enums/positionName';
 
 function bishop(
     board: Board, 

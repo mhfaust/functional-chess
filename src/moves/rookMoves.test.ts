@@ -22,16 +22,16 @@ describe('rook', () => {
         ];
 
         const expectedLegalMoves = new Set([
-            PositionName.D4,
-            PositionName.C4,
-            PositionName.E2,
-            PositionName.E3,
-            PositionName.E5,
-            PositionName.E6,
-            PositionName.E7,
-            PositionName.F4,
-            PositionName.G4,
-            PositionName.H4
+            'D4',
+            'C4',
+            'E2',
+            'E3',
+            'E5',
+            'E6',
+            'E7',
+            'F4',
+            'G4',
+            'H4'
         ]);
 
         const foundLegalMoves = rook(board, Position.E4, kingPositions(board));
@@ -52,11 +52,11 @@ describe('rook', () => {
             /*  H  */ [__,__,__,WP,__,__,__,__],
             ];
         const expectedLegalMoves = new Set([
-            PositionName.E2,
-            PositionName.E3,
-            PositionName.E5,
-            PositionName.E6,
-            PositionName.E7,
+            'E2',
+            'E3',
+            'E5',
+            'E6',
+            'E7',
         ]);
 
         const foundLegalMoves = rook(board, Position.E4, kingPositions(board));

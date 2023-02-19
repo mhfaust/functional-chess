@@ -11,32 +11,32 @@ describe('knight', () => {
         
         const legalMoves = knightMoves(initialBoard(), Position.B1, kingPositions(initialBoard()));
         
-        expect(legalMoves).toContain(PositionName.A3)
-        expect(legalMoves).toContain(PositionName.C3)
+        expect(legalMoves).toContain('A3')
+        expect(legalMoves).toContain('C3')
         expect(legalMoves.size).toBe(2)
     });
 
     it('can move from initial board white king knight to A3 and C3 only', () => {
         const legalMoves = knightMoves(initialBoard(), Position.G1, kingPositions(initialBoard()));
         
-        expect(legalMoves).toContain(PositionName.F3)
-        expect(legalMoves).toContain(PositionName.H3)
+        expect(legalMoves).toContain('F3')
+        expect(legalMoves).toContain('H3')
         expect(legalMoves.size).toBe(2)
     });
 
     it('can move from initial board black queen knight to A3 and C3 only', () => {
         const legalMoves = knightMoves(initialBoard(), Position.B8, kingPositions(initialBoard()));
         
-        expect(legalMoves).toContain(PositionName.A6)
-        expect(legalMoves).toContain(PositionName.C6)
+        expect(legalMoves).toContain('A6')
+        expect(legalMoves).toContain('C6')
         expect(legalMoves.size).toBe(2)
     });
 
     it('can move from initial board black king knight to A3 and C3 only', () => {
         const legalMoves = knightMoves(initialBoard(), Position.G8, kingPositions(initialBoard()));
         
-        expect(legalMoves).toContain(PositionName.F6)
-        expect(legalMoves).toContain(PositionName.H6)
+        expect(legalMoves).toContain('F6')
+        expect(legalMoves).toContain('H6')
         expect(legalMoves.size).toBe(2)
     });
 
@@ -53,8 +53,8 @@ describe('knight', () => {
             /*  H  */ [__,__,__,__,__,__,__,__],
             ];
         const expectedLegalMoves = new Set([
-            PositionName.C6,
-            PositionName.G4
+            'C6',
+            'G4'
         ]);
 
         const foundLegalMoves = knightMoves(board, Position.E5, kingPositions(board));

@@ -10,6 +10,7 @@ import { isInCheck } from 'check';
 import { move } from 'board';
 import movesIntoCheck from 'check/movesIntoCheck';
 import { KingAnnotations } from 'interfaces/KingAnnotations';
+import { PositionName } from 'enums/positionName';
 
 function rook(board: Board, moveFrom: GridCoordinates, boardAnnotations: KingAnnotations): Set<PositionName> {
     

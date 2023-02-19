@@ -1,3 +1,4 @@
+import { PositionName } from "enums/positionName";
 import { MoveAnnotations } from "./MoveAnnotations";
 
 export type Moves = (
