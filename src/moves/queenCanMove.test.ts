@@ -1,5 +1,5 @@
 import queenCanMove  from 'moves/queenCanMove'
-import { BP,WK,WQ,WR,__ } from 'positions/pieces-shorthand';
+import { BP,WK,WQ,WR,BK,__ } from 'positions/pieces-shorthand';
 import COORDS from 'positions/coordinates'
 import { kingPositions } from 'board';
 import { Board } from 'types/Board';
@@ -11,7 +11,7 @@ describe('queenCanMove', () => {
         /*  B  */ [__,__,__,__,__,__,__,__],
         /*  C  */ [__,WQ,__,WK,__,__,BP,__],
         /*  D  */ [__,__,__,__,__,__,__,__],
-        /*  E  */ [__,__,__,__,__,__,__,__],
+        /*  E  */ [__,__,__,__,__,__,__,BK],
         /*  F  */ [__,__,__,__,BP,__,__,__],
         /*  G  */ [__,WR,__,__,__,__,__,__],
         /*  H  */ [__,__,__,__,__,__,__,__], 

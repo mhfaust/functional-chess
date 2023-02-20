@@ -1,6 +1,6 @@
 import rookCanMove from 'moves/rookCanMove';
 import COORDS from 'positions/coordinates'
-import { BK,BR,BP,WP,__ } from 'positions/pieces-shorthand';
+import { WK,BK,BR,BP,WP,__ } from 'positions/pieces-shorthand';
 import { locatePiece } from 'positions';
 import { kingPositions } from 'board';
 import { Board } from 'types/Board';
@@ -11,7 +11,7 @@ const rook1Board: Board = [
 /*  B  */ [__,__,__,BP,__,__,__,__],
 /*  C  */ [__,__,__,__,__,__,__,__],
 /*  D  */ [__,__,__,__,__,__,__,__],
-/*  E  */ [__,WP,__,BR,__,__,__,BK],
+/*  E  */ [WK,WP,__,BR,__,__,__,BK],
 /*  F  */ [__,__,__,__,__,__,__,__],
 /*  G  */ [__,__,__,__,__,__,__,__],
 /*  H  */ [__,__,__,WP,__,__,__,__],

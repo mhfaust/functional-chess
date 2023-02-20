@@ -1,7 +1,7 @@
 import isInCheck from 'check/isInCheck';
 import COORDS from 'positions/coordinates'
 import { BK,BQ,BR,BN,BB,BP,WK,WQ,WR,WN,WB,WP,__ } from 'positions/pieces-shorthand';
-import { locatePiece } from 'positions';
+import { locatePiece, positionName } from 'positions';
 import { KingAnnotations } from 'interfaces/KingAnnotations';
 import { Board } from 'types/Board';
 
@@ -13,15 +13,15 @@ describe('isInCheck: true', () => {
 /*  B  */ [__,__,WR,__,__,__,__,__],
 /*  C  */ [__,__,__,__,__,__,__,__],
 /*  D  */ [__,__,__,__,__,__,__,__],
-/*  E  */ [__,__,BK,__,__,__,__,__],
+/*  E  */ [WK,__,BK,__,__,__,__,__],
 /*  F  */ [__,__,__,__,__,__,__,__],
 /*  G  */ [__,__,__,__,__,__,__,__],
 /*  H  */ [__,__,__,__,__,__,__,__], 
         ];
 
         const annotations: KingAnnotations = {
-            blackKingPosition: locatePiece(board, 'Black King'),
-            whiteKingPosition: locatePiece(board, 'White King')
+            blackKingPosition: positionName(locatePiece(board, 'Black King')),
+            whiteKingPosition: positionName(locatePiece(board, 'White King'))
         };
 
         expect(isInCheck(board, 'Black', annotations)).toBe(true)
@@ -34,15 +34,15 @@ describe('isInCheck: true', () => {
 /*  B  */ [__,__,__,__,__,__,__,__],
 /*  C  */ [__,__,__,__,__,__,__,__],
 /*  D  */ [__,__,__,__,__,__,__,__],
-/*  E  */ [__,__,BK,__,__,__,__,WR],
+/*  E  */ [WK,__,BK,__,__,__,__,WR],
 /*  F  */ [__,__,__,__,__,__,__,__],
 /*  G  */ [__,__,__,__,__,__,__,__],
 /*  H  */ [__,__,__,__,__,__,__,__], 
         ];
 
         const annotations: KingAnnotations = {
-            blackKingPosition: locatePiece(board, 'Black King'),
-            whiteKingPosition: locatePiece(board, 'White King')
+            blackKingPosition: positionName(locatePiece(board, 'Black King')),
+            whiteKingPosition: positionName(locatePiece(board, 'White King'))
         };
 
         expect(isInCheck(board, 'Black', annotations)).toBe(true)

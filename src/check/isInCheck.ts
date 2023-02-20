@@ -2,6 +2,7 @@ import { generateLinesOfAttack } from 'check'
 import { Player } from 'board/player';
 import { KingAnnotations } from 'interfaces/KingAnnotations';
 import { Board } from 'types/Board';
+import COORDS from 'positions/coordinates';
 
 function isInCheck(
     board: Board, 
@@ -13,7 +14,7 @@ function isInCheck(
         ? boardAnnotations.blackKingPosition 
         : boardAnnotations.whiteKingPosition;
 
-    const attackLines = generateLinesOfAttack(board, player, kingPosition);
+    const attackLines = generateLinesOfAttack(board, player, COORDS[kingPosition]);
 
     const checkLine = attackLines.next()
     

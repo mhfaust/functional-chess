@@ -1,6 +1,6 @@
 import isInCheck from 'check/isInCheck';
 import { BK,BQ,BR,BN,BB,BP,WK,WQ,WR,WN,WB,WP,__ } from 'positions/pieces-shorthand';
-import { locatePiece } from 'positions';
+import { locatePiece, positionName } from 'positions';
 import { KingAnnotations } from 'interfaces/KingAnnotations';
 import { Board } from 'types/Board';
 
@@ -19,8 +19,8 @@ describe('isInCheck: true', () => {
         ];
 
         const annotations: KingAnnotations = {
-            blackKingPosition: locatePiece(board, 'Black King'),
-            whiteKingPosition: locatePiece(board, 'White King')
+            blackKingPosition: positionName(locatePiece(board, 'Black King')),
+            whiteKingPosition: positionName(locatePiece(board, 'White King'))
         };
 
         expect(isInCheck(board, 'White', annotations)).toBe(true)
@@ -41,8 +41,8 @@ describe('isInCheck: true', () => {
         ];
 
         const annotations: KingAnnotations = {
-            blackKingPosition: locatePiece(board, 'Black King'),
-            whiteKingPosition: locatePiece(board, 'White King')
+            blackKingPosition: positionName(locatePiece(board, 'Black King')),
+            whiteKingPosition: positionName(locatePiece(board, 'White King'))
         };
 
         expect(isInCheck(board, 'White', annotations)).toBe(true)
@@ -63,8 +63,8 @@ describe('isInCheck: true', () => {
         ];
 
         const annotations: KingAnnotations = {
-            blackKingPosition: locatePiece(board, 'Black King'),
-            whiteKingPosition: locatePiece(board, 'White King')
+            blackKingPosition: positionName(locatePiece(board, 'Black King')),
+            whiteKingPosition: positionName(locatePiece(board, 'White King'))
         };
 
         expect(isInCheck(board, 'White', annotations)).toBe(true)
@@ -86,8 +86,8 @@ describe('isInCheck: false', () => {
         ];
 
         const annotations: KingAnnotations = {
-            blackKingPosition: locatePiece(board, 'Black King'),
-            whiteKingPosition: locatePiece(board, 'White King')
+            blackKingPosition: positionName(locatePiece(board, 'Black King')),
+            whiteKingPosition: positionName(locatePiece(board, 'White King'))
         };
 
         expect(isInCheck(board, 'White', annotations)).toBe(false)

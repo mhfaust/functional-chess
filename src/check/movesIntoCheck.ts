@@ -1,7 +1,7 @@
 import { move, nextKingAnnotations } from "board";
 import { isInCheck } from "check";
 import { KingAnnotations } from "interfaces/KingAnnotations";
-import { playerAt } from "positions";
+import { playerAt, positionName } from "positions";
 import { Board } from "types/Board";
 
 function movesIntoCheck(
@@ -13,7 +13,7 @@ function movesIntoCheck(
    
     const next = move(board, moveFrom, moveTo);
 
-    const updatedAnnotations = nextKingAnnotations(board, moveFrom, moveTo, annotations);
+    const updatedAnnotations = nextKingAnnotations(board, positionName(moveFrom), positionName(moveTo), annotations);
     
     return isInCheck(next, playerAt(board, moveFrom), updatedAnnotations);
 }

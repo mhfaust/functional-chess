@@ -7,7 +7,8 @@
     otherPlayer, 
     positionName, 
     rank, 
-    areSamePositions } from 'positions';
+    areSamePositions, 
+    coordinates as COORDS} from 'positions';
 import { isInCheck } from 'check';
 import { move } from 'board';
 import { KingAnnotations } from 'interfaces/KingAnnotations';
@@ -52,7 +53,7 @@ function pawn(
         const attackedPosition = displaceTo(moveFrom, vector);
 
         if((isOnBoard(attackedPosition) && isOccupiedByPlayer(board, attackedPosition, other))
-            || (passedPosition && areSamePositions(attackedPosition, passedPosition))){
+            || (passedPosition && areSamePositions(attackedPosition, COORDS[passedPosition]))){
                 if(moveNotInCheck(attackedPosition)){
                     legalMoves.add(positionName(attackedPosition));
                 }

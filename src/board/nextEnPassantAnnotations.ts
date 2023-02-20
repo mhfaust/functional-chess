@@ -1,19 +1,23 @@
 import { EnPassantAnnotations } from "interfaces/EnPassantAnnotations";
 import { pieceAt, rank, file } from "positions";
+import COORDS from "positions/coordinates";
+import positionName, { PositionName } from "positions/positionName";
 import { Board } from "types/Board";
 
-const nextEnPassantAnnotations = (prevBoard: Board, from: GridCoordinates, to: GridCoordinates): EnPassantAnnotations => {
-    const piece = pieceAt(prevBoard, from);
-    if(piece === 'Black Pawn' && rank(from) === 6 && rank(to) === 4){
+const nextEnPassantAnnotations = (prevBoard: Board, from: PositionName, to: PositionName): EnPassantAnnotations => {
+    const fromCoords = COORDS[from];
+    const toCoords = COORDS[to]
+    const piece = pieceAt(prevBoard, fromCoords);
+    if(piece === 'Black Pawn' && rank(fromCoords) === 6 && rank(toCoords) === 4){
         return {
             pawnAt: to,
-            passedPosition: [file(to), 5]
+            passedPosition: positionName([file(toCoords), 5])
         };
     } 
-    else if(piece !== 'White Pawn' && rank(from) === 1 && rank(to) === 3){
+    else if(piece !== 'White Pawn' && rank(fromCoords) === 1 && rank(toCoords) === 3){
         return {
             pawnAt: to,
-            passedPosition: [file(to), 2]
+            passedPosition: positionName([file(toCoords), 2])
         };
     }
     return null;

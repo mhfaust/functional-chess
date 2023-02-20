@@ -1,21 +1,19 @@
 import { areSamePositions } from "positions";
 import COORDS from 'positions/coordinates'
 import { CastlingAnnotations } from "interfaces/CastlingAnnotations";
-
+import { PositionName } from "positions/positionName";
 
 
 function nextCastlingAnnotations(
-    pieceMovedFromPosition: GridCoordinates,
+    movedFrom: PositionName,
     previousAnnotations: CastlingAnnotations
 ): CastlingAnnotations {
 
-    const movedFrom = (from: GridCoordinates) : boolean => areSamePositions(pieceMovedFromPosition, from)
-
     return{
-        whiteQueenSideCastlingPrecluded: previousAnnotations.whiteQueenSideCastlingPrecluded || movedFrom(COORDS.F1) || movedFrom(COORDS.A1),
-        whiteKingSideCastlingPrecluded: previousAnnotations.whiteKingSideCastlingPrecluded || movedFrom(COORDS.F1) || movedFrom(COORDS.H1),
-        blackQueenSideCastlingPrecluded: previousAnnotations.blackQueenSideCastlingPrecluded || movedFrom(COORDS.F8) || movedFrom(COORDS.A8),
-        blackKingSideCastlingPrecluded: previousAnnotations.blackKingSideCastlingPrecluded || movedFrom(COORDS.F8) || movedFrom(COORDS.H8),
+        whiteQueenSideCastlingPrecluded: previousAnnotations.whiteQueenSideCastlingPrecluded || movedFrom === 'F1' || movedFrom === 'A1',
+        whiteKingSideCastlingPrecluded: previousAnnotations.whiteKingSideCastlingPrecluded || movedFrom === 'F1' || movedFrom === 'H1',
+        blackQueenSideCastlingPrecluded: previousAnnotations.blackQueenSideCastlingPrecluded || movedFrom === 'F8' || movedFrom === 'A8',
+        blackKingSideCastlingPrecluded: previousAnnotations.blackKingSideCastlingPrecluded || movedFrom === 'F8' || movedFrom === 'H8',
     }
 }
 

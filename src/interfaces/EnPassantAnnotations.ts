@@ -1,4 +1,6 @@
+import { PositionName } from "positions/positionName";
+
 export type EnPassantAnnotations = {
-    pawnAt: GridCoordinates;
-    passedPosition: GridCoordinates;
+    pawnAt: PositionName;
+    passedPosition: PositionName;
 };

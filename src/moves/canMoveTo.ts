@@ -1,5 +1,4 @@
 import { Piece } from 'positions/piece';
-import { CanMoveTo } from 'interfaces/CanMove';
 import { MoveAnnotations } from 'interfaces/MoveAnnotations';
 import { 
     bishopCanMove, 
@@ -11,6 +10,8 @@ import {
 } from 'moves';
 import { pieceAt } from 'positions';
 import { Board } from 'types/Board';
+import { PositionName } from 'positions/positionName';
+import COORDS from 'positions/coordinates';
 
 //Each of the piece-specific can-move functions has a less-demanding signtaure for 
 //annotations than the combined canMoveTo, so we cury them to match it
@@ -36,14 +37,22 @@ const strategies: Map<Piece, CanMoveTo> = new Map([
     [ 'White Pawn', pawn ],
 ]);
 
+export type CanMoveTo = 
+    (
+        board: Board, 
+        fromPosition: GridCoordinates, 
+        toPosition: GridCoordinates, 
+        annotations: MoveAnnotations    
+    ) => boolean;
+
 function canMoveTo (
     board: Board, 
-    fromPosition: GridCoordinates, 
-    toPosition: GridCoordinates, 
+    fromPosition: PositionName, 
+    toPosition: PositionName, 
     annotations: MoveAnnotations)
      {
-        const strategy: CanMoveTo = strategies.get(pieceAt(board, fromPosition));
-        return strategy(board, fromPosition, toPosition, annotations);
+        const strategy: CanMoveTo = strategies.get(pieceAt(board, COORDS[fromPosition]));
+        return strategy(board, COORDS[fromPosition], COORDS[toPosition], annotations);
 }
 
 export default canMoveTo;

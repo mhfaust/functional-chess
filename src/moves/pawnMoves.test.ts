@@ -90,11 +90,11 @@ describe('en passant', () => {
 
     it('black pawn can attack a square passed by a white pawn moving from rank 2 to 4', () => {
 
-        const annotations = {
-            blackKingPosition: locatePiece(board, 'Black King'),
-            whiteKingPosition: locatePiece(board, 'White King'),
-            pawnAt: COORDS.E4,
-            passedPosition: COORDS.E3
+        const annotations: KingAnnotations & EnPassantAnnotations = {
+            blackKingPosition: positionName(locatePiece(board, 'Black King')),
+            whiteKingPosition: positionName(locatePiece(board, 'White King')),
+            pawnAt: 'E4',
+            passedPosition: 'E3'
         }; 
 
         const foundMoves = pawnMoves(board, COORDS.D4, annotations);
@@ -104,8 +104,8 @@ describe('en passant', () => {
     it('black pawn cannot attack a passant-looking square if passant info is null', () => {
         
         const annotations: EnPassantAnnotations & KingAnnotations = {
-            blackKingPosition: locatePiece(board, 'Black King'),
-            whiteKingPosition: locatePiece(board, 'White King'),
+            blackKingPosition: positionName(locatePiece(board, 'Black King')),
+            whiteKingPosition: positionName(locatePiece(board, 'White King')),
             pawnAt: null,
             passedPosition: null
         };
@@ -117,10 +117,10 @@ describe('en passant', () => {
     it('white pawn can attack a square passed by a black pawn moving from rank 2 to 4', () => {
 
         const annotations: EnPassantAnnotations & KingAnnotations = {
-            blackKingPosition: locatePiece(board, 'Black King'),
-            whiteKingPosition: locatePiece(board, 'White King'),
-            pawnAt: COORDS.G5,
-            passedPosition: COORDS.G6
+            blackKingPosition: positionName(locatePiece(board, 'Black King')),
+            whiteKingPosition: positionName(locatePiece(board, 'White King')),
+            pawnAt: 'G5',
+            passedPosition: 'G6'
         };
 
 
@@ -131,8 +131,8 @@ describe('en passant', () => {
     it('white pawn cannot attack a passant-looking square if passant info is null', () => {
         
         const annotations: EnPassantAnnotations & KingAnnotations = {
-            blackKingPosition: locatePiece(board, 'Black King'),
-            whiteKingPosition: locatePiece(board, 'White King'),
+            blackKingPosition: positionName(locatePiece(board, 'Black King')),
+            whiteKingPosition: positionName(locatePiece(board, 'White King')),
             pawnAt: null,
             passedPosition: null
         };
@@ -150,7 +150,7 @@ describe('check', () => {
             /*  B  */ [__,__,__,__,__,__,__,__],
             /*  C  */ [__,__,__,__,__,__,__,__],
             /*  D  */ [__,__,__,__,__,__,__,__],
-            /*  E  */ [WK,__,__,__,__,__,__,__],
+            /*  E  */ [WK,__,__,__,__,__,__,BK],
             /*  F  */ [__,WP,__,__,__,__,__,__],
             /*  G  */ [__,__,BB,__,__,__,__,__],
             /*  H  */ [__,__,__,__,__,__,__,__],
@@ -160,8 +160,8 @@ describe('check', () => {
         ])
 
         const annotations: EnPassantAnnotations & KingAnnotations = {
-            blackKingPosition: locatePiece(board, 'Black King'),
-            whiteKingPosition: locatePiece(board, 'White King'),
+            blackKingPosition: positionName(locatePiece(board, 'Black King')),
+            whiteKingPosition: positionName(locatePiece(board, 'White King')),
             pawnAt: null,
             passedPosition: null
         };
@@ -178,7 +178,7 @@ describe('check', () => {
             /*  B  */ [__,__,__,__,__,__,__,__],
             /*  C  */ [__,__,__,__,__,__,__,__],
             /*  D  */ [__,__,__,__,__,__,__,__],
-            /*  E  */ [WK,__,BP,__,__,__,__,__],
+            /*  E  */ [WK,__,BP,__,__,__,__,BK],
             /*  F  */ [__,WP,__,__,__,__,__,__],
             /*  G  */ [__,__,__,__,__,__,__,__],
             /*  H  */ [__,__,__,BQ,__,__,__,__],
@@ -186,8 +186,8 @@ describe('check', () => {
         const expectedLegalMoves = new Set([])
 
         const annotations: EnPassantAnnotations & KingAnnotations = {
-            blackKingPosition: locatePiece(board, 'Black King'),
-            whiteKingPosition: locatePiece(board, 'White King'),
+            blackKingPosition: positionName(locatePiece(board, 'Black King')),
+            whiteKingPosition: positionName(locatePiece(board, 'White King')),
             pawnAt: null,
             passedPosition: null
         };

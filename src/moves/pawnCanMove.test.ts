@@ -6,6 +6,7 @@ import kingPositions from 'board/kingPositions';
 import { EnPassantAnnotations } from 'interfaces/EnPassantAnnotations';
 import { KingAnnotations } from 'interfaces/KingAnnotations';
 import { Board } from 'types/Board';
+import { MoveAnnotations } from 'interfaces/MoveAnnotations';
 
 describe('pawnCanMove', () => {
 
@@ -221,10 +222,10 @@ describe('pawnCanMove', () => {
 
         it('black pawn can attack a square passed by a white pawn moving from rank 2 to 4', () => {
 
-            const annotations = {
+            const annotations: KingAnnotations & EnPassantAnnotations = {
                 ...kingPositions(board),
-                passedPosition: COORDS.E3,
-                pawnAt: COORDS.E4
+                passedPosition: 'E3',
+                pawnAt: 'E4'
             }
 
             const answer = pawnCanMove(board, COORDS.D4, COORDS.E3, annotations);
@@ -244,10 +245,10 @@ describe('pawnCanMove', () => {
 
         it('white pawn can attack a square passed by a black pawn moving from rank 2 to 4', () => {
 
-            const annotations = {
+            const annotations: KingAnnotations & EnPassantAnnotations = {
                 ...kingPositions(board),
-                passedPosition: COORDS.G6,
-                pawnAt: COORDS.G5
+                passedPosition: 'G6',
+                pawnAt: 'G5'
             }
 
             const answer = pawnCanMove(board, COORDS.H5, COORDS.G6, annotations);

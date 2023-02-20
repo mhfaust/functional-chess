@@ -1,6 +1,6 @@
 import rook from './rookMoves';
 import COORDS from 'positions/coordinates'
-import { BK,BR,BP,WP,WR,__ } from 'positions/pieces-shorthand';
+import { WK,BK,BR,BP,WP,WR,__ } from 'positions/pieces-shorthand';
 import { locatePiece } from 'positions';
 import { kingPositions } from 'board';
 import { Board } from 'types/Board';
@@ -16,7 +16,7 @@ describe('rook', () => {
             /*  B  */ [__,__,__,BP,__,__,__,__],
             /*  C  */ [__,__,__,__,__,__,__,__],
             /*  D  */ [__,__,__,__,__,__,__,__],
-            /*  E  */ [__,WP,__,BR,__,__,__,BK],
+            /*  E  */ [WK,WP,__,BR,__,__,__,BK],
             /*  F  */ [__,__,__,__,__,__,__,__],
             /*  G  */ [__,__,__,__,__,__,__,__],
             /*  H  */ [__,__,__,WP,__,__,__,__],
@@ -47,7 +47,7 @@ describe('rook', () => {
             /*  B  */ [__,__,__,BP,__,__,__,__],
             /*  C  */ [__,__,__,__,__,__,__,__],
             /*  D  */ [__,__,__,__,__,__,__,__],
-            /*  E  */ [__,WR,__,BR,__,__,__,BK],
+            /*  E  */ [WK,WR,__,BR,__,__,__,BK],
             /*  F  */ [__,__,__,__,__,__,__,__],
             /*  G  */ [__,__,__,__,__,__,__,__],
             /*  H  */ [__,__,__,WP,__,__,__,__],

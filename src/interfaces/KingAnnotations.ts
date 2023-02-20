@@ -1,4 +1,6 @@
+import { PositionName } from "positions/positionName";
+
 export type KingAnnotations = {
-    whiteKingPosition: GridCoordinates;
-    blackKingPosition: GridCoordinates;
+    whiteKingPosition: PositionName;
+    blackKingPosition: PositionName;
 };

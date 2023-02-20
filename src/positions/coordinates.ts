@@ -1,7 +1,7 @@
 import { PositionName } from "positions/positionName";
 
 type RankIndex = 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7;
-type FileIndex = RankIndex;
+type FileIndex =  0 | 1 | 2 | 3 | 4 | 5 | 6 | 7;
 
 const { freeze } = Object;
 

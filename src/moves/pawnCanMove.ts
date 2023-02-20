@@ -5,7 +5,7 @@ import {
     isOccupied, 
     isUnOccupied, 
     isOccupiedByPlayer, 
-    areSamePositions } from 'positions';
+        positionName} from 'positions';
 import movesIntoCheck from 'check/movesIntoCheck';
 import { KingAnnotations } from 'interfaces/KingAnnotations';
 import { EnPassantAnnotations } from 'interfaces/EnPassantAnnotations';
@@ -52,7 +52,7 @@ function pawnCanMove (
         if(stepsForward !== 1){
             return false;
         }
-        if(isUnOccupied(board, toPosition) && (!passedPosition || !areSamePositions(toPosition, passedPosition))){
+        if(isUnOccupied(board, toPosition) && (!passedPosition || passedPosition !== positionName(toPosition))){
             return false;
         }
         if(isOccupiedByPlayer(board, toPosition, player)){

@@ -4,15 +4,17 @@ import {
     initialBoardAnnotations, 
     nextBoardAnnotations } from "board";
 import { canMoveTo } from "moves";  
+import COORDS from "positions/coordinates";
+import { PositionName } from "positions/positionName";
 
-function validateGameMoves(gameMoves: Array<[GridCoordinates, GridCoordinates]>){
+function validateGameMoves(gameMoves: Array<[PositionName, PositionName]>){
 
     let boardStack = [initialBoard()];
     let annotationsStack = [initialBoardAnnotations()];
 
     for(let gameMove of gameMoves){
-        const moveFrom: GridCoordinates = gameMove[0];
-        const moveTo: GridCoordinates = gameMove[1];
+        const moveFrom = gameMove[0];
+        const moveTo = gameMove[1];
         const currentBoard = boardStack[boardStack.length - 1];
         const currentAnnotations = annotationsStack[annotationsStack.length - 1];
 
@@ -20,7 +22,7 @@ function validateGameMoves(gameMoves: Array<[GridCoordinates, GridCoordinates]>)
             return false;
         }
 
-        const newBoard = move(currentBoard, moveFrom, moveTo);
+        const newBoard = move(currentBoard, COORDS[moveFrom], COORDS[moveTo]);
         boardStack.push(newBoard);
         annotationsStack.push(nextBoardAnnotations(currentBoard, newBoard, currentAnnotations, moveFrom, moveTo));
     };

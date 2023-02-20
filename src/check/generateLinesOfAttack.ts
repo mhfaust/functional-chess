@@ -16,10 +16,17 @@ import {
 } from 'constants/move-vectors'
 
 import { BK, BQ, BR, BN, BB, BP, WK, WQ, WR, WN, WB, WP } from 'positions/pieces-shorthand';
-import { AttackPattern } from 'interfaces/AttackPattern';
 import { PositionName } from 'positions/positionName';
 import { Board } from 'types/Board';
 import { Player } from 'board/player';
+
+import { Piece } from "positions/piece";
+
+export type AttackPattern = {
+    vectors: ReadonlyArray<MoveVector>; 
+    canAttackLikeThis: Set<Piece>; 
+    limit: number;
+}
 
 const whiteAttackPatterns: Array<AttackPattern> = [
     { vectors: pawnWhiteAttackVectors, canAttackLikeThis: new Set([WP, WQ, WB, WK]), limit: 1 },

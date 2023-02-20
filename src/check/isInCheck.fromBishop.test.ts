@@ -1,6 +1,6 @@
 import isInCheck from 'check/isInCheck';
 import { BK,BQ,BR,BN,BB,BP,WK,WQ,WR,WN,WB,WP,__ } from 'positions/pieces-shorthand';
-import { locatePiece } from 'positions';
+import { locatePiece, positionName } from 'positions';
 import { KingAnnotations } from 'interfaces/KingAnnotations';
 import { Board } from 'types/Board';
 
@@ -12,15 +12,15 @@ describe('isInCheck: true', () => {
 /*  B  */ [__,__,__,__,__,__,__,__],
 /*  C  */ [__,__,__,__,__,__,__,__],
 /*  D  */ [__,__,__,__,__,__,__,__],
-/*  E  */ [__,__,__,BB,__,__,__,__],
+/*  E  */ [__,__,__,BB,__,__,__,BK],
 /*  F  */ [__,__,WK,__,__,__,__,__],
 /*  G  */ [__,__,__,__,__,__,__,__],
 /*  H  */ [__,__,__,__,__,__,__,__],
         ];
 
         const annotations: KingAnnotations = {
-            blackKingPosition: locatePiece(board, 'Black King'),
-            whiteKingPosition: locatePiece(board, 'White King')
+            blackKingPosition: positionName(locatePiece(board, 'Black King')),
+            whiteKingPosition: positionName(locatePiece(board, 'White King'))
         };
 
         expect(isInCheck(board, 'White', annotations)).toBe(true)
@@ -33,15 +33,15 @@ describe('isInCheck: true', () => {
 /*  B  */ [__,__,__,__,__,__,__,__],
 /*  C  */ [__,__,__,__,__,__,__,__],
 /*  D  */ [__,__,__,__,BB,__,__,__],
-/*  E  */ [__,__,__,__,__,__,__,__],
+/*  E  */ [__,__,__,__,__,__,__,BK],
 /*  F  */ [__,__,WK,__,__,__,__,__],
 /*  G  */ [__,__,__,__,__,__,__,__],
 /*  H  */ [__,__,__,__,__,__,__,__],
         ];
 
         const annotations: KingAnnotations = {
-            blackKingPosition: locatePiece(board, 'Black King'),
-            whiteKingPosition: locatePiece(board, 'White King')
+            blackKingPosition: positionName(locatePiece(board, 'Black King')),
+            whiteKingPosition: positionName(locatePiece(board, 'White King'))
         };
 
         expect(isInCheck(board, 'White', annotations)).toBe(true)
@@ -54,15 +54,15 @@ describe('isInCheck: true', () => {
 /*  B  */ [__,__,__,__,__,__,__,__],
 /*  C  */ [__,__,__,__,__,__,__,__],
 /*  D  */ [__,__,__,__,__,__,__,__],
-/*  E  */ [__,__,__,__,__,__,__,__],
+/*  E  */ [__,__,__,__,__,__,BK,__],
 /*  F  */ [__,__,WK,__,__,__,__,__],
 /*  G  */ [__,__,__,__,__,__,__,__],
 /*  H  */ [__,__,__,__,__,__,__,__],
         ];
 
         const annotations: KingAnnotations = {
-            blackKingPosition: locatePiece(board, 'Black King'),
-            whiteKingPosition: locatePiece(board, 'White King')
+            blackKingPosition: positionName(locatePiece(board, 'Black King')),
+            whiteKingPosition: positionName(locatePiece(board, 'White King'))
         };
 
         expect(isInCheck(board, 'White', annotations)).toBe(true)
@@ -75,15 +75,15 @@ describe('isInCheck: true', () => {
 /*  B  */ [__,__,__,__,__,__,__,__],
 /*  C  */ [__,__,__,__,__,__,__,__],
 /*  D  */ [__,__,__,__,__,__,__,__],
-/*  E  */ [__,BB,__,__,__,__,__,__],
+/*  E  */ [__,BB,__,__,__,__,__,BK],
 /*  F  */ [__,__,WK,__,__,__,__,__],
 /*  G  */ [__,__,__,__,__,__,__,__],
 /*  H  */ [__,__,__,__,__,__,__,__],
         ];
 
         const annotations: KingAnnotations = {
-            blackKingPosition: locatePiece(board, 'Black King'),
-            whiteKingPosition: locatePiece(board, 'White King')
+            blackKingPosition: positionName(locatePiece(board, 'Black King')),
+            whiteKingPosition: positionName(locatePiece(board, 'White King'))
         };
 
         expect(isInCheck(board, 'White', annotations)).toBe(true)
@@ -96,15 +96,15 @@ describe('isInCheck: true', () => {
 /*  B  */ [__,__,__,__,__,__,__,__],
 /*  C  */ [__,__,__,__,__,__,__,__],
 /*  D  */ [__,__,__,__,__,__,__,__],
-/*  E  */ [__,__,__,__,__,__,__,__],
+/*  E  */ [__,__,__,__,__,__,BK,__],
 /*  F  */ [__,__,WK,__,__,__,__,__],
 /*  G  */ [__,__,__,__,__,__,__,__],
 /*  H  */ [BB,__,__,__,__,__,__,__],
         ];
 
         const annotations: KingAnnotations = {
-            blackKingPosition: locatePiece(board, 'Black King'),
-            whiteKingPosition: locatePiece(board, 'White King')
+            blackKingPosition: positionName(locatePiece(board, 'Black King')),
+            whiteKingPosition: positionName(locatePiece(board, 'White King'))
         };
 
         expect(isInCheck(board, 'White', annotations)).toBe(true)
@@ -117,15 +117,15 @@ describe('isInCheck: true', () => {
 /*  B  */ [__,__,__,__,__,__,__,__],
 /*  C  */ [__,__,__,__,__,__,__,__],
 /*  D  */ [__,__,__,__,__,__,__,__],
-/*  E  */ [__,__,__,__,__,__,__,__],
+/*  E  */ [__,__,__,__,__,__,BK,__],
 /*  F  */ [__,__,WK,__,__,__,__,__],
 /*  G  */ [__,__,__,__,__,__,__,__],
 /*  H  */ [__,__,__,__,BB,__,__,__], 
         ];
 
         const annotations: KingAnnotations = {
-            blackKingPosition: locatePiece(board, 'Black King'),
-            whiteKingPosition: locatePiece(board, 'White King')
+            blackKingPosition: positionName(locatePiece(board, 'Black King')),
+            whiteKingPosition: positionName(locatePiece(board, 'White King'))
         };
 
         expect(isInCheck(board, 'White', annotations)).toBe(true)
@@ -138,15 +138,15 @@ describe('isInCheck: true', () => {
 /*  B  */ [__,__,__,__,__,__,__,__],
 /*  C  */ [__,__,__,__,__,__,__,__],
 /*  D  */ [__,__,__,__,__,__,__,__],
-/*  E  */ [__,__,__,__,__,__,__,__],
+/*  E  */ [__,__,__,__,__,__,BK,__],
 /*  F  */ [__,__,WK,__,__,__,__,__],
 /*  G  */ [__,__,__,BB,__,__,__,__],
 /*  H  */ [__,__,__,__,__,__,__,__], 
         ];
 
         const annotations: KingAnnotations = {
-            blackKingPosition: locatePiece(board, 'Black King'),
-            whiteKingPosition: locatePiece(board, 'White King')
+            blackKingPosition: positionName(locatePiece(board, 'Black King')),
+            whiteKingPosition: positionName(locatePiece(board, 'White King'))
         };
 
         expect(isInCheck(board, 'White', annotations)).toBe(true)
@@ -159,15 +159,15 @@ describe('isInCheck: true', () => {
 /*  B  */ [__,__,__,__,__,__,__,__],
 /*  C  */ [__,__,__,__,__,__,__,__],
 /*  D  */ [__,__,__,__,__,__,__,__],
-/*  E  */ [__,__,__,__,__,__,__,__],
+/*  E  */ [__,__,__,__,__,__,BK,__],
 /*  F  */ [__,__,WK,__,__,__,__,__],
 /*  G  */ [__,BB,__,__,__,__,__,__],
 /*  H  */ [__,__,__,__,__,__,__,__], 
         ];
 
         const annotations: KingAnnotations = {
-            blackKingPosition: locatePiece(board, 'Black King'),
-            whiteKingPosition: locatePiece(board, 'White King')
+            blackKingPosition: positionName(locatePiece(board, 'Black King')),
+            whiteKingPosition: positionName(locatePiece(board, 'White King'))
         };
 
         expect(isInCheck(board, 'White', annotations)).toBe(true)
@@ -182,15 +182,15 @@ describe('isInCheck: false', () => {
 /*  B  */ [__,__,__,__,__,__,__,__],
 /*  C  */ [__,__,__,__,__,__,__,__],
 /*  D  */ [__,__,__,__,BB,__,__,__],
-/*  E  */ [__,__,__,BN,__,__,__,__],
+/*  E  */ [__,__,__,BN,__,__,__,BK],
 /*  F  */ [__,__,WK,__,__,__,__,__],
 /*  G  */ [__,__,__,__,__,__,__,__],
 /*  H  */ [__,__,__,__,__,__,__,__],
         ];
 
         const annotations: KingAnnotations = {
-            blackKingPosition: locatePiece(board, 'Black King'),
-            whiteKingPosition: locatePiece(board, 'White King')
+            blackKingPosition: positionName(locatePiece(board, 'Black King')),
+            whiteKingPosition: positionName(locatePiece(board, 'White King'))
         };
 
         expect(isInCheck(board, 'White', annotations)).toBe(false)
@@ -203,15 +203,15 @@ describe('isInCheck: false', () => {
 /*  B  */ [__,__,__,__,__,__,__,__],
 /*  C  */ [__,__,__,__,__,__,__,__],
 /*  D  */ [__,__,__,__,BB,__,__,__],
-/*  E  */ [__,__,__,WN,__,__,__,__],
+/*  E  */ [__,__,__,WN,__,__,__,BK],
 /*  F  */ [__,__,WK,__,__,__,__,__],
 /*  G  */ [__,__,__,__,__,__,__,__],
 /*  H  */ [__,__,__,__,__,__,__,__],
         ];
 
         const annotations: KingAnnotations = {
-            blackKingPosition: locatePiece(board, 'Black King'),
-            whiteKingPosition: locatePiece(board, 'White King')
+            blackKingPosition: positionName(locatePiece(board, 'Black King')),
+            whiteKingPosition: positionName(locatePiece(board, 'White King'))
         };
 
         expect(isInCheck(board, 'White', annotations)).toBe(false)
@@ -224,15 +224,15 @@ describe('isInCheck: false', () => {
 /*  B  */ [__,__,__,__,__,__,__,__],
 /*  C  */ [__,__,__,__,__,__,__,__],
 /*  D  */ [__,__,__,BB,__,__,__,__],
-/*  E  */ [__,__,__,__,__,__,__,__],
+/*  E  */ [__,__,__,__,__,__,BK,__],
 /*  F  */ [__,__,WK,__,__,__,__,__],
 /*  G  */ [__,__,__,__,__,__,__,__],
 /*  H  */ [__,__,__,__,__,__,__,__],
         ];
 
         const annotations: KingAnnotations = {
-            blackKingPosition: locatePiece(board, 'Black King'),
-            whiteKingPosition: locatePiece(board, 'White King')
+            blackKingPosition: positionName(locatePiece(board, 'Black King')),
+            whiteKingPosition: positionName(locatePiece(board, 'White King'))
         };
 
         expect(isInCheck(board, 'White', annotations)).toBe(false)
@@ -245,15 +245,15 @@ describe('isInCheck: false', () => {
 /*  B  */ [__,__,__,__,__,__,__,__],
 /*  C  */ [__,__,__,__,__,__,__,__],
 /*  D  */ [__,__,BB,__,__,__,__,__],
-/*  E  */ [__,__,__,__,__,__,__,__],
+/*  E  */ [__,__,__,__,__,__,BK,__],
 /*  F  */ [__,__,WK,__,__,__,__,__],
 /*  G  */ [__,__,__,__,__,__,__,__],
 /*  H  */ [__,__,__,__,__,__,__,__],
         ];
 
         const annotations: KingAnnotations = {
-            blackKingPosition: locatePiece(board, 'Black King'),
-            whiteKingPosition: locatePiece(board, 'White King')
+            blackKingPosition: positionName(locatePiece(board, 'Black King')),
+            whiteKingPosition: positionName(locatePiece(board, 'White King'))
         };
 
         expect(isInCheck(board, 'White', annotations)).toBe(false)

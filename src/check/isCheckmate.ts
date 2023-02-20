@@ -12,6 +12,7 @@ import { kingVectors } from 'constants/move-vectors';
 import { KingAnnotations } from 'interfaces/KingAnnotations';
 import { Board } from 'types/Board';
 import { Player } from 'board/player';
+import COORDS from 'positions/coordinates';
 
 function isCheckmate(
     board: Board, 
@@ -25,16 +26,16 @@ function isCheckmate(
     //is there any way to get out of check by moving the king?
     for(let i = 0; i < kingVectors.length; i++){
         const vector: MoveVector = kingVectors[i];
-        const kingMovesTo = displaceTo(kingPosition, vector);
+        const kingMovesTo = displaceTo(COORDS[kingPosition], vector);
 
         if(isOnBoard(kingMovesTo) && playerAt(board, kingMovesTo) !== defender){
-            if( !movesIntoCheck(board, kingPosition, kingMovesTo, boardAnnotations) ){
+            if( !movesIntoCheck(board, COORDS[kingPosition], kingMovesTo, boardAnnotations) ){
                 return false;
             } 
         }   
     }
 
-    const attackLines = generateLinesOfAttack(board, defender, kingPosition);
+    const attackLines = generateLinesOfAttack(board, defender, COORDS[kingPosition]);
     const checkLine = attackLines.next();
     if(checkLine.value === null){
         //Not checkmate if they're not in check!

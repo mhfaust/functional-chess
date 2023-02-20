@@ -5,11 +5,13 @@ import { BoardAnnotations } from "interfaces/BoardAnnotations";
 import { Board } from "types/Board";
 import { Piece } from "positions/piece";
 import { Player } from "board/player";
+import { PositionName } from "positions/positionName";
+import COORDS from "positions/coordinates";
 
-const makeCapturedPieces = (board: Board, prevCaptures: Array<Piece>, defender: Player, moveTo: GridCoordinates) : Array<Piece> => {
+const makeCapturedPieces = (board: Board, prevCaptures: Array<Piece>, defender: Player, moveTo: PositionName) : Array<Piece> => {
     
-    return playerAt(board, moveTo) === defender 
-        ? [...prevCaptures, pieceAt(board, moveTo)]
+    return playerAt(board, COORDS[moveTo]) === defender 
+        ? [...prevCaptures, pieceAt(board, COORDS[moveTo])]
         : prevCaptures
     ;
 }
@@ -18,15 +20,15 @@ function nextBoardAnnotations(
             previousBoard: Board,
             currentBoard: Board,
             previousAnnotations: BoardAnnotations,  
-            pieceMovedFromPosition: GridCoordinates, 
-            pieceMovedToPosition: GridCoordinates)
+            pieceMovedFromPosition: PositionName, 
+            pieceMovedToPosition: PositionName)
         : BoardAnnotations
     {
     const nextKingPositions = nextKingAnnotations(currentBoard, pieceMovedFromPosition, pieceMovedToPosition, previousAnnotations);
     const nextPassantInfo = nextEnPassantAnnotations(currentBoard, pieceMovedFromPosition, pieceMovedToPosition);
     const nextCastlingInfo = nextCastlingAnnotations(pieceMovedFromPosition, previousAnnotations);
 
-    const lastMoved = playerAt(previousBoard, pieceMovedFromPosition);
+    const lastMoved = playerAt(previousBoard, COORDS[pieceMovedFromPosition]);
     const nextPlayer = otherPlayer(lastMoved);
     const nextTurnIsInCheck = isInCheck(currentBoard, nextPlayer, nextKingPositions);
     const nextTurnIsCheckmate = isCheckmate(currentBoard, nextPlayer, nextKingPositions);
