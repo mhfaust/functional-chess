@@ -1,3 +1,4 @@
+import { Player } from "board/player";
 import { Piece } from "positions/piece";
 
 const blackPieces : ReadonlyArray<Piece> = Object.freeze([
@@ -21,7 +22,7 @@ export const BLACK_PIECES = Object.freeze(new Set(blackPieces));
 export const WHITE_PIECES = Object.freeze(new Set(whitePieces));
 export const ALL_PIECES = Object.freeze(new Set([...blackPieces, ...whitePieces]));
 
-export const unicodeSymbols = Object.freeze({
+export const unicodeSymbols: Record<Piece, string> = Object.freeze({
     'White King': '♔',
     'White Queen': '♕',
     'White Rook': '♖',
@@ -34,5 +35,4 @@ export const unicodeSymbols = Object.freeze({
     'Black Bishop': '♝',
     'Black Knight': '♞',
     'Black Pawn': '♟',
-    'Empty': ' '
 });

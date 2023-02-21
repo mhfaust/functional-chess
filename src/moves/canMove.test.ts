@@ -5,6 +5,7 @@ import kingPositions from "board/kingPositions";
 import { CastlingAnnotations } from "interfaces/CastlingAnnotations";
 import { MoveAnnotations } from "interfaces/MoveAnnotations";
 import { Board } from "types/Board";
+import { coordinates } from 'positions';
 
 const defaultMoveAnnotations: MoveAnnotations = {
     whiteKingPosition: null,
@@ -37,8 +38,8 @@ describe('canMoveTo (Bishop)', () => {
             ...kingPositions(board)
         }
 
-        expect(canMoveTo(board, 'D4', 'C3', annotations)).toBe(true);  
-        expect(canMoveTo(board, 'D4', 'C5', annotations)).toBe(false);  
+        expect(canMoveTo(board, coordinates.D4, coordinates.C3, annotations)).toBe(true);  
+        expect(canMoveTo(board, coordinates.D4, coordinates.C5, annotations)).toBe(false);  
     });
 });
 
@@ -64,7 +65,7 @@ describe('canMoveTo (King)', () => {
         }
         const boardAnnotations = { ...defaultMoveAnnotations, ...noPreclusions, ...kingPositions(board) };
 
-        expect(canMoveTo(board, 'E1', 'G1', boardAnnotations)).toBe(false)
+        expect(canMoveTo(board, coordinates.E1, coordinates.G1, boardAnnotations)).toBe(false)
     
 });
 
@@ -96,7 +97,7 @@ describe('canMoveTo (Pawn)', () => {
             pawnAt: 'E4'
         }
 
-        const answer = canMoveTo(board, 'D4', 'E3', annotations);
+        const answer = canMoveTo(board, coordinates.D4, coordinates.E3, annotations);
         expect(answer).toBe(true);
     });
 });
@@ -121,7 +122,7 @@ describe('canMoveTo (Queen)', () => {
         }
 
         it('can capture opponent piece, diagonally', () => {
-            expect(canMoveTo(board, 'C2', 'F5', annotations)).toBe(true)
+            expect(canMoveTo(board, coordinates.C2, coordinates.F5, annotations)).toBe(true)
         });
     
 });

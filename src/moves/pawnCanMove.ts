@@ -13,54 +13,55 @@ import { Board } from 'types/Board';
 
 function pawnCanMove (
         board: Board, 
-        fromPosition: GridCoordinates, 
-        toPosition: GridCoordinates, 
-        boardAnnotations: KingAnnotations & EnPassantAnnotations)
+        from: GridCoordinates, 
+        to: GridCoordinates, 
+        annotations: KingAnnotations & EnPassantAnnotations)
     : boolean {
 
-    const { passedPosition } = boardAnnotations;
+    const { passedPosition } = annotations;
     
-    const player = playerAt(board, fromPosition);
+    const player = playerAt(board, from);
     const forwardDirection = player === 'White' ? 1 : -1;
-    const stepsForward = (rank(toPosition) - rank(fromPosition)) * forwardDirection;
-    const stepsSideways = file(toPosition) - file(fromPosition);
+    const stepsForward = (rank(to) - rank(from)) * forwardDirection;
+    const stepsSideways = file(to) - file(from);
       
     if(stepsForward < 1 || stepsForward > 2 || Math.abs(stepsSideways) > 1){
         return false;
     }
-
     //forward, can't capture or be blocked:
-    if(stepsSideways === 0){
-        if(isOccupied(board, toPosition)){
+    if( stepsSideways === 0){
+        
+        if(isOccupied(board, to)){
             return false;
         }
         if(stepsForward === 2){
-            if(player === 'Black' && rank(fromPosition) !== 6){
+            if(player === 'Black' && rank(from) !== 6){
                 return false;
             }
-            if(player === 'White' && rank(fromPosition) !== 2){
+            if(player === 'White' && rank(from) !== 1){
                 return false;
             }
             //cannot jump over any piece
-            if(isOccupied(board, [file(fromPosition), rank(fromPosition) + forwardDirection])){
+            if(isOccupied(board, [file(from), rank(from) + forwardDirection])){
                 return false;
             }
         }
     }
+    
     //diagonal, must capture:
-    else{
+    else {
         if(stepsForward !== 1){
             return false;
         }
-        if(isUnOccupied(board, toPosition) && (!passedPosition || passedPosition !== positionName(toPosition))){
+        if(isUnOccupied(board, to) && (!passedPosition || passedPosition !== positionName(to))){
             return false;
         }
-        if(isOccupiedByPlayer(board, toPosition, player)){
+        if(isOccupiedByPlayer(board, to, player)){
             return false;
         }
     }
-
-    if(movesIntoCheck(board, fromPosition, toPosition, boardAnnotations)){
+    
+    if (movesIntoCheck(board, from, to, annotations)) {
         return false;
     }
 

@@ -2,22 +2,25 @@ import { file, rank, pieceAt } from 'positions';
 import { emptyBoard } from 'board';
 import { Board } from 'types/Board';
 
-function move(
+function move (
     previousBoard: Board, 
-    fromPosition: GridCoordinates, 
-    toPosition: GridCoordinates) 
-    : Board  {
+    from: GridCoordinates, 
+    to: GridCoordinates
+) : Board {
 
-    const newBoard : Board = emptyBoard();
-    
-    for(let file = 0; file < 8; file++){
-        for(let rank = 0; rank < 8; rank++){
-            newBoard[file][rank] = pieceAt(previousBoard, [file,rank]);
-        }
-    }
+    const newBoard : Board = [
+        [...previousBoard[0]],
+        [...previousBoard[1]],
+        [...previousBoard[2]],
+        [...previousBoard[3]],
+        [...previousBoard[4]],
+        [...previousBoard[5]],
+        [...previousBoard[6]],
+        [...previousBoard[7]],
+    ];
 
-    newBoard[file(fromPosition)][rank(fromPosition)] = null;
-    newBoard[file(toPosition)][rank(toPosition)] = pieceAt(previousBoard, fromPosition)
+    newBoard[file(from)][rank(from)] = null;
+    newBoard[file(to)][rank(to)] = pieceAt(previousBoard, from)
     
     return newBoard;
 }

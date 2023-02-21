@@ -10,13 +10,15 @@ import {
 import movesIntoCheck from 'check/movesIntoCheck';
 import { KingAnnotations } from 'interfaces/KingAnnotations';
 import { Board } from 'types/Board';
+import { MoveAnnotations } from 'interfaces/MoveAnnotations';
 
 function rookCanMove (
     board: Board, 
     fromPosition: GridCoordinates, 
     toPosition: GridCoordinates, 
-    boardAnnotations: KingAnnotations)
-    : boolean {
+    boardAnnotations: MoveAnnotations
+) : boolean {
+
     if(!isOnBoard(toPosition)){
         return false;
     }

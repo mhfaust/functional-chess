@@ -10,8 +10,8 @@ function kingCanMove (
     board: Board, 
     fromPosition: GridCoordinates, 
     toPosition: GridCoordinates, 
-    boardAnnotations: KingAnnotations & CastlingAnnotations) 
-    : boolean {
+    boardAnnotations: KingAnnotations & CastlingAnnotations
+) {
 
     const player = playerAt(board, fromPosition);
    

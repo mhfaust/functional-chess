@@ -12,9 +12,9 @@ function movesIntoCheck(
     : boolean{
    
     const next = move(board, moveFrom, moveTo);
-
-    const updatedAnnotations = nextKingAnnotations(board, positionName(moveFrom), positionName(moveTo), annotations);
     
+    const updatedAnnotations = nextKingAnnotations(board, positionName(moveFrom), positionName(moveTo), annotations);
+   
     return isInCheck(next, playerAt(board, moveFrom), updatedAnnotations);
 }
 

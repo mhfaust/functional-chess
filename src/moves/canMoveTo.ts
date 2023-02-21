@@ -38,21 +38,17 @@ const strategies: Map<Piece, CanMoveTo> = new Map([
 ]);
 
 export type CanMoveTo = 
-    (
-        board: Board, 
-        fromPosition: GridCoordinates, 
-        toPosition: GridCoordinates, 
-        annotations: MoveAnnotations    
-    ) => boolean;
+    (...params: Parameters<typeof canMoveTo>) => boolean;
+
 
 function canMoveTo (
     board: Board, 
-    fromPosition: PositionName, 
-    toPosition: PositionName, 
-    annotations: MoveAnnotations)
+    from: GridCoordinates, 
+    to: GridCoordinates, 
+    annotations: MoveAnnotations): boolean
      {
-        const strategy: CanMoveTo = strategies.get(pieceAt(board, COORDS[fromPosition]));
-        return strategy(board, COORDS[fromPosition], COORDS[toPosition], annotations);
+        const strategy = strategies.get(pieceAt(board, from));
+        return strategy(board, from, to, annotations);
 }
 
 export default canMoveTo;
