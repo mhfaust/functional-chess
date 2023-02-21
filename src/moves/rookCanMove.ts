@@ -14,23 +14,23 @@ import { MoveAnnotations } from 'interfaces/MoveAnnotations';
 
 function rookCanMove (
     board: Board, 
-    fromPosition: GridCoordinates, 
-    toPosition: GridCoordinates, 
-    boardAnnotations: MoveAnnotations
+    from: GridCoordinates, 
+    to: GridCoordinates, 
+    anotations: MoveAnnotations
 ) : boolean {
 
-    if(!isOnBoard(toPosition)){
+    if(!isOnBoard(to)){
         return false;
     }
            
     //can't move there if it's occupied by one of player's own pieces:
-    if (playerAt(board, toPosition) === playerAt(board, fromPosition)){
+    if (playerAt(board, to) === playerAt(board, from)){
         return false;
     }
     
     // how much moved in each direction:
-    const fileMove = file(toPosition) - file(fromPosition); 
-    const rankMove = rank(toPosition) - rank(fromPosition);
+    const fileMove = file(to) - file(from); 
+    const rankMove = rank(to) - rank(from);
 
     //if both or neither file and rank were changed, 
     //it's not a valid rook move:
@@ -40,9 +40,9 @@ function rookCanMove (
 
     const moveVector = [Math.sign(fileMove),  Math.sign(rankMove)]
 
-    let step = displaceTo(fromPosition, moveVector);
+    let step = displaceTo(from, moveVector);
         
-    while(!areSamePositions(step, toPosition)){
+    while(!areSamePositions(step, to)){
         
         if(isOccupied(board, step)){
             return false;
@@ -51,7 +51,7 @@ function rookCanMove (
          step = displaceTo(step, moveVector);
     }
     
-    if(movesIntoCheck(board, fromPosition, toPosition, boardAnnotations)){
+    if(movesIntoCheck(board, from, to, anotations)){
         return false;
     }
 

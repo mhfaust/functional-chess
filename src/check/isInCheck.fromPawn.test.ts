@@ -231,4 +231,27 @@ describe('isInCheck: false', () => {
 
         expect(isInCheck(board, 'Black', annotations)).toBe(true)
     });
+
+    it('start: E4 does not trigger isInCheck', () => {
+        const board: Board = [
+/*         1  2  3  4  5  6  7  8  */
+/*  A  */ [WR,WP,__,__,__,__,BP,BR],
+/*  B  */ [WN,WP,__,__,__,__,BP,BN],
+/*  C  */ [WB,WP,__,__,__,__,BP,BB],
+/*  D  */ [WQ,WP,__,__,__,__,BP,BQ],
+/*  E  */ [WK,__,__,WP,__,__,BP,BK],
+/*  F  */ [WB,WP,__,__,__,__,BP,BB],
+/*  G  */ [WN,WP,__,__,__,__,BP,BN],
+/*  H  */ [WR,WP,__,__,__,__,BP,BR],
+        ];
+
+
+        const annotations: KingAnnotations = {
+            blackKingPosition: positionName(locatePiece(board, 'Black King')),
+            whiteKingPosition: positionName(locatePiece(board, 'White King'))
+        };
+
+        expect(isInCheck(board, 'Black', annotations)).toBe(false)
+        expect(isInCheck(board, 'White', annotations)).toBe(false)
+    });
 })
