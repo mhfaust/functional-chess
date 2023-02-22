@@ -2,6 +2,7 @@
 import { Piece } from 'positions/piece';
 import { pieceAt } from 'positions'
 import { Board } from 'types/Board';
+import positionName, { PositionName } from './positionName';
 
 type UniquePiece = 
     | 'White King' 
@@ -9,12 +10,12 @@ type UniquePiece =
     | 'Black King' 
     | 'Black Queen' 
 
-function locatePiece(board: Board, piece: UniquePiece) : GridCoordinates | null {
+function locatePiece(board: Board, piece: UniquePiece) : PositionName | null {
     for(let file = 0; file < 8; file++){
         for (let rank = 0; rank < 8; rank++){
             const position: ReadonlyArray<number> = [file, rank];
             if(pieceAt(board, position) === piece){
-                return position;
+                return positionName(position);
             }
         }
     }

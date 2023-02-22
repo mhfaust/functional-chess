@@ -19,12 +19,9 @@ describe('isInCheck: true', () => {
 /*  H  */ [__,__,__,__,__,__,__,__], 
         ];
 
-        const annotations: KingAnnotations = {
-            blackKingPosition: positionName(locatePiece(board, 'Black King')),
-            whiteKingPosition: positionName(locatePiece(board, 'White King'))
-        };
+        const kingPosition = locatePiece(board, 'Black King');
 
-        expect(isInCheck(board, 'Black', annotations)).toBe(true)
+        expect(isInCheck(board, 'Black', kingPosition)).toBe(true)
     });
 
     it('rook checks king along a file', () => {
@@ -40,11 +37,8 @@ describe('isInCheck: true', () => {
 /*  H  */ [__,__,__,__,__,__,__,__], 
         ];
 
-        const annotations: KingAnnotations = {
-            blackKingPosition: positionName(locatePiece(board, 'Black King')),
-            whiteKingPosition: positionName(locatePiece(board, 'White King'))
-        };
+        const kingPosition = locatePiece(board, 'Black King');
 
-        expect(isInCheck(board, 'Black', annotations)).toBe(true)
+        expect(isInCheck(board, 'Black', kingPosition)).toBe(true)
     });
 })

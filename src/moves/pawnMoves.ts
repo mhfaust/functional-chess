@@ -28,8 +28,11 @@ function pawn(
     const initialRank = rank(moveFrom);
     const forward1 = displaceTo(moveFrom, [0, forwardDirection]);
     const { passedPosition } = annotations;
+    const  kingPosition = player === 'Black' 
+        ? annotations.blackKingPosition 
+        : annotations.whiteKingPosition;
 
-    const moveNotInCheck = (moveTo: GridCoordinates): boolean => !isInCheck(move(board, moveFrom, moveTo), player, annotations)
+    const moveNotInCheck = (moveTo: GridCoordinates): boolean => !isInCheck(move(board, moveFrom, moveTo), player, kingPosition)
      
     //advance moves
     if(isOnBoard(forward1) && isUnOccupied(board, forward1) && moveNotInCheck(forward1)){

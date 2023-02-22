@@ -3,16 +3,18 @@ import { Player } from 'board/player';
 import { KingAnnotations } from 'interfaces/KingAnnotations';
 import { Board } from 'types/Board';
 import COORDS from 'positions/coordinates';
+import { PositionName } from 'positions/positionName';
 
 function isInCheck(
     board: Board, 
     player: Player, 
-    boardAnnotations: KingAnnotations)
+    kingPosition: PositionName)
+    // boardAnnotations: KingAnnotations)
     : boolean{
 
-    const  kingPosition = player === 'Black' 
-        ? boardAnnotations.blackKingPosition 
-        : boardAnnotations.whiteKingPosition;
+    // const  kingPosition = player === 'Black' 
+    //     ? boardAnnotations.blackKingPosition 
+    //     : boardAnnotations.whiteKingPosition;
 
     const attackLines = generateLinesOfAttack(board, player, COORDS[kingPosition]);
 

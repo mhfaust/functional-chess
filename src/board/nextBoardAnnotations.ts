@@ -28,18 +28,24 @@ function nextBoardAnnotations(
     const nextPassantInfo = nextEnPassantAnnotations(currentBoard, pieceMovedFromPosition, pieceMovedToPosition);
     const nextCastlingInfo = nextCastlingAnnotations(pieceMovedFromPosition, previousAnnotations);
 
+    
     const lastPlayerMoved = playerAt(previousBoard, COORDS[pieceMovedFromPosition]);
     const lastPieceMoved = pieceAt(previousBoard, COORDS[pieceMovedFromPosition])
     const nextPlayer = otherPlayer(lastPlayerMoved);
-    const nextTurnIsInCheck = isInCheck(currentBoard, nextPlayer, nextKingPositions);
+    const { blackKingPosition, whiteKingPosition } = nextKingAnnotations(currentBoard, pieceMovedFromPosition, pieceMovedToPosition, previousAnnotations);
+    const nextKingPosition = nextPlayer == 'Black' ? blackKingPosition : whiteKingPosition
+    const nextTurnIsInCheck = isInCheck(currentBoard, nextPlayer, nextKingPosition);
     const nextTurnIsCheckmate = isCheckmate(currentBoard, nextPlayer, nextKingPositions);
     const capturedBlackPieces = makeCapturedPieces(previousBoard, previousAnnotations.capturedBlackPieces, 'Black', pieceMovedToPosition);
     const capturedWhitePieces = makeCapturedPieces(previousBoard, previousAnnotations.capturedWhitePieces, 'White', pieceMovedToPosition);
         
+
+ 
     const next : BoardAnnotations = {
         ...nextCastlingInfo,
         ...nextPassantInfo,
-        ...nextKingPositions,
+        whiteKingPosition,
+        blackKingPosition,
         ...{
             lastPlayerMoved,
             lastPieceMoved: 'White Pawn',

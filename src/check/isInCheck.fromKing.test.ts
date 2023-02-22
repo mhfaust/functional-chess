@@ -18,12 +18,9 @@ describe('isInCheck: true', () => {
 /*  H  */ [__,__,__,__,__,__,__,__], 
         ];
 
-        const annotations: KingAnnotations = {
-            blackKingPosition: positionName(locatePiece(board, 'Black King')),
-            whiteKingPosition: positionName(locatePiece(board, 'White King'))
-        };
+        const kingPosition = locatePiece(board, 'White King');
 
-        expect(isInCheck(board, 'White', annotations)).toBe(true)
+        expect(isInCheck(board, 'White', kingPosition)).toBe(true)
 
     });
 
@@ -40,12 +37,9 @@ describe('isInCheck: true', () => {
 /*  H  */ [__,__,__,__,__,__,__,__], 
         ];
 
-        const annotations: KingAnnotations = {
-            blackKingPosition: positionName(locatePiece(board, 'Black King')),
-            whiteKingPosition: positionName(locatePiece(board, 'White King'))
-        };
+        const kingPosition = locatePiece(board, 'White King');
 
-        expect(isInCheck(board, 'White', annotations)).toBe(true)
+        expect(isInCheck(board, 'White', kingPosition)).toBe(true)
 
     });
 
@@ -62,12 +56,9 @@ describe('isInCheck: true', () => {
 /*  H  */ [__,__,__,__,__,__,__,__], 
         ];
 
-        const annotations: KingAnnotations = {
-            blackKingPosition: positionName(locatePiece(board, 'Black King')),
-            whiteKingPosition: positionName(locatePiece(board, 'White King'))
-        };
+        const kingPosition = locatePiece(board, 'White King');
 
-        expect(isInCheck(board, 'White', annotations)).toBe(true)
+        expect(isInCheck(board, 'White', kingPosition)).toBe(true)
     });
 })
 
@@ -85,12 +76,9 @@ describe('isInCheck: false', () => {
 /*  H  */ [__,__,__,__,__,__,__,__], 
         ];
 
-        const annotations: KingAnnotations = {
-            blackKingPosition: positionName(locatePiece(board, 'Black King')),
-            whiteKingPosition: positionName(locatePiece(board, 'White King'))
-        };
+        const kingPosition = locatePiece(board, 'White King');
 
-        expect(isInCheck(board, 'White', annotations)).toBe(false)
+        expect(isInCheck(board, 'White', kingPosition)).toBe(false)
 
     });
 

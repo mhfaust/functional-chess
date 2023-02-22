@@ -16,7 +16,7 @@ function rookCanMove (
     board: Board, 
     from: GridCoordinates, 
     to: GridCoordinates, 
-    anotations: MoveAnnotations
+    anotations: KingAnnotations
 ) : boolean {
 
     if(!isOnBoard(to)){
