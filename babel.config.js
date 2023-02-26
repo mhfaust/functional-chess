@@ -9,12 +9,10 @@ module.exports = function () {
             }
         ]
     ]
-    const plugins = [
-        "transform-object-rest-spread"
-    ];
+    const plugins = [];
   
     return {
         presets,
         plugins
     };
-}
+};
