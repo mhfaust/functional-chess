@@ -11,28 +11,21 @@
     coordinates as COORDS} from 'positions';
 import { isInCheck } from 'check';
 import { move } from 'board';
-import { KingAnnotations } from 'interfaces/KingAnnotations';
-import { EnPassantAnnotations } from 'interfaces/EnPassantAnnotations';
 import { PositionName } from 'positions/positionName';
 import { Board } from 'types/Board';
 
 function pawn(
     board: Board, 
     moveFrom: GridCoordinates, 
-    annotations: KingAnnotations & EnPassantAnnotations)
+    enPassantSquare: PositionName)
     : Set<PositionName> {
-    
     const player = playerAt(board, moveFrom);
     const legalMoves: Set<PositionName> = new Set();
     const forwardDirection = player === 'White' ? 1 : -1;
     const initialRank = rank(moveFrom);
     const forward1 = displaceTo(moveFrom, [0, forwardDirection]);
-    const { passedPosition } = annotations;
-    const  kingPosition = player === 'Black' 
-        ? annotations.blackKingPosition 
-        : annotations.whiteKingPosition;
 
-    const moveNotInCheck = (moveTo: GridCoordinates): boolean => !isInCheck(move(board, moveFrom, moveTo), player, kingPosition)
+    const moveNotInCheck = (moveTo: GridCoordinates): boolean => !isInCheck(move(board, moveFrom, moveTo), player)
      
     //advance moves
     if(isOnBoard(forward1) && isUnOccupied(board, forward1) && moveNotInCheck(forward1)){
@@ -54,9 +47,15 @@ function pawn(
     //attack moves
     moveVectors.forEach(vector => {
         const attackedPosition = displaceTo(moveFrom, vector);
-
-        if((isOnBoard(attackedPosition) && isOccupiedByPlayer(board, attackedPosition, other))
-            || (passedPosition && areSamePositions(attackedPosition, COORDS[passedPosition]))){
+        if(!isOnBoard(attackedPosition)){
+            return;
+        }
+        if(
+            (
+               isOccupiedByPlayer(board, attackedPosition, other)
+            )
+            || (enPassantSquare && positionName(attackedPosition) === positionName(COORDS[enPassantSquare]))
+        ){
                 if(moveNotInCheck(attackedPosition)){
                     legalMoves.add(positionName(attackedPosition));
                 }

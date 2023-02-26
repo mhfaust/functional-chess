@@ -1,6 +1,6 @@
 import { playerAt, otherPlayer, pieceAt } from "positions";
 import { isInCheck, isCheckmate } from "check";
-import { nextKingAnnotations, nextCastlingAnnotations, nextEnPassantAnnotations } from "board";
+import { nextCastlingPreclusions } from "board";
 import { BoardAnnotations } from "interfaces/BoardAnnotations";
 import { Board } from "types/Board";
 import { Piece } from "positions/piece";
@@ -24,31 +24,22 @@ function nextBoardAnnotations(
             pieceMovedToPosition: PositionName)
         : BoardAnnotations
     {
-    const nextKingPositions = nextKingAnnotations(currentBoard, pieceMovedFromPosition, pieceMovedToPosition, previousAnnotations);
-    const nextPassantInfo = nextEnPassantAnnotations(currentBoard, pieceMovedFromPosition, pieceMovedToPosition);
-    const nextCastlingInfo = nextCastlingAnnotations(pieceMovedFromPosition, previousAnnotations);
-
+    const { castlingPreclusions: prevCastlingPreclusions } = previousAnnotations;
+    const castlingPreclusions = nextCastlingPreclusions(pieceMovedFromPosition, prevCastlingPreclusions);
     
     const lastPlayerMoved = playerAt(previousBoard, COORDS[pieceMovedFromPosition]);
     const lastPieceMoved = pieceAt(previousBoard, COORDS[pieceMovedFromPosition])
     const nextPlayer = otherPlayer(lastPlayerMoved);
-    const { blackKingPosition, whiteKingPosition } = nextKingAnnotations(currentBoard, pieceMovedFromPosition, pieceMovedToPosition, previousAnnotations);
-    const nextKingPosition = nextPlayer == 'Black' ? blackKingPosition : whiteKingPosition
-    const nextTurnIsInCheck = isInCheck(currentBoard, nextPlayer, nextKingPosition);
-    const nextTurnIsCheckmate = isCheckmate(currentBoard, nextPlayer, nextKingPositions);
+    const nextTurnIsInCheck = isInCheck(currentBoard, nextPlayer);
+    const nextTurnIsCheckmate = isCheckmate(currentBoard, nextPlayer);
     const capturedBlackPieces = makeCapturedPieces(previousBoard, previousAnnotations.capturedBlackPieces, 'Black', pieceMovedToPosition);
     const capturedWhitePieces = makeCapturedPieces(previousBoard, previousAnnotations.capturedWhitePieces, 'White', pieceMovedToPosition);
         
-
- 
     const next : BoardAnnotations = {
-        ...nextCastlingInfo,
-        ...nextPassantInfo,
-        whiteKingPosition,
-        blackKingPosition,
+        castlingPreclusions,
         ...{
             lastPlayerMoved,
-            lastPieceMoved: 'White Pawn',
+            lastPieceMoved,
             lastMoveFrom: pieceMovedFromPosition,
             lastMoveTo: pieceMovedToPosition,
             whoseTurn: nextPlayer,

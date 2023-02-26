@@ -2,7 +2,6 @@ import bishopMoves from './bishopMoves';
 import { positionName } from 'positions';
 import COORDS from 'positions/coordinates'
 import { BK,BQ,BR,BN,BB,BP,WK,WQ,WR,WN,WB,WP,__ } from 'positions/pieces-shorthand';
-import kingPositions from 'board/kingPositions';
 import { Board } from 'types/Board';
 
 describe('bishop', () => {
@@ -34,7 +33,7 @@ describe('bishop', () => {
             COORDS.C5
         ].map(positionName));
 
-        const foundLegalMoves = bishopMoves(board, COORDS.D4, kingPositions(board));
+        const foundLegalMoves = bishopMoves(board, COORDS.D4);
 
         expect(foundLegalMoves).toEqual(expectedLegalMoves)
     })
@@ -61,7 +60,7 @@ describe('bishop', () => {
         ].map(positionName));
 
 
-        const foundLegalMoves = bishopMoves(board, COORDS.D4, kingPositions(board));
+        const foundLegalMoves = bishopMoves(board, COORDS.D4);
 
         expect(foundLegalMoves).toEqual(expecteLegalMoves)   
     })

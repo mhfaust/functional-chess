@@ -5,21 +5,19 @@ import {
     isOccupied, 
     isUnOccupied, 
     isOccupiedByPlayer, 
-        positionName} from 'positions';
+    positionName
+} from 'positions';
 import movesIntoCheck from 'check/movesIntoCheck';
-import { KingAnnotations } from 'interfaces/KingAnnotations';
-import { EnPassantAnnotations } from 'interfaces/EnPassantAnnotations';
 import { Board } from 'types/Board';
+import { PositionName } from 'positions/positionName';
 
 function pawnCanMove (
         board: Board, 
         from: GridCoordinates, 
         to: GridCoordinates, 
-        annotations: KingAnnotations & EnPassantAnnotations)
+        enPassantSquare: PositionName | null)
     : boolean {
 
-    const { passedPosition } = annotations;
-    
     const player = playerAt(board, from);
     const forwardDirection = player === 'White' ? 1 : -1;
     const stepsForward = (rank(to) - rank(from)) * forwardDirection;
@@ -53,7 +51,7 @@ function pawnCanMove (
         if(stepsForward !== 1){
             return false;
         }
-        if(isUnOccupied(board, to) && (!passedPosition || passedPosition !== positionName(to))){
+        if(isUnOccupied(board, to) && (enPassantSquare !== positionName(to))){
             return false;
         }
         if(isOccupiedByPlayer(board, to, player)){
@@ -61,7 +59,7 @@ function pawnCanMove (
         }
     }
     
-    if (movesIntoCheck(board, from, to, annotations)) {
+    if (movesIntoCheck(board, from, to)) {
         return false;
     }
 

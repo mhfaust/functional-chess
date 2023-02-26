@@ -8,15 +8,12 @@ import {
     displaceTo } from 'positions';
     
 import movesIntoCheck from 'check/movesIntoCheck';
-import { KingAnnotations } from 'interfaces/KingAnnotations';
 import { Board } from 'types/Board';
-import { MoveAnnotations } from 'interfaces/MoveAnnotations';
 
 function rookCanMove (
     board: Board, 
     from: GridCoordinates, 
     to: GridCoordinates, 
-    anotations: KingAnnotations
 ) : boolean {
 
     if(!isOnBoard(to)){
@@ -51,7 +48,7 @@ function rookCanMove (
          step = displaceTo(step, moveVector);
     }
     
-    if(movesIntoCheck(board, from, to, anotations)){
+    if(movesIntoCheck(board, from, to)){
         return false;
     }
 

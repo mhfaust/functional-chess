@@ -11,14 +11,7 @@ function initialBoardAnnotations(): BoardAnnotations{
         isCheckmate: false,
         capturedBlackPieces: [],
         capturedWhitePieces: [],
-        blackKingPosition: 'E8',
-        whiteKingPosition: 'E1',
-        blackKingSideCastlingPrecluded: false,
-        blackQueenSideCastlingPrecluded: false,
-        whiteKingSideCastlingPrecluded: false,
-        whiteQueenSideCastlingPrecluded: false,
-        passedPosition: null,
-        pawnAt: null
+        castlingPreclusions: new Set(),
     }
 }
 

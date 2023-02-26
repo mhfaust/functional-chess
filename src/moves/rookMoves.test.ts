@@ -1,13 +1,9 @@
 import rook from './rookMoves';
 import COORDS from 'positions/coordinates'
 import { WK,BK,BR,BP,WP,WR,__ } from 'positions/pieces-shorthand';
-import { locatePiece } from 'positions';
-import { kingPositions } from 'board';
 import { Board } from 'types/Board';
 
 describe('rook', () => {
-
- 
 
     it(`provides all possible moves from rook on rook1board: `, () => {
         const board: Board = [
@@ -35,7 +31,7 @@ describe('rook', () => {
             'H4'
         ]);
 
-        const foundLegalMoves = rook(board, COORDS.E4, kingPositions(board));
+        const foundLegalMoves = rook(board, COORDS.E4);
 
         expect(foundLegalMoves).toEqual(expectedLegalMoves);
     })
@@ -60,7 +56,7 @@ describe('rook', () => {
             'E7',
         ]);
 
-        const foundLegalMoves = rook(board, COORDS.E4, kingPositions(board));
+        const foundLegalMoves = rook(board, COORDS.E4);
 
         expect(foundLegalMoves).toEqual(expectedLegalMoves)
     });

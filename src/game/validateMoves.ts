@@ -5,6 +5,7 @@ import {
     nextBoardAnnotations } from "board";
 import { Player } from "board/player";
 import { canMoveTo } from "moves";  
+import enPassantSquare from "moves/enPassantSquare";
 import { coordinates, playerAt } from "positions";
 import COORDS from "positions/coordinates";
 import { PositionName } from "positions/positionName";
@@ -39,7 +40,9 @@ function validateGameMoves(gameMoves: Array<[PositionName, PositionName]>){
             break;
         }
 
-        if (!canMoveTo(prevBoard, coordinates[from], coordinates[to], prevAnnotations)) {
+        const epSquare = enPassantSquare(prevBoard, from, to );
+
+        if (!canMoveTo(prevBoard, coordinates[from], coordinates[to], null, epSquare)) {
             error = `Illegal move: from ${from} to ${to}.`;
             break;
         }

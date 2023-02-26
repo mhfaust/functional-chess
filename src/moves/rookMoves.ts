@@ -7,11 +7,10 @@ import {
     otherPlayer, 
     positionName } from 'positions';
 import movesIntoCheck from 'check/movesIntoCheck';
-import { KingAnnotations } from 'interfaces/KingAnnotations';
 import { PositionName } from 'positions/positionName';
 import { Board } from 'types/Board';
 
-function rook(board: Board, moveFrom: GridCoordinates, boardAnnotations: KingAnnotations): Set<PositionName> {
+function rook(board: Board, moveFrom: GridCoordinates): Set<PositionName> {
     
     const player = playerAt(board, moveFrom);
     const directions = [[0,1], [0,-1], [1,0], [-1,0]];
@@ -29,7 +28,7 @@ function rook(board: Board, moveFrom: GridCoordinates, boardAnnotations: KingAnn
     });
 
     return new Set(legalMoves
-        .filter(position => !movesIntoCheck(board, moveFrom, position, boardAnnotations))
+        .filter(position => !movesIntoCheck(board, moveFrom, position))
         .map(positionName)
     );
 }

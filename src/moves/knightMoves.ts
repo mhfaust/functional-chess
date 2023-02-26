@@ -8,15 +8,13 @@ import {
 
 import { knightVectors } from 'constants/move-vectors'
 import movesIntoCheck from 'check/movesIntoCheck';
-import { KingAnnotations } from 'interfaces/KingAnnotations';
 import { PositionName } from 'positions/positionName';
 import { Board } from 'types/Board';
 
 function knight(
     board: Board, 
     moveFrom: GridCoordinates, 
-    boardAnnotations: KingAnnotations)
-    : Set<PositionName> {
+): Set<PositionName> {
 
     const player = playerAt(board, moveFrom);
 
@@ -24,7 +22,7 @@ function knight(
         .map(vector => displaceTo(moveFrom, vector))
         .filter(isOnBoard)
         .filter(targetPosition => isUnOccupiedByPlayer(board, targetPosition, player))
-        .filter(position => !movesIntoCheck(board, moveFrom, position, boardAnnotations))
+        .filter(position => !movesIntoCheck(board, moveFrom, position))
         .map(positionName));
 }
 

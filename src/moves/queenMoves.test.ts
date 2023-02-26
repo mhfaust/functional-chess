@@ -1,7 +1,6 @@
 import queenMoves from './queenMoves';
-import { positionName, locatePiece } from 'positions'
+import { positionName } from 'positions'
 import { BQ,BP,WK,WQ,WR,BK,WP,__ } from 'positions/pieces-shorthand';
-import { kingPositions } from 'board';
 import { Board } from 'types/Board';
 import COORDS from 'positions/coordinates';
 describe('queen', () => {
@@ -37,7 +36,7 @@ describe('queen', () => {
             COORDS.A4
         ].map(positionName))
 
-        const foundattackedPositions = queenMoves(board, COORDS.C2, kingPositions(board));
+        const foundattackedPositions = queenMoves(board, COORDS.C2);
 
         expect(foundattackedPositions).toEqual(expectedattackedPositions)
     });
@@ -62,7 +61,7 @@ describe('queen', () => {
             'E7',
         ]);
 
-        const foundLegalMoves = queenMoves(board, COORDS.E4, kingPositions(board));
+        const foundLegalMoves = queenMoves(board, COORDS.E4);
 
         expect(foundLegalMoves).toEqual(expectedLegalMoves)
     });

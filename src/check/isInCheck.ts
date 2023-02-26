@@ -1,26 +1,28 @@
 import { generateLinesOfAttack } from 'check'
 import { Player } from 'board/player';
-import { KingAnnotations } from 'interfaces/KingAnnotations';
 import { Board } from 'types/Board';
 import COORDS from 'positions/coordinates';
-import { PositionName } from 'positions/positionName';
+import kingPosition from 'positions/kingPosition';
+
+const cache = new Map<Player, Map<Board, boolean>>()
+    .set("Black", new Map())
+    .set("White", new Map())
 
 function isInCheck(
     board: Board, 
-    player: Player, 
-    kingPosition: PositionName)
-    // boardAnnotations: KingAnnotations)
-    : boolean{
+    player: Player
+): boolean {
 
-    // const  kingPosition = player === 'Black' 
-    //     ? boardAnnotations.blackKingPosition 
-    //     : boardAnnotations.whiteKingPosition;
+    const playerCache = cache.get(player);
+    if(playerCache.get(board)){
+        return playerCache.get(board);
+    }
 
-    const attackLines = generateLinesOfAttack(board, player, COORDS[kingPosition]);
-
+    const attackLines = generateLinesOfAttack(board, player, COORDS[kingPosition(board, player)]);
     const checkLine = attackLines.next()
-    
-    return checkLine.value !== null;
+    const isInCheck = checkLine.value !== null;
+    playerCache.set(board, isInCheck);
+    return isInCheck;
 }
 
 export default isInCheck;

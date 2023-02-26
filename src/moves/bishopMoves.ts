@@ -9,15 +9,13 @@ import {
 
 import { bishopVectors } from 'constants/move-vectors'
 import { movesIntoCheck } from 'check';
-import { KingAnnotations } from 'interfaces/KingAnnotations';
 import { PositionName } from 'positions/positionName';
 import { Board } from 'types/Board';
 
 function bishop(
     board: Board, 
-    moveFrom: GridCoordinates, 
-    annotations: KingAnnotations)
-    : Set<PositionName> {
+    moveFrom: GridCoordinates
+): Set<PositionName> {
 
     const player = playerAt(board, moveFrom);
     const legalMoves: Array<GridCoordinates> = [];
@@ -36,7 +34,7 @@ function bishop(
     });
 
     return new Set(legalMoves
-        .filter(moveTo => !movesIntoCheck(board, moveFrom, moveTo, annotations))
+        .filter(moveTo => !movesIntoCheck(board, moveFrom, moveTo))
         .map(positionName)
     );
 }

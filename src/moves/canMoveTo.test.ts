@@ -1,22 +1,8 @@
-import COORDS from 'positions/coordinates'
 import { BK,BQ,BR,BN,BB,BP,WK,WQ,WR,WN,WB,WP,__ } from 'positions/pieces-shorthand';
 import canMoveTo from "moves/canMoveTo";
-import kingPositions from "board/kingPositions";
-import { CastlingAnnotations } from "interfaces/CastlingAnnotations";
 import { MoveAnnotations } from "interfaces/MoveAnnotations";
 import { Board } from "types/Board";
 import { coordinates } from 'positions';
-
-const defaultMoveAnnotations: MoveAnnotations = {
-    whiteKingPosition: null,
-    blackKingPosition: null,
-    passedPosition: null,
-    pawnAt: null,
-    blackKingSideCastlingPrecluded: false,
-    blackQueenSideCastlingPrecluded: false,
-    whiteKingSideCastlingPrecluded: false,
-    whiteQueenSideCastlingPrecluded: false
-}
 
 describe('canMoveTo (Bishop)', () => {
     
@@ -33,13 +19,8 @@ describe('canMoveTo (Bishop)', () => {
         /*  H  */ [__,__,__,__,__,__,__,BR],
         ];
 
-        const annotations = {
-            ...defaultMoveAnnotations,
-            ...kingPositions(board)
-        }
-
-        expect(canMoveTo(board, coordinates.D4, coordinates.C3, annotations)).toBe(true);  
-        expect(canMoveTo(board, coordinates.D4, coordinates.C5, annotations)).toBe(false);  
+        expect(canMoveTo(board, coordinates.D4, coordinates.C3, new Set(), null)).toBe(true);  
+        expect(canMoveTo(board, coordinates.D4, coordinates.C5, new Set(), null)).toBe(false);  
     });
 });
 
@@ -57,15 +38,8 @@ describe('canMoveTo (King)', () => {
         /*  G  */ [__,__,__,__,__,__,__,BR],
         /*  H  */ [WR,__,__,__,__,__,__,__], 
         ];
-        const noPreclusions: CastlingAnnotations = {
-            whiteQueenSideCastlingPrecluded: false,
-            whiteKingSideCastlingPrecluded: false,
-            blackQueenSideCastlingPrecluded: false,
-            blackKingSideCastlingPrecluded: false,
-        }
-        const boardAnnotations = { ...defaultMoveAnnotations, ...noPreclusions, ...kingPositions(board) };
 
-        expect(canMoveTo(board, coordinates.E1, coordinates.G1, boardAnnotations)).toBe(false)
+        expect(canMoveTo(board, coordinates.E1, coordinates.G1, new Set(['H8', 'A8']))).toBe(false)
     
 });
 
@@ -90,14 +64,8 @@ describe('canMoveTo (Pawn)', () => {
             /*  G  */ [WN,WP,__,__,BP,__,__,BN],
             /*  H  */ [WR,__,__,__,WP,__,BP,BR],
         ];
-        const annotations: MoveAnnotations = {
-            ...defaultMoveAnnotations,
-            ...kingPositions(board),
-            passedPosition: 'E3',
-            pawnAt: 'E4'
-        }
-
-        const answer = canMoveTo(board, coordinates.D4, coordinates.E3, annotations);
+        
+        const answer = canMoveTo(board, coordinates.D4, coordinates.E3, new Set(), 'E3');
         expect(answer).toBe(true);
     });
 });
@@ -116,13 +84,8 @@ describe('canMoveTo (Queen)', () => {
         /*  H  */ [__,__,__,__,__,__,__,__], 
         ];
 
-        const annotations = {
-            ...defaultMoveAnnotations,
-            ...kingPositions(board)
-        }
-
         it('can capture opponent piece, diagonally', () => {
-            expect(canMoveTo(board, coordinates.C2, coordinates.F5, annotations)).toBe(true)
+            expect(canMoveTo(board, coordinates.C2, coordinates.F5, new Set(), null)).toBe(true)
         });
     
 });

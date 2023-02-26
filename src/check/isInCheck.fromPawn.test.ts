@@ -1,7 +1,5 @@
 import isInCheck from 'check/isInCheck';
 import { BK,BQ,BR,BN,BB,BP,WK,WQ,WR,WN,WB,WP,__ } from 'positions/pieces-shorthand';
-import { locatePiece, positionName } from 'positions';
-import { KingAnnotations } from 'interfaces/KingAnnotations';
 import { Board } from 'types/Board';
 
 describe('isInCheck: true', () => {
@@ -18,10 +16,7 @@ describe('isInCheck: true', () => {
 /*  H  */ [__,__,__,__,__,__,__,__],
         ];
 
-
-        const kingPosition = locatePiece(board, 'White King');
-
-        expect(isInCheck(board, 'White', kingPosition)).toBe(true)
+        expect(isInCheck(board, 'White')).toBe(true)
     });
 
     it('White King at E1 is in check from Black Pawn at F2', () => {
@@ -53,9 +48,7 @@ describe('isInCheck: false', () => {
 /*  H  */ [__,__,__,__,__,__,__,__], 
         ];
 
-        const kingPosition = locatePiece(board, 'White King');
-
-        expect(isInCheck(board, 'White', kingPosition)).toBe(false)
+        expect(isInCheck(board, 'White')).toBe(false)
     });
 
     it('White King at E3 is NOT check from Pawn at D3', () => {
@@ -71,9 +64,7 @@ describe('isInCheck: false', () => {
 /*  H  */ [__,__,__,__,__,__,__,__], 
         ];
 
-        const kingPosition = locatePiece(board, 'White King');
-
-        expect(isInCheck(board, 'White', kingPosition)).toBe(false)
+        expect(isInCheck(board, 'White')).toBe(false)
     });
 
     it('White King at E3 is NOT check from Pawn at D2', () => {
@@ -89,9 +80,7 @@ describe('isInCheck: false', () => {
 /*  H  */ [__,__,__,__,__,__,__,__], 
         ];
 
-        const kingPosition = locatePiece(board, 'White King');
-
-        expect(isInCheck(board, 'White', kingPosition)).toBe(false)
+        expect(isInCheck(board, 'White')).toBe(false)
     });
 
     it('White King at E3 is NOT check from Pawn at E2', () => {
@@ -107,9 +96,7 @@ describe('isInCheck: false', () => {
 /*  H  */ [__,__,__,__,__,__,__,__], 
         ];
 
-        const kingPosition = locatePiece(board, 'White King');
-
-        expect(isInCheck(board, 'White', kingPosition)).toBe(false)
+        expect(isInCheck(board, 'White')).toBe(false)
     });
 
     it('White King at E3 is NOT check from Pawn at F2', () => {
@@ -125,9 +112,7 @@ describe('isInCheck: false', () => {
 /*  H  */ [__,__,__,__,__,__,__,__],
         ];
 
-        const kingPosition = locatePiece(board, 'White King');
-
-        expect(isInCheck(board, 'White', kingPosition)).toBe(false)
+        expect(isInCheck(board, 'White')).toBe(false)
     });
 
     it('White King at E3 is NOT check from Pawn at F3', () => {
@@ -143,9 +128,7 @@ describe('isInCheck: false', () => {
 /*  H  */ [__,__,__,__,__,__,__,__], 
         ];
 
-        const kingPosition = locatePiece(board, 'White King');
-
-        expect(isInCheck(board, 'White', kingPosition)).toBe(false)
+        expect(isInCheck(board, 'White')).toBe(false)
     });
 
     it('White King at E5 is NOT check from Pawn at E7', () => {
@@ -161,9 +144,7 @@ describe('isInCheck: false', () => {
 /*  H  */ [__,__,__,__,__,__,__,__], 
         ];
 
-        const kingPosition = locatePiece(board, 'White King');
-
-        expect(isInCheck(board, 'White', kingPosition)).toBe(false)
+        expect(isInCheck(board, 'White')).toBe(false)
     });
 
     it('White King at E5 is NOT in check from Pawn at C7', () => {
@@ -179,9 +160,7 @@ describe('isInCheck: false', () => {
 /*  H  */ [__,__,__,__,__,__,__,__], 
         ];
 
-        const kingPosition = locatePiece(board, 'White King');
-
-        expect(isInCheck(board, 'White', kingPosition)).toBe(false)
+        expect(isInCheck(board, 'White')).toBe(false)
     });
 
     it('Black King at G7 IS in check from Pawn at F6', () => {
@@ -197,9 +176,7 @@ describe('isInCheck: false', () => {
 /*  H  */ [__,__,__,__,__,__,BP,__],
         ];
 
-        const kingPosition = locatePiece(board, 'Black King');
-
-        expect(isInCheck(board, 'Black', kingPosition)).toBe(true)
+        expect(isInCheck(board, 'Black')).toBe(true)
     });
 
     it('start: E4 does not trigger isInCheck', () => {
@@ -215,11 +192,7 @@ describe('isInCheck: false', () => {
 /*  H  */ [WR,WP,__,__,__,__,BP,BR],
         ];
 
-
-        const blackKingPosition = locatePiece(board, 'Black King');
-        const whiteKingPosition = locatePiece(board, 'White King');
-
-        expect(isInCheck(board, 'Black', blackKingPosition)).toBe(false)
-        expect(isInCheck(board, 'White', whiteKingPosition)).toBe(false)
+        expect(isInCheck(board, 'Black')).toBe(false)
+        expect(isInCheck(board, 'White')).toBe(false)
     });
 })

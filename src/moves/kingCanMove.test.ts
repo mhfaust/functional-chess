@@ -1,22 +1,10 @@
 import COORDS from 'positions/coordinates'
 import { BK,BQ,BR,BN,BB,BP,WK,WQ,WR,WN,WB,WP,__ } from 'positions/pieces-shorthand';
 import { kingCanMove } from 'moves';
-import kingPositions from 'board/kingPositions';
-import { CastlingAnnotations } from 'interfaces/CastlingAnnotations';
+import { CastlingPreclusions } from 'interfaces/CastlingAnnotations';
 import { Board } from 'types/Board';
 
-const noPreclusions: CastlingAnnotations = {
-    whiteQueenSideCastlingPrecluded: false,
-    whiteKingSideCastlingPrecluded: false,
-    blackQueenSideCastlingPrecluded: false,
-    blackKingSideCastlingPrecluded: false,
-}
-const allPrecluded: CastlingAnnotations = {
-    whiteQueenSideCastlingPrecluded: true,
-    whiteKingSideCastlingPrecluded: true,
-    blackQueenSideCastlingPrecluded: true,
-    blackKingSideCastlingPrecluded: true,
-}
+const noPreclusions: CastlingPreclusions = new Set()
 
 describe('kingCanMove', () => {
 
@@ -33,12 +21,10 @@ describe('kingCanMove', () => {
         /*  H  */ [WR,WP,__,__,__,__,BP,BR],
         ];
 
-        const boardAnnotations = { ...noPreclusions, ...kingPositions(board) };
-
         const tries = [COORDS.D1, COORDS.D2, COORDS.E2, COORDS.F2, COORDS.F1]
 
         tries.forEach(position => {
-            expect(kingCanMove(board, COORDS.E1, position, boardAnnotations)).toBe(false)
+            expect(kingCanMove(board, COORDS.E1, position, noPreclusions)).toBe(false)
         })
     });
 
@@ -55,8 +41,6 @@ describe('kingCanMove', () => {
         /*  H  */ [__,__,__,__,__,__,__,__], 
         ];
 
-        const boardAnnotations = { ...noPreclusions, ...kingPositions(board) };
-
         const tries = [ 
             COORDS.D3, COORDS.D4, COORDS.D5, 
             COORDS.E3,              COORDS.E5,
@@ -64,7 +48,7 @@ describe('kingCanMove', () => {
         ];
 
         tries.forEach(position => {
-            expect(kingCanMove(board, COORDS.E4, position, boardAnnotations)).toBe(true)
+            expect(kingCanMove(board, COORDS.E4, position, noPreclusions)).toBe(true)
         })
     });    
 
@@ -81,9 +65,7 @@ describe('kingCanMove', () => {
         /*  H  */ [WR,__,__,__,__,__,__,__], 
         ];
 
-        const boardAnnotations = { ...noPreclusions, ...kingPositions(board) };
-
-        expect(kingCanMove(board, COORDS.E1, COORDS.F1, boardAnnotations)).toBe(false);
+        expect(kingCanMove(board, COORDS.E1, COORDS.F1, noPreclusions)).toBe(false);
     });
 
     it('White king can castle, king-side', () => {
@@ -99,9 +81,7 @@ describe('kingCanMove', () => {
         /*  H  */ [WR,WP,__,__,__,__,BP,BR],
         ]; 
 
-        const boardAnnotations = { ...noPreclusions, ...kingPositions(board) };
-    
-        expect(kingCanMove(board, COORDS.E1, COORDS.G1, boardAnnotations)).toBe(true)
+        expect(kingCanMove(board, COORDS.E1, COORDS.G1, noPreclusions)).toBe(true)
     });  
     
     
@@ -118,9 +98,7 @@ describe('kingCanMove', () => {
         /*  H  */ [WR,__,__,__,__,__,__,__], 
         ];
     
-        const boardAnnotations = { ...noPreclusions, ...kingPositions(board) };
-
-        expect(kingCanMove(board, COORDS.E1, COORDS.G1, boardAnnotations)).toBe(false)
+        expect(kingCanMove(board, COORDS.E1, COORDS.G1, noPreclusions)).toBe(false)
     });
 
      
@@ -137,9 +115,7 @@ describe('kingCanMove', () => {
         /*  H  */ [WR,__,__,__,__,__,__,__], 
         ];
 
-        const boardAnnotations = { ...noPreclusions, ...kingPositions(board) };
-
-        expect(kingCanMove(board, COORDS.E1, COORDS.G1, boardAnnotations)).toBe(false)
+        expect(kingCanMove(board, COORDS.E1, COORDS.G1, noPreclusions)).toBe(false)
     });
 
     it('Black king can castle, queen-side', () => {
@@ -155,8 +131,6 @@ describe('kingCanMove', () => {
         /*  H  */ [__,WP,__,__,__,__,BP,BR],
         ]; 
 
-        const boardAnnotations = { ...noPreclusions, ...kingPositions(board) };
-    
-        expect(kingCanMove(board, COORDS.E8, COORDS.C8, boardAnnotations)).toBe(true)
+        expect(kingCanMove(board, COORDS.E8, COORDS.C8, noPreclusions)).toBe(true)
     });  
 })

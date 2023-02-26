@@ -7,14 +7,12 @@ import {
     areSamePositions, 
     displaceTo } from 'positions'
 import movesIntoCheck from 'check/movesIntoCheck';
-import { KingAnnotations } from 'interfaces/KingAnnotations';
 import { Board } from 'types/Board';
 
 function bishopCanMove (
     board: Board, 
     fromPosition: GridCoordinates, 
-    toPosition: GridCoordinates, 
-    boardAnnotations: KingAnnotations)
+    toPosition: GridCoordinates)
     : boolean {
 
     if(!isOnBoard(toPosition))
@@ -50,7 +48,7 @@ function bishopCanMove (
         step = displaceTo(step, moveVector);
     }
 
-    if(movesIntoCheck(board, fromPosition, toPosition, boardAnnotations)){
+    if(movesIntoCheck(board, fromPosition, toPosition)){
         return false;
     }
 

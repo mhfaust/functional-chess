@@ -1,8 +1,5 @@
 import isInCheck from 'check/isInCheck';
-import COORDS from 'positions/coordinates'
 import { BK,BQ,BR,BN,BB,BP,WK,WQ,WR,WN,WB,WP,__ } from 'positions/pieces-shorthand';
-import { locatePiece, positionName } from 'positions';
-import { KingAnnotations } from 'interfaces/KingAnnotations';
 import { Board } from 'types/Board';
 
 describe('isInCheck: true', () => {
@@ -19,9 +16,7 @@ describe('isInCheck: true', () => {
 /*  H  */ [__,__,__,__,__,__,__,__], 
         ];
 
-        const kingPosition = locatePiece(board, 'Black King');
-
-        expect(isInCheck(board, 'Black', kingPosition)).toBe(true)
+        expect(isInCheck(board, 'Black')).toBe(true)
     });
 
     it('rook checks king along a file', () => {
@@ -37,8 +32,6 @@ describe('isInCheck: true', () => {
 /*  H  */ [__,__,__,__,__,__,__,__], 
         ];
 
-        const kingPosition = locatePiece(board, 'Black King');
-
-        expect(isInCheck(board, 'Black', kingPosition)).toBe(true)
+        expect(isInCheck(board, 'Black')).toBe(true)
     });
 })

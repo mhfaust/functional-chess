@@ -10,17 +10,19 @@ import {
 } from 'moves';
 import { pieceAt } from 'positions';
 import { Board } from 'types/Board';
+import enPassantSquare from './enPassantSquare';
+import { Move } from 'game/validateMoves';
 import { PositionName } from 'positions/positionName';
-import COORDS from 'positions/coordinates';
+import { CastlingPreclusions } from 'interfaces/CastlingAnnotations';
 
 //Each of the piece-specific can-move functions has a less-demanding signtaure for 
 //annotations than the combined canMoveTo, so we cury them to match it
-const bishop = (b: Board, t: GridCoordinates, f: GridCoordinates, a: MoveAnnotations) => bishopCanMove(b, t, f, a);
-const knight = (b: Board, t: GridCoordinates, f: GridCoordinates, a: MoveAnnotations) => knightCanMove(b, t, f, a);
-const rook = (b: Board, t: GridCoordinates, f: GridCoordinates, a: MoveAnnotations) => rookCanMove(b, t, f, a);
-const pawn = (b: Board, t: GridCoordinates, f: GridCoordinates, a: MoveAnnotations) => pawnCanMove(b, t, f, a);
-const king = (b: Board, t: GridCoordinates, f: GridCoordinates, a: MoveAnnotations) => kingCanMove(b, t, f, a);
-const queen = (b: Board, t: GridCoordinates, f: GridCoordinates, a: MoveAnnotations) => queenCanMove(b, t, f, a);
+const bishop = (b: Board, f: GridCoordinates, t: GridCoordinates) => bishopCanMove(b, f, t);
+const knight = (b: Board, f: GridCoordinates, t: GridCoordinates) => knightCanMove(b, f, t);
+const rook = (b: Board, f: GridCoordinates, t: GridCoordinates) => rookCanMove(b, f, t);
+const pawn = (b: Board, f: GridCoordinates, t: GridCoordinates, _: unknown, a: PositionName) => pawnCanMove(b, f, t, a);
+const king = (b: Board, f: GridCoordinates, t: GridCoordinates, a: CastlingPreclusions) => kingCanMove(b, f, t, a);
+const queen = (b: Board, f: GridCoordinates, t: GridCoordinates) => queenCanMove(b, f, t);
 
 const strategies: Map<Piece, CanMoveTo> = new Map([
     [ 'Black Bishop', bishop ],
@@ -42,13 +44,16 @@ export type CanMoveTo =
 
 
 function canMoveTo (
-    board: Board, 
+    board: Board,
     from: GridCoordinates, 
     to: GridCoordinates, 
-    annotations: MoveAnnotations): boolean
-     {
-        const strategy = strategies.get(pieceAt(board, from));
-        return strategy(board, from, to, annotations);
+    castlingPreclusions: CastlingPreclusions = null,
+    enPassantSquare: PositionName = null,
+): boolean {
+
+    const strategy = strategies.get(pieceAt(board, from));
+    return strategy(board, from, to, castlingPreclusions, enPassantSquare);
+
 }
 
 export default canMoveTo;

@@ -9,14 +9,7 @@ const x: BoardAnnotations = {
     whoseTurn: 'Black',
     isInCheck: false,
     isCheckmate: false,
-    passedPosition: null, 
-    pawnAt: null,
-    whiteQueenSideCastlingPrecluded: false,
-    whiteKingSideCastlingPrecluded: false,
-    blackQueenSideCastlingPrecluded: false,
-    blackKingSideCastlingPrecluded: false,
-    whiteKingPosition: 'E1',
-    blackKingPosition: 'E8',
+    castlingPreclusions: new Set(['A1']),
     capturedWhitePieces: [],
     capturedBlackPieces: []
 }

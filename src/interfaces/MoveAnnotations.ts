@@ -1,8 +1,6 @@
-import { CastlingAnnotations } from "interfaces/CastlingAnnotations";
-import { EnPassantAnnotations } from "interfaces/EnPassantAnnotations";
-import { KingAnnotations } from "interfaces/KingAnnotations";
+import { CastlingPreclusions } from "interfaces/CastlingAnnotations";
 
 export type MoveAnnotations = 
-    KingAnnotations & 
-    CastlingAnnotations & 
-    EnPassantAnnotations 
+    {
+        castlingPreclusions: CastlingPreclusions,
+    }

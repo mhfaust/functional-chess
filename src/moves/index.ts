@@ -4,7 +4,6 @@ export { default as pawnMoves } from './pawnMoves';
 export { default as queenMoves } from './queenMoves';
 export { default as kingMoves } from './kingMoves';
 export { default as rookMoves } from './rookMoves';
-export { default as possbileMoves } from './possibleMoves';
 
 export { default as bishopCanMove } from './bishopCanMove';
 export { default as kingCanMove } from './kingCanMove';

@@ -1,6 +1,9 @@
-export type CastlingAnnotations = {
-    whiteQueenSideCastlingPrecluded: boolean;
-    whiteKingSideCastlingPrecluded: boolean;
-    blackQueenSideCastlingPrecluded: boolean;
-    blackKingSideCastlingPrecluded: boolean;
-};
+import { PositionName } from "positions/positionName";
+
+export type CastlingPreclusions = Set<
+    |  'A1'// white, queen-side
+    |  'H1'// white, king-side
+    |  'A8'// black, queen-side
+    |  'H8'// black, king-side
+>;
+

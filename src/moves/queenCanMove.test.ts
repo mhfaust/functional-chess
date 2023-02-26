@@ -1,7 +1,6 @@
 import queenCanMove  from 'moves/queenCanMove'
 import { BP,WK,WQ,WR,BK,__ } from 'positions/pieces-shorthand';
 import COORDS from 'positions/coordinates'
-import { kingPositions } from 'board';
 import { Board } from 'types/Board';
 
 describe('queenCanMove', () => {
@@ -18,14 +17,14 @@ describe('queenCanMove', () => {
         ];
 
     it('can move right one', () => {
-        expect(queenCanMove(queen1Board, COORDS.C2, COORDS.C3, kingPositions(queen1Board))).toBe(true)
+        expect(queenCanMove(queen1Board, COORDS.C2, COORDS.C3)).toBe(true)
     });
 
     it('cannot take own piece', () => {
-        expect(queenCanMove(queen1Board, COORDS.C2, COORDS.C4, kingPositions(queen1Board))).toBe(false)
+        expect(queenCanMove(queen1Board, COORDS.C2, COORDS.C4)).toBe(false)
     });
 
     it('can capture opponent piece, diagonally', () => {
-        expect(queenCanMove(queen1Board, COORDS.C2, COORDS.F5, kingPositions(queen1Board))).toBe(true)
+        expect(queenCanMove(queen1Board, COORDS.C2, COORDS.F5)).toBe(true)
     });
 })

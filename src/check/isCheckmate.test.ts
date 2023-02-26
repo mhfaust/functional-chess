@@ -1,7 +1,5 @@
 import isCheckmate from './isCheckmate';
 import { BK,BQ,BR,BN,BB,BP,WK,WQ,WR,WN,WB,WP,__ } from 'positions/pieces-shorthand';
-import { locatePiece, positionName } from 'positions';
-import { KingAnnotations } from 'interfaces/KingAnnotations';
 import { Board } from 'types/Board';
 
 describe('isCheckmate', () => {
@@ -19,12 +17,7 @@ describe('isCheckmate', () => {
 /*  H  */ [__,__,__,__,__,WQ,BP,__],
         ];
 
-        const annotations: KingAnnotations = {
-            blackKingPosition: locatePiece(board, 'Black King'),
-            whiteKingPosition: locatePiece(board, 'White King')
-        };
-
-        expect(isCheckmate(board, 'Black', annotations)).toBe(false)
+        expect(isCheckmate(board, 'Black')).toBe(false)
     });
 
     it('is NOT in checkmate (king can move out of check)', () => {
@@ -40,12 +33,7 @@ describe('isCheckmate', () => {
 /*  H  */ [__,__,__,__,__,__,WB,__],
         ];
 
-        const annotations: KingAnnotations = {
-            blackKingPosition: locatePiece(board, 'Black King'),
-            whiteKingPosition: locatePiece(board, 'White King')
-        };
-
-        expect(isCheckmate(board, 'Black', annotations)).toBe(false)
+        expect(isCheckmate(board, 'Black')).toBe(false)
     });  
 
     it('is NOT in checkmate (king can take attacker)', () => {
@@ -61,12 +49,7 @@ describe('isCheckmate', () => {
 /*  H  */ [__,__,__,__,__,__,WB,__],
         ];
 
-        const annotations: KingAnnotations = {
-            blackKingPosition: locatePiece(board, 'Black King'),
-            whiteKingPosition: locatePiece(board, 'White King')
-        };
-
-        expect(isCheckmate(board, 'Black', annotations)).toBe(false)
+        expect(isCheckmate(board, 'Black')).toBe(false)
     });
 
     it('is in checkmate (1)', () => {
@@ -82,12 +65,7 @@ describe('isCheckmate', () => {
 /*  H  */ [__,__,__,__,__,__,BP,__],
         ];
 
-        const annotations: KingAnnotations = {
-            blackKingPosition: locatePiece(board, 'Black King'),
-            whiteKingPosition: locatePiece(board, 'White King')
-        };
-
-        expect(isCheckmate(board, 'Black', annotations)).toBe(true)
+        expect(isCheckmate(board, 'Black')).toBe(true)
     });
 
     it('is in checkmate (2)', () => {
@@ -103,12 +81,7 @@ describe('isCheckmate', () => {
 /*  H  */ [__,__,__,__,__,__,WQ,__],
         ];
 
-        const annotations: KingAnnotations = {
-            blackKingPosition: locatePiece(board, 'Black King'),
-            whiteKingPosition: locatePiece(board, 'White King')
-        };
-
-        expect(isCheckmate(board, 'Black', annotations)).toBe(true)
+        expect(isCheckmate(board, 'Black')).toBe(true)
     });    
 
     it('is in checkmate (3)', () => {
@@ -124,12 +97,7 @@ describe('isCheckmate', () => {
 /*  H  */ [__,BR,__,WP,__,WQ,BP,__],
         ];
 
-        const annotations: KingAnnotations = {
-            blackKingPosition: locatePiece(board, 'Black King'),
-            whiteKingPosition: locatePiece(board, 'White King')
-        };
-
-        expect(isCheckmate(board, 'White', annotations)).toBe(true)
+        expect(isCheckmate(board, 'White')).toBe(true)
     });  
    
     it('is in checkmate (4) -- double check!', () => {
@@ -145,12 +113,7 @@ describe('isCheckmate', () => {
 /*  H  */ [__,__,__,__,__,__,__,__], 
         ];
 
-        const annotations: KingAnnotations = {
-            blackKingPosition: locatePiece(board, 'Black King'),
-            whiteKingPosition: locatePiece(board, 'White King')
-        };
-
-        expect(isCheckmate(board, 'White', annotations)).toBe(true)
+        expect(isCheckmate(board, 'White')).toBe(true)
     });     
     
     it('is in checkmate (5)', () => {
@@ -166,12 +129,7 @@ describe('isCheckmate', () => {
 /*  H  */ [__,__,__,__,BQ,__,__,__], 
         ];
 
-        const annotations: KingAnnotations = {
-            blackKingPosition: locatePiece(board, 'Black King'),
-            whiteKingPosition: locatePiece(board, 'White King')
-        };
-
-        expect(isCheckmate(board, 'White', annotations)).toBe(true)
+        expect(isCheckmate(board, 'White')).toBe(true)
     }); 
 
     it('is NOT in checkmate (5 - knight removed)', () => {
@@ -187,11 +145,6 @@ describe('isCheckmate', () => {
 /*  H  */ [__,__,__,__,BQ,__,__,__], 
         ];
 
-        const annotations: KingAnnotations = {
-            blackKingPosition: locatePiece(board, 'Black King'),
-            whiteKingPosition: locatePiece(board, 'White King')
-        };
-
-        expect(isCheckmate(board, 'White', annotations)).toBe(false)
+        expect(isCheckmate(board, 'White')).toBe(false)
     });
 })
