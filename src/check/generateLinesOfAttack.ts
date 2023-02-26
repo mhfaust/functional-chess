@@ -18,7 +18,7 @@ import {
 import { BK, BQ, BR, BN, BB, BP, WK, WQ, WR, WN, WB, WP } from 'positions/pieces-shorthand';
 import { PositionName } from 'positions/positionName';
 import { Board } from 'types/Board';
-import { Player } from 'board/player';
+import { Player } from 'types/Player';
 
 import { Piece } from "positions/piece";
 

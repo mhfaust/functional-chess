@@ -1,4 +1,4 @@
-import { Player } from "board/player";
+import { Player } from "types/Player";
 import { Board } from "types/Board";
 import COORDS from "./coordinates";
 import positionName, { PositionName, positionNames } from "./positionName";

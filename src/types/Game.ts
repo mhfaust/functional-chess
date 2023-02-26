@@ -1,7 +1,7 @@
 
 import { Board } from "./Board";
 import { Piece } from "positions/piece";
-import { Player } from "board/player";
+import { Player } from "types/Player";
 import { PositionName } from "positions/positionName";
 import { CastlingPreclusions } from "types/CastlingPreclusions";
 

@@ -11,7 +11,7 @@ import {
     
 import { kingVectors } from 'constants/move-vectors';
 import { Board } from 'types/Board';
-import { Player } from 'board/player';
+import { Player } from 'types/Player';
 import COORDS from 'positions/coordinates';
 import kingPosition from 'positions/kingPosition';
 

@@ -1,7 +1,7 @@
 import playerAt from './playerAt';
 import isUnOccupied from './isUnOccupied';
 import { Board } from 'types/Board';
-import { Player } from 'board/player';
+import { Player } from 'types/Player';
 
 function isOccupiedByPlayer (board: Board, position: GridCoordinates, player: Player): boolean{
     

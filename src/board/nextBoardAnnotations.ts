@@ -3,7 +3,7 @@ import { isInCheck, isCheckmate } from "check";
 import { nextCastlingPreclusions } from "board";
 import { Board } from "types/Board";
 import { Piece } from "positions/piece";
-import { Player } from "board/player";
+import { Player } from "types/Player";
 import { PositionName } from "positions/positionName";
 import COORDS from "positions/coordinates";
 import { BoardAnnotations } from "types/Game";

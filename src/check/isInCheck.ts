@@ -1,5 +1,5 @@
 import { generateLinesOfAttack } from 'check'
-import { Player } from 'board/player';
+import { Player } from 'types/Player';
 import { Board } from 'types/Board';
 import COORDS from 'positions/coordinates';
 import kingPosition from 'positions/kingPosition';

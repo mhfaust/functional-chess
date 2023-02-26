@@ -1,7 +1,7 @@
 import { pieceAt, positionName } from 'positions';
 import { BLACK_PIECES, WHITE_PIECES } from 'constants/pieces';
 import { Board } from 'types/Board';
-import { Player } from 'board/player';
+import { Player } from 'types/Player';
 import { Piece } from 'positions/piece';
 import { PositionName } from 'positions/positionName';
 

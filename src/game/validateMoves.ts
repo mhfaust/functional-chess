@@ -3,7 +3,7 @@ import {
     move, 
     initialBoardAnnotations, 
     nextBoardAnnotations } from "board";
-import { Player } from "board/player";
+import { Player } from "types/Player";
 import { canMoveTo } from "moves";  
 import enPassantSquare from "moves/enPassantSquare";
 import { coordinates, playerAt } from "positions";
