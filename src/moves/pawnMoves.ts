@@ -7,7 +7,6 @@
     otherPlayer, 
     positionName, 
     rank, 
-    areSamePositions, 
     coordinates as COORDS} from 'positions';
 import { isInCheck } from 'check';
 import { move } from 'board';
@@ -42,7 +41,7 @@ function pawn(
         }
     }
     const moveVectors: Array<MoveVector> = [ [-1,forwardDirection], [1,forwardDirection] ];
-    const other = otherPlayer(player)
+    const opponent = otherPlayer(player)
 
     //attack moves
     moveVectors.forEach(vector => {
@@ -52,7 +51,7 @@ function pawn(
         }
         if(
             (
-               isOccupiedByPlayer(board, attackedPosition, other)
+               isOccupiedByPlayer(board, attackedPosition, opponent)
             )
             || (enPassantSquare && positionName(attackedPosition) === positionName(COORDS[enPassantSquare]))
         ){

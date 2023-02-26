@@ -1,8 +1,10 @@
+import positionName from "./positionName";
+
 function areSamePositions  (
     posA: GridCoordinates, 
     posB: GridCoordinates)
     : boolean {
-        return posA[0] === posB[0] && posA[1] === posB[1];
+        return positionName(posA) === positionName(posB)
     } 
 
 export default areSamePositions;

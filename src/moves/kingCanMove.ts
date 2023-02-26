@@ -1,4 +1,4 @@
-import { rank, file, playerAt, areSamePositions, pieceAt } from 'positions';
+import { rank, file, playerAt, pieceAt } from 'positions';
 import movesIntoCheck from 'check/movesIntoCheck';
 import COORDS from 'positions/coordinates'
 import { CastlingPreclusions } from 'types/CastlingPreclusions';
