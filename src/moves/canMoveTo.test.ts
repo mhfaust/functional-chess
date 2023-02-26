@@ -1,6 +1,5 @@
 import { BK,BQ,BR,BN,BB,BP,WK,WQ,WR,WN,WB,WP,__ } from 'positions/pieces-shorthand';
 import canMoveTo from "moves/canMoveTo";
-import { MoveAnnotations } from "interfaces/MoveAnnotations";
 import { Board } from "types/Board";
 import { coordinates } from 'positions';
 

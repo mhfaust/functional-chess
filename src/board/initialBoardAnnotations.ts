@@ -1,4 +1,4 @@
-import { BoardAnnotations } from "interfaces/BoardAnnotations";
+import { BoardAnnotations } from "types/Game";
 
 function initialBoardAnnotations(): BoardAnnotations{
     return{

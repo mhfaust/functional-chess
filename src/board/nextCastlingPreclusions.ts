@@ -1,6 +1,6 @@
 import { areSamePositions } from "positions";
 import COORDS from 'positions/coordinates'
-import { CastlingPreclusions } from "interfaces/CastlingAnnotations";
+import { CastlingPreclusions } from "types/CastlingPreclusions";
 import { PositionName } from "positions/positionName";
 
 const castleAndKingStartsArray = [

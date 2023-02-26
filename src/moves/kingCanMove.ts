@@ -1,7 +1,7 @@
 import { rank, file, playerAt, areSamePositions, pieceAt } from 'positions';
 import movesIntoCheck from 'check/movesIntoCheck';
 import COORDS from 'positions/coordinates'
-import { CastlingPreclusions } from 'interfaces/CastlingAnnotations';
+import { CastlingPreclusions } from 'types/CastlingPreclusions';
 import { Board } from 'types/Board';
 
 

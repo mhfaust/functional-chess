@@ -1,12 +1,12 @@
 import { playerAt, otherPlayer, pieceAt } from "positions";
 import { isInCheck, isCheckmate } from "check";
 import { nextCastlingPreclusions } from "board";
-import { BoardAnnotations } from "interfaces/BoardAnnotations";
 import { Board } from "types/Board";
 import { Piece } from "positions/piece";
 import { Player } from "board/player";
 import { PositionName } from "positions/positionName";
 import COORDS from "positions/coordinates";
+import { BoardAnnotations } from "types/Game";
 
 const makeCapturedPieces = (board: Board, prevCaptures: Array<Piece>, defender: Player, moveTo: PositionName) : Array<Piece> => {
     

@@ -1,5 +1,4 @@
 import { Piece } from 'positions/piece';
-import { MoveAnnotations } from 'interfaces/MoveAnnotations';
 import { 
     bishopCanMove, 
     kingCanMove, 
@@ -13,7 +12,7 @@ import { Board } from 'types/Board';
 import enPassantSquare from './enPassantSquare';
 import { Move } from 'game/validateMoves';
 import { PositionName } from 'positions/positionName';
-import { CastlingPreclusions } from 'interfaces/CastlingAnnotations';
+import { CastlingPreclusions } from 'types/CastlingPreclusions';
 
 //Each of the piece-specific can-move functions has a less-demanding signtaure for 
 //annotations than the combined canMoveTo, so we cury them to match it

@@ -1,4 +1,3 @@
-import { PositionName } from "positions/positionName";
 
 export type CastlingPreclusions = Set<
     |  'A1'// white, queen-side

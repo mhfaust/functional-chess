@@ -1,51 +1,28 @@
-// import { initialBoard, move } from "board";
-// import initialBoardAnnotations from "board/initialBoardAnnotations";
-// import canMoveTo from "moves/canMoveTo";
-// import nextBoardAnnotations from "board/nextBoardAnnotations";
 
-import { Turn } from "interfaces/Turn";
+import { Board } from "./Board";
+import { Piece } from "positions/piece";
+import { Player } from "board/player";
+import { PositionName } from "positions/positionName";
+import { CastlingPreclusions } from "types/CastlingPreclusions";
 
-type Game = Array<Turn>
+export type Turn = {
+  boardAfterMove: Board,
+  annotationsAfterMove: BoardAnnotations
+}
 
-// class Game {
-//     constructor(turns: Array<Turn>)
-//     constructor(moves: Array<[GridCoordinates, GridCoordinates]>)
-//     constructor(arg: Array<[GridCoordinates, GridCoordinates]> | Array<Turn>){
+export type BoardAnnotations = {
+  lastPlayerMoved: Player;
+  lastPieceMoved: Piece;
+  lastMoveFrom: PositionName;
+  lastMoveTo: PositionName;
+  whoseTurn: Player;
+  isInCheck: boolean;
+  isCheckmate: boolean;
+  capturedBlackPieces: Array<Piece>,
+  capturedWhitePieces: Array<Piece>,
+  castlingPreclusions: CastlingPreclusions
+}
 
-//     }
+export type Game = Array<Turn>
 
-//     private _turns: Array<Turn> 
-
-//     get turns(): Array<Turn>{
-//         return [];
-//     }
-
-//     private validateMoves(moves: Array<[GridCoordinates, GridCoordinates]>){
-
-//         let boardStack = [initialBoard()];
-//         let annotationsStack = [initialBoardAnnotations()];
-
-//         for(let move of moves){
-//             const moveFrom: GridCoordinates = move[0];
-//             const moveTo: GridCoordinates = move[1];
-//             const currentBoard = boardStack[boardStack.length - 1];
-//             const currentAnnotations = annotationsStack[annotationsStack.length - 1];
-
-//             if(currentAnnotations.isCheckmate || !canMoveTo(currentBoard, moveFrom, moveTo, currentAnnotations)){
-//                 return false;
-//             }
-
-//             const newBoard = move(currentBoard, moveFrom, moveTo);
-//             boardStack.push(newBoard);
-//             annotationsStack.push(nextBoardAnnotations(currentBoard, newBoard, currentAnnotations, moveFrom, moveTo));
-//         };
-//     }
-
-//     private validateTurns(turns: Array<Turn>){
-
-//     }
-
-// } 
-
-// const g = new Game([])
 

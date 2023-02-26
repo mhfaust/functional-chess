@@ -8,7 +8,7 @@ import {
 import { kingVectors } from 'constants/move-vectors'
 import COORDS from 'positions/coordinates'
 import movesIntoCheck from 'check/movesIntoCheck';
-import { CastlingPreclusions } from 'interfaces/CastlingAnnotations';
+import { CastlingPreclusions } from 'types/CastlingPreclusions';
 import { PositionName } from 'positions/positionName';
 import { Board } from 'types/Board';
 

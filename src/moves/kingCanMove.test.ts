@@ -1,7 +1,7 @@
 import COORDS from 'positions/coordinates'
 import { BK,BQ,BR,BN,BB,BP,WK,WQ,WR,WN,WB,WP,__ } from 'positions/pieces-shorthand';
 import { kingCanMove } from 'moves';
-import { CastlingPreclusions } from 'interfaces/CastlingAnnotations';
+import { CastlingPreclusions } from 'types/CastlingPreclusions';
 import { Board } from 'types/Board';
 
 const noPreclusions: CastlingPreclusions = new Set()
