@@ -9,11 +9,12 @@ import {
     
 import movesIntoCheck from 'check/movesIntoCheck';
 import { Board } from 'types/Board';
+import { PositionName } from 'positions/positionName';
 
 function rookCanMove (
     board: Board, 
-    from: GridCoordinates, 
-    to: GridCoordinates, 
+    from: PositionName, 
+    to: PositionName, 
 ) : boolean {
 
     if(!isOnBoard(to)){
@@ -39,7 +40,7 @@ function rookCanMove (
 
     let step = displaceTo(from, moveVector);
         
-    while(!areSamePositions(step, to)){
+    while(step !== to){
         
         if(isOccupied(board, step)){
             return false;

@@ -1,8 +1,8 @@
-import COORDS from 'positions/coordinates'
 import { BK,BQ,BR,BN,BB,BP,WK,WQ,WR,WN,WB,WP,__ } from 'positions/pieces-shorthand';
 import { kingCanMove } from 'moves';
 import { CastlingPreclusions } from 'types/CastlingPreclusions';
 import { Board } from 'types/Board';
+import { PositionName } from 'positions/positionName';
 
 const noPreclusions: CastlingPreclusions = new Set()
 
@@ -21,10 +21,10 @@ describe('kingCanMove', () => {
         /*  H  */ [WR,WP,__,__,__,__,BP,BR],
         ];
 
-        const tries = [COORDS.D1, COORDS.D2, COORDS.E2, COORDS.F2, COORDS.F1]
+        const tries: PositionName[] = ['D1', 'D2', 'E2', 'F2', 'F1']
 
         tries.forEach(position => {
-            expect(kingCanMove(board, COORDS.E1, position, noPreclusions)).toBe(false)
+            expect(kingCanMove(board, 'E1', position, noPreclusions)).toBe(false)
         })
     });
 
@@ -41,14 +41,14 @@ describe('kingCanMove', () => {
         /*  H  */ [__,__,__,__,__,__,__,__], 
         ];
 
-        const tries = [ 
-            COORDS.D3, COORDS.D4, COORDS.D5, 
-            COORDS.E3,              COORDS.E5,
-            COORDS.F3, COORDS.F4, COORDS.F5
+        const tries: PositionName[] = [ 
+            'D3', 'D4', 'D5', 
+            'E3',       'E5',
+            'F3', 'F4', 'F5'
         ];
 
         tries.forEach(position => {
-            expect(kingCanMove(board, COORDS.E4, position, noPreclusions)).toBe(true)
+            expect(kingCanMove(board, 'E4', position, noPreclusions)).toBe(true)
         })
     });    
 
@@ -65,7 +65,7 @@ describe('kingCanMove', () => {
         /*  H  */ [WR,__,__,__,__,__,__,__], 
         ];
 
-        expect(kingCanMove(board, COORDS.E1, COORDS.F1, noPreclusions)).toBe(false);
+        expect(kingCanMove(board, 'E1', 'F1', noPreclusions)).toBe(false);
     });
 
     it('White king can castle, king-side', () => {
@@ -81,7 +81,7 @@ describe('kingCanMove', () => {
         /*  H  */ [WR,WP,__,__,__,__,BP,BR],
         ]; 
 
-        expect(kingCanMove(board, COORDS.E1, COORDS.G1, noPreclusions)).toBe(true)
+        expect(kingCanMove(board, 'E1', 'G1', noPreclusions)).toBe(true)
     });  
     
     
@@ -98,7 +98,7 @@ describe('kingCanMove', () => {
         /*  H  */ [WR,__,__,__,__,__,__,__], 
         ];
     
-        expect(kingCanMove(board, COORDS.E1, COORDS.G1, noPreclusions)).toBe(false)
+        expect(kingCanMove(board, 'E1', 'G1', noPreclusions)).toBe(false)
     });
 
      
@@ -115,7 +115,7 @@ describe('kingCanMove', () => {
         /*  H  */ [WR,__,__,__,__,__,__,__], 
         ];
 
-        expect(kingCanMove(board, COORDS.E1, COORDS.G1, noPreclusions)).toBe(false)
+        expect(kingCanMove(board, 'E1', 'G1', noPreclusions)).toBe(false)
     });
 
     it('Black king can castle, queen-side', () => {
@@ -131,6 +131,6 @@ describe('kingCanMove', () => {
         /*  H  */ [__,WP,__,__,__,__,BP,BR],
         ]; 
 
-        expect(kingCanMove(board, COORDS.E8, COORDS.C8, noPreclusions)).toBe(true)
+        expect(kingCanMove(board, 'E8', 'C8', noPreclusions)).toBe(true)
     });  
 })

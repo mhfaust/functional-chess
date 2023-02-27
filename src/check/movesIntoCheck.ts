@@ -1,12 +1,13 @@
 import { move } from "board";
 import { isInCheck } from "check";
 import { playerAt } from "positions";
+import { PositionName } from "positions/positionName";
 import { Board } from "types/Board";
 
 function movesIntoCheck(
     board: Board, 
-    moveFrom: GridCoordinates, 
-    moveTo: GridCoordinates)
+    moveFrom: PositionName, 
+    moveTo: PositionName)
     : boolean {
    
     const player = playerAt(board, moveFrom);

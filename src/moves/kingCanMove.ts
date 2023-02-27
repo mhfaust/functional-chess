@@ -1,14 +1,14 @@
 import { rank, file, playerAt, pieceAt } from 'positions';
 import movesIntoCheck from 'check/movesIntoCheck';
-import COORDS from 'positions/coordinates'
 import { CastlingPreclusions } from 'types/CastlingPreclusions';
 import { Board } from 'types/Board';
+import { PositionName } from 'positions/positionName';
 
 
 function kingCanMove (
     board: Board, 
-    from: GridCoordinates, 
-    to: GridCoordinates, 
+    from: PositionName, 
+    to: PositionName, 
     castlingPreclusions: CastlingPreclusions
 ) {
 
@@ -23,39 +23,39 @@ function kingCanMove (
         return true;
     }
 
-    if(from === COORDS.E1 && player === 'White'){
-        if(to === COORDS.G1){
+    if(from === 'E1' && player === 'White'){
+        if(to === 'G1'){
             return !castlingPreclusions.has('H1') 
-                && pieceAt(board, COORDS.F1) === null 
-                && pieceAt(board, COORDS.G1) === null
-                && !movesIntoCheck(board, COORDS.E1, COORDS.F1)//across check
-                && !movesIntoCheck(board, COORDS.E1, COORDS.G1)//into check
+                && pieceAt(board, 'F1') === null 
+                && pieceAt(board, 'G1') === null
+                && !movesIntoCheck(board, 'E1', 'F1')//across check
+                && !movesIntoCheck(board, 'E1', 'G1')//into check
         }
-        if(to === COORDS.C1){
+        if(to === 'C1'){
             return !castlingPreclusions.has('A1') 
-                && pieceAt(board, COORDS.B1) === null 
-                && pieceAt(board, COORDS.C1) === null
-                && pieceAt(board, COORDS.D1) === null
-                && !movesIntoCheck(board, COORDS.E1, COORDS.D1)//across check
-                && !movesIntoCheck(board, COORDS.E1, COORDS.C1)//into check
+                && pieceAt(board, 'B1') === null 
+                && pieceAt(board, 'C1') === null
+                && pieceAt(board, 'D1') === null
+                && !movesIntoCheck(board, 'E1', 'D1')//across check
+                && !movesIntoCheck(board, 'E1', 'C1')//into check
         }
         return false;
     }
-    if(from === COORDS.E8 && player === 'Black'){
-        if(to === COORDS.G8){
+    if(from === 'E8' && player === 'Black'){
+        if(to === 'G8'){
             return !castlingPreclusions.has('H8') 
-                && pieceAt(board, COORDS.F8) === null
-                && pieceAt(board, COORDS.G8) === null
-                && !movesIntoCheck(board, COORDS.E8, COORDS.F8)//across check
-                && !movesIntoCheck(board, COORDS.E8, COORDS.G8)//into check
+                && pieceAt(board, 'F8') === null
+                && pieceAt(board, 'G8') === null
+                && !movesIntoCheck(board, 'E8', 'F8')//across check
+                && !movesIntoCheck(board, 'E8', 'G8')//into check
         }
-        if(to === COORDS.C8){
+        if(to === 'C8'){
             return !castlingPreclusions.has('A8') 
-                && pieceAt(board, COORDS.B8) === null
-                && pieceAt(board, COORDS.C8) === null
-                && pieceAt(board, COORDS.D8) === null
-                && !movesIntoCheck(board, COORDS.E8, COORDS.D8)//across check
-                && !movesIntoCheck(board, COORDS.E8, COORDS.C8)//into check
+                && pieceAt(board, 'B8') === null
+                && pieceAt(board, 'C8') === null
+                && pieceAt(board, 'D8') === null
+                && !movesIntoCheck(board, 'E8', 'D8')//across check
+                && !movesIntoCheck(board, 'E8', 'C8')//into check
         }
         return false;        
     }

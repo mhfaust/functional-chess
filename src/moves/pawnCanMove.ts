@@ -13,8 +13,8 @@ import { PositionName } from 'positions/positionName';
 
 function pawnCanMove (
         board: Board, 
-        from: GridCoordinates, 
-        to: GridCoordinates, 
+        from: PositionName, 
+        to: PositionName, 
         enPassantSquare: PositionName | null)
     : boolean {
 
@@ -40,7 +40,8 @@ function pawnCanMove (
                 return false;
             }
             //cannot jump over any piece
-            if(isOccupied(board, [file(from), rank(from) + forwardDirection])){
+            const jumpedCoords = [file(from), rank(from) + forwardDirection];
+            if(isOccupied(board, positionName(jumpedCoords))){
                 return false;
             }
         }
@@ -51,7 +52,7 @@ function pawnCanMove (
         if(stepsForward !== 1){
             return false;
         }
-        if(isUnOccupied(board, to) && (enPassantSquare !== positionName(to))){
+        if(isUnOccupied(board, to) && (enPassantSquare !== to)){
             return false;
         }
         if(isOccupiedByPlayer(board, to, player)){

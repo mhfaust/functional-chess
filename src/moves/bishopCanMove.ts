@@ -4,15 +4,15 @@ import {
     isOnBoard, 
     playerAt, 
     isOccupied, 
-    areSamePositions, 
     displaceTo } from 'positions'
 import movesIntoCheck from 'check/movesIntoCheck';
 import { Board } from 'types/Board';
+import { PositionName } from 'positions/positionName';
 
 function bishopCanMove (
     board: Board, 
-    fromPosition: GridCoordinates, 
-    toPosition: GridCoordinates)
+    fromPosition: PositionName, 
+    toPosition: PositionName)
     : boolean {
 
     if(!isOnBoard(toPosition))
@@ -41,7 +41,7 @@ function bishopCanMove (
     let step = displaceTo(fromPosition, moveVector);
 
     //and keep checking until we run into a piece or the move-to position:
-    while(!areSamePositions(step, toPosition) ){
+    while(step !== toPosition){
         if(isOccupied(board, step)){
             return false;
         }

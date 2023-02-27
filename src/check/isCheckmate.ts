@@ -6,13 +6,13 @@ import {
     displaceTo, 
     otherPlayer, 
     playerAt, 
-    isOnBoard 
+    isOnBoard, 
+    positionName
 } from 'positions';
     
 import { kingVectors } from 'constants/move-vectors';
 import { Board } from 'types/Board';
 import { Player } from 'types/Player';
-import COORDS from 'positions/coordinates';
 import kingPosition from 'positions/kingPosition';
 
 const cache = new Map<Player, Map<Board, boolean>>()
@@ -34,17 +34,17 @@ function isCheckmate(
     //is there any way to get out of check by moving the king?
     for(let i = 0; i < kingVectors.length; i++){
         const vector: MoveVector = kingVectors[i];
-        const kingMovesTo = displaceTo(COORDS[kingPos], vector);
+        const kingMovesTo = displaceTo(kingPos, vector);
 
         if(isOnBoard(kingMovesTo) && playerAt(board, kingMovesTo) !== defender){
-            if( !movesIntoCheck(board, COORDS[kingPos], kingMovesTo)){
+            if( !movesIntoCheck(board, kingPos, kingMovesTo)){
                 playerCache.set(board, false);
                 return false;
             } 
         }   
     }
 
-    const attackLines = generateLinesOfAttack(board, defender, COORDS[kingPos]);
+    const attackLines = generateLinesOfAttack(board, defender, kingPos);
     const checkLine = attackLines.next();
     if(checkLine.value === null){
         //Not checkmate if they're not in check!
@@ -72,7 +72,7 @@ function isCheckmate(
     //important because the blocking piece may have been pinned.
 
     for(let positionOnCheckLine of checkLine.value){
-        const defensiveMoves = generateLinesOfAttack(board, attacker, positionOnCheckLine);
+        const defensiveMoves = generateLinesOfAttack(board, attacker, positionName(positionOnCheckLine));
         //find any defensive moves onto this particular intervening grid-square,
         //this could either capture the checking piece or block it:
         let defensiveMoveInfo: IteratorResult<Array<GridCoordinates>> = defensiveMoves.next();
@@ -82,9 +82,9 @@ function isCheckmate(
             //ending at a defender's piece...:
             const defensiveMove: Array<GridCoordinates> = defensiveMoveInfo.value;
             //...so to get the moved piece's position, get the last coordinates from the "line-of-attck"
-            const defendingPieceMovesFrom: GridCoordinates = defensiveMove[defensiveMove.length -1];
+            const defendingPieceMovesFrom = positionName(defensiveMove[defensiveMove.length -1]);
             
-            if(!movesIntoCheck(board, defendingPieceMovesFrom, positionOnCheckLine)){
+            if(!movesIntoCheck(board, defendingPieceMovesFrom, positionName(positionOnCheckLine))){
                 playerCache.set(board, false);
                 return false;
             }

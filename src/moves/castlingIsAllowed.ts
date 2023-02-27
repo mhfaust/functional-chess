@@ -1,5 +1,4 @@
 import { pieceAt } from "positions";
-import COORDS from "positions/coordinates";
 import { Board } from "types/Board";
 
 type CastlePosition =
@@ -9,10 +8,10 @@ type CastlePosition =
 |  'H8'// black, king-side
 
 const allowedFn: Record<CastlePosition, (board: Board) => boolean> = {
-  'A1': (board: Board) => pieceAt(board, COORDS.A1) === "White Rook" && pieceAt(board, COORDS.E1) === "White King",
-  'H1': (board: Board) => pieceAt(board, COORDS.H1) !== "White Rook" && pieceAt(board, COORDS.E1) === "White King",
-  'A8': (board: Board) => pieceAt(board, COORDS.A8) !== "Black Rook" && pieceAt(board, COORDS.E8) === "Black King",
-  'H8': (board: Board) => pieceAt(board, COORDS.H8) !== "Black Rook" && pieceAt(board, COORDS.E8) === "Black King",
+  'A1': (board: Board) => pieceAt(board, 'A1') === "White Rook" && pieceAt(board, 'E1') === "White King",
+  'H1': (board: Board) => pieceAt(board, 'H1') !== "White Rook" && pieceAt(board, 'E1') === "White King",
+  'A8': (board: Board) => pieceAt(board, 'A8') !== "Black Rook" && pieceAt(board, 'E8') === "Black King",
+  'H8': (board: Board) => pieceAt(board, 'H8') !== "Black Rook" && pieceAt(board, 'E8') === "Black King",
 }
 
 
@@ -36,7 +35,7 @@ const castlingIsAllowed = (boardSequence: Board[], castlePosition: CastlePositio
   const isWhite = castlePosition === 'A1' || castlePosition === 'H1' ;
   const kingPiece = isWhite
     ? "White King" : "Black King";
-  const kingPosition = isWhite ? COORDS.A5 : COORDS.H5;
+  const kingPosition = isWhite ? 'A5' : 'H5';
   
   let isAllowed = true;
   for(let board of boardSequence){

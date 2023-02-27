@@ -1,6 +1,4 @@
-import { Move } from "game/validateMoves";
 import { pieceAt, rank } from "positions"
-import COORDS from "positions/coordinates"
 import positionName, { PositionName } from "positions/positionName"
 import { Board } from "types/Board";
 
@@ -19,24 +17,22 @@ const enPassantSquare = (
     return cache.get(currentBoard);
   }
 
-  const piece = pieceAt(currentBoard, COORDS[lastMovedTo]) ;
-  const fromCoords = COORDS[lastMovedFrom];
-  const toCoords = COORDS[lastMovedTo];
+  const piece = pieceAt(currentBoard, lastMovedTo) ;
 
   if (piece === 'Black Pawn' 
-    && rank(fromCoords) === blackPawnStartRank 
-    && rank(toCoords) === blackPawnStartRank - 2
+    && rank(lastMovedFrom) === blackPawnStartRank 
+    && rank(lastMovedTo) === blackPawnStartRank - 2
   ) {
-    const position = positionName([rank(fromCoords), blackPawnStartRank - 1])
+    const position = positionName([rank(lastMovedFrom), blackPawnStartRank - 1])
     cache.set(currentBoard, position)
     return position;
   }
 
   else if (piece === 'White Pawn'
-    && rank(fromCoords) === whitePawnStartRank 
-    && rank(toCoords) === whitePawnStartRank + 2
+    && rank(lastMovedFrom) === whitePawnStartRank 
+    && rank(lastMovedTo) === whitePawnStartRank + 2
   ){
-    const position = positionName([rank(fromCoords), whitePawnStartRank + 1]);
+    const position = positionName([rank(lastMovedFrom), whitePawnStartRank + 1]);
     cache.set(currentBoard, position);
   }
 };

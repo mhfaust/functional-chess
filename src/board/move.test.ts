@@ -1,5 +1,4 @@
 import move from 'board/move';
-import COORDS from 'positions/coordinates';
 import { BK,BQ,BR,BN,BB,BP,WK,WQ,WR,WN,WB,WP,__ } from 'positions/pieces-shorthand';
 import { Board } from 'types/Board';
 
@@ -30,6 +29,6 @@ describe('move', () => {
 /*  H  */ [__,__,__,__,__,__,BP,BK],
         ];        
 
-        expect(move(boardBefore, COORDS.G8, COORDS.H8)).toEqual(boardAfter)
+        expect(move(boardBefore, 'G8', 'H8')).toEqual(boardAfter)
     })
 })

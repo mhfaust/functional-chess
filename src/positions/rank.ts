@@ -1,6 +1,9 @@
-function rank (position: GridCoordinates): number {
+import COORDS from "./coordinates";
+import { PositionName } from "./positionName";
+
+function rank (position: PositionName): number {
     
-    return position[1];
+    return COORDS[position][1];
 }
 
 export default rank;

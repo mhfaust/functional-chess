@@ -26,8 +26,8 @@ const grid: PositionName[][] = [
     ['H1','H2','H3','H4','H5','H6','H7','H8',],
 ]
 
-function positionName (position: GridCoordinates): PositionName {
-    return grid[file(position)][rank(position)];
+function positionName (position: GridCoordinates): PositionName | null {
+    return grid[position[0]]?.[position[1]] ?? null;
 }
 
 export default positionName

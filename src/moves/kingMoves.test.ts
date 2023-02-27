@@ -1,5 +1,4 @@
 
-import COORDS from 'positions/coordinates'
 import { BK,BQ,BR,BN,BB,BP,WK,WQ,WR,WN,WB,WP,__ } from 'positions/pieces-shorthand';
 import { kingMoves } from 'moves';
 import { Board } from 'types/Board';
@@ -20,7 +19,7 @@ describe('kingMoves', () => {
         ];
         const expectedLegalMoves = new Set([]);
 
-        const foundLegalMoves = kingMoves(board, COORDS.E1, new Set());
+        const foundLegalMoves = kingMoves(board, 'E1', new Set());
 
         expect(foundLegalMoves).toEqual(expectedLegalMoves);
     });
@@ -39,7 +38,7 @@ describe('kingMoves', () => {
         ];
         const expectedLegalMoves = new Set(['C6','C7','C8','D6','D8','E6','E7','E8']);
 
-        const foundLegalMoves = kingMoves(board, COORDS.D7, new Set(['A1', 'H1', 'A8', 'H8']));
+        const foundLegalMoves = kingMoves(board, 'D7', new Set(['A1', 'H1', 'A8', 'H8']));
 
         expect(foundLegalMoves).toEqual(expectedLegalMoves)
     });
@@ -57,7 +56,7 @@ describe('kingMoves', () => {
         /*  H  */ [WR,__,__,__,__,__,__,BR], 
         ];
 
-        const foundLegalMoves = kingMoves(board, COORDS.E1, new Set());
+        const foundLegalMoves = kingMoves(board, 'E1', new Set());
 
         expect(foundLegalMoves).toEqual(new Set([]));
     });
@@ -78,14 +77,14 @@ describe('kingMoves', () => {
 
         it('White king can castle if not precluded', () => {
     
-            const foundLegalMoves = kingMoves(board, COORDS.E1, new Set());
+            const foundLegalMoves = kingMoves(board, 'E1', new Set());
     
             expect(foundLegalMoves).toContain('G1')
         });  
     
         it('White king cannot castle if precluded', () => {
 
-            const foundLegalMoves = kingMoves(board, COORDS.E1, new Set(['H1']));
+            const foundLegalMoves = kingMoves(board, 'E1', new Set(['H1']));
     
             expect(foundLegalMoves).not.toContain('G1')
         });  
@@ -106,7 +105,7 @@ describe('kingMoves', () => {
         /*  H  */ [WR,__,__,__,__,__,__,__], 
         ];
     
-        const foundLegalMoves = kingMoves(board, COORDS.E1, new Set(['A8', 'H8']));
+        const foundLegalMoves = kingMoves(board, 'E1', new Set(['A8', 'H8']));
 
         expect(foundLegalMoves).not.toContain('G1')
     });
@@ -125,7 +124,7 @@ describe('kingMoves', () => {
         /*  H  */ [WR,__,__,__,__,__,__,__], 
         ];
 
-        const foundLegalMoves = kingMoves(board, COORDS.E1, new Set(['A8', 'H8']));
+        const foundLegalMoves = kingMoves(board, 'E1', new Set(['A8', 'H8']));
 
         expect(foundLegalMoves).not.toContain('G1')
     });
@@ -143,7 +142,7 @@ describe('kingMoves', () => {
         /*  H  */ [WR,__,__,__,__,__,__,BR], 
         ];
 
-        const foundLegalMoves = kingMoves(board, COORDS.E1, new Set());
+        const foundLegalMoves = kingMoves(board, 'E1', new Set());
 
         expect(foundLegalMoves).not.toContain('C1')
     });
@@ -161,7 +160,7 @@ describe('kingMoves', () => {
         /*  H  */ [__,WP,__,__,__,__,BP,BR],
         ]; 
 
-        const foundLegalMoves = kingMoves(board, COORDS.E8, new Set());
+        const foundLegalMoves = kingMoves(board, 'E8', new Set());
 
         expect(foundLegalMoves).toContain('C8')
     });  

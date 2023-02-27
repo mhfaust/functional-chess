@@ -5,7 +5,7 @@ import {
     isUnOccupied, 
     isOccupiedByPlayer, 
     otherPlayer, 
-    positionName } from 'positions';
+} from 'positions';
 
 import { bishopVectors } from 'constants/move-vectors'
 import { movesIntoCheck } from 'check';
@@ -14,11 +14,11 @@ import { Board } from 'types/Board';
 
 function bishop(
     board: Board, 
-    moveFrom: GridCoordinates
+    moveFrom: PositionName
 ): Set<PositionName> {
 
     const player = playerAt(board, moveFrom);
-    const legalMoves: Array<GridCoordinates> = [];
+    const legalMoves: Array<PositionName> = [];
 
     bishopVectors.forEach((vector: MoveVector): void => {
 
@@ -35,7 +35,6 @@ function bishop(
 
     return new Set(legalMoves
         .filter(moveTo => !movesIntoCheck(board, moveFrom, moveTo))
-        .map(positionName)
     );
 }
 

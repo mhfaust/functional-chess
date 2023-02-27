@@ -16,14 +16,14 @@ import { CastlingPreclusions } from 'types/CastlingPreclusions';
 
 //Each of the piece-specific can-move functions has a less-demanding signtaure for 
 //annotations than the combined canMoveTo, so we cury them to match it
-const bishop = (b: Board, f: GridCoordinates, t: GridCoordinates) => bishopCanMove(b, f, t);
-const knight = (b: Board, f: GridCoordinates, t: GridCoordinates) => knightCanMove(b, f, t);
-const rook = (b: Board, f: GridCoordinates, t: GridCoordinates) => rookCanMove(b, f, t);
-const pawn = (b: Board, f: GridCoordinates, t: GridCoordinates, _: unknown, a: PositionName) => pawnCanMove(b, f, t, a);
-const king = (b: Board, f: GridCoordinates, t: GridCoordinates, a: CastlingPreclusions) => kingCanMove(b, f, t, a);
-const queen = (b: Board, f: GridCoordinates, t: GridCoordinates) => queenCanMove(b, f, t);
+const bishop = (b: Board, f: PositionName, t: PositionName) => bishopCanMove(b, f, t);
+const knight = (b: Board, f: PositionName, t: PositionName) => knightCanMove(b, f, t);
+const rook = (b: Board, f: PositionName, t: PositionName) => rookCanMove(b, f, t);
+const pawn = (b: Board, f: PositionName, t: PositionName, _: unknown, a: PositionName) => pawnCanMove(b, f, t, a);
+const king = (b: Board, f: PositionName, t: PositionName, a: CastlingPreclusions) => kingCanMove(b, f, t, a);
+const queen = (b: Board, f: PositionName, t: PositionName) => queenCanMove(b, f, t);
 
-const strategies: Map<Piece, CanMoveTo> = new Map([
+const strategies = new Map([
     [ 'Black Bishop', bishop ],
     [ 'White Bishop', bishop ],
     [ 'Black Knight', knight ],
@@ -44,8 +44,8 @@ export type CanMoveTo =
 
 function canMoveTo (
     board: Board,
-    from: GridCoordinates, 
-    to: GridCoordinates, 
+    from: PositionName, 
+    to: PositionName, 
     castlingPreclusions: CastlingPreclusions = null,
     enPassantSquare: PositionName = null,
 ): boolean {

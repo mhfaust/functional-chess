@@ -4,7 +4,7 @@ import { Board } from 'types/Board';
 
 function queen(
     board: Board, 
-    moveFrom: GridCoordinates, 
+    moveFrom: PositionName, 
 ): Set<PositionName>{
     return new Set([
         ...rookMoves(board, moveFrom), 

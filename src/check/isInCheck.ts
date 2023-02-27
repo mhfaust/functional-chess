@@ -1,7 +1,6 @@
 import { generateLinesOfAttack } from 'check'
 import { Player } from 'types/Player';
 import { Board } from 'types/Board';
-import COORDS from 'positions/coordinates';
 import kingPosition from 'positions/kingPosition';
 
 const cache = new Map<Player, Map<Board, boolean>>()
@@ -18,7 +17,7 @@ function isInCheck(
         return playerCache.get(board);
     }
 
-    const attackLines = generateLinesOfAttack(board, player, COORDS[kingPosition(board, player)]);
+    const attackLines = generateLinesOfAttack(board, player, kingPosition(board, player));
     const checkLine = attackLines.next()
     const isInCheck = checkLine.value !== null;
     playerCache.set(board, isInCheck);

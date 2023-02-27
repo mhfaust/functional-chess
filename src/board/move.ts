@@ -1,19 +1,19 @@
-import { file, rank, pieceAt, positionName } from 'positions';
-import { emptyBoard } from 'board';
+import { file, rank, pieceAt } from 'positions';
 import { Board } from 'types/Board';
+import { PositionName } from 'positions/positionName';
 
 const cache = new Map<Board, Map<string, Board>>();
 
 /** Does not validate the move (to may be occupied, may be in check, etc.) */
 function move (
     previousBoard: Board, 
-    from: GridCoordinates, 
-    to: GridCoordinates
+    from: PositionName, 
+    to: PositionName
 ) : Board {
 
     const boardCache = cache.get(previousBoard) ?? cache.set(previousBoard, new Map()).get(previousBoard);
 
-    const moveHash = positionName(from) + positionName(to);
+    const moveHash = from + to;
     if(boardCache.get(moveHash)){
         return boardCache.get(moveHash);
     }

@@ -1,6 +1,5 @@
 import knightCanMove from 'moves/knightCanMove'
 import { initialBoard } from 'board'
-import COORDS from 'positions/coordinates'
 import { __, WK, WN, BK, BQ } from 'positions/pieces-shorthand';
 import { Board } from 'types/Board';
 
@@ -9,34 +8,28 @@ describe('knightCanMove', () => {
 
     it('reports true attempting to move to empty square, 2 forward, 1 left.', () => {
 
-        const answer = knightCanMove(initialBoard(), COORDS.B1, COORDS.A3)
+        const answer = knightCanMove(initialBoard(), 'B1', 'A3')
         expect(answer).toBe(true);
     });
 
     it('reports true attempting to move to empty square, 2 forward, 1 right.', () => {
        
 
-        const answer = knightCanMove(initialBoard(), COORDS.B1, COORDS.C3)
+        const answer = knightCanMove(initialBoard(), 'B1', 'C3')
         expect(answer).toBe(true);
     });
 
     it('reports false attempting to move to square occupied by own players piece.', () => {
         
-        const answer = knightCanMove(initialBoard(), COORDS.B1, COORDS.C2)
+        const answer = knightCanMove(initialBoard(), 'B1', 'C2')
         expect(answer).toBe(false);
     });
 
     it('reports false attempting to move to mechanically disallowed square', () => {
 
-        const answer = knightCanMove(initialBoard(), COORDS.B1, COORDS.B4)
+        const answer = knightCanMove(initialBoard(), 'B1', 'B4')
         expect(answer).toBe(false);
     });
-
-    it('reports false attempting to move off-board', () => {
-
-        const answer = knightCanMove(initialBoard(), COORDS.B1, [-1,1])
-        expect(answer).toBe(false);
-    })
 
     it('cannot move pinned knight',() =>{
         const board: Board = [
@@ -51,7 +44,7 @@ describe('knightCanMove', () => {
             /*  H  */ [__,__,__,__,__,__,__,__], 
         ];
 
-        const answer = knightCanMove(board, COORDS.E4, COORDS.C3)
+        const answer = knightCanMove(board, 'E4', 'C3')
         expect(answer).toBe(false);
 
     })

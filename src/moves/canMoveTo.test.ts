@@ -1,7 +1,6 @@
 import { BK,BQ,BR,BN,BB,BP,WK,WQ,WR,WN,WB,WP,__ } from 'positions/pieces-shorthand';
 import canMoveTo from "moves/canMoveTo";
 import { Board } from "types/Board";
-import { coordinates } from 'positions';
 
 describe('canMoveTo (Bishop)', () => {
     
@@ -18,8 +17,8 @@ describe('canMoveTo (Bishop)', () => {
         /*  H  */ [__,__,__,__,__,__,__,BR],
         ];
 
-        expect(canMoveTo(board, coordinates.D4, coordinates.C3, new Set(), null)).toBe(true);  
-        expect(canMoveTo(board, coordinates.D4, coordinates.C5, new Set(), null)).toBe(false);  
+        expect(canMoveTo(board, 'D4', 'C3', new Set(), null)).toBe(true);  
+        expect(canMoveTo(board, 'D4', 'C5', new Set(), null)).toBe(false);  
     });
 });
 
@@ -38,7 +37,7 @@ describe('canMoveTo (King)', () => {
         /*  H  */ [WR,__,__,__,__,__,__,__], 
         ];
 
-        expect(canMoveTo(board, coordinates.E1, coordinates.G1, new Set(['H8', 'A8']))).toBe(false)
+        expect(canMoveTo(board, 'E1', 'G1', new Set(['H8', 'A8']))).toBe(false)
     
 });
 
@@ -64,7 +63,7 @@ describe('canMoveTo (Pawn)', () => {
             /*  H  */ [WR,__,__,__,WP,__,BP,BR],
         ];
         
-        const answer = canMoveTo(board, coordinates.D4, coordinates.E3, new Set(), 'E3');
+        const answer = canMoveTo(board, 'D4', 'E3', new Set(), 'E3');
         expect(answer).toBe(true);
     });
 });
@@ -84,7 +83,7 @@ describe('canMoveTo (Queen)', () => {
         ];
 
         it('can capture opponent piece, diagonally', () => {
-            expect(canMoveTo(board, coordinates.C2, coordinates.F5, new Set(), null)).toBe(true)
+            expect(canMoveTo(board, 'C2', 'F5', new Set(), null)).toBe(true)
         });
     
 });

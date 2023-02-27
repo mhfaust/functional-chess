@@ -1,6 +1,5 @@
 import pawnCanMove from 'moves/pawnCanMove'
 import { BK,BQ,BR,BN,BB,BP,WK,WQ,WR,WN,WB,WP,__ } from 'positions/pieces-shorthand';
-import COORDS from 'positions/coordinates'
 import { Board } from 'types/Board';
 
 describe('pawnCanMove', () => {
@@ -20,55 +19,55 @@ describe('pawnCanMove', () => {
     describe('white', () => {
         it('can move one space forward when NOT blocked', () => {
 
-            const answer = pawnCanMove(board, COORDS.C3, COORDS.C4, null);
+            const answer = pawnCanMove(board, 'C3', 'C4', null);
             expect(answer).toBe(true);
         });
     
         it('cannot move one space forward when IS blocked', () => {
 
-            const answer = pawnCanMove(board, COORDS.H4, COORDS.H5, null);
+            const answer = pawnCanMove(board, 'H4', 'H5', null);
             expect(answer).toBe(false);
         });
     
         it('can capture forward right', () => {
 
-            const answer = pawnCanMove(board, COORDS.D4, COORDS.E5, null);
+            const answer = pawnCanMove(board, 'D4', 'E5', null);
             expect(answer).toBe(true);
         });
     
         it('can capture forward left', () => {
 
-            const answer = pawnCanMove(board, COORDS.C3, COORDS.B4, null);
+            const answer = pawnCanMove(board, 'C3', 'B4', null);
             expect(answer).toBe(true);
         });
 
         it('cannot move foward left to empty square', () => {
 
-            const answer = pawnCanMove(board, COORDS.G2, COORDS.F3, null);
+            const answer = pawnCanMove(board, 'G2', 'F3', null);
             expect(answer).toBe(false);
         })
 
         it('can move foward left to empty square if it is the en passant square', () => {
 
-            const answer = pawnCanMove(board, COORDS.G2, COORDS.F3, 'F3');
+            const answer = pawnCanMove(board, 'G2', 'F3', 'F3');
             expect(answer).toBe(true);
         })
 
         it('cannot move foward right to empty square', () => {
 
-            const answer = pawnCanMove(board, COORDS.E2, COORDS.F3, null);
+            const answer = pawnCanMove(board, 'E2', 'F3', null);
             expect(answer).toBe(false);
         })
 
         it('cannot move backward', () => {
 
-            const answer = pawnCanMove(board, COORDS.G5, COORDS.H5, null);
+            const answer = pawnCanMove(board, 'G5', 'H5', null);
             expect(answer).toBe(false);
         });
 
         it('cannot move sideways', () => {
 
-            const answer = pawnCanMove(board, COORDS.H4, COORDS.G4, null);
+            const answer = pawnCanMove(board, 'H4', 'G4', null);
             expect(answer).toBe(false);
         })
     });
@@ -89,37 +88,37 @@ describe('pawnCanMove', () => {
 
         it('can move one space forward when NOT blocked', () => {
 
-            const answer = pawnCanMove(board, COORDS.E5, COORDS.E4, null);
+            const answer = pawnCanMove(board, 'E5', 'E4', null);
             expect(answer).toBe(true);
         });
     
         it('can move one space forward when IS blocked', () => {
 
-            const answer = pawnCanMove(board, COORDS.D5, COORDS.D4, null);
+            const answer = pawnCanMove(board, 'D5', 'D4', null);
             expect(answer).toBe(false);
         });
     
         it('can capture forward right', () => {
 
-            const answer = pawnCanMove(board, COORDS.E5, COORDS.D4, null);
+            const answer = pawnCanMove(board, 'E5', 'D4', null);
             expect(answer).toBe(true);
         });
     
         it('can capture forward left', () => {
 
-            const answer = pawnCanMove(board, COORDS.G5, COORDS.H4, null);
+            const answer = pawnCanMove(board, 'G5', 'H4', null);
             expect(answer).toBe(true);
         });
 
         it('cannot move backward', () => {
 
-            const answer = pawnCanMove(board, COORDS.B4, COORDS.B5, null);
+            const answer = pawnCanMove(board, 'B4', 'B5', null);
             expect(answer).toBe(false);
         });
 
         it('cannot move sideways', () => {
 
-            const answer = pawnCanMove(board, COORDS.H4, COORDS.G4, null);
+            const answer = pawnCanMove(board, 'H4', 'G4', null);
             expect(answer).toBe(false);
         })
     });
@@ -139,25 +138,25 @@ describe('pawnCanMove', () => {
 
         it('black pawn can attack a square passed by a white pawn moving from rank 2 to 4', () => {
 
-            const answer = pawnCanMove(board, COORDS.D4, COORDS.E3, 'E3');
+            const answer = pawnCanMove(board, 'D4', 'E3', 'E3');
             expect(answer).toBe(true);
         });
 
         it('black pawn cannot attack a passant-looking square if passant info is null', () => {
             
-            const answerNullPassantInfo = pawnCanMove(board, COORDS.D4, COORDS.E3, null);
+            const answerNullPassantInfo = pawnCanMove(board, 'D4', 'E3', null);
             expect(answerNullPassantInfo).toBe(false);
         });
 
         it('white pawn can attack a square passed by a black pawn moving from rank 2 to 4', () => {
 
-            const answer = pawnCanMove(board, COORDS.H5, COORDS.G6, 'G6');
+            const answer = pawnCanMove(board, 'H5', 'G6', 'G6');
             expect(answer).toBe(true);
         });
 
         it('white pawn cannot attack a passant-looking square if passant info is null', () => {
 
-            const answerNullPassantInfo = pawnCanMove(board, COORDS.H5, COORDS.G6, null);
+            const answerNullPassantInfo = pawnCanMove(board, 'H5', 'G6', null);
             expect(answerNullPassantInfo).toBe(false);
         });
     })

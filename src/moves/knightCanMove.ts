@@ -1,11 +1,12 @@
 import { isOnBoard, playerAt, file, rank } from 'positions'
 import movesIntoCheck from 'check/movesIntoCheck';
 import { Board } from 'types/Board';
+import { PositionName } from 'positions/positionName';
 
 function knightCanMove (
     board: Board, 
-    fromPosition: GridCoordinates, 
-    toPosition: GridCoordinates, 
+    fromPosition: PositionName, 
+    toPosition: PositionName, 
   ) {
 
     if(!isOnBoard(toPosition))

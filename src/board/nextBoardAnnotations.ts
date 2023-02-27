@@ -5,13 +5,12 @@ import { Board } from "types/Board";
 import { Piece } from "positions/piece";
 import { Player } from "types/Player";
 import { PositionName } from "positions/positionName";
-import COORDS from "positions/coordinates";
 import { BoardAnnotations } from "types/Game";
 
 const makeCapturedPieces = (board: Board, prevCaptures: Array<Piece>, defender: Player, moveTo: PositionName) : Array<Piece> => {
     
-    return playerAt(board, COORDS[moveTo]) === defender 
-        ? [...prevCaptures, pieceAt(board, COORDS[moveTo])]
+    return playerAt(board, moveTo) === defender 
+        ? [...prevCaptures, pieceAt(board, moveTo)]
         : prevCaptures
     ;
 }
@@ -27,8 +26,8 @@ function nextBoardAnnotations(
     const { castlingPreclusions: prevCastlingPreclusions } = previousAnnotations;
     const castlingPreclusions = nextCastlingPreclusions(pieceMovedFromPosition, prevCastlingPreclusions);
     
-    const lastPlayerMoved = playerAt(previousBoard, COORDS[pieceMovedFromPosition]);
-    const lastPieceMoved = pieceAt(previousBoard, COORDS[pieceMovedFromPosition])
+    const lastPlayerMoved = playerAt(previousBoard, pieceMovedFromPosition);
+    const lastPieceMoved = pieceAt(previousBoard, pieceMovedFromPosition)
     const nextPlayer = otherPlayer(lastPlayerMoved);
     const nextTurnIsInCheck = isInCheck(currentBoard, nextPlayer);
     const nextTurnIsCheckmate = isCheckmate(currentBoard, nextPlayer);

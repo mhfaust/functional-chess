@@ -10,11 +10,11 @@ import movesIntoCheck from 'check/movesIntoCheck';
 import { PositionName } from 'positions/positionName';
 import { Board } from 'types/Board';
 
-function rook(board: Board, moveFrom: GridCoordinates): Set<PositionName> {
+function rook(board: Board, moveFrom: PositionName): Set<PositionName> {
     
     const player = playerAt(board, moveFrom);
     const directions = [[0,1], [0,-1], [1,0], [-1,0]];
-    const legalMoves : Array<GridCoordinates> = [];
+    const legalMoves : Array<PositionName> = [];
 
     directions.forEach((direction) => {
         let examinedPosition = displaceTo(moveFrom, direction);
@@ -29,7 +29,6 @@ function rook(board: Board, moveFrom: GridCoordinates): Set<PositionName> {
 
     return new Set(legalMoves
         .filter(position => !movesIntoCheck(board, moveFrom, position))
-        .map(positionName)
     );
 }
 

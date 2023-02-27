@@ -4,7 +4,6 @@ import {
     isOnBoard, 
     otherPlayer, 
     pieceAt, 
-    positionName 
 } from 'positions';
 import { 
     kingVectors, 
@@ -21,6 +20,7 @@ import { Board } from 'types/Board';
 import { Player } from 'types/Player';
 
 import { Piece } from "positions/piece";
+import COORDS from 'positions/coordinates';
 
 export type AttackPattern = {
     vectors: ReadonlyArray<MoveVector>; 
@@ -47,7 +47,7 @@ const blackAttackPatterns: Array<AttackPattern> = [
 function * generateLinesOfAttack(
     board: Board, 
     defender: Player, 
-    defendedPosition: GridCoordinates)
+    defendedPosition: PositionName)
     : IterableIterator<Array<GridCoordinates>>
 {
     const attacker = otherPlayer(defender);
@@ -59,22 +59,21 @@ function * generateLinesOfAttack(
         const { canAttackLikeThis: canMoveLikeThis, vectors, limit, } = attackPattern;
 
         for(let vector of vectors){   
-            const attackLine = [];
+            const attackLine: GridCoordinates[] = [];
             let examinedPosition = displaceFrom(defendedPosition, vector);
             let step = 0;
             while (isOnBoard(examinedPosition) && ++step) {
-                attackLine.push(examinedPosition);
+                attackLine.push(COORDS[examinedPosition]);
                 const pieceThere = pieceAt(board, examinedPosition);
                 
                 if (pieceThere) {
                     
                     if (playerAt(board, examinedPosition) === attacker
                         && canMoveLikeThis.has(pieceThere) 
-                        && !attackLines.has(positionName(examinedPosition))){
-            
-                            yield attackLine; 
-
-                            attackLines.set(positionName(examinedPosition), attackLine);
+                        && !attackLines.has(examinedPosition)
+                    ){
+                        yield attackLine; 
+                        attackLines.set(examinedPosition, attackLine);
                     }
                     break;//found a piece, done with vector
                 }

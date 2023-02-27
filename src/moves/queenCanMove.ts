@@ -1,12 +1,13 @@
 import {
     rookCanMove,
     bishopCanMove } from 'moves';
+import { PositionName } from 'positions/positionName';
 import { Board } from 'types/Board';
 
 function queenCanMove (
     board: Board, 
-    fromPosition: GridCoordinates, 
-    toPosition: GridCoordinates, 
+    fromPosition: PositionName, 
+    toPosition: PositionName, 
 ): boolean {
     
     return rookCanMove(board, fromPosition, toPosition)

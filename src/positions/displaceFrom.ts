@@ -4,16 +4,17 @@ position is on the board
 */
 
 import { rank, file } from 'positions';
+import positionName, { PositionName } from './positionName';
     
-    function displaceFrom  (
-        currentPosition: GridCoordinates, 
-        vector: MoveVector)
-        : GridCoordinates {
+function displaceFrom  (
+    currentPosition: PositionName, 
+    vector: MoveVector)
+    : PositionName {
 
-            return [
-                file(currentPosition) - file(vector),
-                rank(currentPosition) - rank(vector)
-            ];
-        };
+        return positionName([
+            file(currentPosition) - vector[0],
+            rank(currentPosition) - vector[1]
+        ]);
+    };
 
 export default displaceFrom;

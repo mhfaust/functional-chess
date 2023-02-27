@@ -1,8 +1,9 @@
 import pawnMoves from './pawnMoves';
-import { positionName, locatePiece } from 'positions'
-import COORDS from 'positions/coordinates'
 import { BK,BQ,BR,BN,BB,BP,WK,WQ,WR,WN,WB,WP,__ } from 'positions/pieces-shorthand';
 import { Board } from 'types/Board';
+import { PositionName } from 'positions/positionName';
+
+type TestCases = { pawnPosition: PositionName, attackedPositions: PositionName[] }[];
 
 const pawn1Board: Board = [
     /*         1  2  3  4  5  6  7  8  */
@@ -18,24 +19,24 @@ const pawn1Board: Board = [
 
 describe('white pawn', () => {
 
-    const testCases = [
-        { pawnPosition: COORDS.A2, attackedPositions: [COORDS.A3, COORDS.A4] },
-        { pawnPosition: COORDS.B2, attackedPositions: [COORDS.B3] },
-        { pawnPosition: COORDS.C3, attackedPositions: [COORDS.C4, COORDS.B4] },
-        { pawnPosition: COORDS.D4, attackedPositions: [COORDS.C5, COORDS.D5, COORDS.E5] },
-        { pawnPosition: COORDS.E2, attackedPositions: [COORDS.E3, COORDS.E4] },
-        { pawnPosition: COORDS.F2, attackedPositions: [COORDS.F3, COORDS.F4] },
-        { pawnPosition: COORDS.G2, attackedPositions: [COORDS.G3, COORDS.G4] },
-        { pawnPosition: COORDS.H4, attackedPositions: [COORDS.G5] },
+    const testCases: TestCases = [
+        { pawnPosition: 'A2', attackedPositions: ['A3', 'A4'] },
+        { pawnPosition: 'B2', attackedPositions: ['B3'] },
+        { pawnPosition: 'C3', attackedPositions: ['C4', 'B4'] },
+        { pawnPosition: 'D4', attackedPositions: ['C5', 'D5', 'E5'] },
+        { pawnPosition: 'E2', attackedPositions: ['E3', 'E4'] },
+        { pawnPosition: 'F2', attackedPositions: ['F3', 'F4'] },
+        { pawnPosition: 'G2', attackedPositions: ['G3', 'G4'] },
+        { pawnPosition: 'H4', attackedPositions: ['G5'] },
     ] ;
 
     testCases.forEach((testCase) => {
-        it(`provides all possible moves from pawn at ${positionName(testCase.pawnPosition)} on pawn1board: `, () => {
+        it(`provides all possible moves from pawn at ${(testCase.pawnPosition)} on pawn1board: `, () => {
 
             const board =  pawn1Board;
             const foundMoves = pawnMoves(board, testCase.pawnPosition, null);
     
-            expect(foundMoves).toEqual(new Set(testCase.attackedPositions.map(positionName)));
+            expect(foundMoves).toEqual(new Set(testCase.attackedPositions));
         })
     });
 
@@ -43,24 +44,24 @@ describe('white pawn', () => {
     
 describe('black pawn', () => {
 
-    const testCases = [
-        { pawnPosition: COORDS.A7, attackedPositions: [COORDS.A6, COORDS.A5] },
-        { pawnPosition: COORDS.B4, attackedPositions: [COORDS.B3, COORDS.C3] },
-        { pawnPosition: COORDS.C5, attackedPositions: [COORDS.C4, COORDS.D4] },
-        { pawnPosition: COORDS.D6, attackedPositions: [COORDS.D5] },
-        { pawnPosition: COORDS.E5, attackedPositions: [COORDS.D4, COORDS.E4] },
-        { pawnPosition: COORDS.F7, attackedPositions: [COORDS.F6, COORDS.F5] },
-        { pawnPosition: COORDS.G5, attackedPositions: [COORDS.G4, COORDS.H4] },
-        { pawnPosition: COORDS.H5, attackedPositions: [] },
+    const testCases: TestCases = [
+        { pawnPosition: 'A7', attackedPositions: ['A6', 'A5'] },
+        { pawnPosition: 'B4', attackedPositions: ['B3', 'C3'] },
+        { pawnPosition: 'C5', attackedPositions: ['C4', 'D4'] },
+        { pawnPosition: 'D6', attackedPositions: ['D5'] },
+        { pawnPosition: 'E5', attackedPositions: ['D4', 'E4'] },
+        { pawnPosition: 'F7', attackedPositions: ['F6', 'F5'] },
+        { pawnPosition: 'G5', attackedPositions: ['G4', 'H4'] },
+        { pawnPosition: 'H5', attackedPositions: [] },
     ] ;
 
     testCases.forEach((testCase) => {
-        it(`provides all possible moves from pawn at ${positionName(testCase.pawnPosition)} on pawn1board: `, () => {
+        it(`provides all possible moves from pawn at ${(testCase.pawnPosition)} on pawn1board: `, () => {
 
             const board =  pawn1Board;
             const foundMoves = pawnMoves(board, testCase.pawnPosition, null);
     
-            expect(foundMoves).toEqual(new Set(testCase.attackedPositions.map(positionName)));
+            expect(foundMoves).toEqual(new Set(testCase.attackedPositions));
         })
     });
 
@@ -81,26 +82,26 @@ describe('en passant', () => {
 
     it('black pawn can attack a square passed by a white pawn moving from rank 2 to 4', () => {
 
-        const foundMoves = pawnMoves(board, COORDS.D4, 'E3');
-        expect(foundMoves).toContain(positionName(COORDS.E3));
+        const foundMoves = pawnMoves(board, 'D4', 'E3');
+        expect(foundMoves).toContain('E3');
     });
 
     it('black pawn cannot attack a passant-looking square if passant info is null', () => {
 
-        const foundMoves = pawnMoves(board, COORDS.D4, null);
-        expect(foundMoves).not.toContain(positionName(COORDS.E3));
+        const foundMoves = pawnMoves(board, 'D4', null);
+        expect(foundMoves).not.toContain('E3');
     });
 
     it('white pawn can attack a square passed by a black pawn moving from rank 2 to 4', () => {
 
-        const foundMoves = pawnMoves(board, COORDS.H5, 'G6');
-        expect(foundMoves).toContain(positionName(COORDS.G6));
+        const foundMoves = pawnMoves(board, 'H5', 'G6');
+        expect(foundMoves).toContain('G6');
     });
 
     it('white pawn cannot attack a passant-looking square if passant info is null', () => {
 
-        const foundMoves = pawnMoves(board, COORDS.H5, null);
-        expect(foundMoves).not.toContain(positionName(COORDS.G6));
+        const foundMoves = pawnMoves(board, 'H5', null);
+        expect(foundMoves).not.toContain('G6');
     });
 });
 
@@ -121,7 +122,7 @@ describe('check', () => {
             'G3',
         ])
     
-        const foundLegalMoves = pawnMoves(board, COORDS.F2, null);
+        const foundLegalMoves = pawnMoves(board, 'F2', null);
 
         expect(foundLegalMoves).toEqual(expectedLegalMoves)
     });
@@ -140,7 +141,7 @@ describe('check', () => {
         ];
         const expectedLegalMoves = new Set([])
 
-        const foundLegalMoves = pawnMoves(board, COORDS.F2, null);
+        const foundLegalMoves = pawnMoves(board, 'F2', null);
 
         expect(foundLegalMoves).toEqual(expectedLegalMoves)
     });

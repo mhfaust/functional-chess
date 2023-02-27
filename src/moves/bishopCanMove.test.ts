@@ -1,5 +1,4 @@
 import bishopCanMove from 'moves/bishopCanMove'
-import COORDS from 'positions/coordinates'
 import { BK,BQ,BR,BN,BB,BP,WK,WQ,WR,WN,WB,WP,__ } from 'positions/pieces-shorthand';
 import { Board } from 'types/Board';
     
@@ -19,61 +18,61 @@ describe('bishopCanMove', () => {
 
     it('can advance left', () => {
 
-        const answer = bishopCanMove(bishop1Board, COORDS.D4, COORDS.C5);
+        const answer = bishopCanMove(bishop1Board, 'D4', 'C5');
         expect(answer).toBe(true);
     });
 
     it('can advance right', () => {
 
-        const answer = bishopCanMove(bishop1Board, COORDS.D4, COORDS.F6);
+        const answer = bishopCanMove(bishop1Board, 'D4', 'F6');
         expect(answer).toBe(true);
     });
 
     it('can retreat left', () => {
 
-        const answer = bishopCanMove(bishop1Board, COORDS.D4, COORDS.A1);
+        const answer = bishopCanMove(bishop1Board, 'D4', 'A1');
         expect(answer).toBe(true);
     });
 
     it('can retreat right', () => {
 
-        const answer = bishopCanMove(bishop1Board, COORDS.D4, COORDS.G1);
+        const answer = bishopCanMove(bishop1Board, 'D4', 'G1');
         expect(answer).toBe(true);
     });
 
     it('cannot move unequal forward and right displacements', () => {
 
-        const answer = bishopCanMove(bishop1Board, COORDS.D4, COORDS.H6);
+        const answer = bishopCanMove(bishop1Board, 'D4', 'H6');
         expect(answer).toBe(false);
     });
 
     it('canot move laterally', () => {
 
-        const answer = bishopCanMove(bishop1Board, COORDS.D4, COORDS.H4);
+        const answer = bishopCanMove(bishop1Board, 'D4', 'H4');
         expect(answer).toBe(false);
     });
 
     it('canot advance forward', () => {
 
-        const answer = bishopCanMove(bishop1Board, COORDS.D4, COORDS.D8);
+        const answer = bishopCanMove(bishop1Board, 'D4', 'D8');
         expect(answer).toBe(false);
     });
 
     it('cannot capture own piece', () => {
 
-        const answer = bishopCanMove(bishop1Board, COORDS.D4, COORDS.B6);
+        const answer = bishopCanMove(bishop1Board, 'D4', 'B6');
         expect(answer).toBe(false);
     });
 
     it('can capture opponent piece', () => { 
 
-        const answer = bishopCanMove(bishop1Board, COORDS.D4, COORDS.G7);
+        const answer = bishopCanMove(bishop1Board, 'D4', 'G7');
         expect(answer).toBe(true);
     });
 
     it('cannot move beyond a piece', () => {
 
-        const answer = bishopCanMove(bishop1Board, COORDS.D4, COORDS.H8);
+        const answer = bishopCanMove(bishop1Board, 'D4', 'H8');
         expect(answer).toBe(false);
     });
 
@@ -91,8 +90,8 @@ describe('bishopCanMove', () => {
             /*  H  */ [__,__,__,__,__,__,__,BR],
         ];
             
-        expect(bishopCanMove(board, COORDS.D4, COORDS.E3)).toBe(false);  
-        expect(bishopCanMove(board, COORDS.D4, COORDS.C5)).toBe(false);  
+        expect(bishopCanMove(board, 'D4', 'E3')).toBe(false);  
+        expect(bishopCanMove(board, 'D4', 'C5')).toBe(false);  
     });
 
 
@@ -110,10 +109,10 @@ describe('bishopCanMove', () => {
         ];
 
 
-        expect(bishopCanMove(board, COORDS.D4, COORDS.C3)).toBe(true);  
-        expect(bishopCanMove(board, COORDS.D4, COORDS.B2)).toBe(true);  
-        expect(bishopCanMove(board, COORDS.D4, COORDS.E5)).toBe(true);  
-        expect(bishopCanMove(board, COORDS.D4, COORDS.F6)).toBe(true);  
-        expect(bishopCanMove(board, COORDS.D4, COORDS.G7)).toBe(true);  
+        expect(bishopCanMove(board, 'D4', 'C3')).toBe(true);  
+        expect(bishopCanMove(board, 'D4', 'B2')).toBe(true);  
+        expect(bishopCanMove(board, 'D4', 'E5')).toBe(true);  
+        expect(bishopCanMove(board, 'D4', 'F6')).toBe(true);  
+        expect(bishopCanMove(board, 'D4', 'G7')).toBe(true);  
     });
 })

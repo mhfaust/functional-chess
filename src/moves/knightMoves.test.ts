@@ -1,6 +1,5 @@
 import knightMoves from 'moves/knightMoves';
 import { initialBoard } from 'board';
-import COORDS from 'positions/coordinates'
 import { BK,BQ,BR,BN,BB,BP,WK,WQ,WR,WN,WB,WP,__ } from 'positions/pieces-shorthand';
 import { Board } from 'types/Board';
 
@@ -8,7 +7,7 @@ describe('knight', () => {
 
     it('can move from initial board white queen knight to A3 and C3 only', () => {
         
-        const legalMoves = knightMoves(initialBoard(), COORDS.B1);
+        const legalMoves = knightMoves(initialBoard(), 'B1');
         
         expect(legalMoves).toContain('A3')
         expect(legalMoves).toContain('C3')
@@ -16,7 +15,7 @@ describe('knight', () => {
     });
 
     it('can move from initial board white king knight to A3 and C3 only', () => {
-        const legalMoves = knightMoves(initialBoard(), COORDS.G1);
+        const legalMoves = knightMoves(initialBoard(), 'G1');
         
         expect(legalMoves).toContain('F3')
         expect(legalMoves).toContain('H3')
@@ -24,7 +23,7 @@ describe('knight', () => {
     });
 
     it('can move from initial board black queen knight to A3 and C3 only', () => {
-        const legalMoves = knightMoves(initialBoard(), COORDS.B8);
+        const legalMoves = knightMoves(initialBoard(), 'B8');
         
         expect(legalMoves).toContain('A6')
         expect(legalMoves).toContain('C6')
@@ -32,7 +31,7 @@ describe('knight', () => {
     });
 
     it('can move from initial board black king knight to A3 and C3 only', () => {
-        const legalMoves = knightMoves(initialBoard(), COORDS.G8);
+        const legalMoves = knightMoves(initialBoard(), 'G8');
         
         expect(legalMoves).toContain('F6')
         expect(legalMoves).toContain('H6')
@@ -56,7 +55,7 @@ describe('knight', () => {
             'G4'
         ]);
 
-        const foundLegalMoves = knightMoves(board, COORDS.E5);
+        const foundLegalMoves = knightMoves(board, 'E5');
 
         expect(foundLegalMoves).toEqual(expectedLegalMoves)
     });
@@ -76,7 +75,7 @@ describe('knight', () => {
 
         const expectedLegalMoves = new Set([]);
     
-        const foundLegalMoves = knightMoves(board, COORDS.E5);
+        const foundLegalMoves = knightMoves(board, 'E5');
 
         expect(foundLegalMoves).toEqual(expectedLegalMoves)
     });

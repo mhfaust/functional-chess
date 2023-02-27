@@ -1,7 +1,7 @@
 import generateLinesOfAttack from './generateLinesOfAttack';
-import COORDS from 'positions/coordinates'
 import { BK,BQ,BR,BN,BB,BP,WK,WQ,WR,WN,WB,WP,__ }from 'positions/pieces-shorthand';
 import { Board } from 'types/Board';
+import COORDS from 'positions/coordinates';
 
 describe('generateLinesOfAttack', () => {
     it('finds the line from a bishop at C3 to E5', () => {
@@ -16,7 +16,7 @@ describe('generateLinesOfAttack', () => {
 /*  G  */ [__,__,__,__,__,__,__,__],
 /*  H  */ [__,__,__,__,__,__,__,__], 
         ];
-        const linesOfAttack = generateLinesOfAttack(board, 'White', COORDS.E5);
+        const linesOfAttack = generateLinesOfAttack(board, 'White', 'E5');
         expect(linesOfAttack.next().value).toEqual([COORDS.D4, COORDS.C3]);
         expect(linesOfAttack.next().done).toBe(true);       
     });
@@ -33,7 +33,7 @@ describe('generateLinesOfAttack', () => {
 /*  G  */ [__,__,__,__,__,__,__,__],
 /*  H  */ [__,__,__,__,__,__,__,__]
         ];
-        const linesOfAttack = generateLinesOfAttack(board, 'White', COORDS.E5)
+        const linesOfAttack = generateLinesOfAttack(board, 'White', 'E5')
         const returned = linesOfAttack.next();
         expect(returned.value).toBeNull();       
         expect(returned.done).toBe(true);       
@@ -52,7 +52,7 @@ describe('generateLinesOfAttack', () => {
 /*  H  */ [__,__,__,__,__,__,__,__], 
         ];
 
-        const linesOfAttack = generateLinesOfAttack(board, 'White', COORDS.E5)
+        const linesOfAttack = generateLinesOfAttack(board, 'White', 'E5')
         const returned = linesOfAttack.next();
         expect(returned.value).toBeNull();       
         expect(returned.done).toBe(true);       
@@ -70,7 +70,7 @@ describe('generateLinesOfAttack', () => {
 /*  G  */ [__,__,__,__,__,__,__,__],
 /*  H  */ [__,__,__,__,__,__,__,__], 
         ];
-        const linesOfAttack = generateLinesOfAttack(board, 'White', COORDS.E5)
+        const linesOfAttack = generateLinesOfAttack(board, 'White', 'E5')
         expect(linesOfAttack.next().value).toEqual([COORDS.D5]) ;       
         expect(linesOfAttack.next().done).toBe(true); 
     });
@@ -87,7 +87,7 @@ describe('generateLinesOfAttack', () => {
 /*  G  */ [__,__,__,__,__,__,__,__],
 /*  H  */ [__,__,__,WN,__,__,__,__], 
         ];
-        const linesOfAttack = generateLinesOfAttack(board, 'Black', COORDS.F3)
+        const linesOfAttack = generateLinesOfAttack(board, 'Black', 'F3')
 
         //order of seeking attack-patterns: pawn, king, knight, bishop, rook
         expect(linesOfAttack.next().value).toEqual([COORDS.E2])

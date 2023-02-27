@@ -1,6 +1,4 @@
 import bishopMoves from './bishopMoves';
-import { positionName } from 'positions';
-import COORDS from 'positions/coordinates'
 import { BK,BQ,BR,BN,BB,BP,WK,WQ,WR,WN,WB,WP,__ } from 'positions/pieces-shorthand';
 import { Board } from 'types/Board';
 
@@ -21,19 +19,19 @@ describe('bishop', () => {
             ];
         
         const expectedLegalMoves = new Set([
-            COORDS.E5,
-            COORDS.F6,
-            COORDS.G7,
-            COORDS.E3,
-            COORDS.F2,
-            COORDS.G1,
-            COORDS.C3,
-            COORDS.B2,
-            COORDS.A1,
-            COORDS.C5
-        ].map(positionName));
+            'E5',
+            'F6',
+            'G7',
+            'E3',
+            'F2',
+            'G1',
+            'C3',
+            'B2',
+            'A1',
+            'C5'
+        ]);
 
-        const foundLegalMoves = bishopMoves(board, COORDS.D4);
+        const foundLegalMoves = bishopMoves(board, 'D4');
 
         expect(foundLegalMoves).toEqual(expectedLegalMoves)
     })
@@ -52,15 +50,15 @@ describe('bishop', () => {
             ];
             
         const expecteLegalMoves = new Set([
-            COORDS.E5,
-            COORDS.F6,
-            COORDS.G7,
-            COORDS.C3,
-            COORDS.B2,
-        ].map(positionName));
+            'E5',
+            'F6',
+            'G7',
+            'C3',
+            'B2',
+        ]);
 
 
-        const foundLegalMoves = bishopMoves(board, COORDS.D4);
+        const foundLegalMoves = bishopMoves(board, 'D4');
 
         expect(foundLegalMoves).toEqual(expecteLegalMoves)   
     })

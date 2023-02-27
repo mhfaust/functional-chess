@@ -1,10 +1,10 @@
-import { ALL_PIECES } from 'constants/pieces'
-import { Piece } from 'positions/piece';
-import { file, rank } from 'positions'
 import { Board, PieceOrEmpty } from 'types/Board';
+import { PositionName } from './positionName';
+import COORDS from './coordinates';
 
-function pieceAt (board: Board, position: GridCoordinates): PieceOrEmpty {
-    return board[file(position)][rank(position)];
+function pieceAt (board: Board, position: PositionName): PieceOrEmpty {
+    const [file, rank] = COORDS[position]
+    return board[file][rank];
 }
 
 export default pieceAt;

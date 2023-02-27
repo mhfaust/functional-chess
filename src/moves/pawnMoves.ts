@@ -5,9 +5,8 @@
     isUnOccupied, 
     isOccupiedByPlayer, 
     otherPlayer, 
-    positionName, 
-    rank, 
-    coordinates as COORDS} from 'positions';
+    rank
+} from 'positions';
 import { isInCheck } from 'check';
 import { move } from 'board';
 import { PositionName } from 'positions/positionName';
@@ -15,7 +14,7 @@ import { Board } from 'types/Board';
 
 function pawn(
     board: Board, 
-    moveFrom: GridCoordinates, 
+    moveFrom: PositionName, 
     enPassantSquare: PositionName)
     : Set<PositionName> {
     const player = playerAt(board, moveFrom);
@@ -24,11 +23,11 @@ function pawn(
     const initialRank = rank(moveFrom);
     const forward1 = displaceTo(moveFrom, [0, forwardDirection]);
 
-    const moveNotInCheck = (moveTo: GridCoordinates): boolean => !isInCheck(move(board, moveFrom, moveTo), player)
+    const moveNotInCheck = (moveTo: PositionName): boolean => !isInCheck(move(board, moveFrom, moveTo), player)
      
     //advance moves
     if(isOnBoard(forward1) && isUnOccupied(board, forward1) && moveNotInCheck(forward1)){
-        legalMoves.add(positionName(forward1));
+        legalMoves.add(forward1);
         
         //can only advance if the pawn has never moved.
         //Also note, we only test if we already know the first space is clear
@@ -36,7 +35,7 @@ function pawn(
         if(pawnHasNotMoved){
             const forward2 = displaceTo(moveFrom, [0, 2 * forwardDirection]);
             if(isOnBoard(forward1) && isUnOccupied(board, forward2) && moveNotInCheck(forward2)){
-                legalMoves.add(positionName(forward2));
+                legalMoves.add(forward2);
             }
         }
     }
@@ -50,13 +49,11 @@ function pawn(
             return;
         }
         if(
-            (
-               isOccupiedByPlayer(board, attackedPosition, opponent)
-            )
-            || (enPassantSquare && positionName(attackedPosition) === positionName(COORDS[enPassantSquare]))
+            isOccupiedByPlayer(board, attackedPosition, opponent)
+            || (attackedPosition === enPassantSquare)
         ){
                 if(moveNotInCheck(attackedPosition)){
-                    legalMoves.add(positionName(attackedPosition));
+                    legalMoves.add(attackedPosition);
                 }
         }
     });
